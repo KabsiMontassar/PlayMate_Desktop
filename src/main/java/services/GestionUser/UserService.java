@@ -46,7 +46,7 @@ public class UserService implements IService<User> {
 
 
         }
-        return user; // Return either the populated user or null if no user is found
+        return user;
     }
 
 
@@ -104,7 +104,7 @@ public class UserService implements IService<User> {
         psUser.setString(8,F.getDate_de_Creation());
         psUser.setString(9,F.getVerificationCode());
         psUser.setBoolean(10,F.getVerified());
-
+        psUser.executeUpdate();
         String QueryToFournisseur = "INSERT INTO fournisseur (Fournisseur_id , Nom_Sociéte ) VALUES (?,?)";
         int id = getByEmail(F.getEmail()).getId();
         PreparedStatement psFournisseur = connection.prepareStatement(QueryToFournisseur);
@@ -126,7 +126,7 @@ public class UserService implements IService<User> {
         psUser.setString(8,O.getDate_de_Creation());
         psUser.setString(9,O.getVerificationCode());
         psUser.setBoolean(10,O.getVerified());
-
+        psUser.executeUpdate();
         String QueryToOrganisateur = "INSERT INTO organisateur (Organisateur_id , Nom_Organisation ) VALUES (?,?)";
         int id = getByEmail(O.getEmail()).getId();
         PreparedStatement psOrganisateur = connection.prepareStatement(QueryToOrganisateur);
@@ -148,7 +148,7 @@ public class UserService implements IService<User> {
         psUser.setString(8,P.getDate_de_Creation());
         psUser.setString(9,P.getVerificationCode());
         psUser.setBoolean(10,P.getVerified());
-
+        psUser.executeUpdate();
         String QueryToProprietairedeTerarin = "INSERT INTO proprietaire_de_terrain (Proprietaire_de_terrain_id ) VALUES (?)";
         int id = getByEmail(P.getEmail()).getId();
         PreparedStatement psProprietairedeTerarin = connection.prepareStatement(QueryToProprietairedeTerarin);

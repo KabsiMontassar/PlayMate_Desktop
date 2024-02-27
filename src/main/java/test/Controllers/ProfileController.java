@@ -207,10 +207,10 @@ public class ProfileController {
         File selectedFile = fileChooser.showOpenDialog(btnuploadimage.getScene().getWindow());
         if (selectedFile != null) {
             UserService us = new UserService();
-            us.updatePhoto(String.valueOf(CurrentUser.getId())+".png",CurrentUser.getEmail());
+            us.updatePhoto(CurrentUser.getId() +".png",CurrentUser.getEmail());
 
             try {
-                String filename = String.valueOf(CurrentUser.getId())+".png";
+                String filename = CurrentUser.getId() +".png";
                 Path targetPath = Paths.get("src/main/resources/ProfilePictures", filename);
                 Files.copy(selectedFile.toPath(), targetPath, StandardCopyOption.REPLACE_EXISTING);
                 Image image = new Image(targetPath.toUri().toString());

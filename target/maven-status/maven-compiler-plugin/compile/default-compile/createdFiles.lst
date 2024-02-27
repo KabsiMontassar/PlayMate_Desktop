@@ -1,9 +1,4 @@
 models\Roles.class
-test\Controllers\AcceuilController.class
-services\GestionUser\UserService.class
-models\Proprietaire_de_terrain.class
-test\Controllers\Common\CAlert.class
-test\MainFx.class
 test\Main.class
 utils\MyDatabase.class
 models\User.class
@@ -12,7 +7,12 @@ module-info.class
 test\Controllers\VerificationCodeController.class
 services\GestionUser\CodeCryptageGenerator.class
 services\GestionUser\IService.class
+test\Controllers\AcceuilController.class
+services\GestionUser\UserService.class
 test\Controllers\ProfileController.class
 models\Organisateur.class
 models\Fournisseur.class
 models\Joueur.class
+models\Proprietaire_de_terrain.class
+test\Controllers\Common\CAlert.class
+test\MainFx.class

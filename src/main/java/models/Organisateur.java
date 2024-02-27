@@ -5,12 +5,12 @@ public class Organisateur extends User{
 
     public Organisateur(int id, String Email, String Password, String Name, int age, int Phone, String address, Roles role, String image) throws Exception {
         super(id, Email, Password, Name, age, Phone, address, role, image);
-        Nom_Organisation = "";
+        this.Nom_Organisation = "";
     }
 
     public Organisateur(String Email, String Password, String Name, int age, int Phone, Roles role) throws Exception {
         super(Email, Password, Name, age, Phone, role);
-        Nom_Organisation = "";
+        this.Nom_Organisation = "";
     }
 
     public Organisateur(String nom_Organisateur) {

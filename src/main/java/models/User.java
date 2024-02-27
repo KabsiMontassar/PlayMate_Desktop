@@ -65,6 +65,7 @@ public class User {
     public void setRole(String role) {
 
         //convert string to role with switch case
+        //Proprietaire_de_Terrain,Joueur,Organisateur,Fournisseur;
         switch (role) {
             case "Fournisseur":
                 this.role = Roles.Fournisseur;
