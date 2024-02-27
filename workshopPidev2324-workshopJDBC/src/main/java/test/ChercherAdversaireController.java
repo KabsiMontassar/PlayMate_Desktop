@@ -32,6 +32,10 @@ public class ChercherAdversaireController implements Initializable {
 
 
 
+
+    @FXML
+    private Button VoirReservation;
+
     @FXML
     private Label nomEquipeInvalide;
     @FXML
@@ -94,6 +98,7 @@ public class ChercherAdversaireController implements Initializable {
             nomEquipeInvalide.setVisible(true);
         } else {
 
+            VoirReservation.setVisible(false);
             showReservation();
         }
     }
@@ -102,6 +107,7 @@ public class ChercherAdversaireController implements Initializable {
 
         vbox2.getChildren().clear();
         vbox2.getStyleClass().add("vbox-spacing");
+        vbox2.setMaxSize(1280, 400);
 
         ReservationService reservationService = new ReservationService();
 
@@ -123,9 +129,9 @@ public class ChercherAdversaireController implements Initializable {
             Label DateReservationLabel = new Label("Address: " + reservation.getDateReservation());
             Label heureReservationLabel = new Label("Gradin: " + reservation.getHeureReservation());
 
-            nomEquipeLabel.getStyleClass().add("label-style");
-            DateReservationLabel.getStyleClass().add("label-style");
-            heureReservationLabel.getStyleClass().add("label-style");
+            nomEquipeLabel.getStyleClass().add("label-style2");
+            DateReservationLabel.getStyleClass().add("label-style2");
+            heureReservationLabel.getStyleClass().add("label-style2");
 
 
             TerrainService terrainService = new TerrainService();
@@ -144,15 +150,15 @@ public class ChercherAdversaireController implements Initializable {
                 Label prixLabel = new Label("Prix: " + terrain.getPrix());
                 Label dureeLabel = new Label("Durée: " + terrain.getDuree());
 
-                nomLabel.getStyleClass().add("label-style");
-                addressLabel.getStyleClass().add("label-style");
-                vestiaireLabel.getStyleClass().add("label-style");
-                prixLabel.getStyleClass().add("label-style");
-                dureeLabel.getStyleClass().add("label-style");
-                gradinLabel.getStyleClass().add("label-style");
+                nomLabel.getStyleClass().add("label-style2");
+                addressLabel.getStyleClass().add("label-style2");
+                vestiaireLabel.getStyleClass().add("label-style2");
+                prixLabel.getStyleClass().add("label-style2");
+                dureeLabel.getStyleClass().add("label-style2");
+                gradinLabel.getStyleClass().add("label-style2");
 
                 Button btnReserver = new Button("Réserver");
-                btnReserver.getStyleClass().add("reserver-button");
+                btnReserver.getStyleClass().add("reserver-button2");
                 System.out.println("5");
                 btnReserver.setOnAction(event -> {
 

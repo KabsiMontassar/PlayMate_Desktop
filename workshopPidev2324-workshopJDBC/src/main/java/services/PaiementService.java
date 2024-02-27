@@ -52,7 +52,7 @@ public class PaiementService {
  */
 
     public boolean AjouterPaiement(Paiement paiement) throws SQLException {
-        String query = "INSERT INTO Payment (idMembre, idReservation, datePayment, horairePayment,Payed) VALUES (?,?,?,?);";
+        String query = "INSERT INTO Payment (idMembre, idReservation, datePayment, horairePayment,Payed) VALUES (?,?,?,?,?);";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, paiement.getIdmembre());
         ps.setInt(2, paiement.getIdreservation());

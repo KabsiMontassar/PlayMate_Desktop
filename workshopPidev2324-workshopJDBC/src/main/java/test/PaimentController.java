@@ -165,7 +165,7 @@ public class PaimentController implements Initializable {
                 String heureEnString = timeCourrant.format(formatter2);
 
 
-                Paiement paiement = new Paiement(/*this.GetIdUser(),this.GetIdReservation()*/8,16,dateString,heureEnString);
+                Paiement paiement = new Paiement(8,/*this.GetIdUser(),*/this.GetIdReservation(),dateString,heureEnString);
                 PaiementService paiementService = new PaiementService();
                 paiementService.AjouterPaiement(paiement);
             }

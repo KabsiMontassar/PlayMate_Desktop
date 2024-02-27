@@ -50,7 +50,7 @@
                <Font name="Arial Black" size="34.0" />
             </font>
          </Label>
-         <VBox id="vbox1" layoutX="124.0" layoutY="137.0" prefHeight="622.0" prefWidth="270.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="110.0">
+         <VBox id="vbox1" fx:id="vbox1" layoutX="124.0" layoutY="137.0" onMouseExited="#AfficherVboxtout" onMouseMoved="#AfficherVbox1Seulement" prefHeight="622.0" prefWidth="270.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="110.0">
             <children>
                <Label id="label3" prefHeight="40.0" prefWidth="300.0" stylesheets="@test2.css" text="        Créez votre partie !" textFill="#4caf50">
                   <font>
@@ -78,7 +78,7 @@
                   </VBox.margin></AnchorPane>
             </children>
          </VBox>
-         <VBox id="vbox2" layoutX="428.0" layoutY="137.0" prefHeight="622.0" prefWidth="270.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="110.0">
+         <VBox id="vbox2" fx:id="vbox2" layoutX="428.0" layoutY="137.0" onMouseExited="#AfficherVboxtout" onMouseMoved="#AfficherVbox2Seulement" prefHeight="622.0" prefWidth="270.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="110.0">
             <children>
                <Label id="label3" prefHeight="40.0" prefWidth="300.0" stylesheets="@test2.css" text="    En quête d'adversaires" textFill="#4caf50">
                   <font>
@@ -97,7 +97,7 @@
                            <Image url="@426184527_1045045299907489_7955346661872487039_n.png" />
                         </image>
                      </ImageView>
-                     <Button id="Button22" layoutX="86.0" layoutY="473.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" stylesheets="@button.css" text="choisir" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="82.0" />
+                     <Button id="Button22" layoutX="86.0" layoutY="473.0" mnemonicParsing="false" onAction="#chercherAdversaire" prefHeight="30.0" prefWidth="60.0" stylesheets="@button.css" text="choisir" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="82.0" />
                   </children>
                   <VBox.margin>
                      <Insets top="20.0" />
@@ -105,7 +105,7 @@
                </AnchorPane>
             </children>
          </VBox>
-         <VBox id="vbox3" layoutX="727.0" layoutY="106.0" prefHeight="0.0" prefWidth="270.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="106.0">
+         <VBox id="vbox3" fx:id="vbox3" layoutX="727.0" layoutY="106.0" onMouseExited="#AfficherVboxtout" onMouseMoved="#AfficherVbox3Seulement" prefHeight="0.0" prefWidth="270.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="106.0">
             <children>
                <Label id="label3" prefHeight="40.0" prefWidth="300.0" stylesheets="@test2.css" text="         Lansez un defi" textFill="#4caf50">
                   <font>

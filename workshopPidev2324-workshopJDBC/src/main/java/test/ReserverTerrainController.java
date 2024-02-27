@@ -72,6 +72,9 @@ public class ReserverTerrainController implements Initializable {
     private DatePicker datepicker;
 
     @FXML
+    private Label nomEquipeInvalide;
+
+    @FXML
     private ChoiceBox<String> nom_equipe;
 
 
@@ -90,13 +93,14 @@ public class ReserverTerrainController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         horaireInvalides.setVisible(false);
         dateInvalide.setVisible(false);
+        nomEquipeInvalide.setVisible(false);
 
-        //                                    ID USER        YAAAAAAAAAAAAAAAAA MONTASSAR
+        //      ----------------------------------------------   ID USER  YAAAAAAAAAAAAAAAAA MONTASSAR
         String[] nom = nomEquipes();
         nom_equipe.getItems().addAll(nom);
 
     }
-    //                                                                       idUser
+    //     ------------------------------------------------------------   idUser
     public String[] nomEquipes(){
         EquipeService equipeService = new EquipeService();
         // *********************************************************************************************
@@ -115,6 +119,7 @@ public class ReserverTerrainController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
 // ajouter photo et video
     public void  showTerrains() throws SQLException {
 
@@ -127,7 +132,7 @@ public class ReserverTerrainController implements Initializable {
 
         ReservationService reservationService = new ReservationService();
 
-        if(verfierDate(datepicker) && verfierHeure(heure.getText())) {
+        if(verfierDate(datepicker) && verfierHeure(heure.getText()) && SelecterEquipe()) {
             for (Terrain terrain : terrains) {
                 // terrain dispo wela lee
                 if (terrain.getStatus()) {
@@ -202,6 +207,44 @@ public class ReserverTerrainController implements Initializable {
                 //PaimentController paimentController = new PaimentController();
             }
 
+        }
+    }
+    // **********************************************************************************************************************
+
+    // **********************************************************************************************************************
+
+    // **********************************************************************************************************************
+
+    // **********************************************************************************************************************
+
+    // **********************************************************************************************************************
+    // **********************************************************************************************************************
+
+
+
+    // *********************************************      controle saisie  *************************************************
+
+
+    // **********************************************************************************************************************
+    // **********************************************************************************************************************
+
+    // **********************************************************************************************************************
+    // **********************************************************************************************************************
+
+    // **********************************************************************************************************************
+
+
+
+
+    // verfier la selection d une equipe :
+
+    public boolean SelecterEquipe(){
+        if (nom_equipe.getValue() == null) {
+            nomEquipeInvalide.setVisible(true);
+            return false;
+        } else {
+
+            return true;
         }
     }
 

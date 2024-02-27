@@ -117,6 +117,19 @@ public class ReservationController implements Initializable {
     private Button buttonSuivant;
     @FXML
     private AnchorPane anchroPane2;
+
+    //*******************************************
+    //hover
+
+    @FXML
+    private VBox vbox1;
+
+    @FXML
+    private VBox vbox2;
+
+    @FXML
+    private VBox vbox3;
+    //********************************************
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -196,6 +209,48 @@ public class ReservationController implements Initializable {
         }catch (Exception e){
             System.out.println(e);
         }
+    }
+
+    public void chercherAdversaire(ActionEvent actionEvent) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("chercherAdversaire.fxml"));
+            Parent root = (Parent) loader.load();
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    public void AfficherVbox1Seulement(MouseEvent mouseEvent) {
+
+        vbox1.setVisible(true);
+        vbox2.setVisible(false);
+        vbox3.setVisible(false);
+    }
+
+    public void AfficherVboxtout(MouseEvent mouseEvent) {
+        vbox1.setVisible(true);
+        vbox2.setVisible(true);
+        vbox3.setVisible(true);
+    }
+
+    public void AfficherVbox2Seulement(MouseEvent mouseEvent) {
+
+        vbox1.setVisible(false);
+        vbox2.setVisible(true);
+        vbox3.setVisible(false);
+    }
+
+    public void AfficherVbox3Seulement(MouseEvent mouseEvent) {
+        vbox1.setVisible(false);
+        vbox2.setVisible(false);
+        vbox3.setVisible(true);
     }
 
 

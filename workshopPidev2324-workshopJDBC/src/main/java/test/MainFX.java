@@ -14,7 +14,10 @@ public class MainFX extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("chercherAdversaire.fxml"));
+        //FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("chercherAdversaire.fxml"));
+        //FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("reserverTerrainVersion2.fxml"));
+        //FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("choix2.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("LancerVous.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
 
         stage.setScene(scene);

@@ -62,6 +62,26 @@ public class ReservationService {
 
         }
 
+        // j ai les deux noms
+    public void ajouterReservationPourLancerUnePartie(Reservation reservation) throws SQLException {
+
+        String query = "INSERT INTO reservation (isConfirm, dateReservation, heureReservation, type, idTerrain , nomEquipe1 , nomEquipe2) VALUES (?, ?, ?, ?, ?,? ,?)";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setBoolean(1, false);
+        ps.setString(2, reservation.getDateReservation());
+        ps.setString(3, reservation.getHeureReservation());
+        ps.setString(4, reservation.getType());
+        ps.setInt(5, reservation.getIdTerrain());
+        ps.setString(6, reservation.getNomEquipe1());
+        ps.setString(7,reservation.getNomEquipe2());
+
+        ps.executeUpdate();
+
+
+
+
+    }
+
     public boolean updateNomEquipe2(int idReservation, String nomEquipe2) throws SQLException {
         String query = "UPDATE reservation SET nomEquipe2 = ? WHERE idReservation = ?";
 

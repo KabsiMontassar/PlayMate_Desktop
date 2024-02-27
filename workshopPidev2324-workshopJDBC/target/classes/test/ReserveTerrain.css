@@ -46,3 +46,8 @@
     -fx-font-weight: bold;
     -fx-background-radius : 3px
 }
+/*
+.hbox-with-padding {
+    -fx-padding: 20px 20px 20px 20px;
+}
+*/
