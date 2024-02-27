@@ -1,5 +1,6 @@
 package controllers;
 
+import entity.AvisTerrain;
 import entity.Terrain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import services.AvisService;
 import services.TerrainService;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -230,17 +232,59 @@ public class PageTerrainController  {
         } else {
             showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de terrain à supprimer n'est pas valide.");}}
     @FXML
-    void avis1(ActionEvent event) {
-
+    void avis1(ActionEvent event) throws IOException {
+        Button btn = (Button) event.getSource();
+        int index = Integer.parseInt(btn.getId().substring(7)) - 1 + 3 * i;
+        AvisService as = new AvisService();
+        Terrain terrain = Ts.getAllTerrains().get(i * 3);
+        AvisTerrain avisTerrain = as.getAvisByTerrainId(terrain.getId()).get(index);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/avisPropT.fxml"));
+        Parent root = loader.load();
+        avisPropTController controller = loader.getController();
+        controller.initData(avisTerrain);
+        Stage stage = new Stage();
+        stage.setTitle("Les avis");
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
     }
 
     @FXML
-    void avis2(ActionEvent event) {
-
+    void avis2(ActionEvent event) throws IOException {
+        Button btn = (Button) event.getSource();
+        int index = Integer.parseInt(btn.getId().substring(7)) - 1 + 3 * i;
+        AvisService as = new AvisService();
+        Terrain terrain = Ts.getAllTerrains().get(i * 3 + 1);
+        AvisTerrain avisTerrain = as.getAvisByTerrainId(terrain.getId()).get(index);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/avisPropT.fxml"));
+        Parent root = loader.load();
+        avisPropTController controller = loader.getController();
+        controller.initData(avisTerrain);
+        Stage stage = new Stage();
+        stage.setTitle("Les avis");
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
     }
 
     @FXML
-    void avis3(ActionEvent event) {
-
+    void avis3(ActionEvent event) throws IOException {
+        Button btn = (Button) event.getSource();
+        int index = Integer.parseInt(btn.getId().substring(7)) - 1 + 3 * i;
+        AvisService as = new AvisService();
+        Terrain terrain = Ts.getAllTerrains().get(i * 3 + 2);
+        AvisTerrain avisTerrain = as.getAvisByTerrainId(terrain.getId()).get(index);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/avisPropT.fxml"));
+        Parent root = loader.load();
+        avisPropTController controller = loader.getController();
+        controller.initData(avisTerrain);
+        Stage stage = new Stage();
+        stage.setTitle("Les avis");
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
     }
+
+
+
 }

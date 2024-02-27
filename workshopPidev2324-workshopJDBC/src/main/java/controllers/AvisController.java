@@ -80,7 +80,14 @@ public class AvisController  {
                 nom3.setText(terrains.get(2+i*3).getNomTerrain());
                 address3.setText(terrains.get(2+i*3).getAddress());
                 Img3.setImage(new Image(terrains.get(2+i*3).getImage()));
-            }else{BOX3.setVisible(false);}}}
+            }else{BOX3.setVisible(false);}}
+        else{
+            BOX1.setVisible(false);
+            BOX2.setVisible(false);
+            BOX3.setVisible(false);
+        }
+        btnsuivant.setVisible(terrains.size()-3*i > 3);
+    }
     //*******************************************************************************************
     @FXML
     void retour(ActionEvent event){
