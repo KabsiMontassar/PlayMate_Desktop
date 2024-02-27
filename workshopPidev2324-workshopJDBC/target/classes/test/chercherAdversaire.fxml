@@ -35,12 +35,13 @@
                   <URL value="@ReserveTerrain.css" />
                </stylesheets>
             </ChoiceBox>
-            <Button id="Consulter" layoutX="274.0" layoutY="116.0" mnemonicParsing="false" onAction="#VoirReservation" prefHeight="34.0" prefWidth="140.0" stylesheets="@button.css" text="Voir Reservation" textFill="#02365c">
+            <Button id="Consulter" fx:id="VoirReservation" layoutX="274.0" layoutY="116.0" mnemonicParsing="false" onAction="#VoirReservation" prefHeight="34.0" prefWidth="140.0" stylesheets="@button.css" text="Voir Reservation" textFill="#02365c">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Button>
             <Label fx:id="nomEquipeInvalide" layoutX="274.0" layoutY="77.0" text="choisir une equipe !" textFill="#ff1616" />
+            <VBox fx:id="vbox2" layoutX="3.0" layoutY="171.0" prefHeight="221.0" prefWidth="647.0" stylesheets="@ReserverTerrainCSS.css" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" />
          </children>
       </AnchorPane>
       <HBox layoutX="221.0" layoutY="43.0" prefHeight="47.0" prefWidth="456.0" spacing="10">
@@ -78,6 +79,5 @@
             <MenuItem mnemonicParsing="false" text="se déconnecter" />
          </items>
       </SplitMenuButton>
-      <VBox fx:id="vbox2" layoutX="146.0" layoutY="349.0" prefHeight="221.0" prefWidth="792.0" stylesheets="@ReserverTerrainCSS.css" />
    </children>
 </AnchorPane>

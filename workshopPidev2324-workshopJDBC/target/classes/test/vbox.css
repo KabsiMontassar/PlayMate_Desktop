@@ -1,7 +1,7 @@
 #vbox1, #vbox2, #vbox3 {
     -fx-background-color: rgba(2, 54, 92, 0.0);
     -fx-background-radius: 7px;
-    -fx-padding: 10;
+    -fx-padding: 5px;
 }
 
 #vbox1:hover, #vbox2:hover, #vbox3:hover {
@@ -21,7 +21,7 @@
     -fx-background-radius: 7px;
     -fx-border-color: #4caf50;
     -fx-border-width: 2px;
-    -fx-padding: 5 10;
+    -fx-padding: 5px 5px;
 }
 #vbox1:hover{
 -fx-background-color: rgba(255, 255, 255, 0.5);

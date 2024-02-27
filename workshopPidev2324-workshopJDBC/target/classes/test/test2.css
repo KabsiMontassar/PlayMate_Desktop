@@ -1,7 +1,7 @@
 
 #label1{
  -fx-background-color: rgba(2, 54, 92,0.80);
--fx-background-radius : 15px
+-fx-background-radius : 15px ;
 }
 #anchro1{
 -fx-background-image : url(soccer-768482_960_720.jpg);
@@ -14,7 +14,7 @@
        }
 #anchrocreation1 , #anchrocreation2 ,#anchrocreation3{
 -fx-background-color: rgba(2, 54, 92,0.80);
-    -fx-background-radius : 7px
+    -fx-background-radius : 7px ;
 }
 /*
 #label5{
