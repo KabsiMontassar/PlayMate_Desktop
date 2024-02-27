@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionUser/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionUser/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/afa29044-9319-4b30-9c80-32ffbcb06d61.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/afa29044-9319-4b30-9c80-32ffbcb06d61/storage_v2/_src_/schema/evenement.aUoXAQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/afa29044-9319-4b30-9c80-32ffbcb06d61/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/afa29044-9319-4b30-9c80-32ffbcb06d61/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/afa29044-9319-4b30-9c80-32ffbcb06d61/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +78,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
         <option value="jdk-21.0.1-temurin-21.0.1-4caba194b151-b7b86d5d" />
       </set>
     </attachedChunks>
@@ -95,6 +98,7 @@
       <workItem from="1708956555706" duration="59000" />
       <workItem from="1708956707812" duration="49000" />
       <workItem from="1709032486906" duration="4540000" />
+      <workItem from="1709045884313" duration="514000" />
     </task>
     <servers />
   </component>
