@@ -94,7 +94,7 @@ public class AvisController  {
     @FXML
     void detail1(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
-        int index = Integer.parseInt(btn.getId().substring(9)) - 1;
+        int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i;
         Terrain terrain = Ts.getAllTerrains().get(index);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/detailuser.fxml"));
         Parent root = loader.load();
@@ -108,7 +108,7 @@ public class AvisController  {
     @FXML
     void detail2(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
-        int index = Integer.parseInt(btn.getId().substring(9)) - 1; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
+        int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Terrain selectedTerrain = Ts.getAllTerrains().get(index);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/detailuser.fxml"));
         Parent root = loader.load();
@@ -122,7 +122,7 @@ public class AvisController  {
     @FXML
     void detail3(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
-        int index = Integer.parseInt(btn.getId().substring(9)) - 1; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
+        int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Terrain selectedTerrain = Ts.getAllTerrains().get(index);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/detailuser.fxml"));
         Parent root = loader.load();

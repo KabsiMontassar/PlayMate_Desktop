@@ -62,6 +62,15 @@ public class PageTerrainController  {
     @FXML
     private Button btnsupp3;
     @FXML
+    private Button btnavis1;
+
+    @FXML
+    private Button btnavis2;
+
+    @FXML
+    private Button btnavis3;
+
+    @FXML
     private Text nom1;
     @FXML
     private Text nom2;
@@ -108,7 +117,8 @@ public class PageTerrainController  {
         actualise(Ts.getAllTerrains());}
     //*******************************************************************************************
     @FXML
-    void suivant(ActionEvent event){i +=1;
+    void suivant(ActionEvent event){
+        i +=1;
         actualise(Ts.getAllTerrains());}
     //*******************************************************************************************
     @FXML
@@ -219,4 +229,18 @@ public class PageTerrainController  {
                 actualise(Ts.getAllTerrains());}
         } else {
             showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de terrain à supprimer n'est pas valide.");}}
+    @FXML
+    void avis1(ActionEvent event) {
+
+    }
+
+    @FXML
+    void avis2(ActionEvent event) {
+
+    }
+
+    @FXML
+    void avis3(ActionEvent event) {
+
+    }
 }

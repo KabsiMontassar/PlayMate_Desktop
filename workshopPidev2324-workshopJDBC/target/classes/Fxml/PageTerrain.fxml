@@ -21,8 +21,9 @@
       <Text fx:id="nom1" layoutX="192.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TfNOM">
          <font><Font size="14.0" /></font>
       </Text>
-      <Button fx:id="btnSupp1" layoutX="106.0" layoutY="459.0" mnemonicParsing="false" onAction="#supp1" prefHeight="27.0" prefWidth="94.0" text="Suppression" />
-      <Button fx:id="btnDetail1" layoutX="106.0" layoutY="425.0" mnemonicParsing="false" onAction="#detail1" prefHeight="27.0" prefWidth="94.0" text="View detail" />
+      <Button fx:id="btnSupp1" layoutX="114.0" layoutY="423.0" mnemonicParsing="false" onAction="#supp1" prefHeight="27.0" prefWidth="94.0" text="Suppression" />
+      <Button fx:id="btnDetail1" layoutX="22.0" layoutY="468.0" mnemonicParsing="false" onAction="#detail1" prefHeight="27.0" prefWidth="94.0" text="Voir détails" />
+      <Button fx:id="btnavis1" layoutX="190.0" layoutY="468.0" mnemonicParsing="false" onAction="#avis1" prefHeight="27.0" prefWidth="94.0" text="Voir avis" />
    </AnchorPane>
    <AnchorPane fx:id="BOX2" layoutX="462.0" layoutY="110.0" prefHeight="509.0" prefWidth="322.0">
       <ImageView fx:id="Img2" fitHeight="286.0" fitWidth="259.0" layoutX="32.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
@@ -38,13 +39,14 @@
       <Text fx:id="nom2" layoutX="179.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TfNOM">
          <font><Font size="14.0" /></font>
       </Text>
-      <Button fx:id="btnSupp2" layoutX="114.0" layoutY="457.0" mnemonicParsing="false" onAction="#supp2" prefHeight="27.0" prefWidth="94.0" text="Suppression" />
-      <Button fx:id="btndetail2" layoutX="114.0" layoutY="423.0" mnemonicParsing="false" onAction="#detail2" prefHeight="27.0" prefWidth="94.0" text="View detail" />
+      <Button fx:id="btnSupp2" layoutX="114.0" layoutY="416.0" mnemonicParsing="false" onAction="#supp2" prefHeight="27.0" prefWidth="94.0" text="Suppression" />
+      <Button fx:id="btndetail2" layoutX="32.0" layoutY="459.0" mnemonicParsing="false" onAction="#detail2" prefHeight="27.0" prefWidth="94.0" text="Voir détails" />
+      <Button fx:id="btnavis2" layoutX="194.0" layoutY="463.0" mnemonicParsing="false" onAction="#avis2" prefHeight="27.0" prefWidth="94.0" text="Voir avis" />
    </AnchorPane>
    <AnchorPane fx:id="BOX3" layoutX="860.0" layoutY="110.0" prefHeight="509.0" prefWidth="322.0">
       <ImageView fx:id="Img3" fitHeight="286.0" fitWidth="259.0" layoutX="32.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="btnsupp3" layoutX="107.0" layoutY="459.0" mnemonicParsing="false" onAction="#supp3" prefHeight="27.0" prefWidth="94.0" text="Suppression" />
-      <Button fx:id="btndetail3" layoutX="107.0" layoutY="425.0" mnemonicParsing="false" onAction="#detail3" prefHeight="27.0" prefWidth="94.0" text="View detail" />
+      <Button fx:id="btnsupp3" layoutX="114.0" layoutY="420.0" mnemonicParsing="false" onAction="#supp3" prefHeight="27.0" prefWidth="94.0" text="Suppression" />
+      <Button fx:id="btndetail3" layoutX="26.0" layoutY="459.0" mnemonicParsing="false" onAction="#detail3" prefHeight="27.0" prefWidth="94.0" text="Voir détails" />
       <Text layoutX="73.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom :">
          <font><Font name="Lucida Sans Demibold Italic" size="18.0" /></font>
       </Text>
@@ -57,6 +59,7 @@
       <Text fx:id="nom3" layoutX="173.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TfNOM">
          <font><Font size="14.0" /></font>
       </Text>
+      <Button fx:id="btnavis3" layoutX="196.0" layoutY="459.0" mnemonicParsing="false" onAction="#avis3" prefHeight="27.0" prefWidth="94.0" text="Voir avis" />
    </AnchorPane>
    <Button fx:id="btnajout" layoutX="1085.0" layoutY="658.0" mnemonicParsing="false" onAction="#Ajout" prefHeight="32.0" prefWidth="141.0" text="Ajouter" />
    <Button fx:id="btnretour" layoutX="523.0" layoutY="630.0" mnemonicParsing="false" onAction="#retour" prefHeight="14.0" prefWidth="100.0" text="&lt;" />
