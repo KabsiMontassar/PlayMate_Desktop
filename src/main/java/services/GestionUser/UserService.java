@@ -18,14 +18,14 @@ public class UserService implements IService<User> {
 
 
     public User getByEmail(String e) throws SQLException {
-        User user = null; // Initialize user as null
+        User user = new User(); // Initialize user as null
         String query = "SELECT * FROM user WHERE email = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, e);
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
-            // If a user is found, populate the user object
-            user = new User();
+
+
             user.setId(rs.getInt("id"));
             user.setEmail(rs.getString("email"));
             user.setPassword(rs.getString("password"));
