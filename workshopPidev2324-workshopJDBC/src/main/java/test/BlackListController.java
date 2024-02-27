@@ -1,5 +1,6 @@
 package test;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -21,6 +22,8 @@ public class BlackListController implements Initializable {
 
 
     @FXML
+    private AnchorPane anchroPaneafficherBlackliste;
+    @FXML
     private AnchorPane anchroPaneAjouterBlackliste;
 
     @FXML
@@ -37,17 +40,20 @@ public class BlackListController implements Initializable {
 
     @FXML
     private VBox vboxSupprimerBlackListe;
+    @FXML
+    private VBox vboxAfficherrBlackListe1;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         supprimerBlackliste.setVisible(false);
+         anchroPaneafficherBlackliste.setVisible(false);
     }
 
 
     public void supprimerblackliste() throws SQLException {
         supprimerBlackliste.setVisible(true);
-      vboxSupprimerBlackListe.getChildren().clear();
+        vboxSupprimerBlackListe.getChildren().clear();
         BlacklistService blacklistService = new BlacklistService();
 
         List<BlackList> blackLists = blacklistService.getAllBlackLists();
@@ -83,5 +89,32 @@ public class BlackListController implements Initializable {
 
         }
 
+    }
+
+    public void afficherBlacklist(ActionEvent actionEvent) throws SQLException {
+
+        anchroPaneafficherBlackliste.setVisible(true);
+        vboxAfficherrBlackListe1.getChildren().clear();
+        BlacklistService blacklistService = new BlacklistService();
+
+        List<BlackList> blackLists = blacklistService.getAllBlackLists();
+        for (BlackList blackList :blackLists){
+            AnchorPane anchorPane = new AnchorPane();
+            HBox hBox = new HBox();
+            Label nomMembre = new Label("yemen");
+            Label duree = new Label(""+blackList.getDuree());
+            Label Cause = new Label(blackList.getCause());
+
+            nomMembre.getStyleClass().add("label-style");
+            duree.getStyleClass().add("label-style");
+            Cause.getStyleClass().add("label-style");
+
+
+            hBox.getChildren().addAll(nomMembre, duree, Cause);
+            anchorPane.getChildren().addAll(hBox);
+            vboxAfficherrBlackListe1.getChildren().add(anchorPane);
+
+
+        }
     }
 }
