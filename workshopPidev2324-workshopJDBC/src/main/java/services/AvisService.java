@@ -5,6 +5,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import utils.MyDatabase;
 import java.sql.*;
+import java.util.List;
+
 //*******************************************************************************************
 public class AvisService  implements ITerrain<AvisTerrain>{
     private Connection connection;
@@ -42,9 +44,9 @@ public class AvisService  implements ITerrain<AvisTerrain>{
         ps.setInt(1, id);
         ps.executeUpdate();}
     //*******************************************************************************************
-   public ObservableList<AvisTerrain> getAvisByTerrainId(int terrainId) {
-        /*
-        ObservableList<AvisTerrain> avisTerrains = FXCollections.observableArrayList();
+   public List<AvisTerrain> getAvisByTerrainId(int terrainId) {
+
+       List<AvisTerrain> avisTerrains = FXCollections.observableArrayList();
         String query = "SELECT avis.*, terrain.* FROM avis JOIN terrain ON avis.id = id WHERE id = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setInt(1, terrainId);
@@ -63,7 +65,7 @@ public class AvisService  implements ITerrain<AvisTerrain>{
                 avisTerrain.setTerrain(terrain);
                 avisTerrains.add(avisTerrain);}
         } catch (SQLException e) {
-            e.printStackTrace();}*/
-       AvisTerrain avisTerrains = new AvisTerrain();
-        return (ObservableList<AvisTerrain>) avisTerrains;}
+            e.printStackTrace();}
+        return avisTerrains;
+    }
 }

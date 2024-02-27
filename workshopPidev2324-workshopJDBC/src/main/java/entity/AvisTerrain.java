@@ -15,6 +15,15 @@ public class AvisTerrain {
         this.terrain = new Terrain();
     }
 
+    public AvisTerrain(int idAvis, int id, int note, String commentaire, String date_avis, Terrain terrain) {
+        this.idAvis = idAvis;
+        this.id = id;
+        this.note = note;
+        this.commentaire = commentaire;
+        this.date_avis = date_avis;
+        this.terrain = terrain;
+    }
+
     public AvisTerrain() {}
     //*******************************************************************************************
     public Terrain getTerrain() {return terrain;}

@@ -234,10 +234,9 @@ public class PageTerrainController  {
     @FXML
     void avis1(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
-        int index = Integer.parseInt(btn.getId().substring(7)) - 1 + 3 * i;
+        int index = Integer.parseInt(btn.getId().substring(7)) - 1+3*i;
         AvisService as = new AvisService();
-        Terrain terrain = Ts.getAllTerrains().get(i * 3);
-        AvisTerrain avisTerrain = as.getAvisByTerrainId(terrain.getId()).get(index);
+        List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(index);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/avisPropT.fxml"));
         Parent root = loader.load();
         avisPropTController controller = loader.getController();
@@ -254,8 +253,7 @@ public class PageTerrainController  {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(7)) - 1 + 3 * i;
         AvisService as = new AvisService();
-        Terrain terrain = Ts.getAllTerrains().get(i * 3 + 1);
-        AvisTerrain avisTerrain = as.getAvisByTerrainId(terrain.getId()).get(index);
+        List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(index);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/avisPropT.fxml"));
         Parent root = loader.load();
         avisPropTController controller = loader.getController();
@@ -272,8 +270,7 @@ public class PageTerrainController  {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(7)) - 1 + 3 * i;
         AvisService as = new AvisService();
-        Terrain terrain = Ts.getAllTerrains().get(i * 3 + 2);
-        AvisTerrain avisTerrain = as.getAvisByTerrainId(terrain.getId()).get(index);
+        List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(index);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/avisPropT.fxml"));
         Parent root = loader.load();
         avisPropTController controller = loader.getController();
