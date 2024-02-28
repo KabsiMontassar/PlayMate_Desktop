@@ -103,6 +103,7 @@ public class ProfileController {
         if(CurrentUser.getRole() == Roles.Organisateur) {
             RoleLabel.setVisible(true);
             Roleinput.setVisible(true);
+            imganchodid.setVisible(true);
             Organisateur org = us.getOrganisateurbyid(CurrentUser.getId());
             RoleLabel.setText("Organisation");
             Roleinput.setText(org.getNom_Organisation());
@@ -110,6 +111,7 @@ public class ProfileController {
             if(CurrentUser.getRole() == Roles.Fournisseur){
                 RoleLabel.setVisible(true);
                 Roleinput.setVisible(true);
+                imganchodid.setVisible(true);
                 Fournisseur org = us.getFournisseurbyid(CurrentUser.getId());
                 RoleLabel.setText("Societe");
                 Roleinput.setText(org.getNom_Societe());
