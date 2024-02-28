@@ -6,14 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import services.TerrainService;
-
 import java.util.List;
-
+//*******************************************************************************************
 public class avisPropTController {
 
     @FXML
@@ -24,32 +20,24 @@ public class avisPropTController {
     private AnchorPane BOX3;
     @FXML
     private TextArea comment1;
-
     @FXML
     private TextArea comment2;
-
     @FXML
     private TextArea comment3;
-
     @FXML
     private Text note1;
-
     @FXML
     private Text note2;
-
     @FXML
     private Text note3;
-
     @FXML
     private Button btnretour;
     @FXML
     private Button btnsuivant;
-
+    //*******************************************************************************************
     List<AvisTerrain> lt;
     Terrain t = new Terrain();
-
-int i =0;
-    TerrainService Ts = new TerrainService();
+    int i =0;
     //*******************************************************************
     void actualise(List<AvisTerrain> avisTerrains){
         if(avisTerrains.size()-1-i*3>0){btnsuivant.setVisible(true);}
@@ -74,8 +62,8 @@ int i =0;
             BOX2.setVisible(false);
             BOX3.setVisible(false);
         }
-        btnsuivant.setVisible(avisTerrains.size()-3*i > 3);
-    }
+        //btnsuivant.setVisible(avisTerrains.size()-3*i > 3);
+        }
     //*******************************************************************************************
     @FXML
     void retour(ActionEvent event){
@@ -88,7 +76,5 @@ int i =0;
     //*******************************************************************************************
     public void initData(List<AvisTerrain> avisTerrains) {
         this.lt = avisTerrains;
-        actualise(avisTerrains);
-
-    }
+        actualise(avisTerrains);}
 }

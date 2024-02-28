@@ -21,7 +21,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
-
 //*******************************************************************
 public class PageTerrainController  {
     public AnchorPane main;
@@ -65,13 +64,10 @@ public class PageTerrainController  {
     private Button btnsupp3;
     @FXML
     private Button btnavis1;
-
     @FXML
     private Button btnavis2;
-
     @FXML
     private Button btnavis3;
-
     @FXML
     private Text nom1;
     @FXML
@@ -194,6 +190,7 @@ public class PageTerrainController  {
                 Ts.delete(terrainToDelete.getId());
                 actualise(Ts.getAllTerrains());}
         } else {showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de terrain à supprimer n'est pas valide.");}}
+    //*******************************************************************************************
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
@@ -231,6 +228,7 @@ public class PageTerrainController  {
                 actualise(Ts.getAllTerrains());}
         } else {
             showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de terrain à supprimer n'est pas valide.");}}
+    //*******************************************************************************************
     @FXML
     void avis1(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
@@ -247,7 +245,7 @@ public class PageTerrainController  {
         stage.show();
         ((Button) event.getSource()).getScene().getWindow().hide();
     }
-
+    //*******************************************************************************************
     @FXML
     void avis2(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
@@ -262,9 +260,8 @@ public class PageTerrainController  {
         stage.setTitle("Les avis");
         stage.setScene(new Scene(root));
         stage.show();
-        ((Button) event.getSource()).getScene().getWindow().hide();
-    }
-
+        ((Button) event.getSource()).getScene().getWindow().hide();}
+    //*******************************************************************************************
     @FXML
     void avis3(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
@@ -281,7 +278,4 @@ public class PageTerrainController  {
         stage.show();
         ((Button) event.getSource()).getScene().getWindow().hide();
     }
-
-
-
 }

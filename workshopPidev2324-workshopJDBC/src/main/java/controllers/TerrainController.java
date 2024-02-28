@@ -1,5 +1,4 @@
 package controllers;
-
 import entity.Terrain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,9 +26,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.stage.FileChooser;
-import java.io.File;
-
 //*******************************************************************************************
 public class TerrainController {
 
@@ -86,24 +82,14 @@ public class TerrainController {
     public void setModifierButtonVisibility(boolean visible) {
         btupdate.setVisible(visible); // Modifier 'btnsave' pour correspondre à l'ID de votre bouton "Modifier"
     }
+    //*******************************************************************************************
     public void setajouterButtonVisibility(boolean visible) {
         btnsave.setVisible(visible); // Modifier 'btnsave' pour correspondre à l'ID de votre bouton "Modifier"
     }
-
+    //*******************************************************************************************
     private void showTerrains() {
         List<Terrain> terrains = ts.getAllTerrains();
-        for (Terrain terrain : terrains) {
-            HBox terrainBox = new HBox();
-            terrainBox.setSpacing(10);
-            Label nomLabel = new Label("Nom: " + terrain.getNomTerrain());
-            Label addressLabel = new Label("Address: " + terrain.getAddress());
-            Label gradinLabel = new Label("Gradin: " + terrain.getGradin());
-            Label vestiaireLabel = new Label("Vestiaire: " + terrain.getVestiaire());
-            Label statusLabel = new Label("Status: " + terrain.getStatus());
-            Label prixLabel = new Label("Prix: " + terrain.getPrix());
-            Label dureeLabel = new Label("Durée: " + "minutes" + terrain.getDuree());
-            Label gouvernoratLabel = new Label("Gouvernorat: " + terrain.getGouvernorat());
-        }}
+    }
     //*******************************************************************************************
     @FXML
     void clearField() {
@@ -123,19 +109,15 @@ public class TerrainController {
     @FXML
     void createTerrain(ActionEvent event) throws SQLException, IOException {
         if (videoPath == null) {
-            videoPath = "";
-        }
+            videoPath = "";}
         if (isValidTerrain()) {
             if (imagePath == null) {
                 showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Veuillez sélectionner une image.");
                 return; // Arrêter l'exécution si l'image n'est pas sélectionnée
             }
-
             // Vérifier si le nom du terrain existe déjà dans la liste
             String nomTerrain = tfnom.getText().trim();
-            boolean nomExiste = ts.getAllTerrains().stream()
-                    .anyMatch(terrain -> terrain.getNomTerrain().equalsIgnoreCase(nomTerrain));
-
+            boolean nomExiste = ts.getAllTerrains().stream().anyMatch(terrain -> terrain.getNomTerrain().equalsIgnoreCase(nomTerrain));
             if (nomExiste) {
                 showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Le nom du terrain existe déjà.");
             } else {
@@ -145,12 +127,7 @@ public class TerrainController {
                 showTerrains(); // Mettre à jour l'affichage après avoir ajouté un nouveau terrain
                 clearField(); // Efface les champs après l'ajout
                 ((Button) event.getSource()).getScene().getWindow().hide();
-                voirlist();
-            }
-        }
-    }
-
-
+                voirlist();}}}
     //*******************************************************************************************
     private boolean isValidTerrain() {
         if (tfnom.getText().isEmpty() || tfaddress.getText().isEmpty() || tfprix.getText().isEmpty() || tfduree.getText().isEmpty()) {
@@ -197,10 +174,7 @@ public class TerrainController {
             showTerrains();
             clearField();
             ((Button) event.getSource()).getScene().getWindow().hide();
-            voirlist();
-        }
-    }
-
+            voirlist();}}
     //*******************************************************************************************
     @FXML
     void getData(MouseEvent event) {
@@ -216,14 +190,12 @@ public class TerrainController {
             tfprix.setText(String.valueOf(terrain.getPrix()));
             tfduree.setText(String.valueOf(terrain.getDuree()));
             tfemplacement.setText(terrain.getGouvernorat());
-
             String imagePath = terrain.getImage();
             if (imagePath != null && !imagePath.isEmpty()) {
                 Image image = new Image(imagePath);
                 img.setImage(image);
             } else {
                 img.setImage(null);}
-
             String videoPath = terrain.getVideo();
             if (videoPath != null && !videoPath.isEmpty()) {
                 Media media = new Media(videoPath);
@@ -266,17 +238,11 @@ public class TerrainController {
         stage.setScene(new Scene(root));
         stage.show();
         // Récupérer la fenêtre actuelle et la cacher
-        ((Stage) btvoir.getScene().getWindow()).hide();
-    }
-
-
-
+        ((Stage) btvoir.getScene().getWindow()).hide();}
     //*******************************************************************************************
     @FXML
     void showTerrainDetails(Terrain terrain) {
-        initData(terrain);
-    }
-
+        initData(terrain);}
     public void initData(Terrain terrain) {
         this.terrainActuel = terrain;
         tfnom.setText(terrain.getNomTerrain());
@@ -291,12 +257,9 @@ public class TerrainController {
         videoPath = terrain.getVideo();
         if (imagePath != null && !imagePath.isEmpty()) {
             Image image = new Image(imagePath);
-            img.setImage(image);
-        }
+            img.setImage(image);}
         if (videoPath != null && !videoPath.isEmpty()) {
             Media media = new Media(videoPath);
             MediaPlayer mediaPlayer = new MediaPlayer(media);
             vid.setMediaPlayer(mediaPlayer);
-            mediaPlayer.play();
-        }
-    }}
+            mediaPlayer.play();}}}

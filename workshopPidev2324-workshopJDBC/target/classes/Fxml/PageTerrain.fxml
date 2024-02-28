@@ -66,4 +66,5 @@
    <Button fx:id="btnsuivant" layoutX="623.0" layoutY="630.0" mnemonicParsing="false" onAction="#suivant" prefHeight="14.0" prefWidth="100.0" text="&gt;" />
    <Text fill="#0a2f55" layoutX="460.0" layoutY="66.0" strokeLineJoin="ROUND" strokeWidth="0.0" text="Liste des terrains" textAlignment="CENTER">
       <font><Font name="Berlin Sans FB" size="48.0" /></font>
-   </Text></AnchorPane>
+   </Text>
+</AnchorPane>

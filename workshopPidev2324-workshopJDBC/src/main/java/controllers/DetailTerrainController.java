@@ -1,5 +1,4 @@
 package controllers;
-
 import entity.Terrain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,8 +51,6 @@ public class DetailTerrainController {
     private String getPrice(float price) {
         return price + " DT";
     }
-
-
     //*******************************************************************************************
     public void initData(Terrain terrain) {
         terrainActuel = terrain;

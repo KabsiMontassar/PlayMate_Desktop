@@ -146,4 +146,5 @@ public class AvisController  {
         Stage stage = new Stage();
         stage.setTitle("Donner un avis");
         stage.setScene(new Scene(root));
-        stage.show();}}
+        stage.show();}
+}

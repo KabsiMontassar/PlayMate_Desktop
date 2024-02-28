@@ -31,12 +31,8 @@
         <TextField fx:id="tfemplacement" />
     </VBox>
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="506.0" layoutY="33.0" text="GESTION TERRAIN" textAlignment="CENTER" textFill="#0a2f55" textOverrun="CLIP">
-        <font>
-            <Font name="Berlin Sans FB" size="36.0" />
-        </font>
-        <effect>
-            <Glow />
-        </effect>
+        <font><Font name="Berlin Sans FB" size="36.0" /></font>
+        <effect><Glow /></effect>
     </Label>
     <ButtonBar layoutX="398.0" layoutY="638.0" prefHeight="91.0" prefWidth="532.0">
         <buttons>

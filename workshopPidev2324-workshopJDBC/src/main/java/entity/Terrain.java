@@ -3,6 +3,7 @@ package entity;
 import java.util.ArrayList;
 import java.util.List;
 
+//*******************************************************************************************
 public class Terrain {
     private int id;
     private float prix;
@@ -55,7 +56,8 @@ public class Terrain {
                 ", gouvernorat=" + gouvernorat +
                 ", image=" + image +
                 ", video=" + video +
-                '}';}
+                '}';
+    }
     //*******************************************************************************************
     public String getVideoPath() {
         return videoPath;
