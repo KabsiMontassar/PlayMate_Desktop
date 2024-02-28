@@ -21,6 +21,8 @@ public class DetailTerrainController {
     @FXML
     private Button btmodifd;
     @FXML
+    private Button btretour;
+    @FXML
     private MediaView detvid;
     @FXML
     private Label dureed;
@@ -82,4 +84,15 @@ public class DetailTerrainController {
         stage.setTitle("Modifier");
         stage.setScene(new Scene(root));
         stage.show();
-        ((Button) event.getSource()).getScene().getWindow().hide();}}
+        ((Button) event.getSource()).getScene().getWindow().hide();}
+    @FXML
+    void retourd() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/PageTerrain.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Liste des terrains");
+        stage.setScene(new Scene(root));
+        stage.show();
+        // Récupérer la fenêtre actuelle et la cacher
+        ((Stage) btretour.getScene().getWindow()).hide();}
+}

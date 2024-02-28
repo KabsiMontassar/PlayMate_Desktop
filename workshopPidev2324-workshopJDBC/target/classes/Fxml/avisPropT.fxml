@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -32,4 +33,7 @@
     <Text fill="#0a2f55" layoutX="460.0" layoutY="66.0" strokeLineJoin="ROUND" strokeWidth="0.0" text="Liste des avis" textAlignment="CENTER">
         <font><Font name="Berlin Sans FB" size="48.0" /></font>
     </Text>
+   <Button fx:id="btnretour" layoutX="524.0" layoutY="656.0" mnemonicParsing="false" onAction="#retour" prefHeight="14.0" prefWidth="100.0" text="&lt;" />
+   <Button fx:id="btnsuivant" layoutX="624.0" layoutY="656.0" mnemonicParsing="false" onAction="#suivant" prefHeight="14.0" prefWidth="100.0" text="&gt;" />
+   <Button fx:id="btretourliste" layoutX="1120.0" layoutY="669.0" mnemonicParsing="false" onAction="#retourlist" prefHeight="14.0" prefWidth="100.0" text="Retour" />
 </AnchorPane>

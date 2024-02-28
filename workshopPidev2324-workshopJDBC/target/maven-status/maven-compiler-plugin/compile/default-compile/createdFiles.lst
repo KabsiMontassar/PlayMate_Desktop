@@ -1,6 +1,0 @@
-utils\MyDatabase.class
-controllers\PageTerrainController.class
-controllers\TerrainController.class
-test\MainFX.class
-controllers\avisPropTController.class
-entity\Terrain.class

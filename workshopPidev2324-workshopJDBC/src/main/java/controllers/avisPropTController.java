@@ -4,10 +4,16 @@ import entity.AvisTerrain;
 import entity.Terrain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.util.List;
 //*******************************************************************************************
 public class avisPropTController {
@@ -34,6 +40,8 @@ public class avisPropTController {
     private Button btnretour;
     @FXML
     private Button btnsuivant;
+    @FXML
+    private Button btretourliste;
     //*******************************************************************************************
     List<AvisTerrain> lt;
     Terrain t = new Terrain();
@@ -77,4 +85,16 @@ public class avisPropTController {
     public void initData(List<AvisTerrain> avisTerrains) {
         this.lt = avisTerrains;
         actualise(avisTerrains);}
+    //*******************************************************************************************
+    @FXML
+    void retourlist(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/PageTerrain.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Liste des terrains");
+        stage.setScene(new Scene(root));
+        stage.show();
+        // Récupérer la fenêtre actuelle et la cacher
+        ((Stage) btretourliste.getScene().getWindow()).hide();
+    }
 }

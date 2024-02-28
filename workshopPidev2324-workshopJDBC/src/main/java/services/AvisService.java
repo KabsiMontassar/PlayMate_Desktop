@@ -15,24 +15,22 @@ public class AvisService implements ITerrain<AvisTerrain> {
     }
     //*******************************************************************************************
     public void add(AvisTerrain t) throws SQLException {
-        String query = "INSERT INTO avis (terrain_id, commentaire, note, date_avis) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO avis (terrain_id, commentaire, note) VALUES (?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             ps.setInt(1, t.getTerrain().getId()); // Utilisation de l'ID du terrain
             ps.setString(2, t.getCommentaire());
             ps.setInt(3, t.getNote());
-            ps.setString(4, t.getDate_avis());
             ps.executeUpdate();
             try (ResultSet rs = ps.getGeneratedKeys()) {
                 if (rs.next()) {
                     t.setIdAvis(rs.getInt(1));}}}}
     //*******************************************************************************************
     public void update(AvisTerrain t) {
-        String query = "UPDATE `avis` SET  `commentaire` = ?, `note` = ?, `date_avis` = ? WHERE `idAvis` = ?";
+        String query = "UPDATE `avis` SET  `commentaire` = ?, `note` = ? WHERE `idAvis` = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, t.getCommentaire());
             ps.setInt(2, t.getNote());
-            ps.setString(3, t.getDate_avis());
-            ps.setInt(4, t.getIdAvis());
+            ps.setInt(3, t.getIdAvis());
             ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());}}
