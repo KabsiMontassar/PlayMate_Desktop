@@ -19,25 +19,27 @@ public class ProductService implements IService<Product> {
 
     @Override
     public void add(Product product) throws SQLException {
-        String sql = "insert into product (nom,description,prix,image) VALUES (?,?,?,?)";
+        String sql = "insert into product (nom,description,prix,image,categorie) VALUES (?,?,?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, product.getNom());
         preparedStatement.setString(2, product.getDescription());
         preparedStatement.setInt(3, product.getPrix());
         preparedStatement.setString(4, product.getImage());
+        preparedStatement.setInt(5,product.getCategorie());
         preparedStatement.executeUpdate();
     }
 
 
     @Override
     public void update(Product product, int id) throws SQLException {
-        String sql = "UPDATE product SET nom = ?,  description = ?,  prix = ?, image = ? WHERE id = ?";
+        String sql = "UPDATE product SET nom = ?,  description = ?,  prix = ?, image = ?,categorie = ? WHERE id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, product.getNom());
         preparedStatement.setString(2, product.getDescription());
         preparedStatement.setInt(3, product.getPrix());
         preparedStatement.setString(4, product.getImage());
-        preparedStatement.setInt(5, id);
+        preparedStatement.setInt(5, product.getCategorie());
+        preparedStatement.setInt(6, id);
         preparedStatement.executeUpdate();
     }
 
@@ -62,7 +64,7 @@ public class ProductService implements IService<Product> {
             u.setDescription(rs.getString("description"));
             u.setPrix(rs.getInt("prix"));
             u.setImage(rs.getString("image"));
-
+            u.setCategorie(rs.getInt("categorie"));
             products.add(u);
         }
         return products;
@@ -85,25 +87,6 @@ public class ProductService implements IService<Product> {
             return null;
         }
 
-    }/*
-    public Product getByNOM(String nomProd) throws SQLException {
-        String sql = "SELECT * FROM product WHERE `nom` = ?";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1, nomProd);
-        ResultSet resultSet = preparedStatement.executeQuery();
-
-        if (resultSet.next()) {
-            int id=resultSet.getInt("id");
-            String nom = resultSet.getString("nom");
-            String desription = resultSet.getString("description");
-            int prix = resultSet.getInt("prix");
-
-            //return new Product(id, nom,desription, prix);
-        } else {
-            // Handle the case when no matching record is found
-            return null;
-        }
-
     }
-    */
+
 }

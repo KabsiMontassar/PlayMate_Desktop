@@ -1,6 +1,5 @@
 package controllers;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,29 +10,41 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Categorie;
 import models.Product;
-import services.ProductService;
-
+import services.CategorieService;
 
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class Products implements Initializable {
+public class Categories implements Initializable {
+    @FXML
+    private Text descriptionf;
 
+    @FXML
+    private TextField descriptionform;
 
+    @FXML
+    private Text nomf;
+
+    @FXML
+    private TextField nomform;
+
+    @FXML
+    private Button retour;
+
+    @FXML
+    private Button validerf;
 
 
     @FXML
@@ -46,28 +57,7 @@ public class Products implements Initializable {
     private AnchorPane BOX3;
 
     @FXML
-    private ImageView Img1;
-
-    @FXML
-    private ImageView Img2;
-
-    @FXML
-    private ImageView Img3;
-
-    @FXML
     private AnchorPane MainPane;
-
-    @FXML
-    private Text address1;
-
-    @FXML
-    private Text address2;
-
-    @FXML
-    private Text address3;
-
-    @FXML
-    private Button btnDetail1;
 
     @FXML
     private Button btnModif1;
@@ -85,13 +75,10 @@ public class Products implements Initializable {
     private Button btnSupp2;
 
     @FXML
+    private Button btnSupp3;
+
+    @FXML
     private Button btnajout;
-
-    @FXML
-    private Button btndetail2;
-
-    @FXML
-    private Button btndetail3;
 
     @FXML
     private Button btnretour;
@@ -100,7 +87,13 @@ public class Products implements Initializable {
     private Button btnsuivant;
 
     @FXML
-    private Button btnsupp3;
+    private Text description1;
+
+    @FXML
+    private Text description2;
+
+    @FXML
+    private Text description3;
 
     @FXML
     private Text nom1;
@@ -110,74 +103,120 @@ public class Products implements Initializable {
 
     @FXML
     private Text nom3;
-
-    /*
-
-    BOX1 :
-    nom1
-    address1
-    btnDetail1
-btnSupp1
-btnModif1
-Img1
-
-    * */
     int i= 0;
 
+    @FXML
+    private Button lienproducts;
 
 
-    ProductService ps = new ProductService();
 
+    CategorieService cs = new CategorieService();
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            actualise(cs.getAll());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-    void actualise(List<Product> products){
-        if(products.size()-1-i*3>0){btnsuivant.setVisible(true);
+    void actualise(List<Categorie> categories){
+        if(categories.size()-1-i*3>0){btnsuivant.setVisible(true);
         }
 
-        if(products.size()-1-i*3 <= 0){btnsuivant.setVisible(false);
+        if(categories.size()-1-i*3 <= 0){btnsuivant.setVisible(false);
         }
         if(i > 0){btnretour.setVisible(true);
         }
         if(i == 0){btnretour.setVisible(false);
         }
-        if(!products.isEmpty()){
-            if(products.size()-1-i*3>=0){
+        if(!categories.isEmpty()){
+            if(categories.size()-1-i*3>=0){
                 BOX1.setVisible(true);
-                nom1.setText(products.get(i*3).getNom());
-                address1.setText(products.get(i*3).getDescription());
-                Img1.setImage(new Image(products.get(i*3).getImage()));
+                nom1.setText(categories.get(i*3).getNom());
+                description1.setText(categories.get(i*3).getDescription());
 
             }
             else{BOX1.setVisible(false);
             }
-            if(products.size()-2-i*3>=0){
+            if(categories.size()-2-i*3>=0){
                 BOX2.setVisible(true);
-                nom2.setText(products.get(1+i*3).getNom());
-                address2.setText(products.get(1+i*3).getDescription());
-                Img2.setImage(new Image(products.get(1+i*3).getImage()));
+                nom2.setText(categories.get(1+i*3).getNom());
+                description2.setText(categories.get(1+i*3).getDescription());
 
             }
             else{
                 BOX2.setVisible(false);
             }
-            if(products.size()-3-i*3>=0){
+            if(categories.size()-3-i*3>=0){
                 BOX3.setVisible(true);
-                nom3.setText(products.get(2+i*3).getNom());
-                address3.setText(products.get(2+i*3).getDescription());
-                Img3.setImage(new Image(products.get(2+i*3).getImage()));
+                nom3.setText(categories.get(2+i*3).getNom());
+                description3.setText(categories.get(2+i*3).getDescription());
 
             }else{BOX3.setVisible(false);}}else{
             BOX1.setVisible(false);
             BOX2.setVisible(false);
             BOX3.setVisible(false);
         }
-        btnsuivant.setVisible(products.size()-3*i > 3);
+        btnsuivant.setVisible(categories.size()-3*i > 3);
     }
+
+    @FXML
+    void Ajout(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/modif.fxml"));
+        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+    }
+
+    @FXML
+    void Modif1(ActionEvent event) throws IOException, SQLException {
+        Button btn = (Button) event.getSource();
+        int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
+        Categorie selectedCategorie = cs.getAll().get(index);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/modif.fxml"));
+        Parent root = loader.load();
+        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        modif controller = loader.getController();
+        controller.initData(selectedCategorie);
+
+    }
+    @FXML
+    void Modif2(ActionEvent event) throws IOException, SQLException {
+        Button btn = (Button) event.getSource();
+        int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
+        Categorie selectedCategorie = cs.getAll().get(index);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/modif.fxml"));
+        Parent root = loader.load();
+        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        modif controller = loader.getController();
+        controller.initData(selectedCategorie);
+
+    }
+    @FXML
+    void Modif3(ActionEvent event) throws IOException, SQLException {
+        Button btn = (Button) event.getSource();
+        int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
+        Categorie selectedCategorie = cs.getAll().get(index);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/modif.fxml"));
+        Parent root = loader.load();
+        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        modif controller = loader.getController();
+        controller.initData(selectedCategorie);
+    }
+
     @FXML
     void retour(ActionEvent event) {
         i -=1;
         try {
-            actualise(ps.getAll());
+            actualise(cs.getAll());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -188,81 +227,23 @@ Img1
         i +=1;
         try {
 
-            actualise(ps.getAll());
+            actualise(cs.getAll());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
-    @FXML
-    void Ajout(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/GestionProd.fxml"));
-        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-    }
-
-
-
-    @FXML
-    private Button liencategorie;
-
-    @FXML
-    void Modif1(ActionEvent event) throws SQLException, IOException {
-        Button btn = (Button) event.getSource();
-        int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Product selectedProduct = ps.getAll().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GestionProd.fxml"));
-        Parent root = loader.load();
-        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        ProductsController controller = loader.getController();
-        controller.initialiseData(selectedProduct);
-    }
-
-    @FXML
-    void modif2(ActionEvent event) throws SQLException, IOException {
-        Button btn = (Button) event.getSource();
-        int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Product selectedProduct = ps.getAll().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GestionProd.fxml"));
-        Parent root = loader.load();
-        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        ProductsController controller = loader.getController();
-        controller.initialiseData(selectedProduct);
-    }
-
-    @FXML
-    void modif3(ActionEvent event) throws IOException, SQLException {
-        Button btn = (Button) event.getSource();
-        int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Product selectedProduct = ps.getAll().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GestionProd.fxml"));
-        Parent root = loader.load();
-        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        ProductsController controller = loader.getController();
-        controller.initialiseData(selectedProduct);
-    }
-
-
 
     @FXML
     void supp1(ActionEvent event) throws SQLException {
         Alert alert;
 
-        List<Product> products;
+        List<Categorie>  categories;
         try {
-            products = ps.getAll();
+            categories = cs.getAll();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        if (!products.isEmpty()) {alert = new Alert(Alert.AlertType.CONFIRMATION);
+        if (!categories.isEmpty()) {alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation Message");
             alert.setHeaderText(null);
             alert.setContentText("Voulez-vous supprimez ce produit " + "?");
@@ -271,86 +252,82 @@ Img1
 
             if (option.get().equals(ButtonType.OK)) {
 
-                if (products.size() - 1 - i * 3 >= 0) {
-                ps.delete(products.get((i*3)).getId());
-                JOptionPane.showMessageDialog(null, "Delete Success!");
-
-            }
-        }
-
-    }}
-    @FXML
-    void supp2(ActionEvent event) throws SQLException {
-        Alert alert;
-
-        List<Product> products;
-        try {
-            products = ps.getAll();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        if (!products.isEmpty()) {alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Voulez-vous supprimez ce produit " + "?");
-
-            Optional<ButtonType> option = alert.showAndWait();
-
-            if (option.get().equals(ButtonType.OK)) {
-            if (products.size() - 1 - i * 3 >= 0) {
-                ps.delete(products.get((i*3)+1).getId());
-                JOptionPane.showMessageDialog(null, "Delete Success!");
-
-            }
-        }
-
-
-    }}
-
-    @FXML
-    void supp3(ActionEvent event) throws SQLException {
-        Alert alert;
-        List<Product> products;
-        try {
-            products = ps.getAll();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        if (!products.isEmpty()) {
-            alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Voulez-vous supprimez ce produit " + "?");
-
-            Optional<ButtonType> option = alert.showAndWait();
-
-            if (option.get().equals(ButtonType.OK)) {
-                if (products.size() - 1 - i * 3 >= 0) {
-                    ps.delete(products.get((i * 3) + 2).getId());
+                if (categories.size() - 1 - i * 3 >= 0) {
+                    cs.delete(categories.get((i*3)).getId());
                     JOptionPane.showMessageDialog(null, "Delete Success!");
 
                 }
             }
         }
-
+        actualise(categories);
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    void supp2(ActionEvent event) throws SQLException {
+        Alert alert;
+
+        List<Categorie>  categories;
         try {
-            actualise(ps.getAll());
+            categories = cs.getAll();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-    @FXML
-    void categorie(ActionEvent event) throws IOException {
+        if (!categories.isEmpty()) {alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Voulez-vous supprimez ce produit " + "?");
 
-        Parent root = FXMLLoader.load(getClass().getResource("/Categorie.fxml"));
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.get().equals(ButtonType.OK)) {
+
+                if (categories.size() - 1 - i * 3 >= 0) {
+                    cs.delete(categories.get((i*3)+1).getId());
+                    JOptionPane.showMessageDialog(null, "Delete Success!");
+
+                }
+            }
+        }
+        actualise(categories);
+
+    }
+
+    @FXML
+    void supp3(ActionEvent event) throws SQLException {
+        Alert alert;
+
+        List<Categorie>  categories;
+        try {
+            categories = cs.getAll();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        if (!categories.isEmpty()) {alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Voulez-vous supprimez ce produit " + "?");
+
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.get().equals(ButtonType.OK)) {
+
+                if (categories.size() - 1 - i * 3 >= 0) {
+                    cs.delete(categories.get((i*3)+2).getId());
+                    JOptionPane.showMessageDialog(null, "Delete Success!");
+
+                }
+            }
+        }
+        actualise(categories);
+    }
+
+
+    @FXML
+    void produits(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Products.fxml"));
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
     }
-
 }

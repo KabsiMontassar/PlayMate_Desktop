@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.modif">
+   <children>
+      <Text fx:id="nomf" layoutX="70.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOM" />
+      <Text fx:id="descriptionf" layoutX="70.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIPTION" />
+      <Button fx:id="validerf" layoutX="246.0" layoutY="284.0" mnemonicParsing="false" onAction="#ValiderModification" text="Modifier" />
+      <Button fx:id="retour" layoutX="483.0" layoutY="344.0" mnemonicParsing="false" onAction="#RetourVersCategorie" text="retour" />
+      <TextField fx:id="nomform" layoutX="185.0" layoutY="124.0" />
+      <TextField fx:id="descriptionform" layoutX="186.0" layoutY="195.0" />
+      <Button fx:id="ajouter" layoutX="321.0" layoutY="284.0" mnemonicParsing="false" onAction="#ajouter" text="Ajouter" />
+   </children>
+</AnchorPane>

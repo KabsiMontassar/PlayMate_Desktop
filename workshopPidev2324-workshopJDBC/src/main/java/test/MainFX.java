@@ -16,9 +16,11 @@ public class MainFX extends Application {
 
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Products.fxml"));
+
+
         Parent root = loader.load();
         Scene scene = new Scene(root);
-        primaryStage.setTitle("3A29");
+        primaryStage.setTitle("Produits et Categories");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

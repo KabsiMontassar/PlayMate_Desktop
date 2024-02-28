@@ -16,6 +16,12 @@ public class Categorie {
         this.productList = new ArrayList<>();
     }
 
+    public Categorie(String nom, String description) {
+        this.nom = nom;
+        this.description = description;
+        this.productList = new ArrayList<>();
+    }
+
     public Categorie() {
     }
 
@@ -28,7 +34,7 @@ public class Categorie {
     }
 
     public String getNom() {
-        return nom;
+        return this.nom;
     }
 
     public void setNom(String nom) {
@@ -36,7 +42,7 @@ public class Categorie {
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {

@@ -6,16 +6,17 @@ public class Product {
     private String description;
     private int prix;
     private String image;
-    //private Categorie categorie;
+    private int categorie;
     public Product() {
     }
 
-    public Product(int id, String nom, String description, int prix, String image) {
+    public Product(int id, String nom, String description, int prix, String image, int categorie) {
         this.id = id;
         this.nom = nom;
         this.description = description;
         this.prix = prix;
         this.image = image;
+        this.categorie = categorie;
     }
 
     public Product(String nom, String description, int prix) {
@@ -36,6 +37,15 @@ public class Product {
         this.nom = nom;
         this.prix = prix;
     }
+
+    public Product(String nom, String description, int prix, String image, int categorie) {
+        this.nom = nom;
+        this.description = description;
+        this.prix = prix;
+        this.image = image;
+        this.categorie = categorie;
+    }
+
 
     public String getImage() {
         return image;
@@ -77,6 +87,14 @@ public class Product {
         this.id = id;
     }
 
+    public int getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(int categorie) {
+        this.categorie = categorie;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -85,6 +103,7 @@ public class Product {
                 ", description='" + description + '\'' +
                 ", prix=" + prix +
                 ", image='" + image + '\'' +
+                ", categorie=" + categorie +
                 '}';
     }
 }
