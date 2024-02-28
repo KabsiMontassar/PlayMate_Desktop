@@ -1,6 +1,5 @@
 utils\MyDatabase.class
 controllers\PageTerrainController.class
-controllers\TerrainUIController.class
 controllers\TerrainController.class
 test\MainFX.class
 controllers\avisPropTController.class
