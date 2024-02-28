@@ -30,9 +30,11 @@ import java.util.Optional;
 import java.util.function.UnaryOperator;
 
 public class ProfileController {
+
     public AnchorPane profileRoot;
     public TextField Roleinput;
     public Text RoleLabel;
+    public AnchorPane imganchodid;
     @FXML
     private Button Btnback;
 
@@ -87,6 +89,9 @@ public class ProfileController {
 
     private User CurrentUser ;
     public void setData(User u) throws SQLException {
+        imganchodid.setVisible(false);
+        Roleinput.setVisible(false);
+        RoleLabel.setVisible(false);
         UserService us = new UserService();
         CurrentUser = us.getByEmail(u.getEmail());
 

@@ -127,53 +127,39 @@
             <Font size="15.0" />
          </font>
       </TextField>
-      <AnchorPane layoutX="38.0" layoutY="210.0" prefHeight="39.0" prefWidth="40.0"
-                  style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
-         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true"
-                    preserveRatio="true">
-            <Image url="@Images/profile.png"/>
+      <AnchorPane layoutX="38.0" layoutY="210.0" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
+         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/profile.png" />
          </ImageView>
       </AnchorPane>
-      <AnchorPane layoutX="38.0" layoutY="306.0" prefHeight="39.0" prefWidth="40.0"
-                  style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
-         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true"
-                    preserveRatio="true">
-            <Image url="@Images/padlock.png"/>
+      <AnchorPane layoutX="38.0" layoutY="306.0" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
+         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/padlock.png" />
          </ImageView>
       </AnchorPane>
-      <AnchorPane layoutX="38.0" layoutY="390.0" prefHeight="39.0" prefWidth="40.0"
-                  style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
-         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true"
-                    preserveRatio="true">
-            <Image url="@Images/telephone.png"/>
+      <AnchorPane layoutX="38.0" layoutY="390.0" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
+         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/telephone.png" />
          </ImageView>
       </AnchorPane>
-      <AnchorPane layoutX="38.0" layoutY="478.0" prefHeight="39.0" prefWidth="40.0"
-                  style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
-         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true"
-                    preserveRatio="true">
-            <Image url="@Images/building.png"/>
+      <AnchorPane fx:id="imganchodid" layoutX="38.0" layoutY="478.0" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
+         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/building.png" />
          </ImageView>
       </AnchorPane>
-      <AnchorPane layoutX="397.0" layoutY="210.0" prefHeight="39.0" prefWidth="40.0"
-                  style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
-         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true"
-                    preserveRatio="true">
-            <Image url="@Images/age-group.png"/>
+      <AnchorPane layoutX="397.0" layoutY="210.0" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
+         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/age-group.png" />
          </ImageView>
       </AnchorPane>
-      <AnchorPane layoutX="397.0" layoutY="297.0" prefHeight="39.0" prefWidth="40.0"
-                  style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
-         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true"
-                    preserveRatio="true">
-            <Image url="@Images/lock.png"/>
+      <AnchorPane layoutX="397.0" layoutY="297.0" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
+         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/lock.png" />
          </ImageView>
       </AnchorPane>
-      <AnchorPane layoutX="397.0" layoutY="390.0" prefHeight="39.0" prefWidth="40.0"
-                  style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
-         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="7.0" layoutY="8.0" pickOnBounds="true"
-                    preserveRatio="true">
-            <Image url="@Images/home.png"/>
+      <AnchorPane layoutX="397.0" layoutY="390.0" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
+         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="7.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@Images/home.png" />
          </ImageView>
       </AnchorPane>
    </AnchorPane>

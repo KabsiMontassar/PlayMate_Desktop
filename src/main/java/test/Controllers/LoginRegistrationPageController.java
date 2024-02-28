@@ -136,6 +136,7 @@ public class LoginRegistrationPageController {
         this.CurrentUser = us;
         Seconnecterfield1.setText(us.getEmail());
         SeconnecterPass1.setText(us.getPassword());
+
     }
 
     public void initialize() throws SQLException {
