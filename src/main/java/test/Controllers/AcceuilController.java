@@ -16,6 +16,8 @@ import java.sql.SQLException;
 public class AcceuilController {
 
     public AnchorPane Container;
+    public Button sername;
+    public AnchorPane notificationicon;
     @FXML
     private Button btnlogout;
 
