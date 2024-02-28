@@ -12,6 +12,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import models.Fournisseur;
+import models.Organisateur;
+import models.Roles;
 import models.User;
 import services.GestionUser.UserService;
 import test.MainFx;
@@ -28,6 +31,8 @@ import java.util.function.UnaryOperator;
 
 public class ProfileController {
     public AnchorPane profileRoot;
+    public TextField Roleinput;
+    public Text RoleLabel;
     @FXML
     private Button Btnback;
 
@@ -90,6 +95,20 @@ public class ProfileController {
         tdNomaffichage.setText(CurrentUser.getName());
         inputPassword.setText(CurrentUser.getPassword());
         inputCPassword.setText(CurrentUser.getPassword());
+        if(CurrentUser.getRole() == Roles.Organisateur) {
+            RoleLabel.setVisible(true);
+            Roleinput.setVisible(true);
+            Organisateur org = us.getOrganisateurbyid(CurrentUser.getId());
+            RoleLabel.setText("Organisation");
+            Roleinput.setText(org.getNom_Organisation());
+        }
+            if(CurrentUser.getRole() == Roles.Fournisseur){
+                RoleLabel.setVisible(true);
+                Roleinput.setVisible(true);
+                Fournisseur org = us.getFournisseurbyid(CurrentUser.getId());
+                RoleLabel.setText("Societe");
+                Roleinput.setText(org.getNom_Societe());
+            }
 
 
         InputAddress.setText(
@@ -191,10 +210,7 @@ public class ProfileController {
 
     }
 
-    @FXML
-    void SeeRoleElements(ActionEvent event) {
 
-    }
 
     @FXML
     void changerphoto(ActionEvent event) throws SQLException {
@@ -255,6 +271,17 @@ public class ProfileController {
                 InputAge.getText().isEmpty() ? 0 : Integer.parseInt(InputAge.getText())
 
         );
+
+        if(CurrentUser.getRole() == Roles.Fournisseur){
+            us.UpdateNom_Societe(CurrentUser.getId(),Roleinput.getText());
+        }
+        if(CurrentUser.getRole() == Roles.Organisateur){
+            us.UpdateNom_Organisation(CurrentUser.getId(),Roleinput.getText());
+        }
+
+
+
+
         us.update(UpdateUser);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Profil mis à jour avec succès\n");

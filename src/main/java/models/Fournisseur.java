@@ -16,7 +16,9 @@ public class Fournisseur extends User{
         super(id, Email, Password, Name, age, Phone, address, role, image);
         this.Nom_Societe = "";
     }
+    public Fournisseur() {
 
+    }
     public Fournisseur(String Email, String Password, String Name, int age, int Phone, Roles role) throws Exception {
         super(Email, Password, Name, age, Phone, role);
         this.Nom_Societe = "";

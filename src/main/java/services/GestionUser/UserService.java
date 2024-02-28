@@ -185,24 +185,53 @@ public class UserService implements IService<User> {
         ps.setString(6, t.getEmail());
         ps.executeUpdate();
     }
-    public void UpdateNom_Organisation(Organisateur t ) throws SQLException{
+    public void UpdateNom_Organisation(int id , String nom ) throws SQLException{
 
-        String query = "UPDATE Organisateur SET Nom_Organisation = ?  WHERE email = ?";
+        String query = "UPDATE Organisateur SET Nom_Organisation = ?  WHERE Organisateur_id  = ?";
         PreparedStatement ps = connection.prepareStatement(query);
-        ps.setString(1, t.getNom_Organisation());
-        ps.setString(2, t.getEmail());
+        ps.setString(1, nom);
+        ps.setInt(2, id);
         ps.executeUpdate();
+        System.out.println( ps);
     }
 
-    public void UpdateNom_Societe(Fournisseur t ) throws SQLException{
-
-        String query = "UPDATE fournisseur SET Nom_Sociéte = ?  WHERE email = ?";
-
-
+    public Organisateur getOrganisateurbyid(int id)throws SQLException{
+        Organisateur org = new Organisateur(); // Initialize user as null
+        String query = "SELECT * FROM organisateur WHERE Organisateur_id  = ?";
         PreparedStatement ps = connection.prepareStatement(query);
-        ps.setString(1, t.getNom_Societe());
+        ps.setInt(1, id);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            org.setId(rs.getInt("Organisateur_id"));
+            org.setNom_Organisation(rs.getString("Nom_Organisation"));
 
-        ps.setString(2, t.getEmail());
+        }
+        return org;
+    }
+    public Fournisseur getFournisseurbyid(int id)throws SQLException{
+        Fournisseur four = new Fournisseur(); // Initialize user as null
+        String query = "SELECT * FROM fournisseur WHERE Fournisseur_id = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, id);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            four.setId(rs.getInt("Fournisseur_id"));
+            four.setNom_Societe(rs.getString("Nom_Sociéte"));
+
+        }
+        return four;
+    }
+
+    public void UpdateNom_Societe(int id , String nom ) throws SQLException{
+
+        String query = "UPDATE fournisseur SET Nom_Sociéte = ?  WHERE Fournisseur_id  = ?";
+
+        System.out.println(nom);
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setString(1, nom);
+        ps.setInt(2,id);
+
+        System.out.println( id + nom);
         ps.executeUpdate();
     }
 

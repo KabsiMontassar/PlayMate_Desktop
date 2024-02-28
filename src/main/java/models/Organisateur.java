@@ -17,11 +17,15 @@ public class Organisateur extends User{
         this.Nom_Organisation = nom_Organisateur;
     }
 
+    public Organisateur() {
+
+    }
+
     public String getNom_Organisation() {
         return Nom_Organisation;
     }
 
-    public void setNom_Organisateur(String nom_Organisateur) {
+    public void setNom_Organisation(String nom_Organisateur) {
         this.Nom_Organisation = nom_Organisateur;
     }
 

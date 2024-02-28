@@ -20,7 +20,7 @@ public class MyDatabase {
             System.err.println(e.getMessage());
         }
     }
-
+//
     public static MyDatabase getInstance() {
         if(instance == null)
             instance = new MyDatabase();
