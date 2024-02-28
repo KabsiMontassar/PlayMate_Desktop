@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.ArrayList;
 //*******************************************************************************************
 public class AvisService implements ITerrain<AvisTerrain> {
-    private Connection connection;
+    private Connection connection; //Déclaration d'une variable de connexion à la base de données.
     //*******************************************************************************************
     public AvisService() {
-        connection = MyDatabase.getInstance().getConnection();
+        connection = MyDatabase.getInstance().getConnection();//Constructeur qui initialise la connexion à la base de données en utilisant MyDatabase.
     }
     //*******************************************************************************************
     public void add(AvisTerrain t) throws SQLException {

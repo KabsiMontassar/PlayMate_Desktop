@@ -67,61 +67,65 @@ public class TerrainController {
     //*******************************************************************************************
     private String imagePath;
     private String videoPath;
-    private TerrainService ts = new TerrainService();
+    private TerrainService ts = new TerrainService(); //instance classe service
     private List<Terrain> pageTerrain;
     private Terrain terrainActuel;
     //*******************************************************************************************
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        showTerrains();
-        cbGradin.setSelected(false);
-        cbVestiaire.setSelected(false);
-        cbStatus.setSelected(false);
-        pageTerrain = new ArrayList<>();}
+        showTerrains(); // Affiche la liste des terrains
+        cbGradin.setSelected(false); // Décoche la case à cocher Gradin
+        cbVestiaire.setSelected(false); // Décoche la case à cocher Vestiaire
+        cbStatus.setSelected(false); // Décoche la case à cocher Status
+        pageTerrain = new ArrayList<>(); // Initialise la liste des terrains affichés
+    }
     //*******************************************************************************************
     public void setModifierButtonVisibility(boolean visible) {
-        btupdate.setVisible(visible); // Modifier 'btnsave' pour correspondre à l'ID de votre bouton "Modifier"
+        btupdate.setVisible(visible); // Rend visible ou invisible le bouton de modification
     }
     //*******************************************************************************************
     public void setajouterButtonVisibility(boolean visible) {
-        btnsave.setVisible(visible); // Modifier 'btnsave' pour correspondre à l'ID de votre bouton "Modifier"
+        btnsave.setVisible(visible); // Rend visible ou invisible le bouton d'ajout
     }
     //*******************************************************************************************
     private void showTerrains() {
-        List<Terrain> terrains = ts.getAllTerrains();
+        List<Terrain> terrains = ts.getAllTerrains(); // Récupère la liste des terrains depuis le service
     }
     //*******************************************************************************************
     @FXML
     void clearField() {
-        tfnom.setText("");
-        tfaddress.setText("");
-        cbGradin.setSelected(false);
-        cbVestiaire.setSelected(false);
-        cbStatus.setSelected(false);
-        tfprix.setText("");
-        tfduree.setText("");
-        tfemplacement.setText("");
-        img.setImage(null);
-        vid.setMediaPlayer(null);
-        imagePath = null;
-        videoPath = null;}
+        tfnom.setText(""); // Efface le contenu du champ nom
+        tfaddress.setText(""); // Efface le contenu du champ address
+        cbGradin.setSelected(false); // Décoche la case à cocher Gradin
+        cbVestiaire.setSelected(false); // Décoche la case à cocher Vestiaire
+        cbStatus.setSelected(false); // Décoche la case à cocher Status
+        tfprix.setText(""); // Efface le contenu du champ prix
+        tfduree.setText(""); // Efface le contenu du champ duree
+        tfemplacement.setText(""); // Efface le contenu du champ emplacement
+        img.setImage(null); // Efface l'image affichée
+        vid.setMediaPlayer(null); // Arrête la lecture de la vidéo
+        imagePath = null; // Réinitialise le chemin de l'image
+        videoPath = null; // Réinitialise le chemin de la vidéo
+        }
     //*******************************************************************************************
     @FXML
     void createTerrain(ActionEvent event) throws SQLException, IOException {
         if (videoPath == null) {
             videoPath = "";}
-        if (isValidTerrain()) {
+        if (isValidTerrain()) //Vérifier si les données du terrain sont valides
+            {
             if (imagePath == null) {
                 showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Veuillez sélectionner une image.");
                 return; // Arrêter l'exécution si l'image n'est pas sélectionnée
             }
             // Vérifier si le nom du terrain existe déjà dans la liste
-            String nomTerrain = tfnom.getText().trim();
-            boolean nomExiste = ts.getAllTerrains().stream().anyMatch(terrain -> terrain.getNomTerrain().equalsIgnoreCase(nomTerrain));
+            String nomTerrain = tfnom.getText(); //Récupérer le nom du terrain
+                boolean nomExiste = ts.getAllTerrains().stream().anyMatch(terrain -> terrain.getNomTerrain().equalsIgnoreCase(nomTerrain));
             if (nomExiste) {
                 showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Le nom du terrain existe déjà.");
             } else {
-                float prixValue = Float.parseFloat(tfprix.getText());
+                float prixValue = Float.parseFloat(tfprix.getText()); //Convertir le prix en float
+                // Créer un nouveau terrain avec les données saisies
                 Terrain terrain = new Terrain(tfaddress.getText(), cbGradin.isSelected(), cbVestiaire.isSelected(), cbStatus.isSelected(), tfnom.getText(), prixValue, Integer.parseInt(tfduree.getText()), tfemplacement.getText(), imagePath, videoPath);
                 ts.add(terrain);
                 showTerrains(); // Mettre à jour l'affichage après avoir ajouté un nouveau terrain
@@ -147,12 +151,14 @@ public class TerrainController {
             return false;}
         return true;}
     //*******************************************************************************************
+    // Affiche une boîte de dialogue avec un message d'alerte
     private void showAlert(Alert.AlertType alertType, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();}
+        Alert alert = new Alert(alertType); // Crée une nouvelle boîte de dialogue de type alerte
+        alert.setTitle(title); // Définit le titre de la boîte de dialogue
+        alert.setHeaderText(null); // Définit le texte d'en-tête de la boîte de dialogue à null
+        alert.setContentText(message); // Définit le message de la boîte de dialogue
+        alert.showAndWait(); // Affiche la boîte de dialogue et attend la réponse de l'utilisateur
+    }
     //*******************************************************************************************
     @FXML
     void updateTerrain(ActionEvent event) throws IOException {

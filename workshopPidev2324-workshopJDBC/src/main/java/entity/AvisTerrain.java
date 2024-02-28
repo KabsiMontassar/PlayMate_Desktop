@@ -5,7 +5,7 @@ public class AvisTerrain {
     private int note;
     private String commentaire;
     private String date_avis;
-    private Terrain terrain; //Jointure
+    private Terrain terrain; //Terrain associé à l'avis (jointure) //chaque avis lié à un terrain par fk 'terrain_id'.
     //*******************************************************************************************
     public AvisTerrain(int terrain_id, String commentaire, int note, String date_avis) {
         this.terrain_id = terrain_id;

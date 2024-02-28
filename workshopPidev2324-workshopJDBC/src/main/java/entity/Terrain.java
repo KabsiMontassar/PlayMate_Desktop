@@ -19,7 +19,7 @@ public class Terrain {
     private String videoPath;
     private String imagePath;
     //*******************************************************************************************
-    private List<AvisTerrain> avisList; //Jointure
+    private List<AvisTerrain> avisList; //référence à une liste d'objets de type AvisTerrain (jointure) '*-1'
     public List<AvisTerrain> getAvisList() {
         return avisList;
     }

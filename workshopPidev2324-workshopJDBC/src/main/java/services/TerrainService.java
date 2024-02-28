@@ -10,11 +10,11 @@ import java.util.Optional;
 
 public class TerrainService {
     private final Connection connection;
-
+    //*******************************************************************************************
     public TerrainService() {
         connection = MyDatabase.getInstance().getConnection();
     }
-
+    //*******************************************************************************************
     public void add(Terrain t) throws SQLException {
         String query = "INSERT INTO terrain (address, gradin, vestiaire, status, nomTerrain, prix, duree, gouvernorat, image, video) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
@@ -31,12 +31,8 @@ public class TerrainService {
             ps.executeUpdate();
             try (ResultSet rs = ps.getGeneratedKeys()) {
                 if (rs.next()) {
-                    t.setId(rs.getInt(1));
-                }
-            }
-        }
-    }
-
+                    t.setId(rs.getInt(1));}}}}
+    //*******************************************************************************************
     public void update(Terrain t) {
         String query = "UPDATE `terrain` SET  `address` = ?, `gradin` = ?, `vestiaire` = ?, `status` = ?, `nomTerrain` = ?, `duree` = ?, `prix` = ?, `gouvernorat` = ?, `image` = ?,  `video` = ? WHERE `id` = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
@@ -54,18 +50,14 @@ public class TerrainService {
             ps.executeUpdate();
         } catch (SQLException e) {
             // Gérer l'exception de manière appropriée
-            e.printStackTrace();
-        }
-    }
-
+            e.printStackTrace();}}
+    //*******************************************************************************************
     public void delete(int id) throws SQLException {
         String query = "DELETE FROM terrain WHERE id = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setInt(1, id);
-            ps.executeUpdate();
-        }
-    }
-
+            ps.executeUpdate();}}
+    //*******************************************************************************************
     public List<Terrain> getAllTerrains() {
         List<Terrain> terrains = new ArrayList<>();
         String query = "SELECT * FROM terrain";
@@ -73,15 +65,12 @@ public class TerrainService {
              ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 Terrain terrain = createTerrainFromResultSet(rs);
-                terrains.add(terrain);
-            }
+                terrains.add(terrain);}
         } catch (SQLException e) {
             // Gérer l'exception de manière appropriée
             e.printStackTrace();
-        }
-        return terrains;
-    }
-
+        }return terrains;}
+    //*******************************************************************************************
     public Optional<Terrain> getTerrainByNom(String nom) {
         String query = "SELECT * FROM terrain WHERE nomTerrain = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
@@ -89,15 +78,12 @@ public class TerrainService {
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return Optional.of(createTerrainFromResultSet(rs));
-                }
-            }
+                }}
         } catch (SQLException e) {
             // Gérer l'exception de manière appropriée
-            e.printStackTrace();
-        }
-        return Optional.empty();
-    }
-
+            e.printStackTrace();}
+        return Optional.empty();}
+    //*******************************************************************************************
     public Optional<Terrain> getTerrainById(int id) {
         String query = "SELECT * FROM terrain WHERE id = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
@@ -105,15 +91,13 @@ public class TerrainService {
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return Optional.of(createTerrainFromResultSet(rs));
-                }
-            }
+                }}
         } catch (SQLException e) {
             // Gérer l'exception de manière appropriée
             e.printStackTrace();
         }
-        return Optional.empty();
-    }
-
+        return Optional.empty();}
+    //*******************************************************************************************
     private Terrain createTerrainFromResultSet(ResultSet rs) throws SQLException {
         Terrain terrain = new Terrain();
         terrain.setId(rs.getInt("id"));
@@ -128,5 +112,4 @@ public class TerrainService {
         terrain.setImage(rs.getString("image"));
         terrain.setVideo(rs.getString("video"));
         return terrain;
-    }
-}
+    }}

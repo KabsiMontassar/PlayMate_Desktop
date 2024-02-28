@@ -74,50 +74,78 @@ public class PageTerrainController  {
     private Text nom2;
     @FXML
     private Text nom3;
-    int i= 0;
-    TerrainService Ts = new TerrainService();
+    int i = 0; // Initialisation d'un compteur pour la pagination
+    TerrainService Ts = new TerrainService(); //Instanciation du service TerrainService
     //*******************************************************************
-    public void initialize() {actualise(Ts.getAllTerrains());}
+    public void initialize() {
+        actualise(Ts.getAllTerrains());//Appel de la méthode actualise avec la liste de tous les terrains
+    }
     //*******************************************************************
-    void actualise(List<Terrain> terrains){
-        if(terrains.size()-1-i*3>0){btnsuivant.setVisible(true);}
-        if(terrains.size()-1-i*3 <= 0){btnsuivant.setVisible(false);}
-        if(i > 0){btnretour.setVisible(true);}
-        if(i == 0){btnretour.setVisible(false);}
-        if(!terrains.isEmpty()){
-            if(terrains.size()-1-i*3>=0){
+    void actualise(List<Terrain> terrains) {
+        // Affichage ou masquage du bouton suivant en fonction du nombre de terrains restants à afficher
+        if (terrains.size() - 1 - i * 3 > 0) {
+            btnsuivant.setVisible(true);
+        }
+        if (terrains.size() - 1 - i * 3 <= 0) {
+            btnsuivant.setVisible(false);
+        }
+        // Affichage ou masquage du bouton retour en fonction de la position dans la pagination
+        if (i > 0) {
+            btnretour.setVisible(true);
+        }
+        if (i == 0) {
+            btnretour.setVisible(false);
+        }
+        if (!terrains.isEmpty()) {
+            // Affichage des informations du premier terrain dans BOX1
+            if (terrains.size() - 1 - i * 3 >= 0) {
                 BOX1.setVisible(true);
-                nom1.setText(terrains.get(i*3).getNomTerrain());
-                address1.setText(terrains.get(i*3).getAddress());
-                Img1.setImage(new Image(terrains.get(i*3).getImage()));}
-            else{BOX1.setVisible(false);}
-            if(terrains.size()-2-i*3>=0){
+                nom1.setText(terrains.get(i * 3).getNomTerrain());
+                address1.setText(terrains.get(i * 3).getAddress());
+                Img1.setImage(new Image(terrains.get(i * 3).getImage()));
+            } else {
+                BOX1.setVisible(false);
+            }
+            // Affichage des informations du deuxième terrain dans BOX2
+            if (terrains.size() - 2 - i * 3 >= 0) {
                 BOX2.setVisible(true);
-                nom2.setText(terrains.get(1+i*3).getNomTerrain());
-                address2.setText(terrains.get(1+i*3).getAddress());
-                Img2.setImage(new Image(terrains.get(1+i*3).getImage()));}
-            else{
-                BOX2.setVisible(false);}
-            if(terrains.size()-3-i*3>=0){
+                nom2.setText(terrains.get(1 + i * 3).getNomTerrain());
+                address2.setText(terrains.get(1 + i * 3).getAddress());
+                Img2.setImage(new Image(terrains.get(1 + i * 3).getImage()));
+            } else {
+                BOX2.setVisible(false);
+            }
+            // Affichage des informations du troisième terrain dans BOX3
+            if (terrains.size() - 3 - i * 3 >= 0) {
                 BOX3.setVisible(true);
-                nom3.setText(terrains.get(2+i*3).getNomTerrain());
-                address3.setText(terrains.get(2+i*3).getAddress());
-                Img3.setImage(new Image(terrains.get(2+i*3).getImage()));
-            }else{BOX3.setVisible(false);}}else{
+                nom3.setText(terrains.get(2 + i * 3).getNomTerrain());
+                address3.setText(terrains.get(2 + i * 3).getAddress());
+                Img3.setImage(new Image(terrains.get(2 + i * 3).getImage()));
+            } else {
+                BOX3.setVisible(false);
+            }
+        } else {
+            // Si la liste de terrains est vide, masquer tous les BOX
             BOX1.setVisible(false);
             BOX2.setVisible(false);
-            BOX3.setVisible(false);}
-        btnsuivant.setVisible(terrains.size()-3*i > 3);}
+            BOX3.setVisible(false);
+        }
+        // Affichage ou masquage du bouton suivant en fonction du nombre de terrains restants à afficher
+        btnsuivant.setVisible(terrains.size() - 3 * i > 3);
+    }
     //*******************************************************************************************
     @FXML
-    void retour(ActionEvent event){
-        i -=1;
-        actualise(Ts.getAllTerrains());}
+    void retour(ActionEvent event) {
+        i -= 1; // Décrémentation du compteur pour afficher les terrains précédents
+        actualise(Ts.getAllTerrains()); // Appel de la méthode actualise avec la liste de tous les terrains
+    }
     //*******************************************************************************************
     @FXML
-    void suivant(ActionEvent event){
-        i +=1;
-        actualise(Ts.getAllTerrains());}
+    void suivant(ActionEvent event) {
+        i += 1; // Incrémentation du compteur pour afficher les terrains suivants
+        actualise(Ts.getAllTerrains()); // Appel de la méthode actualise avec la liste de tous les terrains
+    }
+
     //*******************************************************************************************
     @FXML
     void Ajout(ActionEvent event) throws IOException {
