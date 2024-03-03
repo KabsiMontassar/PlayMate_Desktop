@@ -69,7 +69,7 @@
 ////                        .batches()
 ////                        .send(
 ////                                SendSmsBatchTextRequest.builder()
-////                                        .setTo(Collections.singletonList(recipientPhoneNumber))
+////            946  528                            .setTo(Collections.singletonList(recipientPhoneNumber))
 ////                                        .setBody(messageBody)
 ////                                        .setFrom(senderPhoneNumber)
 ////                                        .build());

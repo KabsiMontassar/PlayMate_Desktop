@@ -65,7 +65,7 @@ public class UserService implements IService<User> {
 
 
     public void addJoueur(Joueur J ) throws SQLException{
-        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified ) VALUES (?,?,?,?,?,?,?, ?, ?, ?)";
+        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
         PreparedStatement psUser = connection.prepareStatement(QueryToUser);
         psUser.setString(1, J.getEmail());
         psUser.setString(2, J.getPassword());
@@ -77,6 +77,7 @@ public class UserService implements IService<User> {
         psUser.setString(8,J.getDate_de_Creation());
         psUser.setString(9,J.getVerificationCode());
         psUser.setBoolean(10,J.getVerified());
+        psUser.setString(11,"");
         
 
 
@@ -89,7 +90,7 @@ public class UserService implements IService<User> {
         psJoueur.executeUpdate();
     }
     public void addFournisseur(Fournisseur F) throws SQLException{
-        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified ) VALUES (?,?,?,?,?,?,?, ?, ?, ?)";
+        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
         PreparedStatement psUser = connection.prepareStatement(QueryToUser);
         psUser.setString(1, F.getEmail());
         psUser.setString(2, F.getPassword());
@@ -101,6 +102,7 @@ public class UserService implements IService<User> {
         psUser.setString(8,F.getDate_de_Creation());
         psUser.setString(9,F.getVerificationCode());
         psUser.setBoolean(10,F.getVerified());
+        psUser.setString(11,"");
         psUser.executeUpdate();
         String QueryToFournisseur = "INSERT INTO fournisseur (Fournisseur_id , Nom_Sociéte ) VALUES (?,?)";
         int id = getByEmail(F.getEmail()).getId();
@@ -111,7 +113,7 @@ public class UserService implements IService<User> {
         psFournisseur.executeUpdate();
     }
     public void addOrganisateur(Organisateur O) throws SQLException{
-        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified ) VALUES (?,?,?,?,?,?,?, ?, ?, ?)";
+        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified ,address) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
         PreparedStatement psUser = connection.prepareStatement(QueryToUser);
         psUser.setString(1, O.getEmail());
         psUser.setString(2, O.getPassword());
@@ -123,6 +125,7 @@ public class UserService implements IService<User> {
         psUser.setString(8,O.getDate_de_Creation());
         psUser.setString(9,O.getVerificationCode());
         psUser.setBoolean(10,O.getVerified());
+        psUser.setString(11,"");
         psUser.executeUpdate();
         String QueryToOrganisateur = "INSERT INTO organisateur (Organisateur_id , Nom_Organisation ) VALUES (?,?)";
         int id = getByEmail(O.getEmail()).getId();
@@ -133,7 +136,7 @@ public class UserService implements IService<User> {
         psOrganisateur.executeUpdate();
     }
     public void addProprietairedeTerarin(Proprietaire_de_terrain P) throws SQLException{
-        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified ) VALUES (?,?,?,?,?,?,?, ?, ?, ?)";
+        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
         PreparedStatement psUser = connection.prepareStatement(QueryToUser);
         psUser.setString(1, P.getEmail());
         psUser.setString(2, P.getPassword());
@@ -145,6 +148,7 @@ public class UserService implements IService<User> {
         psUser.setString(8,P.getDate_de_Creation());
         psUser.setString(9,P.getVerificationCode());
         psUser.setBoolean(10,P.getVerified());
+        psUser.setString(11,"");
         psUser.executeUpdate();
         String QueryToProprietairedeTerarin = "INSERT INTO proprietaire_de_terrain (Proprietaire_de_terrain_id ) VALUES (?)";
         int id = getByEmail(P.getEmail()).getId();
@@ -182,14 +186,7 @@ public class UserService implements IService<User> {
         ps.setString(6, t.getEmail());
         ps.executeUpdate();
     }
-    public void updateAddress(String addre , String e) throws SQLException{
 
-        String query = "UPDATE user SET  address = ?   WHERE email = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setString(1, addre);
-        ps.setString(2, e);
-        ps.executeUpdate();
-    }
     public void UpdateNom_Organisation(int id , String nom ) throws SQLException{
 
         String query = "UPDATE Organisateur SET Nom_Organisation = ?  WHERE Organisateur_id  = ?";

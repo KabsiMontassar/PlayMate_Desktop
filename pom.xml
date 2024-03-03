@@ -28,6 +28,12 @@
             <groupId>javax.mail</groupId>
             <artifactId>javax.mail-api</artifactId>
             <version>1.6.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.mail</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- Thanks for using https://jar-download.com -->
 
@@ -42,16 +48,32 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>21.0.2</version>
+            <version>17.0.6</version>
         </dependency>
 
 
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.17.0-rc1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.17.0-rc1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.17.0-rc1</version>
+        </dependency>
 
 
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>21.0.2</version>
+            <version>17.0.6</version>
         </dependency>
 
         <dependency>
@@ -62,7 +84,7 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
-            <version>21.0.2</version>
+            <version>17.0.6</version>
         </dependency>
 
         <dependency>
@@ -76,10 +98,26 @@
             <version>17.0.6</version>
         </dependency>
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-web</artifactId>
+            <version> 17.0.6 </version>
+        </dependency>
+        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-media</artifactId>
             <version>17.0.6</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.auth</groupId>
+            <artifactId>google-auth-library-oauth2-http</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
         <!-- Google API Client -->
 
         <!-- https://mvnrepository.com/artifact/com.gluonhq/maps -->
@@ -183,7 +221,7 @@
         <dependency>
             <groupId>com.mailjet</groupId>
             <artifactId>mailjet-client</artifactId>
-            <version>4.2.0</version>
+            <version>5.0.0</version>
         </dependency>
 
     </dependencies>

@@ -31,12 +31,13 @@ public class WebServer extends NanoHTTPD {
 
                 String lastString = uri.substring(uri.lastIndexOf("/") + 1);
 
-                ProfileController profileController = new ProfileController();
-                try {
-                    profileController.setAddress(lastString);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
+//                ProfileController profileController = new ProfileController();
+//                try {
+//                    profileController.setAddress(lastString);
+//                } catch (SQLException e) {
+//                    throw new RuntimeException(e);
+//                }
+
 
 
                 // Respond with a success message

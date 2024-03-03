@@ -1,5 +1,7 @@
 package test.Controllers;
 
+import javafx.application.Platform;
+import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,17 +12,26 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.Fournisseur;
 import models.Organisateur;
 import models.Roles;
 import models.User;
+import netscape.javascript.JSObject;
+import org.json.JSONObject;
 import services.GestionUser.UserService;
+import test.Controllers.Common.CAlert;
 import test.MainFx;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -40,6 +51,11 @@ public class ProfileController {
     public AnchorPane imganchodid;
 
     public Button btnlocation;
+    public WebView mavView;
+    public Button confirmer;
+    public TextField Inputaddress;
+    public Button retourner;
+    public AnchorPane mappane;
     @FXML
     private Button Btnback;
 
@@ -98,10 +114,8 @@ private String FromMapAddress;
 
    UserService us = new UserService();
     public void setAddress(String lastString) throws SQLException {
+        InputAddress.setText(lastString);
 
-  us.updateAddress(lastString , CurrentUser.getEmail());
-         us.getByEmail(CurrentUser.getEmail());
-        setData(CurrentUser);
     }
 
 
@@ -144,7 +158,7 @@ private String FromMapAddress;
 
 
         InputAddress.setText(
-                CurrentUser.getEmail().isEmpty() ? "" : CurrentUser.getAddress()
+                CurrentUser.getEmail() == null ? "" : CurrentUser.getAddress()
         );
         InputAge.setText(
                 CurrentUser.getAge() == 0 ? "" : String.valueOf(CurrentUser.getAge())
@@ -169,6 +183,16 @@ private String FromMapAddress;
 
     public void initialize() throws SQLException {
 
+        WebEngine webEngine = mavView.getEngine();
+        webEngine.load(Objects.requireNonNull(getClass().getResource("/test/googlemaps.html")).toExternalForm());
+
+        // Enable JavaScript communication
+        webEngine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == Worker.State.SUCCEEDED) {
+                JSObject window = (JSObject) webEngine.executeScript("window");
+                window.setMember("java", this);
+            }
+        });
 
 
         UnaryOperator<TextFormatter.Change> filterPhone = change -> {
@@ -193,6 +217,61 @@ private String FromMapAddress;
 
         InputPhone.setTextFormatter(textFormatter);
         InputAge.setTextFormatter(textFormatter2);
+
+
+
+
+
+    }
+
+    public void handleSelectedLocation(double latitude, double longitude) {
+        Platform.runLater(() -> {
+            System.out.println("Selected Location: " + latitude + ", " + longitude);
+            String placeName = getPlaceName(latitude, longitude);
+            System.out.println("Selected Montasar: " + latitude + ", " + longitude);
+
+            String locationInfo = "";
+            if (placeName != null && !placeName.isEmpty()) {
+                locationInfo += placeName + " ";
+            }
+            String address = locationInfo.substring(locationInfo.indexOf(' ')+1).trim();
+
+            Inputaddress.setText(address);
+        });
+    }
+    private String getPlaceName(double latitude, double longitude) {
+        String apiKey = "AIzaSyBKbAQafF9CzI3D1HJkRgwxWywnFK8oSgM";
+        String fullAddress = null;
+
+        try {
+            String apiUrl = "https://maps.googleapis.com/maps/api/geocode/json?" +
+                    "latlng=" + latitude + "," + longitude +
+                    "&key=" + apiKey;
+
+            URL url = new URL(apiUrl);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setRequestMethod("GET");
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            StringBuilder response = new StringBuilder();
+            String line;
+
+            while ((line = in.readLine()) != null) {
+                response.append(line);
+            }
+
+            in.close();
+
+            JSONObject jsonResponse = new JSONObject(response.toString());
+            if (jsonResponse.has("results") && !jsonResponse.getJSONArray("results").isEmpty()) {
+                JSONObject result = jsonResponse.getJSONArray("results").getJSONObject(0);
+                fullAddress = result.getString("formatted_address");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return fullAddress;
     }
     public boolean showConfirmationDialog(String message) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -294,6 +373,7 @@ private String FromMapAddress;
         UserService us = new UserService();
         User UpdateUser = new User();
 
+
         UpdateUser.setAddress(InputAddress.getText());
         UpdateUser.setPhone(
                 InputPhone.getText().isEmpty() ? 0 : Integer.parseInt(InputPhone.getText())
@@ -311,8 +391,7 @@ private String FromMapAddress;
         if(CurrentUser.getRole() == Roles.Organisateur){
             us.UpdateNom_Organisation(CurrentUser.getId(),Roleinput.getText());
         }
-
-
+UpdateUser.setEmail(CurrentUser.getEmail());
 
 
         us.update(UpdateUser);
@@ -354,29 +433,24 @@ private String FromMapAddress;
     }
 
 
-    public void locationsetter(ActionEvent mouseEvent) {
-
-        try {
-            // Open the default web browser
-            java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://localhost:8080/tunisia_map.html/"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    public void locationsetter(ActionEvent mouseEvent) throws IOException {
+       mappane.setVisible(true);
     }
 
 
+    public void retourner(ActionEvent actionEvent) {
+        mappane.setVisible(false);
+        Inputaddress.setText("");
+    }
+    CAlert c = new CAlert();
+    public void confirmer(ActionEvent actionEvent) {
+        if (!Inputaddress.getText().contains("Tunisia")) {
+            c.generateAlert("WARNING", "Address invalid");
+            return;
+        }
 
+        InputAddress.setText(Inputaddress.getText());
+        mappane.setVisible(false);
 
-
-
-
-
-
-
-
-
-
-
-
+    }
 }

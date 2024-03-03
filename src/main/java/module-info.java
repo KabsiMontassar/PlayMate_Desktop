@@ -10,10 +10,10 @@ module test {
     requires mailjet.client;
    // requires com.mailjet.api;
     requires javax.mail.api;
-    requires com.google.api.client;
-    requires com.google.api.client.json.gson;
-    requires google.api.services.gmail.v1.rev110;
-    requires google.api.client;
+    //requires com.google.api.client;
+    //requires com.google.api.client.json.gson;
+   // requires google.api.services.gmail.v1.rev110;
+  //  requires google.api.client;
     requires org.apache.commons.codec;
     requires javafx.web;
     requires com.gluonhq.maps;
@@ -21,6 +21,14 @@ module test {
 
     requires java.desktop;
     requires nanohttpd;
+    requires org.json;
+    requires jdk.jsobject;
+    requires java.net.http;
+    requires com.google.auth.oauth2;
+   // requires sendgrid.java;
+   // requires java.http.client;
+    requires google.api.services.gmail.v1.rev110;
+    // requires java.http.client;
     opens test to javafx.fxml;
     exports test;
     exports services.GestionUser;

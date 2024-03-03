@@ -19,3 +19,4 @@ test\Controllers\apropos.class
 models\Organisateur.class
 models\Fournisseur.class
 models\Joueur.class
+services\ValidPhoneNumber.class

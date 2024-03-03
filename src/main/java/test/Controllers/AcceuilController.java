@@ -21,6 +21,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AcceuilController {
+    public Button retourbtn;
+    public Button nextbtn;
     private User CurrentUser ;
     public AnchorPane Container;
     public Button sername;
@@ -40,33 +42,51 @@ public class AcceuilController {
     private int currentIndex = 0;
 
     public void initialize() throws IOException {
-        // Initialisation de la première page
-        loadPage(elements.get(currentIndex));
 
-        // Changement de page toutes les 5 secondes
-        javafx.animation.Timeline timeline = new javafx.animation.Timeline(
-                new javafx.animation.KeyFrame(Duration.seconds(5), event -> {
-                    currentIndex = (currentIndex + 1) % elements.size();
-                    try {
-                        loadPage(elements.get(currentIndex));
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                })
-        );
-        timeline.setCycleCount(javafx.animation.Animation.INDEFINITE);
-        timeline.play();
-    }
-
-    private void loadPage(String fxmlFileName) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource(fxmlFileName));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("reservezMaintenant.fxml"));
         AnchorPane root = loader.load();
         root.setStyle("-fx-background-color: white;");
-
-
         AccueilStuff.getChildren().setAll(root);
 
+
+    }
+
+
+
+
+
+    @FXML
+    void loadnextPage(ActionEvent actionEvent) throws IOException {
+        if(currentIndex < 2){
+            currentIndex +=1 ;
+        }else{
+            currentIndex = 0;
+        }
+
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource(elements.get(currentIndex)));
+        AnchorPane root = loader.load();
+        System.out.println(elements.get(((currentIndex+1)+3)%3));
+        root.setStyle("-fx-background-color: white;");
+        AccueilStuff.getChildren().setAll(root);
         // Animation de transition
+        TranslateTransition transition = new TranslateTransition(Duration.seconds(1), root);
+        transition.setFromX(600);
+        transition.setToX(0);
+        transition.play();
+
+    }
+    @FXML
+    void loadPreviousPage(ActionEvent actionEvent) throws IOException {
+        if(currentIndex > 0){
+            currentIndex -=1 ;
+        }else{
+            currentIndex = 2;
+        }
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource(elements.get(currentIndex)));
+        AnchorPane root = loader.load();
+        System.out.println(elements.get(((currentIndex-1)+3)%3));
+        root.setStyle("-fx-background-color: white;");
+        AccueilStuff.getChildren().setAll(root);
         TranslateTransition transition = new TranslateTransition(Duration.seconds(1), root);
         transition.setFromX(600);
         transition.setToX(0);
@@ -126,5 +146,6 @@ public class AcceuilController {
             throw new RuntimeException(e);
         }
     }
+
 
 }
