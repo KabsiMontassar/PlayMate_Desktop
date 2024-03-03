@@ -7,7 +7,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import models.User;
-import services.GestionUser.SMSAPI;
 import services.GestionUser.UserService;
 import test.Controllers.Common.CAlert;
 
@@ -84,8 +83,8 @@ public class   VerificationCodeController {
     void renvoyerCode(ActionEvent event) throws Exception {
         if(count < 5){
             count++;
-            SMSAPI sms = new SMSAPI();
-            sms.run(String.valueOf(u.getPhone()), u.getVerificationCode());
+          //  SMSAPI sms = new SMSAPI();
+           // sms.run(String.valueOf(u.getPhone()), u.getVerificationCode());
         }else{
             cAlert.generateAlert("WARNING","Vous avez atteint le nombre maximal de tentatives");
         }
@@ -193,9 +192,9 @@ public class   VerificationCodeController {
             napasrecutext.setVisible(true);
             btnrenvoyer.setVisible(true);
             verifierbtn.setVisible(true);
-            SMSAPI sms = new SMSAPI();
+           // SMSAPI sms = new SMSAPI();
 
-            sms.run(String.valueOf(u.getPhone()), u.getVerificationCode());
+            //sms.run(String.valueOf(u.getPhone()), u.getVerificationCode());
 
 
     }

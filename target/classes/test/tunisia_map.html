@@ -1,0 +1,121 @@
+<html>
+<head>
+    <title>Tunisia Map</title>
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+<div id="map"></div>
+
+
+<script>
+    function initMap() {
+        var selectedAddress;
+        var tunisia = {lat: 34.81, lng: 9.63};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 7,
+            center: tunisia
+        });
+
+        var marker = new google.maps.Marker(); // Initialize marker
+
+        // Add click event listener to the map
+        map.addListener('click', function (event) {
+            var selectedLocation = event.latLng.toString().replace(/[()]/g, '');
+            const latlngStr = selectedLocation.split(",", 2);
+            const latlng = {
+                lat: parseFloat(latlngStr[0]),
+                lng: parseFloat(latlngStr[1]),
+            };
+
+            var apiKey = '65e239b8ee9e2549477722dbc5dbc30';
+            var url = 'https://geocode.maps.co/reverse?lat=' + latlng.lat + '&lon=' + latlng.lng + '&api_key=' + apiKey;
+
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json(); // assuming the response is JSON
+                })
+                .then(data => {
+                    // Handle the response data here
+                    selectedAddress = data["display_name"];
+                    if (data["address"] && data["address"]["country"] === "Tunisia") {
+                        // Marker and other actions for Tunisia
+                        marker.setPosition(latlng); // Set marker position
+                        marker.setMap(map); // Add marker to the map
+                    } else {
+                        // Handle address not in Tunisia
+                        alert("Selected address is not in Tunisia");
+                    }
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                });
+        });
+
+
+        async function translateAddress(address) {
+            const translationUrl = 'https://google-translate113.p.rapidapi.com/api/v1/translator/text';
+            const apiKey = 'c0a2b22995msh6ce47480e2079aap18244fjsn3bce8bed76a7';
+
+            const translationOptions = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-RapidAPI-Key': apiKey,
+                    'X-RapidAPI-Host': 'google-translate113.p.rapidapi.com'
+                },
+                body: new URLSearchParams({
+                    from: 'auto',
+                    to: 'en',
+                    text: address
+                })
+            };
+
+            const translationResponse = await fetch(translationUrl, translationOptions);
+            const translationData = await translationResponse.json();
+            if (translationData) {
+                return translationData.trans;
+            } else {
+                throw new Error('Translation failed');
+            }
+        }
+
+        // Add click event listener to the marker
+        marker.addListener('click', async function () {
+            try {
+                var confirmation = confirm('Is this the correct address?\n\n' + await translateAddress(selectedAddress));
+                if (confirmation) {
+                    // If confirmed, proceed with the action (e.g., send a POST request)
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState === 4 && this.status === 200) {
+                            // Handle the response from the server if needed
+                            console.log(this.responseText);
+                        }
+                    };
+                    var translatedAddress = await translateAddress(selectedAddress);
+                    xhttp.open("POST", "/tunisia_map.html/" + translatedAddress, true);
+                    xhttp.send();
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    }
+
+
+</script>
+
+<script  defer async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsXpzyt-aQYe_H7gV12XZs_3t_Y8V-50M&callback=initMap">
+</script>
+</body>
+</html>

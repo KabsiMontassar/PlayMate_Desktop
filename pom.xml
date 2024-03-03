@@ -16,6 +16,23 @@
 
     </properties>
     <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-gmail -->
+
+
+
+        <!-- Thanks for using https://jar-download.com -->
+
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>javax.mail-api</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <!-- Thanks for using https://jar-download.com -->
+
+
+
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
@@ -63,7 +80,21 @@
             <artifactId>javafx-media</artifactId>
             <version>17.0.6</version>
         </dependency>
+        <!-- Google API Client -->
 
+        <!-- https://mvnrepository.com/artifact/com.gluonhq/maps -->
+        <dependency>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>maps</artifactId>
+            <version>2.0.0-ea+6</version>
+        </dependency>
+
+        <!-- Gmail API -->
+        <dependency>
+            <groupId>com.google.api-client</groupId>
+            <artifactId>google-api-client</artifactId>
+            <version>1.32.1</version>
+        </dependency>
         <dependency>
             <groupId>com.dlsc.formsfx</groupId>
             <artifactId>formsfx-core</artifactId>
@@ -97,6 +128,12 @@
             <version>0.4.0</version>
         </dependency>
         <dependency>
+            <groupId>org.nanohttpd</groupId>
+            <artifactId>nanohttpd</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+        <dependency>
             <groupId>eu.hansolo</groupId>
             <artifactId>tilesfx</artifactId>
             <version>11.48</version>
@@ -106,6 +143,18 @@
                     <artifactId>*</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <!-- Thanks for using https://jar-download.com -->
+
+        <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-gmail</artifactId>
+            <version>v1-rev110-1.25.0</version>
         </dependency>
         <dependency>
             <groupId>com.github.almasb</groupId>
@@ -126,14 +175,19 @@
 
 
 
-
         <dependency>
             <groupId>com.sinch.sdk</groupId>
             <artifactId>sinch-sdk-java</artifactId>
             <version>0.0.2-alpha</version>
         </dependency>
+        <dependency>
+            <groupId>com.mailjet</groupId>
+            <artifactId>mailjet-client</artifactId>
+            <version>4.2.0</version>
+        </dependency>
 
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -144,6 +198,11 @@
                     <source>17</source>
                     <target>17</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>appengine-maven-plugin</artifactId>
+                <version>2.7.0</version>
             </plugin>
             <plugin>
                 <groupId>org.openjfx</groupId>

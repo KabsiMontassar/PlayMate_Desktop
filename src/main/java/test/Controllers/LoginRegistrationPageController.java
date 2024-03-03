@@ -353,6 +353,8 @@ public class LoginRegistrationPageController {
             AnchorPane root = loader.load();
 
 
+
+
             AcceuilController acceuilController = loader.getController();
 
 

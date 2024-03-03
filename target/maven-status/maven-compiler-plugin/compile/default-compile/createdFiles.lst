@@ -3,6 +3,8 @@ test\Controllers\AcceuilController.class
 services\GestionUser\UserService.class
 models\Proprietaire_de_terrain.class
 test\Controllers\Common\CAlert.class
+test\Controllers\ReservezMaintenant.class
+test\Controllers\Emailus.class
 test\MainFx.class
 test\Main.class
 utils\MyDatabase.class
@@ -13,6 +15,7 @@ test\Controllers\VerificationCodeController.class
 services\GestionUser\CodeCryptageGenerator.class
 services\GestionUser\IService.class
 test\Controllers\ProfileController.class
+test\Controllers\apropos.class
 models\Organisateur.class
 models\Fournisseur.class
 models\Joueur.class

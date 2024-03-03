@@ -26,6 +26,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.UnaryOperator;
 
@@ -34,7 +35,11 @@ public class ProfileController {
     public AnchorPane profileRoot;
     public TextField Roleinput;
     public Text RoleLabel;
+
+    public Text tdds ;
     public AnchorPane imganchodid;
+
+    public Button btnlocation;
     @FXML
     private Button Btnback;
 
@@ -88,18 +93,38 @@ public class ProfileController {
     private Text tfRoleAffichage;
 
     private User CurrentUser ;
+
+private String FromMapAddress;
+
+   UserService us = new UserService();
+    public void setAddress(String lastString) throws SQLException {
+
+  us.updateAddress(lastString , CurrentUser.getEmail());
+         us.getByEmail(CurrentUser.getEmail());
+        setData(CurrentUser);
+    }
+
+
+
+
     public void setData(User u) throws SQLException {
         imganchodid.setVisible(false);
         Roleinput.setVisible(false);
         RoleLabel.setVisible(false);
         UserService us = new UserService();
         CurrentUser = us.getByEmail(u.getEmail());
-
+        System.out.println(CurrentUser);
         tfRoleAffichage.setText(CurrentUser.getRole().toString());
         tfDatedecreation.setText(CurrentUser.getDate_de_Creation());
         tdNomaffichage.setText(CurrentUser.getName());
         inputPassword.setText(CurrentUser.getPassword());
         inputCPassword.setText(CurrentUser.getPassword());
+
+        if(!CurrentUser.getAddress().isEmpty()){
+            InputAddress.setText(CurrentUser.getAddress());
+        }else{
+            InputAddress.setText("");
+        }
         if(CurrentUser.getRole() == Roles.Organisateur) {
             RoleLabel.setVisible(true);
             Roleinput.setVisible(true);
@@ -140,6 +165,7 @@ public class ProfileController {
         }
 
     }
+
 
     public void initialize() throws SQLException {
 
@@ -206,14 +232,14 @@ public class ProfileController {
             }
         }
 
-
-
     }
 
 
 
     @FXML
     void SeeInformationElements(ActionEvent event) {
+
+
 
     }
 
@@ -326,6 +352,31 @@ public class ProfileController {
         }
 
     }
+
+
+    public void locationsetter(ActionEvent mouseEvent) {
+
+        try {
+            // Open the default web browser
+            java.awt.Desktop.getDesktop().browse(java.net.URI.create("http://localhost:8080/tunisia_map.html/"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

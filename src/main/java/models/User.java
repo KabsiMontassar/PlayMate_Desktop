@@ -190,6 +190,7 @@ public class User {
         this.Password = Password;
         this.name = Name;
         this.age = age;
+        this.Address = "";
         this.Phone = Phone;
         this.role = role;
         this.Status = true ;

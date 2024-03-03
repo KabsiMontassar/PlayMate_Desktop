@@ -47,7 +47,7 @@
                <Font name="Roboto Bold" size="35.0" />
             </font>
          </Text>
-         <Button fx:id="btnSeeInformationuser" contentDisplay="CENTER" layoutX="58.0" layoutY="124.0" mnemonicParsing="false" onAction="#SeeInformationElements" scaleShape="false" style="-fx-background-color: transparent; -fx-font-weight: bold;" text="Informations sur l'utilisateur" textAlignment="CENTER" textFill="#545454">
+         <Button fx:id="btnSeeInformationuser" contentDisplay="CENTER" layoutX="30.0" layoutY="126.0" mnemonicParsing="false" onAction="#SeeInformationElements" scaleShape="false" style="-fx-background-color: transparent; -fx-font-weight: bold;" text="Informations sur l'utilisateur" textAlignment="CENTER" textFill="#545454">
             <font>
                <Font name="Roboto" size="15.0" />
             </font>
@@ -95,7 +95,7 @@
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <TextField fx:id="InputAddress" layoutX="434.0" layoutY="390.0" prefWidth="200.0" style="-fx-border-color: grey; -fx-border-width: 1; -fx-background-color: transparent; -fx-padding: 8; -fx-border-radius: 3;">
+      <TextField fx:id="InputAddress" layoutX="434.0" layoutY="390.0" prefWidth="200.0" promptText=" " style="-fx-border-color: grey; -fx-border-width: 1; -fx-background-color: transparent; -fx-padding: 8; -fx-border-radius: 3;" text=" ">
          <font>
             <Font size="15.0" />
          </font></TextField>
@@ -158,10 +158,17 @@
          </ImageView>
       </AnchorPane>
       <AnchorPane layoutX="397.0" layoutY="390.0" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
-         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="7.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@Images/home.png" />
-         </ImageView>
+         <children>
+            <Button fx:id="btnlocation" layoutX="3.0" layoutY="1.0" mnemonicParsing="false" onAction="#locationsetter" prefHeight="35.0" prefWidth="28.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@Images/home.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
       </AnchorPane>
+      <Text fx:id="tdds" layoutX="468.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </AnchorPane>
    <Button fx:id="Btnback" layoutX="15.0" layoutY="7.0" mnemonicParsing="false" onAction="#goToAcceuil" prefHeight="30.0" prefWidth="45.0" style="-fx-background-color: grey; -fx-border-color: black; -fx-font-weight: bold; -fx-padding: 0;" text="&lt;&lt;">
       <font>

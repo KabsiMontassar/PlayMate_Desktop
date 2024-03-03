@@ -32,10 +32,7 @@ public class UserService implements IService<User> {
             user.setName(rs.getString("name"));
             user.setAge(rs.getInt("age"));
             user.setPhone(rs.getInt("phone"));
-
             user.setAddress(rs.getString("address"));
-
-
             user.setRole(rs.getString("role"));
             user.setImage(rs.getString("Image"));
             user.setStatus(rs.getBoolean("Status"));
@@ -85,7 +82,7 @@ public class UserService implements IService<User> {
 
         psUser.executeUpdate();
 
-        String QueryToJoueur = "INSERT INTO Joueur (JoueurId ) VALUES (?)";
+        String QueryToJoueur = "INSERT INTO Membre (JoueurId ) VALUES (?)";
         int id = getByEmail(J.getEmail()).getId();
         PreparedStatement psJoueur = connection.prepareStatement(QueryToJoueur);
         psJoueur.setInt(1, id);
@@ -183,6 +180,14 @@ public class UserService implements IService<User> {
         ps.setString(4, t.getPassword());
         ps.setInt(5, t.getPhone());
         ps.setString(6, t.getEmail());
+        ps.executeUpdate();
+    }
+    public void updateAddress(String addre , String e) throws SQLException{
+
+        String query = "UPDATE user SET  address = ?   WHERE email = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setString(1, addre);
+        ps.setString(2, e);
         ps.executeUpdate();
     }
     public void UpdateNom_Organisation(int id , String nom ) throws SQLException{
