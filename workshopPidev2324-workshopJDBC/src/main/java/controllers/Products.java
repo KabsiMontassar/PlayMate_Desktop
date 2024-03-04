@@ -1,6 +1,11 @@
 package controllers;
 
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,22 +16,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import models.Categorie;
+import models.Gmailer;
 import models.Product;
 import services.ProductService;
-
 
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -35,7 +38,14 @@ public class Products implements Initializable {
 
 
 
+    @FXML
+    private Button qr1;
 
+    @FXML
+    private Button qr2;
+
+    @FXML
+    private Button qr3;
     @FXML
     private AnchorPane BOX1;
 
@@ -86,6 +96,8 @@ public class Products implements Initializable {
 
     @FXML
     private Button btnajout;
+    @FXML
+    private Button mail;
 
     @FXML
     private Button btndetail2;
@@ -352,5 +364,51 @@ Img1
         Scene scene = new Scene(root);
         stage.setScene(scene);
     }
+    @FXML
+    void EnvoyerMail(ActionEvent event) throws Exception {
+        ProductService ps=new ProductService();
+        String aa=ps.getAll().toString();
+        //System.out.println(aa);
+        new Gmailer().sendMail("A new message", aa);
+        JOptionPane.showMessageDialog(null, "Envoie avec succes");
+    }
+    @FXML
+    void generateqrcode1(ActionEvent event) throws SQLException, IOException, WriterException {
+        Button btn = (Button) event.getSource();
+        int index = Integer.parseInt(btn.getId().substring(2)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
+        Product selectedProduct = ps.getAll().get(index);
+        String data=selectedProduct.toString();
+        String path="/Users/seifl/Desktop/"+selectedProduct.getNom()+".jpg";
 
+        BitMatrix matrix=new MultiFormatWriter().encode(data, BarcodeFormat.QR_CODE,500,500);
+        MatrixToImageWriter.writeToPath(matrix,"jpg", Paths.get(path));
+        System.out.println("jawek behy "+ ((3*i)+1));
+    }
+
+    @FXML
+    void generateqrcode2(ActionEvent event) throws SQLException, WriterException, IOException {
+        Button btn = (Button) event.getSource();
+        int index = Integer.parseInt(btn.getId().substring(2)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
+        Product selectedProduct = ps.getAll().get(index);
+        String data=selectedProduct.toString();
+        String path="/Users/seifl/Desktop/"+selectedProduct.getNom()+".jpg";
+
+        BitMatrix matrix=new MultiFormatWriter().encode(data, BarcodeFormat.QR_CODE,500,500);
+        MatrixToImageWriter.writeToPath(matrix,"jpg", Paths.get(path));
+        System.out.println("jawek behy "+((3*i)+2));
+    }
+
+    @FXML
+    void generateqrcode3(ActionEvent event) throws SQLException, WriterException, IOException {
+        Button btn = (Button) event.getSource();
+        int index = Integer.parseInt(btn.getId().substring(2)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
+        Product selectedProduct = ps.getAll().get(index);
+        String data=selectedProduct.toString();
+        String path="/Users/seifl/Desktop/"+selectedProduct.getNom()+".jpg";
+
+        BitMatrix matrix=new MultiFormatWriter().encode(data, BarcodeFormat.QR_CODE,500,500);
+        MatrixToImageWriter.writeToPath(matrix,"jpg", Paths.get(path));
+        System.out.println("jawek behy "+ ((i*3)+3));
+
+    }
 }

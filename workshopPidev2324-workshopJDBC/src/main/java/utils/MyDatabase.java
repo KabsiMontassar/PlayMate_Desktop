@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class MyDatabase {
 
-    private final String URL = "jdbc:mysql://localhost:3306/pidev";
+    private final String URL = "jdbc:mysql://localhost:3306/spartans";
     private final String USER = "root";
     private final String PASSWORD = "";
     private Connection connection;
@@ -15,7 +15,7 @@ public class MyDatabase {
     private MyDatabase() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            System.out.println("Connected");
+            System.out.println("Connected a " + URL);
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }

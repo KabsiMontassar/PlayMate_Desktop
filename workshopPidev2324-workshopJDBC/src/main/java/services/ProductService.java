@@ -1,12 +1,10 @@
 package services;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import models.Product;
 import utils.MyDatabase;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProductService implements IService<Product> {

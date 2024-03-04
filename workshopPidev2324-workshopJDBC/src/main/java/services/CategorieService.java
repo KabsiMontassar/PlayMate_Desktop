@@ -2,7 +2,6 @@ package services;
 
 import javafx.collections.FXCollections;
 import models.Categorie;
-import models.Product;
 import utils.MyDatabase;
 
 import java.sql.*;

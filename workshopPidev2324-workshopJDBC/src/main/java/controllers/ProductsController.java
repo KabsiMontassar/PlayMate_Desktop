@@ -13,7 +13,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.converter.NumberStringConverter;
 import models.Categorie;
 import models.Product;
 import services.CategorieService;
@@ -27,7 +26,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.function.UnaryOperator;
 
 public class ProductsController implements Initializable {
 

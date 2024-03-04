@@ -33,57 +33,57 @@
     <Button fx:id="btnajout" layoutX="1014.0" layoutY="603.0" mnemonicParsing="false" onAction="#Ajout" prefHeight="62.0" prefWidth="100.0" text="Ajout" />
     <Button fx:id="btnretour" layoutX="584.0" layoutY="622.0" mnemonicParsing="false" onAction="#retour" prefWidth="100.0" text="&lt;" />
     <Button fx:id="btnsuivant" layoutX="684.0" layoutY="622.0" mnemonicParsing="false" onAction="#suivant" prefWidth="100.0" text="&gt;" />
-   <AnchorPane fx:id="BOX2" layoutX="80.0" layoutY="236.0" prefHeight="170.0" prefWidth="762.0" style="-fx-background-color: grey;">
-      <children>
-         <Button fx:id="btnModif2" layoutX="472.0" layoutY="65.0" mnemonicParsing="false" onAction="#Modif2" text="Modification" />
-         <Button fx:id="btnSupp2" layoutX="582.0" layoutY="64.0" mnemonicParsing="false" onAction="#supp2" text="Suppression" />
-         <Text layoutX="48.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom :">
-            <font>
-               <Font size="20.0" />
-            </font>
-         </Text>
-         <Text layoutX="42.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
-            <font>
-               <Font size="20.0" />
-            </font>
-         </Text>
-         <Text fx:id="description2" layoutX="164.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="tfaddress">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-         </Text>
-         <Text fx:id="nom2" layoutX="152.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TfNOM">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-         </Text>
-      </children>
-   </AnchorPane>
-   <AnchorPane fx:id="BOX3" layoutX="80.0" layoutY="431.0" prefHeight="170.0" prefWidth="762.0" style="-fx-background-color: grey;">
-      <children>
-         <Button fx:id="btnModif3" layoutX="472.0" layoutY="65.0" mnemonicParsing="false" onAction="#Modif3" text="Modification" />
-         <Button fx:id="btnSupp3" layoutX="582.0" layoutY="64.0" mnemonicParsing="false" onAction="#supp3" text="Suppression" />
-         <Text layoutX="48.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom :">
-            <font>
-               <Font size="20.0" />
-            </font>
-         </Text>
-         <Text layoutX="42.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
-            <font>
-               <Font size="20.0" />
-            </font>
-         </Text>
-         <Text fx:id="description3" layoutX="162.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="tfaddress">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-         </Text>
-         <Text fx:id="nom3" layoutX="152.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TfNOM">
-            <font>
-               <Font name="System Bold" size="20.0" />
-            </font>
-         </Text>
-      </children>
-   </AnchorPane>
-   <Button fx:id="lienproducts" layoutX="1167.0" layoutY="622.0" mnemonicParsing="false" onAction="#produits" text="Produits" />
+    <AnchorPane fx:id="BOX2" layoutX="80.0" layoutY="236.0" prefHeight="170.0" prefWidth="762.0" style="-fx-background-color: grey;">
+        <children>
+            <Button fx:id="btnModif2" layoutX="472.0" layoutY="65.0" mnemonicParsing="false" onAction="#Modif2" text="Modification" />
+            <Button fx:id="btnSupp2" layoutX="582.0" layoutY="64.0" mnemonicParsing="false" onAction="#supp2" text="Suppression" />
+            <Text layoutX="48.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom :">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Text>
+            <Text layoutX="42.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Text>
+            <Text fx:id="description2" layoutX="164.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="tfaddress">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Text>
+            <Text fx:id="nom2" layoutX="152.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TfNOM">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Text>
+        </children>
+    </AnchorPane>
+    <AnchorPane fx:id="BOX3" layoutX="80.0" layoutY="431.0" prefHeight="170.0" prefWidth="762.0" style="-fx-background-color: grey;">
+        <children>
+            <Button fx:id="btnModif3" layoutX="472.0" layoutY="65.0" mnemonicParsing="false" onAction="#Modif3" text="Modification" />
+            <Button fx:id="btnSupp3" layoutX="582.0" layoutY="64.0" mnemonicParsing="false" onAction="#supp3" text="Suppression" />
+            <Text layoutX="48.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom :">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Text>
+            <Text layoutX="42.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                <font>
+                    <Font size="20.0" />
+                </font>
+            </Text>
+            <Text fx:id="description3" layoutX="162.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="tfaddress">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Text>
+            <Text fx:id="nom3" layoutX="152.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TfNOM">
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+            </Text>
+        </children>
+    </AnchorPane>
+    <Button fx:id="lienproducts" layoutX="1167.0" layoutY="622.0" mnemonicParsing="false" onAction="#produits" text="Produits" />
 </AnchorPane>
