@@ -14,6 +14,7 @@ import test.Controllers.Common.CAlert;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -86,11 +87,11 @@ public class   VerificationCodeController {
     }
     private int count = 1;
     @FXML
-    void renvoyerCode(ActionEvent event) {
+    void renvoyerCode() throws IOException, InterruptedException {
         if(count < 5){
             count++;
             System.out.println("sms sent with twilio to "+ CurrentUser.getPhone() +"containing this code : "+ u.getVerificationCode());
-         //   SMSTwilio.sendSms(CurrentUser.getPhone(), u.getVerificationCode());
+            SMSTwilio.sendSms(CurrentUser.getPhone(), u.getVerificationCode());
         }else{
             cAlert.generateAlert("WARNING","Vous avez atteint le nombre maximal de tentatives");
         }
@@ -198,9 +199,7 @@ public class   VerificationCodeController {
             napasrecutext.setVisible(true);
             btnrenvoyer.setVisible(true);
             verifierbtn.setVisible(true);
-           // SMSAPI sms = new SMSAPI();
-
-            //sms.run(String.valueOf(u.getPhone()), u.getVerificationCode());
+          renvoyerCode();
 
 
     }

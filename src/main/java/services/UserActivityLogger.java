@@ -1,4 +1,5 @@
 package services;
+
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -9,9 +10,7 @@ import java.util.List;
 
 public class UserActivityLogger {
     private static final int MAX_ACTIONS = 20;
-    private  Deque<String> actions = new ArrayDeque<>();
-
-
+    private Deque<String> actions = new ArrayDeque<>();
 
     public void logAction(String Email, String action) {
         System.out.println("written");
@@ -20,6 +19,38 @@ public class UserActivityLogger {
         actions.addLast(formattedAction);
         trimActions();
         writeToFile();
+    }
+
+    public String getLastLineOfFile() {
+        String lastLine = null;
+        try {
+            File file = new File("D://Github//pidev_spartans_3a29//Pidev//src//main//resourcesuser_activity_log.txt");
+            if (file.exists()) {
+                try (RandomAccessFile raf = new RandomAccessFile(file, "r")) {
+                    long length = raf.length();
+                    if (length != 0) {
+                        long position = length - 1;
+                        raf.seek(position);
+                        int c = -1;
+                        StringBuilder sb = new StringBuilder();
+                        // Read each character backwards until a newline character is found
+                        while (position >= 0) {
+                            raf.seek(position);
+                            c = raf.read();
+                            if (c == '\n' || c == '\r') {
+                                break;
+                            }
+                            sb.insert(0, (char) c);
+                            position--;
+                        }
+                        lastLine = sb.toString();
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return lastLine;
     }
 
     private String getCurrentTimeStamp() {
@@ -65,13 +96,30 @@ public class UserActivityLogger {
         }
     }
 
-
-
     private void trimActions() {
         while (actions.size() > MAX_ACTIONS) {
             actions.removeFirst();
         }
     }
+    public static String extractEmail(String logEntry) {
+        // Find the index of the substring "courriel"
+        int startIndex = logEntry.indexOf("courriel");
+        if (startIndex == -1) {
+            // If "courriel" is not found, return null or throw an exception
+            return null;
+        }
 
+        // The email starts after the substring "courriel" and a space
+        startIndex += "courriel".length() + 1;
 
+        // Find the index of the next space after the email
+        int endIndex = logEntry.indexOf(" ", startIndex);
+        if (endIndex == -1) {
+            // If no space is found, the email extends to the end of the string
+            endIndex = logEntry.length();
+        }
+
+        // Extract the email substring
+        return logEntry.substring(startIndex, endIndex);
+    }
 }
