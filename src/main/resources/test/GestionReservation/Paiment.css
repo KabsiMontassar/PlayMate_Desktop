@@ -1,0 +1,19 @@
+#anchro1{
+    -fx-background-image : url(paimentbackgrounImage.png);
+    -fx-background-size : cover ;
+    -fx-background-position:centre ;
+}
+
+#CVV , #NOM ,#numero ,#date {
+    -fx-background-color: rgba(2, 54, 92,0.80);
+
+
+    /*-fx-background-color: #e3dcd6; */
+        -fx-background-radius: 10px;
+        -fx-border-radius: 9px ;
+        -fx-border-color: #4CAF50;
+        -fx-border-width: 5px;
+        -fx-padding: 5px 5px 5px 5px;
+      /*  -fx-font-size: 14px; */
+}
+

@@ -157,7 +157,7 @@ public class TerrainController {
             if (nomExiste) {
                 showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Le nom du terrain existe déjà.");
             } else {
-                float prixValue = Float.parseFloat(tfprix.getText()); //Convertir le prix en float
+                int prixValue = Integer.parseInt(tfprix.getText()); //Convertir le prix en float
                 // Créer un nouveau terrain avec les données saisies
                 Terrain terrain = new Terrain(tfaddress.getText(), cbGradin.isSelected(), cbVestiaire.isSelected(), cbStatus.isSelected(), tfnom.getText(), prixValue, Integer.parseInt(tfduree.getText()), tfgouvernorat.getValue(), imagePath, videoPath);
                 ts.add(terrain);
@@ -196,7 +196,7 @@ public class TerrainController {
     @FXML
     void updateTerrain(ActionEvent event) throws IOException {
         if (isValidTerrain()) {
-            float prixValue = Float.parseFloat(tfprix.getText());
+            int prixValue = Integer.parseInt(tfprix.getText());
             terrainActuel.setNomTerrain(tfnom.getText());
             terrainActuel.setAddress(tfaddress.getText());
             terrainActuel.setGradin(cbGradin.isSelected());

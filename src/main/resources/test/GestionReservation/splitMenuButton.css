@@ -1,0 +1,18 @@
+#split-menu-button {
+-fx-background-color: #4CAF50;
+
+    -fx-text-fill: #02365C;
+}
+
+#split-menu-button .label {
+    -fx-text-fill: #00ff0f;
+}
+
+#split-menu-button .arrow {
+    -fx-background-color: #ff5500;
+}
+
+#split-menu-button .menu-item {
+    -fx-background-color: #ff5500;
+    -fx-text-fill: #fa0023;
+}

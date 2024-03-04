@@ -1,0 +1,26 @@
+#submitbutton , #Button11 , #Button22 , #Button33 ,#payerButtun ,choixTerrain , #Consulter {
+                 -fx-background-color: #4CAF50;
+                 -fx-border-color: #52B66C;
+                 /*-fx-text-fill: #02365c;
+                 -fx-font-size: 20px;
+                 -fx-padding: 10 20;*/
+                 -fx-border-radius: 3px;
+             }
+#submitbutton:hover , #Button11:hover , #Button22:hover , #Button33:hover ,#payerButtun:hover ,choixTerrain:hover , #Consulter:hover{
+                 -fx-background-color: #B6E66C;
+             }
+#submitbutton:pressed  , #Button11:pressed , #Button22:pressed  , #Button33:pressed  ,#payerButtun:pressed ,choixTerrain:pressed , #Consulter:pressed {
+    -fx-background-color: #388e3c;
+}
+
+
+#submitbutton:focused  , #Button11:focused , #Button22:focused , #Button33:focused ,#payerButtun:focused  ,choixTerrain:focused , #Consulter:focused{
+    -fx-background-color: #4CAF50;
+    -fx-border-color: #53D56F;
+    -fx-border-width: 2px;
+}
+
+
+#submitbutton:disabled  , #Button11:disabled , #Button22:disabled , #Button33:disabled ,#payerButtun:disabled ,choixTerrain:disabled  , #Consulter:disabled{
+    -fx-opacity: 0.5;
+}

@@ -5,7 +5,7 @@ import java.util.List;
 public class Terrain {
     private int id;
     private int idprop;
-    private float prix;
+    private int prix;
     private int duree;
     private String address;
     private String nomTerrain;
@@ -27,7 +27,7 @@ public class Terrain {
         this.avisList = avisList;
     }
     //*******************************************************************************************
-    public Terrain(String address, boolean gradin, boolean vestiaire, boolean status, String nomTerrain, float prix, int duree, String gouvernorat, String image, String video) {
+    public Terrain(String address, boolean gradin, boolean vestiaire, boolean status, String nomTerrain, int prix, int duree, String gouvernorat, String image, String video) {
         this.address = address;
         this.gradin = gradin;
         this.vestiaire = vestiaire;
@@ -73,9 +73,9 @@ public class Terrain {
     }
     public String getNomTerrain() {return nomTerrain;}
     public void setNomTerrain(String nomTerrain) {this.nomTerrain = nomTerrain;}
-    public float getPrix() {return prix;}
+    public int getPrix() {return prix;}
 
-    public void setPrix(float prix) {this.prix = prix;}
+    public void setPrix(int prix) {this.prix = prix;}
     public int getDuree() {return duree;}
     public void setDuree(int duree) {this.duree = duree;}
     public String getAddress() {return address;}

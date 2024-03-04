@@ -75,30 +75,84 @@ public class TerrainService {
             e.printStackTrace();
         }return terrains;}
     //*******************************************************************************************
-    public Optional<Terrain> getTerrainByNom(String nom) {
+//    public Optional<Terrain> getTerrainByNom(String nom) {
+//        String query = "SELECT * FROM terrain WHERE nomTerrain = ?";
+//        try (PreparedStatement ps = connection.prepareStatement(query)) {
+//            ps.setString(1, nom);
+//            try (ResultSet rs = ps.executeQuery()) {
+//                if (rs.next()) {
+//                    return Optional.of(createTerrainFromResultSet(rs));
+//                }}
+//        } catch (SQLException e) {
+//            // Gérer l'exception de manière appropriée
+//            e.printStackTrace();}
+//        return Optional.empty();}
+
+    public Terrain getTerrainByNom(String nom) {
+        Terrain terrain = null;
         String query = "SELECT * FROM terrain WHERE nomTerrain = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setString(1, nom);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    return Optional.of(createTerrainFromResultSet(rs));
-                }}
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                terrain = new Terrain();
+                terrain.setId(rs.getInt("id"));
+                terrain.setNomTerrain(rs.getString("nomTerrain"));
+                terrain.setAddress(rs.getString("address"));
+                terrain.setGradin(rs.getBoolean("gradin"));
+                terrain.setVestiaire(rs.getBoolean("vestiaire"));
+                terrain.setStatus(rs.getBoolean("status"));
+                terrain.setPrix(rs.getInt("prix"));
+                terrain.setDuree(rs.getInt("duree"));
+                terrain.setGouvernorat(rs.getString("gouvernorat"));
+                terrain.setImage((rs.getString("image")));
+                terrain.setVideo((rs.getString("video")));
+            }
         } catch (SQLException e) {
-            // Gérer l'exception de manière appropriée
-            e.printStackTrace();}
-        return Optional.empty();}
+            e.printStackTrace();
+        }
+        return terrain;
+    }
+
     //*******************************************************************************************
-    public Optional<Terrain> getTerrainById(int id) {
+//    public Optional<Terrain> getTerrainById(int id) {
+//        String query = "SELECT * FROM terrain WHERE id = ?";
+//        try (PreparedStatement ps = connection.prepareStatement(query)) {
+//            ps.setInt(1, id);
+//            try (ResultSet rs = ps.executeQuery()) {
+//                if (rs.next()) {
+//                    return Optional.of(createTerrainFromResultSet(rs));
+//                }}} catch (SQLException e) {
+//            // Gérer l'exception de manière appropriée
+//            e.printStackTrace();}return Optional.empty();}
+    public Terrain getTerrainById(int id) {
+        Terrain terrain = new Terrain();
         String query = "SELECT * FROM terrain WHERE id = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setInt(1, id);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    return Optional.of(createTerrainFromResultSet(rs));
-                }}} catch (SQLException e) {
-            // Gérer l'exception de manière appropriée
-            e.printStackTrace();}return Optional.empty();}
-    //*******************************************************************************************
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                terrain = new Terrain();
+                terrain.setId(rs.getInt("id"));
+                terrain.setNomTerrain(rs.getString("nomTerrain"));
+                terrain.setAddress(rs.getString("address"));
+                terrain.setGradin(rs.getBoolean("gradin"));
+                terrain.setVestiaire(rs.getBoolean("vestiaire"));
+                terrain.setStatus(rs.getBoolean("status"));
+                terrain.setPrix(rs.getInt("prix"));
+                terrain.setDuree(rs.getInt("duree"));
+                terrain.setGouvernorat(rs.getString("gouvernorat"));
+                terrain.setImage((rs.getString("image")));
+                terrain.setVideo((rs.getString("video")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return terrain;
+    }
+
+
+//*******************************************************************************************
     private Terrain createTerrainFromResultSet(ResultSet rs) throws SQLException {
         Terrain terrain = new Terrain();
         terrain.setId(rs.getInt("id"));
@@ -107,7 +161,7 @@ public class TerrainService {
         terrain.setGradin(rs.getBoolean("gradin"));
         terrain.setVestiaire(rs.getBoolean("vestiaire"));
         terrain.setStatus(rs.getBoolean("status"));
-        terrain.setPrix(rs.getFloat("prix"));
+        terrain.setPrix(rs.getInt("prix"));
         terrain.setDuree(rs.getInt("duree"));
         terrain.setGouvernorat(rs.getString("gouvernorat"));
         terrain.setImage(rs.getString("image"));
