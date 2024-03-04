@@ -17,10 +17,11 @@ public class MainFX extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-       FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("equipeYemen.fxml"));
+       FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("afficherEquipe.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
 
         stage.setScene(scene);
+      //  ((AfficherController) fxmlLoader.getController()).initialize();
         stage.show();
     }
 }

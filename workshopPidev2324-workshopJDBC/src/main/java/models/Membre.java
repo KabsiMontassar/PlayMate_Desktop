@@ -4,7 +4,16 @@ public class Membre {
     private int id,age,numtel ;
     private String nom,prenom,address,password,email;
 
+    public Membre(int id, String nom) {
+        this.id = id;
+        this.nom = nom;
+    }
+
     public Membre() {
+    }
+
+    public Membre(String nom) {
+        this.nom = nom;
     }
 
     public Membre(int id, int age, int numtel, String nom, String prenom, String address, String password, String email) {

@@ -19,6 +19,17 @@ public class Main {
 
         System.out.println("Hello world!");
 
+        EquipeService equipeService2 = new EquipeService();
+
+        // *********************************************************************************************
+        //                                                 supoosant 8
+
+            List<Equipe> equipeList2 = equipeService2.getEquipesParMembre(3);
+        for (Equipe equipe :equipeList2){
+            System.out.println(equipe.toString());
+        }
+
+
 
     }
 }

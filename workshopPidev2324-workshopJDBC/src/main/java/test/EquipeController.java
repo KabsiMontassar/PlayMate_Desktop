@@ -19,28 +19,11 @@ import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 public class EquipeController implements Initializable {
-//    @FXML
-//    private Label inavlideNbreEquipe;
-//
-//    @FXML
-//    private Label inavlideNomEquipe;
-//
-//    @FXML
-//    private TextField nomEquipe;
-//
-//    @FXML
-//    private TextField nombreJoueur;
 
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        String[] nom = nomEquipes();
-        nomEquipeChoice.getItems().addAll(nom);
-        inavlideNbreEquipe.setVisible(false);
-        inavlideNomEquipe.setVisible(false);
-    }
+    private int idUser ;
+    @FXML
+    private VBox vbox1;
     @FXML
     private ChoiceBox<String> nomEquipeChoice;
 
@@ -55,22 +38,25 @@ public class EquipeController implements Initializable {
 
     @FXML
     private TextField nombreJoueur;
+
+
+
+
+
     /*
     *
     *           IDUSER  DEMANDER
     *
     * */
-    private int idUser ;
-    @FXML
-    private VBox vbox1;
+
 
 
     public String[] nomEquipes(){
         EquipeService equipeService = new EquipeService();
         // *********************************************************************************************
-        //                                                 monta heeeet numro hatit 8
+        //                                                 supoosant 3
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(8);
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(3);
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
@@ -118,7 +104,7 @@ public class EquipeController implements Initializable {
         equipe.setNbreJoueur(nbj);
         EquipeService equipeService = new EquipeService();
         equipeService.ajouterEquipe(equipe);
-        // j ai pris 7 comme id
+        // supposant 7 comme id
         int idEquipe = equipeService.getLastIdEquipeAddRecently();
         equipeService.ajouterMembreParEquipe(idEquipe,7);
     }
@@ -151,5 +137,17 @@ public class EquipeController implements Initializable {
 
         }
         return false;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        String[] nom = nomEquipes();
+
+
+
+        nomEquipeChoice.getItems().addAll(nom);
+        inavlideNomEquipe.setVisible(false);
+        inavlideNbreEquipe.setVisible(false);
+
     }
 }
