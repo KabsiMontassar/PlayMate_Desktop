@@ -1,0 +1,90 @@
+/* Style de l'interface principale */
+.form_container {
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 20px;
+}
+
+/* Style des libellés */
+#tfnom-label, #tfaddress-label, #tfgradin-label, #tfvestiaire-label, #tfstatus-label, #tfprix-label, #tfduree-label, #tfemplacement-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* Style des champs de texte */
+#tfnom, #tfaddress, #tfgradin, #tfvestiaire, #tfstatus, #tfprix, #tfduree,#tfemplacement{
+    -fx-pref-width: 200px;
+    -fx-pref-height: 30px;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+}
+
+
+/* Style des champs de texte */
+.text-field {
+    -fx-pref-width: 200px;
+    -fx-pref-height: 30px;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+}
+
+/* Style des boutons */
+.button {
+    -fx-background-color: #0a2f55;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-width: 120px;
+    -fx-pref-height: 40px;
+    -fx-border-radius: 5px;
+}
+
+/* Style des boutons au survol */
+.button:hover {
+    -fx-background-color: #0a2f55;
+}
+
+/* Style de la barre de boutons */
+.button-bar {
+    -fx-spacing: 20px;
+}
+
+/* Style des zones d'ancrage */
+.anchor-pane {
+    -fx-padding: 10px;
+}
+
+/* Style de la vue vidéo */
+.media-view {
+    -fx-pref-width: 400px;
+    -fx-pref-height: 300px;
+}
+
+/* Style de l'ID */
+#id {
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+}
+/* Sélecteur pour le VBox */
+#terrainContainer {
+    -fx-spacing: 10px; /* Espacement entre les éléments */
+}
+
+/* Sélecteur pour les éléments enfants du VBox */
+#terrainContainer > * {
+    -fx-padding: 5px; /* Espacement interne des éléments */
+}
+
+/* Sélecteur pour les labels */
+#terrainContainer Label {
+    -fx-font-weight: bold; /* Texte en gras */
+    -fx-min-width: 80px; /* Largeur minimale pour les labels */
+}
+
+/* Sélecteur pour les textfields */
+#terrainContainer TextField {
+    -fx-pref-width: 200px; /* Largeur préférée pour les champs de texte */
+}

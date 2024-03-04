@@ -16,11 +16,11 @@ module test {
   //  requires google.api.client;
     requires org.apache.commons.codec;
     requires javafx.web;
-    requires com.gluonhq.maps;
+
     requires com.gluonhq.attach.util;
 
     requires java.desktop;
-    requires nanohttpd;
+
     requires org.json;
     requires jdk.jsobject;
     requires java.net.http;
@@ -29,15 +29,22 @@ module test {
    // requires java.http.client;
     requires google.api.services.gmail.v1.rev110;
     requires twilio;
+    requires com.fasterxml.jackson.core;
+    requires com.fasterxml.jackson.databind;
+    requires javafx.media;
     // requires java.http.client;
     opens test to javafx.fxml;
-    exports test;
+
     exports services.GestionUser;
-    exports models;
+
     opens services.GestionUser to javafx.fxml;
-    exports test.Controllers;
-    opens test.Controllers to javafx.fxml;
+    exports test.Controllers.UserController;
     exports test.Controllers.Common;
     opens test.Controllers.Common to javafx.fxml;
-
+    opens test.Controllers.UserController to javafx.fxml;
+    opens test.Controllers.EquipeController to javafx.fxml;
+    opens test.Controllers.TerrainController to javafx.fxml;
+    opens test.Controllers.TournoiController to javafx.fxml;
+    exports test;
+    exports models;
 }
