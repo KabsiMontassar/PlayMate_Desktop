@@ -1,5 +1,4 @@
 package controllers;
-
 import entity.AvisTerrain;
 import entity.Terrain;
 import javafx.event.ActionEvent;
@@ -8,11 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.util.List;
 //*******************************************************************************************
@@ -25,11 +22,11 @@ public class avisPropTController {
     @FXML
     private AnchorPane BOX3;
     @FXML
-    private TextArea comment1;
+    private Text comment1;
     @FXML
-    private TextArea comment2;
+    private Text comment2;
     @FXML
-    private TextArea comment3;
+    private Text comment3;
     @FXML
     private Text note1;
     @FXML
@@ -49,7 +46,9 @@ public class avisPropTController {
     //*******************************************************************
     void actualise(List<AvisTerrain> avisTerrains){
         if(avisTerrains.size()-1-i*3>0){btnsuivant.setVisible(true);}
+        if(avisTerrains.size()-1-i*3<=0){btnsuivant.setVisible(false);}
         if(i > 0){btnretour.setVisible(true);}
+        if(i == 0){btnretour.setVisible(false);}
         if(!avisTerrains.isEmpty()){
             if(avisTerrains.size()-1-i*3>=0){
                 BOX1.setVisible(true);
@@ -69,9 +68,7 @@ public class avisPropTController {
             BOX1.setVisible(false);
             BOX2.setVisible(false);
             BOX3.setVisible(false);
-        }
-        //btnsuivant.setVisible(avisTerrains.size()-3*i > 3);
-        }
+        }btnsuivant.setVisible(avisTerrains.size()-3*i > 3);}
     //*******************************************************************************************
     @FXML
     void retour(ActionEvent event){
@@ -95,6 +92,4 @@ public class avisPropTController {
         stage.setScene(new Scene(root));
         stage.show();
         // Récupérer la fenêtre actuelle et la cacher
-        ((Stage) btretourliste.getScene().getWindow()).hide();
-    }
-}
+        ((Stage) btretourliste.getScene().getWindow()).hide();}}

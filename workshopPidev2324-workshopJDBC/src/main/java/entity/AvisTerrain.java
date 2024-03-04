@@ -10,15 +10,17 @@ public class AvisTerrain {
         this.terrain_id = terrain_id;
         this.commentaire = commentaire;
         this.note = note;
-        this.terrain = new Terrain();
-    }
+        this.terrain = new Terrain();}
     public AvisTerrain(int idAvis, int terrain_id, int note, String commentaire, Terrain terrain) {
         this.idAvis = idAvis;
         this.terrain_id = terrain_id;
         this.note = note;
         this.commentaire = commentaire;
+        this.terrain = terrain;}
+    public AvisTerrain(Terrain terrain, String commentaire, int note) {
         this.terrain = terrain;
-    }
+        this.commentaire = commentaire;
+        this.note = note;}
     public AvisTerrain() {}
     //*******************************************************************************************
     public Terrain getTerrain() {return terrain;}
@@ -50,6 +52,4 @@ public class AvisTerrain {
                 "idAvis=" + idAvis +
                 ", terrain_id=" + terrain_id +
                 ", commentaire='" + commentaire + '\'' +
-                ", note=" + note + '}';
-    }
-}
+                ", note=" + note + '}';}}

@@ -1,39 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="720" prefWidth="1280.0" styleClass="form_container" stylesheets="@../css/styles3.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.avisPropTController">
-    <AnchorPane fx:id="BOX1" layoutX="74.0" layoutY="110.0" prefHeight="509.0" prefWidth="322.0">
+    <AnchorPane fx:id="BOX1" layoutX="30.0" layoutY="92.0" prefHeight="262.0" prefWidth="610.0">
       <children>
-         <TextArea fx:id="comment1" layoutX="26.0" layoutY="49.0" prefHeight="322.0" prefWidth="270.0" />
-         <Text layoutX="125.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Commentaire" />
-         <Text layoutX="147.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note" />
-         <Text fx:id="note1" layoutX="150.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+         <Text layoutX="72.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Commentaire :">
+            <font>
+               <Font name="Bell MT Bold" size="36.0" />
+            </font>
+         </Text>
+         <AnchorPane layoutX="34.0" layoutY="57.0" prefHeight="195.0" prefWidth="327.0" style="-fx-border-color: grey;">
+            <children>
+               <Text fx:id="comment1" layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+                  <font>
+                     <Font name="Bodoni MT Bold" size="18.0" />
+                  </font>
+               </Text>
+            </children>
+         </AnchorPane>
+         <Text layoutX="434.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note :">
+            <font>
+               <Font name="Bell MT Bold" size="36.0" />
+            </font></Text>
+         <Text fx:id="note1" layoutX="460.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       </children>
     </AnchorPane>
-    <AnchorPane fx:id="BOX2" layoutX="462.0" layoutY="110.0" prefHeight="509.0" prefWidth="322.0">
+    <AnchorPane fx:id="BOX2" layoutX="674.0" layoutY="92.0" prefHeight="267.0" prefWidth="579.0">
       <children>
-         <Text layoutX="122.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Commentaire" />
-         <TextArea fx:id="comment2" layoutX="30.0" layoutY="46.0" prefHeight="322.0" prefWidth="270.0" />
-         <Text layoutX="150.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note" />
-         <Text fx:id="note2" layoutX="153.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+         <AnchorPane layoutX="28.0" layoutY="57.0" prefHeight="195.0" prefWidth="298.0" style="-fx-border-color: grey;">
+            <children>
+               <Text fx:id="comment2" layoutX="14.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+                  <font>
+                     <Font name="Bodoni MT Bold" size="18.0" />
+                  </font>
+               </Text>
+            </children>
+         </AnchorPane>
+         <Text layoutX="43.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Commentaire :">
+            <font>
+               <Font name="Bell MT Bold" size="36.0" />
+            </font>
+         </Text>
+         <Text layoutX="398.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note :">
+            <font>
+               <Font name="Bell MT Bold" size="36.0" />
+            </font>
+         </Text>
+         <Text fx:id="note2" layoutX="424.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       </children></AnchorPane>
-    <AnchorPane fx:id="BOX3" layoutX="860.0" layoutY="110.0" prefHeight="509.0" prefWidth="322.0">
-        <ImageView fx:id="Img3" fitHeight="286.0" fitWidth="259.0" layoutX="32.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
-      <Text layoutX="126.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Commentaire" />
-      <TextArea fx:id="comment3" layoutX="26.0" layoutY="47.0" prefHeight="322.0" prefWidth="270.0" />
-      <Text layoutX="148.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note" />
-      <Text fx:id="note3" layoutX="151.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-    </AnchorPane>
-    <Text fill="#0a2f55" layoutX="460.0" layoutY="66.0" strokeLineJoin="ROUND" strokeWidth="0.0" text="Liste des avis" textAlignment="CENTER">
+    <Text fill="#0a2f55" layoutX="513.0" layoutY="70.0" strokeLineJoin="ROUND" strokeWidth="0.0" text="Liste des avis" textAlignment="CENTER">
         <font><Font name="Berlin Sans FB" size="48.0" /></font>
     </Text>
-   <Button fx:id="btnretour" layoutX="524.0" layoutY="656.0" mnemonicParsing="false" onAction="#retour" prefHeight="14.0" prefWidth="100.0" text="&lt;" />
-   <Button fx:id="btnsuivant" layoutX="624.0" layoutY="656.0" mnemonicParsing="false" onAction="#suivant" prefHeight="14.0" prefWidth="100.0" text="&gt;" />
+   <Button fx:id="btnretour" layoutX="524.0" layoutY="678.0" mnemonicParsing="false" onAction="#retour" prefHeight="14.0" prefWidth="100.0" text="&lt;" />
+   <Button fx:id="btnsuivant" layoutX="624.0" layoutY="678.0" mnemonicParsing="false" onAction="#suivant" prefHeight="14.0" prefWidth="100.0" text="&gt;" />
    <Button fx:id="btretourliste" layoutX="1120.0" layoutY="669.0" mnemonicParsing="false" onAction="#retourlist" prefHeight="14.0" prefWidth="100.0" text="Retour" />
+    <AnchorPane fx:id="BOX3" layoutX="325.0" layoutY="384.0" prefHeight="285.0" prefWidth="590.0">
+      <children>
+         <Text layoutX="50.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Commentaire :">
+            <font>
+               <Font name="Bell MT Bold" size="36.0" />
+            </font>
+         </Text>
+         <AnchorPane layoutX="36.0" layoutY="55.0" prefHeight="207.0" prefWidth="286.0" style="-fx-border-color: grey;">
+            <children>
+               <Text fx:id="comment3" layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+                  <font>
+                     <Font name="Bodoni MT Bold" size="18.0" />
+                  </font>
+               </Text>
+            </children>
+         </AnchorPane>
+         <Text layoutX="418.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Note :">
+            <font>
+               <Font name="Bell MT Bold" size="36.0" />
+            </font>
+         </Text>
+         <Text fx:id="note3" layoutX="455.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      </children>
+    </AnchorPane>
 </AnchorPane>

@@ -1,4 +1,5 @@
 package controllers;
+
 import entity.Terrain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -85,6 +86,7 @@ public class DetailTerrainController {
         stage.setScene(new Scene(root));
         stage.show();
         ((Button) event.getSource()).getScene().getWindow().hide();}
+    //*******************************************************************************************
     @FXML
     void retourd() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/PageTerrain.fxml"));

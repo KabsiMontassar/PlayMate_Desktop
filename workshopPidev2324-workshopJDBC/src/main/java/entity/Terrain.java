@@ -1,11 +1,10 @@
 package entity;
-
 import java.util.ArrayList;
 import java.util.List;
-
 //*******************************************************************************************
 public class Terrain {
     private int id;
+    private int idprop;
     private float prix;
     private int duree;
     private String address;
@@ -38,14 +37,14 @@ public class Terrain {
         this.gouvernorat = gouvernorat;
         this.image = image;
         this.video = video;
-        this.avisList = new ArrayList<>();
-    }
+        this.avisList = new ArrayList<>();}
     public Terrain() {}
     //*******************************************************************************************
     @Override
     public String toString() {
         return "Terrain{" +
                 ", id='" + id + '\'' +
+                ", idprop='" + idprop + '\'' +
                 ", nomTerrain='" + nomTerrain + '\'' +
                 ", address='" + address + '\'' +
                 ", gradin='" + gradin + '\'' +
@@ -56,8 +55,7 @@ public class Terrain {
                 ", gouvernorat=" + gouvernorat +
                 ", image=" + image +
                 ", video=" + video +
-                '}';
-    }
+                '}';}
     //*******************************************************************************************
     public String getVideoPath() {
         return videoPath;
@@ -92,4 +90,6 @@ public class Terrain {
     public String getImage() {return image;}
     public void setImage(String image) {this.image = image;}
     public String getVideo() {return video;}
-    public void setVideo(String video) {this.video = video;}}
+    public void setVideo(String video) {this.video = video;}
+    public int getIdprop() {return idprop;}
+    public void setIdprop(int idprop) {this.idprop = idprop;}}

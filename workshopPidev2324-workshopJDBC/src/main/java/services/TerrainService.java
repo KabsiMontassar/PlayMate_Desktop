@@ -53,8 +53,12 @@ public class TerrainService {
             e.printStackTrace();}}
     //*******************************************************************************************
     public void delete(int id) throws SQLException {
-        String query = "DELETE FROM terrain WHERE id = ?";
+        String query = "DELETE FROM avis WHERE terrain_id = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setInt(1, id);
+            ps.executeUpdate();}
+        String query1 = "DELETE FROM terrain WHERE id = ?";
+        try (PreparedStatement ps = connection.prepareStatement(query1)) {
             ps.setInt(1, id);
             ps.executeUpdate();}}
     //*******************************************************************************************
@@ -91,12 +95,9 @@ public class TerrainService {
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return Optional.of(createTerrainFromResultSet(rs));
-                }}
-        } catch (SQLException e) {
+                }}} catch (SQLException e) {
             // Gérer l'exception de manière appropriée
-            e.printStackTrace();
-        }
-        return Optional.empty();}
+            e.printStackTrace();}return Optional.empty();}
     //*******************************************************************************************
     private Terrain createTerrainFromResultSet(ResultSet rs) throws SQLException {
         Terrain terrain = new Terrain();
@@ -111,5 +112,32 @@ public class TerrainService {
         terrain.setGouvernorat(rs.getString("gouvernorat"));
         terrain.setImage(rs.getString("image"));
         terrain.setVideo(rs.getString("video"));
-        return terrain;
-    }}
+        return terrain;}
+    //*******************************************************************************************
+    public List<Terrain> getAllTerrainsByAddress(String address) {
+        List<Terrain> terrainsByAddress = new ArrayList<>();
+        String query = "SELECT * FROM terrain WHERE address = ?";
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, address);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Terrain terrain = createTerrainFromResultSet(rs);
+                    terrainsByAddress.add(terrain);}}
+        } catch (SQLException e) {
+            // Gérer l'exception de manière appropriée
+            e.printStackTrace();}
+        return terrainsByAddress;}
+    public List<Terrain> getAllTerrainsByGouvernorat(String gouvernorat) {
+        List<Terrain> terrainsByGouvernorat = new ArrayList<>();
+        String query = "SELECT * FROM terrain WHERE gouvernorat = ?";
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, gouvernorat);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Terrain terrain = createTerrainFromResultSet(rs);
+                    terrainsByGouvernorat.add(terrain);}}
+        } catch (SQLException e) {
+            // Gérer l'exception de manière appropriée
+            e.printStackTrace();}
+        return terrainsByGouvernorat;}
+}

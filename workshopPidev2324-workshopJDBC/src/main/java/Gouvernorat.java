@@ -1,0 +1,27 @@
+public enum Gouvernorat {
+        TUNIS,
+        ARIANA,
+        BEN_AROUS,
+        MANOUBA,
+        NABEUL,
+        ZAGHOUAN,
+        BIZERTE,
+        BEJA,
+        JENDOUBA,
+        KEF,
+        SILIANA,
+        KAIROUAN,
+        KASSERINE,
+        SIDI_BOUZID,
+        SOUSSE,
+        MONASTIR,
+        MAHDIA,
+        SFAX,
+        GAFSA,
+        TOZEUR,
+        KEBILI,
+        GABES,
+        MEDENINE,
+        TATAOUINE
+
+}

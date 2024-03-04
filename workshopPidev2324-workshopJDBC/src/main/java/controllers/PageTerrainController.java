@@ -69,11 +69,14 @@ public class PageTerrainController  {
     @FXML
     private Button btnavis3;
     @FXML
+    private Button btnlogout;
+    @FXML
     private Text nom1;
     @FXML
     private Text nom2;
     @FXML
     private Text nom3;
+
     int i = 0; // Initialisation d'un compteur pour la pagination
     TerrainService Ts = new TerrainService(); //Instanciation du service TerrainService
     //*******************************************************************
@@ -145,7 +148,6 @@ public class PageTerrainController  {
         i += 1; // Incrémentation du compteur pour afficher les terrains suivants
         actualise(Ts.getAllTerrains()); // Appel de la méthode actualise avec la liste de tous les terrains
     }
-
     //*******************************************************************************************
     @FXML
     void Ajout(ActionEvent event) throws IOException {
@@ -260,9 +262,10 @@ public class PageTerrainController  {
     @FXML
     void avis1(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
-        int index = Integer.parseInt(btn.getId().substring(7)) - 1+3*i;
+        int index = Integer.parseInt(btn.getId().substring(7)) - 1 + 3 * i;
+        Terrain selectedTerrain = Ts.getAllTerrains().get(index);
         AvisService as = new AvisService();
-        List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(index);
+        List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(selectedTerrain.getId());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/avisPropT.fxml"));
         Parent root = loader.load();
         avisPropTController controller = loader.getController();
@@ -271,15 +274,15 @@ public class PageTerrainController  {
         stage.setTitle("Les avis");
         stage.setScene(new Scene(root));
         stage.show();
-        ((Button) event.getSource()).getScene().getWindow().hide();
-    }
+        ((Button) event.getSource()).getScene().getWindow().hide();}
     //*******************************************************************************************
     @FXML
     void avis2(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(7)) - 1 + 3 * i;
+        Terrain selectedTerrain = Ts.getAllTerrains().get(index);
         AvisService as = new AvisService();
-        List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(index);
+        List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(selectedTerrain.getId());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/avisPropT.fxml"));
         Parent root = loader.load();
         avisPropTController controller = loader.getController();
@@ -294,8 +297,9 @@ public class PageTerrainController  {
     void avis3(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(7)) - 1 + 3 * i;
+        Terrain selectedTerrain = Ts.getAllTerrains().get(index);
         AvisService as = new AvisService();
-        List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(index);
+        List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(selectedTerrain.getId());
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/avisPropT.fxml"));
         Parent root = loader.load();
         avisPropTController controller = loader.getController();
@@ -304,6 +308,13 @@ public class PageTerrainController  {
         stage.setTitle("Les avis");
         stage.setScene(new Scene(root));
         stage.show();
-        ((Button) event.getSource()).getScene().getWindow().hide();
-    }
-}
+        ((Button) event.getSource()).getScene().getWindow().hide();}
+    //*******************************************************************************************
+    @FXML
+    void logoutaction(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/test/LoginRegistrationPage.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Login");
+        stage.setScene(new Scene(root));
+        stage.show();}}

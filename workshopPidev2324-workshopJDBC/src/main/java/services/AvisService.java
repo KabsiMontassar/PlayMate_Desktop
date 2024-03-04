@@ -1,5 +1,4 @@
 package services;
-
 import entity.AvisTerrain;
 import entity.Terrain;
 import utils.MyDatabase;
@@ -7,39 +6,20 @@ import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
 //*******************************************************************************************
-public class AvisService implements ITerrain<AvisTerrain> {
+public class AvisService {
     private Connection connection; //Déclaration d'une variable de connexion à la base de données.
-    //*******************************************************************************************
-    public AvisService() {
-        connection = MyDatabase.getInstance().getConnection();//Constructeur qui initialise la connexion à la base de données en utilisant MyDatabase.
-    }
+    public AvisService() {connection = MyDatabase.getInstance().getConnection();}
     //*******************************************************************************************
     public void add(AvisTerrain t) throws SQLException {
         String query = "INSERT INTO avis (terrain_id, commentaire, note) VALUES (?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            ps.setInt(1, t.getTerrain().getId()); // Utilisation de l'ID du terrain
+            ps.setInt(1, t.getTerrain_id()); // Utilisation de l'ID du terrain
             ps.setString(2, t.getCommentaire());
             ps.setInt(3, t.getNote());
             ps.executeUpdate();
             try (ResultSet rs = ps.getGeneratedKeys()) {
                 if (rs.next()) {
                     t.setIdAvis(rs.getInt(1));}}}}
-    //*******************************************************************************************
-    public void update(AvisTerrain t) {
-        String query = "UPDATE `avis` SET  `commentaire` = ?, `note` = ? WHERE `idAvis` = ?";
-        try (PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setString(1, t.getCommentaire());
-            ps.setInt(2, t.getNote());
-            ps.setInt(3, t.getIdAvis());
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());}}
-    //*******************************************************************************************
-    public void delete(int id) throws SQLException {
-        String query = "DELETE FROM avis WHERE idAvis = ?";
-        try (PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setInt(1, id);
-            ps.executeUpdate();}}
     //*******************************************************************************************
     public List<AvisTerrain> getAvisByTerrainId(int terrainId) {
         List<AvisTerrain> avisTerrains = new ArrayList<>();
@@ -55,9 +35,25 @@ public class AvisService implements ITerrain<AvisTerrain> {
                 Terrain terrain = new Terrain();
                 terrain.setId(rs.getInt("id"));
                 avisTerrain.setTerrain(terrain);
-                avisTerrains.add(avisTerrain);
-            }
+                avisTerrains.add(avisTerrain);}
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace();}return avisTerrains;}
+
+    public int getPhoneNumberForAvis(int avisId) throws SQLException {
+        int phoneNumber = 0;
+        String query = "SELECT u.Phone " +
+                "FROM avis a " +
+                "JOIN terrain t ON a.terrain_id = t.id " +
+                "JOIN proprietaire_de_terrain pdt ON t.idprop = pdt.proprietaire_de_terrain_id " +
+                "JOIN user u ON pdt.proprietaire_de_terrain_id = u.id " +
+                "WHERE a.idAvis = ?";
+        PreparedStatement pst = connection.prepareStatement(query);
+        pst.setInt(1, avisId); // Set the avisId parameter in the query
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            phoneNumber = rs.getInt("Phone");
         }
-        return avisTerrains;}}
+        rs.close();
+        pst.close();
+        return phoneNumber;
+    }}

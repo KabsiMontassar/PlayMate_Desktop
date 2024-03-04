@@ -1,5 +1,9 @@
 package controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.transformation.FilteredList;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import entity.Terrain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +18,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.TerrainService;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
+
 //*******************************************************************
 public class AvisController  {
     @FXML
@@ -44,6 +52,12 @@ public class AvisController  {
     @FXML
     private Button btndetail3;
     @FXML
+    private Button btavis1;
+    @FXML
+    private Button btavis2;
+    @FXML
+    private Button btavis3;
+    @FXML
     private Button btnretour;
     @FXML
     private Button btnsuivant;
@@ -53,13 +67,23 @@ public class AvisController  {
     private Text nom2;
     @FXML
     private Text nom3;
-    int i= 0;
+    @FXML
+    private TextField search;
+    @FXML
+    private ComboBox<String> sort;
     TerrainService Ts = new TerrainService();
+    List<Terrain> sortedTerrains = Ts.getAllTerrains();
+    int i= 0;
     //*******************************************************************
-    public void initialize() {actualise(Ts.getAllTerrains());}
+    public void initialize() {
+        sort.getItems().addAll("Prix Croissant", "Prix Décroissant");
+        actualise(sortedTerrains);
+    }
     //*******************************************************************
     void actualise(List<Terrain> terrains){
-        if(terrains.size()-1-i*3>0){btnsuivant.setVisible(true);}
+        if(terrains.size()-1-i*3>0){
+            btnsuivant.setVisible(true);
+        }
         if(terrains.size()-1-i*3 <= 0){btnsuivant.setVisible(false);}
         if(i > 0){btnretour.setVisible(true);}
         if(i == 0){btnretour.setVisible(false);}
@@ -92,17 +116,17 @@ public class AvisController  {
     @FXML
     void retour(ActionEvent event){
         i -=1;
-        actualise(Ts.getAllTerrains());}
+        actualise(sortedTerrains);}
     //*******************************************************************************************
     @FXML
-    void suivant(ActionEvent event){i +=1;
-        actualise(Ts.getAllTerrains());}
+    void suivant(ActionEvent event){
+        i +=1;
+        actualise(sortedTerrains);}
     //*******************************************************************************************
     @FXML
     void detail1(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
-        int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i;
-        Terrain terrain = Ts.getAllTerrains().get(index);
+        Terrain terrain = sortedTerrains.get(i*3);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/detailuser.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
@@ -115,12 +139,11 @@ public class AvisController  {
     @FXML
     void detail2(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
-        int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Terrain selectedTerrain = Ts.getAllTerrains().get(index);
+        Terrain terrain = sortedTerrains.get(1+i*3);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/detailuser.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
-        controller.initData(selectedTerrain);
+        controller.initData(terrain);
         Stage stage = new Stage();
         stage.setTitle("Détails du Terrain");
         stage.setScene(new Scene(root));
@@ -129,23 +152,86 @@ public class AvisController  {
     @FXML
     void detail3(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
-        int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Terrain selectedTerrain = Ts.getAllTerrains().get(index);
+        Terrain terrain = sortedTerrains.get(2+i*3);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/detailuser.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
-        controller.initData(selectedTerrain);
+        controller.initData(terrain);
         Stage stage = new Stage();
         stage.setTitle("Détails du Terrain");
         stage.setScene(new Scene(root));
         stage.show();}
     //*******************************************************************************************
-    public void add_avis(ActionEvent event) throws IOException {
+    @FXML
+    public void add_avis1(ActionEvent event) throws IOException {
+            Button btn = (Button) event.getSource();
+        Terrain terrain = sortedTerrains.get(i*3);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/DonnerAvis.fxml"));
+            Parent root = loader.load();
+            DonnerAvisController controller = loader.getController();
+            controller.initData(terrain);
+            Stage stage = new Stage();
+            stage.setTitle("Donner un avis");
+            stage.setScene(new Scene(root));
+            stage.show();}
+        //*******************************************************************************************
+    @FXML
+    void add_avis2(ActionEvent event) throws IOException {
+        Button btn = (Button) event.getSource();
+        Terrain terrain = sortedTerrains.get(1+i*3);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/DonnerAvis.fxml"));
         Parent root = loader.load();
+        DonnerAvisController controller = loader.getController();
+        controller.initData(terrain);
         Stage stage = new Stage();
         stage.setTitle("Donner un avis");
         stage.setScene(new Scene(root));
         stage.show();}
+    //*******************************************************************************************
+    @FXML
+    void add_avis3(ActionEvent event) throws IOException {
+        Button btn = (Button) event.getSource();
+        Terrain terrain = sortedTerrains.get(2+i*3);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/DonnerAvis.fxml"));
+        Parent root = loader.load();
+        DonnerAvisController controller = loader.getController();
+        controller.initData(terrain);
+        Stage stage = new Stage();
+        stage.setTitle("Donner un avis");
+        stage.setScene(new Scene(root));
+        stage.show();}
+    //*******************************************************************************************
+    @FXML
+    void search(ActionEvent event) {
+        String address = search.getText().toLowerCase();
+        String gouvernorat = search.getText().toLowerCase();
+        List<Terrain> terrains = new ArrayList<>(Ts.getAllTerrains()); // Copie de la liste d'origine
+        FilteredList<Terrain> filteredList = new FilteredList<>(FXCollections.observableList(terrains));
+        filteredList.setPredicate(terrain -> terrain.getAddress().toLowerCase().contains(address));
+        filteredList.setPredicate(terrain -> terrain.getGouvernorat().toLowerCase().contains(gouvernorat));
+        sortedTerrains = filteredList.stream().collect(Collectors.toList()); // Mettre à jour la liste sortedTerrains
+        actualise(sortedTerrains);
+        i = 0; // Réinitialisation de l'index
+    }
 
+
+    //*******************************************************************************************
+    @FXML
+    void sort(ActionEvent event) {
+        String selectedSort = (String) sort.getValue();
+        switch (selectedSort) {
+            case "Prix Croissant":
+                sortedTerrains.sort(Comparator.comparingDouble(Terrain::getPrix));
+                System.out.println(sortedTerrains);
+                break;
+            case "Prix Décroissant":
+                sortedTerrains.sort(Comparator.comparingDouble(Terrain::getPrix).reversed());
+                System.out.println(sortedTerrains);
+                break;
+
+            default:
+                break;}
+        actualise(sortedTerrains);
+        i = 0; // Réinitialisation de l'index
+    }
 }

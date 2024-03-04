@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -57,7 +58,9 @@ public class TerrainController {
     @FXML
     private TextField tfduree;
     @FXML
-    private TextField tfemplacement;
+    private ComboBox<String> tfgouvernorat;
+    @FXML
+    private ComboBox<String> tfcountry;
     @FXML
     private ImageView img;
     @FXML
@@ -70,6 +73,9 @@ public class TerrainController {
     private TerrainService ts = new TerrainService(); //instance classe service
     private List<Terrain> pageTerrain;
     private Terrain terrainActuel;
+    @FXML
+    private ComboBox<String> scrollableComboBox;
+    private int selectedIndex = 0;
     //*******************************************************************************************
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -79,6 +85,15 @@ public class TerrainController {
         cbStatus.setSelected(false); // Décoche la case à cocher Status
         pageTerrain = new ArrayList<>(); // Initialise la liste des terrains affichés
     }
+    @FXML
+    void getStatesByCountry(ActionEvent event) {
+        String country = tfcountry.getValue(); // Récupère le pays sélectionné
+        List<String> states = StatesApi.getbyCountry(country); // Appelle l'API pour obtenir les gouvernorats
+
+        tfgouvernorat.getItems().clear(); // Efface les anciens gouvernorats
+        tfgouvernorat.getItems().addAll(states); // Ajoute les nouveaux gouvernorats
+    }
+
     //*******************************************************************************************
     public void setModifierButtonVisibility(boolean visible) {
         btupdate.setVisible(visible); // Rend visible ou invisible le bouton de modification
@@ -101,12 +116,11 @@ public class TerrainController {
         cbStatus.setSelected(false); // Décoche la case à cocher Status
         tfprix.setText(""); // Efface le contenu du champ prix
         tfduree.setText(""); // Efface le contenu du champ duree
-        tfemplacement.setText(""); // Efface le contenu du champ emplacement
+        tfgouvernorat.setValue(null); // Efface le contenu du champ emplacement
         img.setImage(null); // Efface l'image affichée
         vid.setMediaPlayer(null); // Arrête la lecture de la vidéo
         imagePath = null; // Réinitialise le chemin de l'image
-        videoPath = null; // Réinitialise le chemin de la vidéo
-        }
+        videoPath = null;}
     //*******************************************************************************************
     @FXML
     void createTerrain(ActionEvent event) throws SQLException, IOException {
@@ -126,7 +140,7 @@ public class TerrainController {
             } else {
                 float prixValue = Float.parseFloat(tfprix.getText()); //Convertir le prix en float
                 // Créer un nouveau terrain avec les données saisies
-                Terrain terrain = new Terrain(tfaddress.getText(), cbGradin.isSelected(), cbVestiaire.isSelected(), cbStatus.isSelected(), tfnom.getText(), prixValue, Integer.parseInt(tfduree.getText()), tfemplacement.getText(), imagePath, videoPath);
+                Terrain terrain = new Terrain(tfaddress.getText(), cbGradin.isSelected(), cbVestiaire.isSelected(), cbStatus.isSelected(), tfnom.getText(), prixValue, Integer.parseInt(tfduree.getText()), tfgouvernorat.getValue(), imagePath, videoPath);
                 ts.add(terrain);
                 showTerrains(); // Mettre à jour l'affichage après avoir ajouté un nouveau terrain
                 clearField(); // Efface les champs après l'ajout
@@ -171,7 +185,7 @@ public class TerrainController {
             terrainActuel.setStatus(cbStatus.isSelected());
             terrainActuel.setPrix(prixValue);
             terrainActuel.setDuree(Integer.parseInt(tfduree.getText()));
-            terrainActuel.setGouvernorat(tfemplacement.getText());
+            terrainActuel.setGouvernorat(tfgouvernorat.getValue());
             terrainActuel.setImage(imagePath);
             terrainActuel.setVideo(videoPath);
             TerrainService terrainService = new TerrainService();
@@ -195,7 +209,7 @@ public class TerrainController {
             cbStatus.setSelected(terrain.getStatus());
             tfprix.setText(String.valueOf(terrain.getPrix()));
             tfduree.setText(String.valueOf(terrain.getDuree()));
-            tfemplacement.setText(terrain.getGouvernorat());
+            tfgouvernorat.setValue(terrain.getGouvernorat());
             String imagePath = terrain.getImage();
             if (imagePath != null && !imagePath.isEmpty()) {
                 Image image = new Image(imagePath);
@@ -247,8 +261,8 @@ public class TerrainController {
         ((Stage) btvoir.getScene().getWindow()).hide();}
     //*******************************************************************************************
     @FXML
-    void showTerrainDetails(Terrain terrain) {
-        initData(terrain);}
+    void showTerrainDetails(Terrain terrain) {initData(terrain);}
+    //*******************************************************************************************
     public void initData(Terrain terrain) {
         this.terrainActuel = terrain;
         tfnom.setText(terrain.getNomTerrain());
@@ -258,7 +272,7 @@ public class TerrainController {
         cbStatus.setSelected(terrain.getStatus());
         tfprix.setText(String.valueOf(terrain.getPrix()));
         tfduree.setText(String.valueOf(terrain.getDuree()));
-        tfemplacement.setText(terrain.getGouvernorat());
+        tfgouvernorat.setValue(terrain.getGouvernorat());
         imagePath = terrain.getImage();
         videoPath = terrain.getVideo();
         if (imagePath != null && !imagePath.isEmpty()) {

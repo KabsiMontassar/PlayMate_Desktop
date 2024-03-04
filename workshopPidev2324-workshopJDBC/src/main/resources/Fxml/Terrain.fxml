@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -28,7 +31,20 @@
         <Label text="Durée" />
         <TextField fx:id="tfduree" />
         <Label text="Gouvernorat" />
-        <TextField fx:id="tfemplacement" />
+        <ComboBox fx:id="tfcountry" prefHeight="23.0" prefWidth="178.0" onAction="#getStatesByCountry">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Tunisia" />
+                    <String fx:value="France" />
+                    <String fx:value="Italy" />
+                    <!-- Ajoutez d'autres pays ici -->
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <ComboBox fx:id="tfgouvernorat" prefHeight="23.0" prefWidth="178.0">
+            <!-- Les gouvernorats seront affichés ici -->
+        </ComboBox>
+
     </VBox>
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="506.0" layoutY="33.0" text="GESTION TERRAIN" textAlignment="CENTER" textFill="#0a2f55" textOverrun="CLIP">
         <font><Font name="Berlin Sans FB" size="36.0" /></font>
