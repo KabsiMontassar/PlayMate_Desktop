@@ -13,6 +13,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Tournoi;
 import services.GestionTournoi.ServiceTournoi;
+import test.MainFx;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -117,7 +118,7 @@ public class AfficherListeTournoisClientController {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i;
         Tournoi t = Ts.allTournoi().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/test/GestionTournoi/DetailClient.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/DetailClient.fxml"));
         Parent root;
         root = loader.load();
         DetailClientController controller = loader.getController();
@@ -133,7 +134,7 @@ public class AfficherListeTournoisClientController {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Tournoi selectedTournoi = Ts.allTournoi().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/test/GestionTournoi/DetailClient.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/DetailClient.fxml"));
         Parent root = loader.load();
         DetailClientController controller = loader.getController();
         controller.initData(selectedTournoi);
@@ -148,7 +149,7 @@ public class AfficherListeTournoisClientController {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Tournoi selectedTournoi = Ts.allTournoi().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/test/GestionTournoi/DetailClient.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/DetailClient.fxml"));
         Parent root = loader.load();
         DetailClientController controller = loader.getController();
         controller.initData(selectedTournoi);
@@ -160,7 +161,7 @@ public class AfficherListeTournoisClientController {
 
     @FXML
     void calendar(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/test/GestionTournoi/Calender.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/Calender.fxml"));
         Parent root = loader.load();
         CalendarController controller = loader.getController();
         Stage stage = new Stage();

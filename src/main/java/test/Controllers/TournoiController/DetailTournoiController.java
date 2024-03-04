@@ -55,7 +55,7 @@ public class DetailTournoiController {
     }
     @FXML
     void modifd(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/test/GestionTournoi/FormulaireModif.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/FormulaireModif.fxml"));
         Parent root = loader.load();
         ModifierTournoiController controller = loader.getController();
         controller.initData(tournoiActuel);
@@ -68,7 +68,7 @@ public class DetailTournoiController {
     public void goToTournoi(ActionEvent actionEvent) throws IOException {
 
 
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("tournoi.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
             AnchorPane root = loader.load();
         detailroot.getChildren().setAll(root);
         }

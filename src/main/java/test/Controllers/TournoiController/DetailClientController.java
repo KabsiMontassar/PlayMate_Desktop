@@ -78,7 +78,7 @@ public class DetailClientController implements Initializable {
     public void goToTournoiClient(ActionEvent actionEvent) throws IOException {
 
 
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("tournoiClient.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoiClient.fxml"));
         AnchorPane root = loader.load();
         detailroot.getChildren().setAll(root);
     }

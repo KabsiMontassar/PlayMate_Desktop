@@ -270,7 +270,7 @@ public class TerrainController {
     //*******************************************************************************************
     @FXML
     void voirlist() throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("PageTerrain.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/PageTerrain.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Liste des terrains");

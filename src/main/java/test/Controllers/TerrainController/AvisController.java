@@ -124,7 +124,7 @@ public class AvisController  {
     void detail1(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
         Terrain terrain = sortedTerrains.get(i*3);
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("detailuser.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/detailuser.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
         controller.initData(terrain);
@@ -137,7 +137,7 @@ public class AvisController  {
     void detail2(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
         Terrain terrain = sortedTerrains.get(1+i*3);
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("detailuser.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/detailuser.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
         controller.initData(terrain);
@@ -150,7 +150,7 @@ public class AvisController  {
     void detail3(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
         Terrain terrain = sortedTerrains.get(2+i*3);
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("detailuser.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/detailuser.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
         controller.initData(terrain);
@@ -163,7 +163,7 @@ public class AvisController  {
     public void add_avis1(ActionEvent event) throws IOException {
             Button btn = (Button) event.getSource();
         Terrain terrain = sortedTerrains.get(i*3);
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("DonnerAvis.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DonnerAvis.fxml"));
             Parent root = loader.load();
             DonnerAvisController controller = loader.getController();
             controller.initData(terrain);
@@ -176,7 +176,7 @@ public class AvisController  {
     void add_avis2(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
         Terrain terrain = sortedTerrains.get(1+i*3);
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("DonnerAvis.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DonnerAvis.fxml"));
         Parent root = loader.load();
         DonnerAvisController controller = loader.getController();
         controller.initData(terrain);
@@ -189,7 +189,7 @@ public class AvisController  {
     void add_avis3(ActionEvent event) throws IOException {
         Button btn = (Button) event.getSource();
         Terrain terrain = sortedTerrains.get(2+i*3);
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("DonnerAvis.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DonnerAvis.fxml"));
         Parent root = loader.load();
         DonnerAvisController controller = loader.getController();
         controller.initData(terrain);

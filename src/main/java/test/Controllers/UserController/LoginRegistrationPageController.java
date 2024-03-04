@@ -373,7 +373,7 @@ public class LoginRegistrationPageController {
             UserActivityLogger UAL = new UserActivityLogger();
             UAL.logAction(Seconnecterfield1.getText() ,  " connecte");
 
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("Acceuil.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
             AnchorPane root = loader.load();
 
             AcceuilController acceuilController = loader.getController();

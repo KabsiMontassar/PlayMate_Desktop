@@ -64,7 +64,7 @@ public class ParticipationController implements Initializable {
    ServiceTournoi st = new ServiceTournoi();
     @FXML
     void goToDetailsClient(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("TournoiClient.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/TournoiClient.fxml"));
         AnchorPane root = loader.load();
         detailroot.getChildren().setAll(root);
     }
@@ -121,7 +121,7 @@ if(validateNbrParticipation() && validateEquipeParticipation( nomequipe.getValue
             ps.ajouter(nouvelleParticipation);
             tournoiActuel.ajouterParticipation(nouvelleParticipation);
             System.out.println(nouvelleParticipation);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/test/GestionTournoi/tournoiClient.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoiClient.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Gestion_Tournoi");

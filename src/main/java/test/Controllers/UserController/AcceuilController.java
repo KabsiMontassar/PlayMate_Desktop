@@ -45,7 +45,7 @@ public class AcceuilController {
 
     public void initialize() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("reservezMaintenant.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/reservezMaintenant.fxml"));
         AnchorPane root = loader.load();
         root.setStyle("-fx-background-color: white;");
         AccueilStuff.getChildren().setAll(root);
@@ -65,7 +65,7 @@ public class AcceuilController {
             currentIndex = 0;
         }
 
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource(elements.get(currentIndex)));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/"+elements.get(currentIndex)));
         AnchorPane root = loader.load();
         System.out.println(elements.get(((currentIndex+1)+3)%3));
         root.setStyle("-fx-background-color: white;");

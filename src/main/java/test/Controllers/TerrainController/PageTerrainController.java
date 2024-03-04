@@ -155,7 +155,7 @@ public class PageTerrainController  {
     //*******************************************************************************************
     @FXML
     void Ajout(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("Terrain.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/Terrain.fxml"));
         Parent root = loader.load();
         TerrainController controller = loader.getController();
         controller.setModifierButtonVisibility(false); // Masquer le bouton "Modifier"
@@ -170,7 +170,7 @@ public class PageTerrainController  {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i;
         Terrain terrain = Ts.getAllTerrains().get(index);
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("DetailTerrain.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DetailTerrain.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
         controller.initData(terrain);
@@ -185,7 +185,7 @@ public class PageTerrainController  {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Terrain selectedTerrain = Ts.getAllTerrains().get(index);
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("DetailTerrain.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DetailTerrain.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
         controller.initData(selectedTerrain);
@@ -200,7 +200,7 @@ public class PageTerrainController  {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Terrain selectedTerrain = Ts.getAllTerrains().get(index);
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("DetailTerrain.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DetailTerrain.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
         controller.initData(selectedTerrain);
@@ -270,7 +270,7 @@ public class PageTerrainController  {
         Terrain selectedTerrain = Ts.getAllTerrains().get(index);
         AvisService as = new AvisService();
         List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(selectedTerrain.getId());
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("avisPropT.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/avisPropT.fxml"));
         Parent root = loader.load();
         avisPropTController controller = loader.getController();
         controller.initData(avisTerrain);
@@ -287,7 +287,7 @@ public class PageTerrainController  {
         Terrain selectedTerrain = Ts.getAllTerrains().get(index);
         AvisService as = new AvisService();
         List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(selectedTerrain.getId());
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("avisPropT.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/avisPropT.fxml"));
         Parent root = loader.load();
         avisPropTController controller = loader.getController();
         controller.initData(avisTerrain);
@@ -304,7 +304,7 @@ public class PageTerrainController  {
         Terrain selectedTerrain = Ts.getAllTerrains().get(index);
         AvisService as = new AvisService();
         List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(selectedTerrain.getId());
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("avisPropT.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/avisPropT.fxml"));
         Parent root = loader.load();
         avisPropTController controller = loader.getController();
         controller.initData(avisTerrain);
@@ -316,7 +316,7 @@ public class PageTerrainController  {
     //*******************************************************************************************
     @FXML
     void logoutaction(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("LoginRegistrationPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/LoginRegistrationPage.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Login");
