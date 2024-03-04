@@ -1,4 +1,5 @@
 package controllers;
+
 import entity.Terrain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +11,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -28,7 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.scene.control.TextField;
-import org.controlsfx.control.textfield.TextFields;
 //*******************************************************************************************
 public class TerrainController {
 
@@ -68,6 +67,8 @@ public class TerrainController {
     @FXML
     private MediaView vid;
     @FXML
+    private ComboBox<String> scrollableComboBox;
+    @FXML
     private VBox terrainContainer;
     //*******************************************************************************************
     private String imagePath;
@@ -75,8 +76,6 @@ public class TerrainController {
     private TerrainService ts = new TerrainService(); //instance classe service
     private List<Terrain> pageTerrain;
     private Terrain terrainActuel;
-    @FXML
-    private ComboBox<String> scrollableComboBox;
     private int selectedIndex = 0;
     //*******************************************************************************************
     @FXML
@@ -86,17 +85,15 @@ public class TerrainController {
         cbVestiaire.setSelected(false); // Décoche la case à cocher Vestiaire
         cbStatus.setSelected(false); // Décoche la case à cocher Status
         pageTerrain = new ArrayList<>(); // Initialise la liste des terrains affichés
-
     }
+    //*******************************************************************************************
     @FXML
     void getStatesByCountry(ActionEvent event) {
         String country = tfcountry.getValue(); // Récupère le pays sélectionné
         List<String> states = StatesApi.getbyCountry(country); // Appelle l'API pour obtenir les gouvernorats
-
         tfgouvernorat.getItems().clear(); // Efface les anciens gouvernorats
         tfgouvernorat.getItems().addAll(states); // Ajoute les nouveaux gouvernorats
     }
-
     //*******************************************************************************************
     public void setModifierButtonVisibility(boolean visible) {
         btupdate.setVisible(visible); // Rend visible ou invisible le bouton de modification
@@ -125,13 +122,10 @@ public class TerrainController {
         imagePath = null; // Réinitialise le chemin de l'image
         videoPath = null;}
     //*******************************************************************************************
-    private boolean isValidName(String name) {
-        return name.matches("[a-zA-Z]+");
-    }
-
-    private boolean isValidAddress(String address) {
-        return address.matches("[a-zA-Z0-9 ]+");
-    }
+    private boolean isValidName(String name) {return name.matches("[a-zA-Z]+");}
+    //*******************************************************************************************
+    private boolean isValidAddress(String address) {return address.matches("[a-zA-Z0-9 ]+");}
+    //*******************************************************************************************
     @FXML
     void createTerrain(ActionEvent event) throws SQLException, IOException {
         if (videoPath == null) {
@@ -145,13 +139,11 @@ public class TerrainController {
                 String nomTerrain = tfnom.getText();
                 if (!isValidName(nomTerrain)) {
                     showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Le nom du terrain ne doit contenir que des lettres.");
-                    return;
-                }
+                    return;}
                 String address = tfaddress.getText();
                 if (!isValidAddress(address)) {
                     showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "L'adresse du terrain ne doit contenir que des lettres, des chiffres et des espaces.");
-                    return;
-                }
+                    return;}
             // Vérifier si le nom du terrain existe déjà dans la liste
                 boolean nomExiste = ts.getAllTerrains().stream().anyMatch(terrain -> terrain.getNomTerrain().equalsIgnoreCase(nomTerrain));
             if (nomExiste) {
@@ -241,8 +233,7 @@ public class TerrainController {
                 MediaPlayer mediaPlayer = new MediaPlayer(media);
                 vid.setMediaPlayer(mediaPlayer);
                 mediaPlayer.play();
-            } else {
-                vid.setMediaPlayer(null);}}}
+            } else {vid.setMediaPlayer(null);}}}
     //*******************************************************************************************
     @FXML
     void addTerrain_imageview(ActionEvent event) {

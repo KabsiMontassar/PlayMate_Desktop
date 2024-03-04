@@ -8,7 +8,7 @@ import com.mailjet.client.errors.MailjetException;
 import com.mailjet.client.resource.Emailv31;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
+//*******************************************************************************************
 public class JavaMailJett {
 
     public static void send(String recipient,String Code) throws MailjetException {
@@ -17,19 +17,12 @@ public class JavaMailJett {
         ClientOptions options =
                 ClientOptions.builder().apiKey(mailjetApiKey).apiSecretKey(mailjetSecretKey).build();
         MailjetClient client = new MailjetClient(options);
-
         JavaMailJett sender = new JavaMailJett();
-        sender.sendMailjet(recipient, Code , client);
-    }
-
+        sender.sendMailjet(recipient, Code , client);}
     public void sendMailjet(String recipient, String Code, MailjetClient client) {
         MailjetRequest email =
                 new MailjetRequest(Emailv31.resource)
-                        .property(
-                                Emailv31.MESSAGES,
-                                new JSONArray()
-                                        .put(
-                                                new JSONObject()
+                        .property(Emailv31.MESSAGES, new JSONArray().put(new JSONObject()
                                                         .put(
                                                                 Emailv31.Message.FROM,
                                                                 new JSONObject().put("Email", "playmatepidev@gmail.com").put("Name", "PlayMate"))
@@ -39,21 +32,14 @@ public class JavaMailJett {
                                                         .put(Emailv31.Message.SUBJECT, "ttatatatat")
                                                         .put(
                                                                 Emailv31.Message.TEXTPART,
-                                                                "Chers clients, bienvenue à PlayMate!"
-                                                                        + "Voici votre code de vérification!" + Code)
+                                                                "Chers clients, bienvenue à PlayMate!" + "Voici votre code de vérification!" + Code)
                                                         .put(
                                                                 Emailv31.Message.HTMLPART,
-                                                                "<h3>Bienvenue</h3>"
-                                                                        + "<br />hgyuf <h3> " + Code + "</h3>")));
-
+                                                                "<h3>Bienvenue</h3>" + "<br />hgyuf <h3> " + Code + "</h3>")));
         try {
             // trigger the API call
             MailjetResponse response = client.post(email);
             // Read the response data and status
             System.out.println(response.getStatus());
             System.out.println(response.getData());
-        } catch (MailjetException e) {
-            System.out.println("Mailjet Exception: "+ e );
-        }
-    }
-}
+        } catch (MailjetException e) {System.out.println("Mailjet Exception: "+ e );}}}

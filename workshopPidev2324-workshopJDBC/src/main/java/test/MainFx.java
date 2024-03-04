@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
-
+//*******************************************************************************************
 public class MainFx extends Application {
     @Override
     //throw exception pour verifier si le path de fichier fxml existe pour fair le load

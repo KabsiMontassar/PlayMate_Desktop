@@ -1,4 +1,5 @@
 package entity;
+
 import java.util.ArrayList;
 import java.util.List;
 //*******************************************************************************************
@@ -38,8 +39,7 @@ public class Terrain {
         this.gouvernorat = gouvernorat;
         this.image = image;
         this.video = video;
-        this.avisList = new ArrayList<>();
-    }
+        this.avisList = new ArrayList<>();}
     public Terrain() {}
     //*******************************************************************************************
     @Override
@@ -74,7 +74,6 @@ public class Terrain {
     public String getNomTerrain() {return nomTerrain;}
     public void setNomTerrain(String nomTerrain) {this.nomTerrain = nomTerrain;}
     public float getPrix() {return prix;}
-
     public void setPrix(float prix) {this.prix = prix;}
     public int getDuree() {return duree;}
     public void setDuree(int duree) {this.duree = duree;}
@@ -96,12 +95,6 @@ public class Terrain {
     public void setVideo(String video) {this.video = video;}
     public int getIdprop() {return idprop;}
     public void setIdprop(int idprop) {this.idprop = idprop;}
-
-    public int getNbCommentaires() {
-        return nbCommentaires;
-    }
-
-    public void setNbCommentaires(int nbCommentaires) {
-        this.nbCommentaires = nbCommentaires;
-    }
+    public int getNbCommentaires() {return nbCommentaires;}
+    public void setNbCommentaires(int nbCommentaires) {this.nbCommentaires = nbCommentaires;}
 }

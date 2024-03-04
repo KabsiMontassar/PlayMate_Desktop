@@ -109,13 +109,11 @@ public class AvisController  {
         btnsuivant.setVisible(terrains.size()-3*i > 3);}
     //*******************************************************************************************
     @FXML
-    void retour(ActionEvent event){
-        i -=1;
+    void retour(ActionEvent event){i -=1;
         actualise(sortedTerrains);}
     //*******************************************************************************************
     @FXML
-    void suivant(ActionEvent event){
-        i +=1;
+    void suivant(ActionEvent event){i +=1;
         actualise(sortedTerrains);}
     //*******************************************************************************************
     @FXML

@@ -1,7 +1,5 @@
 package controllers;
 
-import com.mailjet.client.errors.MailjetException;
-import com.mailjet.client.resource.Email;
 import entity.AvisTerrain;
 import entity.Terrain;
 import javafx.event.ActionEvent;
@@ -10,19 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import services.AvisService;
-import com.mailjet.client.ClientOptions;
-import com.mailjet.client.MailjetClient;
-import com.mailjet.client.MailjetRequest;
-import com.mailjet.client.resource.Emailv31;
-import java.io.IOException;
-import controllers.smsAPi;
 import java.sql.SQLException;
-import com.mailjet.client.errors.MailjetException;
-
-
 //*******************************************************************************************
 public class DonnerAvisController {
     @FXML
@@ -103,8 +90,6 @@ public class DonnerAvisController {
 
             // Afficher éventuellement un message de succès à l'utilisateur
         } catch (SQLException e) {
-            System.err.println("Erreur lors de l'ajout du commentaire : " + e.getMessage());
-        }
-    }
-
+            System.err.println("Erreur lors de l'ajout du commentaire : " + e.getMessage());}}
+    //*******************************************************************************************
     public void initData(Terrain terrain) {this.terrainId = terrain.getId();}}

@@ -1,4 +1,5 @@
 package services;
+
 import entity.AvisTerrain;
 import entity.Terrain;
 import utils.MyDatabase;
@@ -36,27 +37,22 @@ public class AvisService {
                 terrain.setId(rs.getInt("id"));
                 avisTerrain.setTerrain(terrain);
                 avisTerrains.add(avisTerrain);}
-        } catch (SQLException e) {
-            e.printStackTrace();}return avisTerrains;}
-
+        } catch (SQLException e) {e.printStackTrace();}return avisTerrains;}
+    //*******************************************************************************************
     public int getPhoneNumberForAvis(int avisId) throws SQLException {
         int phoneNumber = 0;
-        String query = "SELECT u.Phone " +
-                "FROM avis a " +
-                "JOIN terrain t ON a.terrain_id = t.id " +
+        String query = "SELECT u.Phone " + "FROM avis a " + "JOIN terrain t ON a.terrain_id = t.id " +
                 "JOIN proprietaire_de_terrain pdt ON t.idprop = pdt.proprietaire_de_terrain_id " +
                 "JOIN user u ON pdt.proprietaire_de_terrain_id = u.id " +
                 "WHERE a.idAvis = ?";
         PreparedStatement pst = connection.prepareStatement(query);
         pst.setInt(1, avisId); // Set the avisId parameter in the query
         ResultSet rs = pst.executeQuery();
-        if (rs.next()) {
-            phoneNumber = rs.getInt("Phone");
-        }
+        if (rs.next()) {phoneNumber = rs.getInt("Phone");}
         rs.close();
         pst.close();
-        return phoneNumber;
-    }
+        return phoneNumber;}
+    //*******************************************************************************************
     public List<Terrain> getTerrainsOrderByCommentaires() throws SQLException {
         List<Terrain> terrains = new ArrayList<>();
         String query = "SELECT terrain.id, terrain.nomTerrain, COUNT(avis.idAvis) AS nb_commentaires " +
@@ -70,11 +66,5 @@ public class AvisService {
                 terrain.setId(rs.getInt("id"));
                 terrain.setNomTerrain(rs.getString("nomTerrain"));
                 terrain.setNbCommentaires(rs.getInt("nb_commentaires"));
-                terrains.add(terrain);
-            }
-        }
-        return terrains;
-    }
-
-
-}
+                terrains.add(terrain);}}
+        return terrains;}}

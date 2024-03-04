@@ -88,19 +88,11 @@ public class PageTerrainController  {
     //*******************************************************************
     void actualise(List<Terrain> terrains) {
         // Affichage ou masquage du bouton suivant en fonction du nombre de terrains restants à afficher
-        if (terrains.size() - 1 - i * 3 > 0) {
-            btnsuivant.setVisible(true);
-        }
-        if (terrains.size() - 1 - i * 3 <= 0) {
-            btnsuivant.setVisible(false);
-        }
+        if (terrains.size() - 1 - i * 3 > 0) {btnsuivant.setVisible(true);}
+        if (terrains.size() - 1 - i * 3 <= 0) {btnsuivant.setVisible(false);}
         // Affichage ou masquage du bouton retour en fonction de la position dans la pagination
-        if (i > 0) {
-            btnretour.setVisible(true);
-        }
-        if (i == 0) {
-            btnretour.setVisible(false);
-        }
+        if (i > 0) {btnretour.setVisible(true);}
+        if (i == 0) {btnretour.setVisible(false);}
         if (!terrains.isEmpty()) {
             // Affichage des informations du premier terrain dans BOX1
             if (terrains.size() - 1 - i * 3 >= 0) {
@@ -109,8 +101,7 @@ public class PageTerrainController  {
                 address1.setText(terrains.get(i * 3).getAddress());
                 Img1.setImage(new Image(terrains.get(i * 3).getImage()));
             } else {
-                BOX1.setVisible(false);
-            }
+                BOX1.setVisible(false);}
             // Affichage des informations du deuxième terrain dans BOX2
             if (terrains.size() - 2 - i * 3 >= 0) {
                 BOX2.setVisible(true);
@@ -118,8 +109,7 @@ public class PageTerrainController  {
                 address2.setText(terrains.get(1 + i * 3).getAddress());
                 Img2.setImage(new Image(terrains.get(1 + i * 3).getImage()));
             } else {
-                BOX2.setVisible(false);
-            }
+                BOX2.setVisible(false);}
             // Affichage des informations du troisième terrain dans BOX3
             if (terrains.size() - 3 - i * 3 >= 0) {
                 BOX3.setVisible(true);
@@ -127,17 +117,14 @@ public class PageTerrainController  {
                 address3.setText(terrains.get(2 + i * 3).getAddress());
                 Img3.setImage(new Image(terrains.get(2 + i * 3).getImage()));
             } else {
-                BOX3.setVisible(false);
-            }
+                BOX3.setVisible(false);}
         } else {
             // Si la liste de terrains est vide, masquer tous les BOX
             BOX1.setVisible(false);
             BOX2.setVisible(false);
-            BOX3.setVisible(false);
-        }
+            BOX3.setVisible(false);}
         // Affichage ou masquage du bouton suivant en fonction du nombre de terrains restants à afficher
-        btnsuivant.setVisible(terrains.size() - 3 * i > 3);
-    }
+        btnsuivant.setVisible(terrains.size() - 3 * i > 3);}
     //*******************************************************************************************
     @FXML
     void retour(ActionEvent event) {
@@ -320,8 +307,7 @@ public class PageTerrainController  {
         stage.setTitle("Login");
         stage.setScene(new Scene(root));
         stage.show();}
-
-
+    //*******************************************************************************************
     @FXML
     void stat(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/stat.fxml"));
@@ -331,5 +317,4 @@ public class PageTerrainController  {
         stage.setScene(new Scene(root));
         stage.show();
         ((Button) event.getSource()).getScene().getWindow().hide();
-    }
-}
+    }}
