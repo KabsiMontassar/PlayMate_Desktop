@@ -8,7 +8,7 @@ import com.mailjet.client.errors.MailjetException;
 import com.mailjet.client.resource.Emailv31;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import test.Controllers.Common.CAlert;
+import test.Controllers.UserController.CAlert;
 
 import java.io.IOException;
 

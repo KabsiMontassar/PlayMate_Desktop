@@ -3,7 +3,7 @@ package services;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
-import test.Controllers.Common.CAlert;
+import test.Controllers.UserController.CAlert;
 
 import java.io.IOException;
 

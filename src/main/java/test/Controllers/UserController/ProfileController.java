@@ -23,7 +23,6 @@ import models.User;
 import netscape.javascript.JSObject;
 import org.json.JSONObject;
 import services.GestionUser.UserService;
-import test.Controllers.Common.CAlert;
 import test.MainFx;
 
 import javax.crypto.BadPaddingException;
