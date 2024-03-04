@@ -37,7 +37,7 @@
       <Label fx:id="statd" layoutX="216.0" layoutY="571.0" text="Status">
          <font><Font name="Bell MT" size="18.0" /></font>
       </Label>
-      <Label fx:id="gouvd" alignment="CENTER" contentDisplay="CENTER" layoutX="202.0" layoutY="317.0" text="Gouvernorat" textOverrun="CENTER_ELLIPSIS">
+      <Label fx:id="gouvd" alignment="CENTER" contentDisplay="CENTER" layoutX="84.0" layoutY="317.0" text="Gouvernorat" textOverrun="CENTER_ELLIPSIS">
          <font><Font name="Bell MT Bold" size="36.0" /></font>
       </Label>
       <Text layoutX="55.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Durée :">

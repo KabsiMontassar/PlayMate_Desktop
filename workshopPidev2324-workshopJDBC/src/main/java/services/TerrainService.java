@@ -140,4 +140,19 @@ public class TerrainService {
             // Gérer l'exception de manière appropriée
             e.printStackTrace();}
         return terrainsByGouvernorat;}
+   /* public List<String> getNamesOfTerrain() {
+        List<String> names = new ArrayList<>();
+        String query = "SELECT nomTerrain FROM terrain"; // Assurez-vous que le nom de la table est correct
+        try (PreparedStatement ps = connection.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                names.add(rs.getString("nomTerrain"));
+            }
+        } catch (SQLException e) {
+            // Gérer l'exception de manière appropriée
+            e.printStackTrace();
+        }
+        return names;
+    }
+*/
 }

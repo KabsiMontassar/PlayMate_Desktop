@@ -17,6 +17,7 @@ public class Terrain {
     private boolean status;
     private String videoPath;
     private String imagePath;
+    private int nbCommentaires;
     //*******************************************************************************************
     private List<AvisTerrain> avisList; //référence à une liste d'objets de type AvisTerrain (jointure) '*-1'
     public List<AvisTerrain> getAvisList() {
@@ -37,7 +38,8 @@ public class Terrain {
         this.gouvernorat = gouvernorat;
         this.image = image;
         this.video = video;
-        this.avisList = new ArrayList<>();}
+        this.avisList = new ArrayList<>();
+    }
     public Terrain() {}
     //*******************************************************************************************
     @Override
@@ -72,6 +74,7 @@ public class Terrain {
     public String getNomTerrain() {return nomTerrain;}
     public void setNomTerrain(String nomTerrain) {this.nomTerrain = nomTerrain;}
     public float getPrix() {return prix;}
+
     public void setPrix(float prix) {this.prix = prix;}
     public int getDuree() {return duree;}
     public void setDuree(int duree) {this.duree = duree;}
@@ -92,4 +95,13 @@ public class Terrain {
     public String getVideo() {return video;}
     public void setVideo(String video) {this.video = video;}
     public int getIdprop() {return idprop;}
-    public void setIdprop(int idprop) {this.idprop = idprop;}}
+    public void setIdprop(int idprop) {this.idprop = idprop;}
+
+    public int getNbCommentaires() {
+        return nbCommentaires;
+    }
+
+    public void setNbCommentaires(int nbCommentaires) {
+        this.nbCommentaires = nbCommentaires;
+    }
+}

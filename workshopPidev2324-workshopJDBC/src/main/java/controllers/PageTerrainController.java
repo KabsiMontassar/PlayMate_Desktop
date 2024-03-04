@@ -76,6 +76,8 @@ public class PageTerrainController  {
     private Text nom2;
     @FXML
     private Text nom3;
+    @FXML
+    private Button btstat;
 
     int i = 0; // Initialisation d'un compteur pour la pagination
     TerrainService Ts = new TerrainService(); //Instanciation du service TerrainService
@@ -317,4 +319,17 @@ public class PageTerrainController  {
         Stage stage = new Stage();
         stage.setTitle("Login");
         stage.setScene(new Scene(root));
-        stage.show();}}
+        stage.show();}
+
+
+    @FXML
+    void stat(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/stat.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Login");
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
+    }
+}

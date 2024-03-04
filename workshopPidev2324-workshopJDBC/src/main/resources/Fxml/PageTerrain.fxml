@@ -68,4 +68,5 @@
       <font><Font name="Berlin Sans FB" size="48.0" /></font>
    </Text>
    <Button fx:id="btnlogout" layoutX="26.0" layoutY="658.0" mnemonicParsing="false" onAction="#logoutaction" prefHeight="32.0" prefWidth="129.0" text="Logout" />
+   <Button fx:id="btstat" layoutX="887.0" layoutY="33.0" mnemonicParsing="false" onAction="#stat" prefHeight="32.0" prefWidth="268.0" text="Voir les terrain les plus populaires" />
 </AnchorPane>

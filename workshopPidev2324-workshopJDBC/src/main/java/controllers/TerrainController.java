@@ -27,6 +27,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.scene.control.TextField;
+import org.controlsfx.control.textfield.TextFields;
 //*******************************************************************************************
 public class TerrainController {
 
@@ -84,6 +86,7 @@ public class TerrainController {
         cbVestiaire.setSelected(false); // Décoche la case à cocher Vestiaire
         cbStatus.setSelected(false); // Décoche la case à cocher Status
         pageTerrain = new ArrayList<>(); // Initialise la liste des terrains affichés
+
     }
     @FXML
     void getStatesByCountry(ActionEvent event) {
@@ -122,6 +125,13 @@ public class TerrainController {
         imagePath = null; // Réinitialise le chemin de l'image
         videoPath = null;}
     //*******************************************************************************************
+    private boolean isValidName(String name) {
+        return name.matches("[a-zA-Z]+");
+    }
+
+    private boolean isValidAddress(String address) {
+        return address.matches("[a-zA-Z0-9 ]+");
+    }
     @FXML
     void createTerrain(ActionEvent event) throws SQLException, IOException {
         if (videoPath == null) {
@@ -132,8 +142,17 @@ public class TerrainController {
                 showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Veuillez sélectionner une image.");
                 return; // Arrêter l'exécution si l'image n'est pas sélectionnée
             }
+                String nomTerrain = tfnom.getText();
+                if (!isValidName(nomTerrain)) {
+                    showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Le nom du terrain ne doit contenir que des lettres.");
+                    return;
+                }
+                String address = tfaddress.getText();
+                if (!isValidAddress(address)) {
+                    showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "L'adresse du terrain ne doit contenir que des lettres, des chiffres et des espaces.");
+                    return;
+                }
             // Vérifier si le nom du terrain existe déjà dans la liste
-            String nomTerrain = tfnom.getText(); //Récupérer le nom du terrain
                 boolean nomExiste = ts.getAllTerrains().stream().anyMatch(terrain -> terrain.getNomTerrain().equalsIgnoreCase(nomTerrain));
             if (nomExiste) {
                 showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Le nom du terrain existe déjà.");

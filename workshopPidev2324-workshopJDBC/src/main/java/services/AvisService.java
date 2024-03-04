@@ -56,4 +56,25 @@ public class AvisService {
         rs.close();
         pst.close();
         return phoneNumber;
-    }}
+    }
+    public List<Terrain> getTerrainsOrderByCommentaires() throws SQLException {
+        List<Terrain> terrains = new ArrayList<>();
+        String query = "SELECT terrain.id, terrain.nomTerrain, COUNT(avis.idAvis) AS nb_commentaires " +
+                "FROM terrain LEFT JOIN avis ON terrain.id = avis.terrain_id " +
+                "GROUP BY terrain.id, terrain.nomTerrain " +
+                "ORDER BY nb_commentaires ASC"; // ASC pour trier du moins au plus commenté
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Terrain terrain = new Terrain();
+                terrain.setId(rs.getInt("id"));
+                terrain.setNomTerrain(rs.getString("nomTerrain"));
+                terrain.setNbCommentaires(rs.getInt("nb_commentaires"));
+                terrains.add(terrain);
+            }
+        }
+        return terrains;
+    }
+
+
+}

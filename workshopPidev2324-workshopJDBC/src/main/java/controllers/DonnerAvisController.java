@@ -18,6 +18,7 @@ import com.mailjet.client.MailjetClient;
 import com.mailjet.client.MailjetRequest;
 import com.mailjet.client.resource.Emailv31;
 import java.io.IOException;
+import controllers.smsAPi;
 import java.sql.SQLException;
 import com.mailjet.client.errors.MailjetException;
 
@@ -97,36 +98,13 @@ public class DonnerAvisController {
         try {
             avisService.add(avisTerrain);
             System.out.println("Commentaire ajouté avec succès !");
-
-            // Adresse email du propriétaire du terrain
-            String ownerEmail = "bendjemia.malek30@gmail.com";
-            try {
-                // Envoyer un email au propriétaire du terrain avec Mailjet
-                MailjetClient client = new MailjetClient("0e79dd8ff2dbec34fff4a1b6580e0dcd", "01afe818ef5573541ce665d96aabe6fe");
-                MailjetRequest request = new MailjetRequest(Email.resource)
-                        .property(Email.FROMEMAIL, "benjangel2001@gmail.com")
-                        .property(Email.FROMNAME, "playmate")
-                        .property(Email.SUBJECT, "Nouvel avis sur votre terrain")
-                        .property(Email.TEXTPART, "Un nouvel avis a été ajouté à votre terrain.")
-                        .property(Email.RECIPIENTS, new JSONArray()
-                                .put(new JSONObject()
-                                        .put("Email", ownerEmail)
-                                        .put("Name", "Owner Name")));
-                client.post(request);
-
-                // Afficher éventuellement un message de succès à l'utilisateur
-                System.out.println("Email envoyé avec succès !");
-            } catch (MailjetException e) {
-                System.err.println("Erreur lors de l'envoi de l'email : " + e.getMessage());
-            }
-
+            // Envoyer un SMS au propriétaire du terrain avec Twilio
+            smsAPi.sendSms();
 
             // Afficher éventuellement un message de succès à l'utilisateur
         } catch (SQLException e) {
             System.err.println("Erreur lors de l'ajout du commentaire : " + e.getMessage());
         }
     }
-
-
 
     public void initData(Terrain terrain) {this.terrainId = terrain.getId();}}
