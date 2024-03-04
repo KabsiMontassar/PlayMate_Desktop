@@ -26,6 +26,9 @@ import services.GestionUser.UserService;
 import test.Controllers.Common.CAlert;
 import test.MainFx;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -36,6 +39,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.Optional;
@@ -121,7 +126,7 @@ private String FromMapAddress;
 
 
 
-    public void setData(User u) throws SQLException {
+    public void setData(User u) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         imganchodid.setVisible(false);
         Roleinput.setVisible(false);
         RoleLabel.setVisible(false);
@@ -294,6 +299,16 @@ private String FromMapAddress;
             } catch (SQLException e) {
                 e.printStackTrace();
 
+            } catch (NoSuchPaddingException e) {
+                throw new RuntimeException(e);
+            } catch (IllegalBlockSizeException e) {
+                throw new RuntimeException(e);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            } catch (BadPaddingException e) {
+                throw new RuntimeException(e);
+            } catch (InvalidKeyException e) {
+                throw new RuntimeException(e);
             }
             try {
                 UserService us = new UserService();
@@ -352,7 +367,7 @@ private String FromMapAddress;
     }
 
     @FXML
-    void updateProfile(ActionEvent event) throws SQLException {
+    void updateProfile(ActionEvent event) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         if( !inputPassword.getText().equals(inputCPassword.getText())){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("mots de passe ne correspondent pas");
@@ -426,7 +441,8 @@ UpdateUser.setEmail(CurrentUser.getEmail());
 
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (SQLException | NoSuchPaddingException | IllegalBlockSizeException | NoSuchAlgorithmException |
+                 BadPaddingException | InvalidKeyException e) {
             throw new RuntimeException(e);
         }
 

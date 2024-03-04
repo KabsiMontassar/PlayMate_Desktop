@@ -1,8 +1,15 @@
 package models;
 
 
+import services.Encryption;
 import services.GestionUser.CurrentTime;
 import services.GestionUser.VerificationCodeGenerator;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 
 public class User {
     private int id;
@@ -107,12 +114,12 @@ public class User {
         this.Address = address;
     }
 
-    public String getPassword() {
-        return Password;
+    public String getPassword() throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        return Encryption.decrypt(Password);
     }
 
-    public void setPassword(String password) {
-        this.Password = password;
+    public void setPassword(String password) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        this.Password = Encryption.encrypt(password);
     }
 
     public int getPhone() {

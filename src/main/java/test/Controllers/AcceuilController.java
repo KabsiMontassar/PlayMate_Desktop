@@ -1,4 +1,6 @@
 package test.Controllers;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 import javafx.animation.TranslateTransition;
@@ -14,6 +16,9 @@ import models.User;
 import services.GestionUser.UserService;
 import test.MainFx;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -120,7 +125,8 @@ public class AcceuilController {
 
 
 
-        } catch (IOException | SQLException e) {
+        } catch (IOException | SQLException | NoSuchPaddingException | IllegalBlockSizeException |
+                 NoSuchAlgorithmException | BadPaddingException | InvalidKeyException e) {
             e.printStackTrace();
         }
 
@@ -142,7 +148,8 @@ public class AcceuilController {
 
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (SQLException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException |
+                 BadPaddingException | InvalidKeyException e) {
             throw new RuntimeException(e);
         }
     }
