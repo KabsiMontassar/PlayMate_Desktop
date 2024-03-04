@@ -13,7 +13,7 @@ public class MyDatabase {
         try {
             String PASSWORD = "";
             String USER = "root";
-            String URL = "jdbc:mysql://localhost:3306/pidev2324";
+            String URL = "jdbc:mysql://localhost:3306/spartans";
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
             System.out.println("Connected");
         } catch (SQLException e) {

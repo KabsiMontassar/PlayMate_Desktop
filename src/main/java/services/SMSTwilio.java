@@ -3,6 +3,10 @@ package services;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
+import test.Controllers.Common.CAlert;
+
+import java.io.IOException;
+
 public class SMSTwilio {
 
 
@@ -13,7 +17,14 @@ public class SMSTwilio {
         static {
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
         }
-        public static void sendSms(int toPhoneNumber, String messageBody){
+        public static void sendSms(int toPhoneNumber, String messageBody) throws IOException, InterruptedException {
+
+            CAlert c = new CAlert() ;
+            if(!ValidPhoneNumber.validateNumber(String.valueOf(toPhoneNumber))){
+                c.generateAlert("WARNING","Vous n'êtes pas en mesure de recevoir des sms car votre adresse numero n'existe pas.");
+                return ;
+            }
+
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
             Message message = Message.creator(
 

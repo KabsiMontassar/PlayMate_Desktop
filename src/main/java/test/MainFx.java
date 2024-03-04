@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import test.Controllers.Common.CAlert;
 
 
 public class MainFx extends Application {
@@ -16,6 +17,7 @@ public class MainFx extends Application {
 
         stage.setScene(scene);
         stage.show();
+
 
 
 

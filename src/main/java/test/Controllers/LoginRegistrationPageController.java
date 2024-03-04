@@ -1,6 +1,7 @@
 package test.Controllers;
 
 
+import com.mailjet.client.errors.MailjetException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
@@ -19,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.*;
 import services.GestionUser.UserService;
+import services.JavaMailJett;
 import services.UserActivityLogger;
 import test.Controllers.Common.CAlert;
 import test.MainFx;
@@ -146,7 +148,12 @@ public class LoginRegistrationPageController {
 
     }
 
-    public void initialize() throws SQLException {
+    public void initialize() throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+
+        UserActivityLogger UAL = new UserActivityLogger();
+        UserService us = new UserService();
+
+         setData(us.getByEmail(UserActivityLogger.extractEmail(UAL.getLastLineOfFile())));
 
 
 
@@ -366,6 +373,8 @@ public class LoginRegistrationPageController {
         try {
             UserActivityLogger UAL = new UserActivityLogger();
             UAL.logAction(Seconnecterfield1.getText() ,  " connecte");
+
+            JavaMailJett.send(Seconnecterfield1.getText(),"playmatepidev@gmail.com","Quelqu'un a accédé à votre compte Playmate.");
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("Acceuil.fxml"));
             AnchorPane root = loader.load();
 
@@ -384,6 +393,10 @@ public class LoginRegistrationPageController {
 
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (MailjetException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
 
     }
