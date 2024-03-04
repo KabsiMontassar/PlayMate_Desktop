@@ -17,6 +17,7 @@ import models.Categorie;
 import models.Product;
 import services.GestionProduit.CategorieService;
 import services.GestionProduit.ProductService;
+import test.MainFx;
 
 import javax.swing.*;
 import java.io.File;
@@ -79,7 +80,8 @@ public class ProductsController implements Initializable {
 
     @FXML
     void RetourVersProducts(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/Products.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Products.fxml"));
+        Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

@@ -24,6 +24,7 @@ import javafx.stage.Stage;
 import models.Gmailer;
 import models.Product;
 import services.GestionProduit.ProductService;
+import test.MainFx;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -208,8 +209,8 @@ Img1
     }
     @FXML
     void Ajout(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/GestionProd.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/GestionProd.fxml"));
+        Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -225,7 +226,7 @@ Img1
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Product selectedProduct = ps.getAll().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GestionProd.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("/GestionProd.fxml"));
         Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -239,7 +240,7 @@ Img1
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Product selectedProduct = ps.getAll().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GestionProd.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("/GestionProd.fxml"));
         Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -253,7 +254,7 @@ Img1
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Product selectedProduct = ps.getAll().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GestionProd.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("/GestionProd.fxml"));
         Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -358,8 +359,8 @@ Img1
     }
     @FXML
     void categorie(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/Categorie.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Categorie.fxml"));
+        Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

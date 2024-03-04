@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Categorie;
 import services.GestionProduit.CategorieService;
+import test.MainFx;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -162,7 +163,9 @@ public class Categories implements Initializable {
 
     @FXML
     void Ajout(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/modif.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/modif.fxml"));
+
+        Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -173,7 +176,7 @@ public class Categories implements Initializable {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Categorie selectedCategorie = cs.getAll().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/modif.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/modif.fxml"));
         Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -187,7 +190,7 @@ public class Categories implements Initializable {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Categorie selectedCategorie = cs.getAll().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/modif.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/modif.fxml"));
         Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -201,7 +204,7 @@ public class Categories implements Initializable {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Categorie selectedCategorie = cs.getAll().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/modif.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/modif.fxml"));
         Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -323,7 +326,9 @@ public class Categories implements Initializable {
 
     @FXML
     void produits(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/Products.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/modif.fxml"));
+
+        Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
