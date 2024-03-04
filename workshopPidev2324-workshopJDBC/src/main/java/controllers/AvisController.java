@@ -204,11 +204,9 @@ public class AvisController  {
     @FXML
     void search(ActionEvent event) {
         String address = search.getText().toLowerCase();
-        String gouvernorat = search.getText().toLowerCase();
         List<Terrain> terrains = new ArrayList<>(Ts.getAllTerrains()); // Copie de la liste d'origine
         FilteredList<Terrain> filteredList = new FilteredList<>(FXCollections.observableList(terrains));
         filteredList.setPredicate(terrain -> terrain.getAddress().toLowerCase().contains(address));
-        filteredList.setPredicate(terrain -> terrain.getGouvernorat().toLowerCase().contains(gouvernorat));
         sortedTerrains = filteredList.stream().collect(Collectors.toList()); // Mettre à jour la liste sortedTerrains
         actualise(sortedTerrains);
         i = 0; // Réinitialisation de l'index
