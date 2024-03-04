@@ -8,23 +8,26 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DonnerAvisController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #D3D3D3; -fx-border-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DonnerAvisController">
     <children>
-        <HBox layoutX="55.0" layoutY="213.0" spacing="10.0">
+        <HBox layoutX="48.0" layoutY="215.0" spacing="10.0">
             <children>
                 <Label text="Donner une note :">
                     <font>
-                        <Font size="16.0" />
+                        <Font name="Bell MT Bold" size="18.0" />
                     </font>
                 </Label>
-                <Circle fx:id="star1" fill="TRANSPARENT" radius="10.0" stroke="BLACK" strokeWidth="1.0" />
-                <Circle fx:id="star2" fill="TRANSPARENT" radius="10.0" stroke="BLACK" strokeWidth="1.0" />
-                <Circle fx:id="star3" fill="TRANSPARENT" radius="10.0" stroke="BLACK" strokeWidth="1.0" />
-                <Circle fx:id="star4" fill="TRANSPARENT" radius="10.0" stroke="BLACK" strokeWidth="1.0" />
-                <Circle fx:id="star5" fill="TRANSPARENT" radius="10.0" stroke="BLACK" strokeWidth="1.0" />
+                <Circle fx:id="star1" fill="TRANSPARENT" radius="10.0" stroke="#bcb7b7" strokeWidth="1.0" />
+                <Circle fx:id="star2" fill="TRANSPARENT" radius="10.0" stroke="#bcb7b7" strokeWidth="1.0" />
+                <Circle fx:id="star3" fill="TRANSPARENT" radius="10.0" stroke="#bcb7b7" strokeWidth="1.0" />
+                <Circle fx:id="star4" fill="TRANSPARENT" radius="10.0" stroke="#bcb7b7" strokeWidth="1.0" />
+                <Circle fx:id="star5" fill="TRANSPARENT" radius="10.0" stroke="#bcb7b7" strokeWidth="1.0" />
             </children>
         </HBox>
-        <TextArea fx:id="commentaireArea" layoutX="28.0" layoutY="59.0" prefHeight="131.0" prefWidth="342.0" />
+        <TextArea fx:id="commentaireArea" layoutX="28.0" layoutY="59.0" opacity="0.54" prefHeight="131.0" prefWidth="342.0" style="-fx-border-color: black;" />
         <Button fx:id="submitbt" layoutX="140.0" layoutY="257.0" mnemonicParsing="false" onAction="#submit" prefHeight="34.0" prefWidth="119.0" style="-fx-background-color: #0a2f55;" text="Valider" textFill="#fcfcfc" />
-      <Label layoutX="132.0" layoutY="25.0" text="Donner un commentaire :" />
+      <Label layoutX="105.0" layoutY="21.0" text="Donner un commentaire :">
+         <font>
+            <Font name="Bell MT Bold" size="18.0" />
+         </font></Label>
     </children></AnchorPane>

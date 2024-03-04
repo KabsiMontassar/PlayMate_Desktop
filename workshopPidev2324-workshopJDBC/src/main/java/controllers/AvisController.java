@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-
 //*******************************************************************
 public class AvisController  {
     @FXML
@@ -77,13 +76,11 @@ public class AvisController  {
     //*******************************************************************
     public void initialize() {
         sort.getItems().addAll("Prix Croissant", "Prix Décroissant");
-        actualise(sortedTerrains);
-    }
+        actualise(sortedTerrains);}
     //*******************************************************************
     void actualise(List<Terrain> terrains){
         if(terrains.size()-1-i*3>0){
-            btnsuivant.setVisible(true);
-        }
+            btnsuivant.setVisible(true);}
         if(terrains.size()-1-i*3 <= 0){btnsuivant.setVisible(false);}
         if(i > 0){btnretour.setVisible(true);}
         if(i == 0){btnretour.setVisible(false);}
@@ -108,10 +105,8 @@ public class AvisController  {
         else{
             BOX1.setVisible(false);
             BOX2.setVisible(false);
-            BOX3.setVisible(false);
-        }
-        btnsuivant.setVisible(terrains.size()-3*i > 3);
-    }
+            BOX3.setVisible(false);}
+        btnsuivant.setVisible(terrains.size()-3*i > 3);}
     //*******************************************************************************************
     @FXML
     void retour(ActionEvent event){
@@ -209,10 +204,7 @@ public class AvisController  {
         filteredList.setPredicate(terrain -> terrain.getAddress().toLowerCase().contains(address));
         sortedTerrains = filteredList.stream().collect(Collectors.toList()); // Mettre à jour la liste sortedTerrains
         actualise(sortedTerrains);
-        i = 0; // Réinitialisation de l'index
-    }
-
-
+        i = 0;} // Réinitialisation de l'index
     //*******************************************************************************************
     @FXML
     void sort(ActionEvent event) {
@@ -226,10 +218,7 @@ public class AvisController  {
                 sortedTerrains.sort(Comparator.comparingDouble(Terrain::getPrix).reversed());
                 System.out.println(sortedTerrains);
                 break;
-
             default:
                 break;}
         actualise(sortedTerrains);
-        i = 0; // Réinitialisation de l'index
-    }
-}
+        i = 0;}}
