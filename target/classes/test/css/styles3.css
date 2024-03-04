@@ -1,0 +1,25 @@
+/*******************************************************************
+/* Styles pour les AnchorPanes (boîtes) */
+#BOX1, #BOX2, #BOX3 {
+    -fx-background-color: #f4f4f4; /* Couleur de fond gris clair */
+    -fx-border-color: #ccc; /* Bordure grise */
+    -fx-border-width: 1px; /* Largeur de bordure 1px */
+    -fx-border-radius: 5px; /* Bordure arrondie */
+    -fx-padding: 10px; /* Espacement intérieur */
+}
+/* Styles pour les boutons */
+.button {
+    -fx-background-color: #0a2f55; /* Couleur de fond bleue */
+    -fx-text-fill: white; /* Couleur du texte blanc */
+    -fx-font-weight: bold; /* Texte en gras */
+    -fx-padding: 5px 10px; /* Espacement intérieur */
+    -fx-border-radius: 3px; /* Bordure arrondie */
+}
+/* Style pour le bouton "Ajout" */
+#btnajout {
+    -fx-background-color: #0a2f55; /* Couleur de fond verte */
+}
+/* Style pour les boutons de navigation "Retour" et "Suivant" */
+#btnretour, #btnsuivant {
+    -fx-background-color: #0a2f55; /* Couleur de fond jaune */
+}
