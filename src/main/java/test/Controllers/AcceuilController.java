@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import models.User;
 import services.GestionUser.UserService;
+import services.UserActivityLogger;
 import test.MainFx;
 
 import javax.crypto.BadPaddingException;
@@ -134,8 +135,10 @@ public class AcceuilController {
     @FXML
     void logoutaction(ActionEvent event) {
         try {
-            UserService us = new UserService();
 
+            UserService us = new UserService();
+            UserActivityLogger UAL = new UserActivityLogger();
+            UAL.logAction(CurrentUser.getEmail() ,  " deconnecter");
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("LoginRegistrationPage.fxml"));
             AnchorPane root = loader.load();
 

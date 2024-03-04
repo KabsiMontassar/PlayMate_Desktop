@@ -1,21 +1,18 @@
 package test;
 
 import com.mailjet.client.errors.MailjetException;
-import services.JavaMailJett;
-import services.ValidateEmail;
+import services.*;
+import services.GestionUser.UserService;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class Main {
+    public static void main(String[] args) throws SQLException {
 
-    public static void main(String[] args) throws MailjetException {
-        String sender = "playmatepidev@gmail.com";
-        String Receipient = "aziztaraji1@gmail.com";
-        String contenue = "sa77a el 0  git ya zekri";
+            // Write actions to file
 
-        JavaMailJett.send(Receipient,sender,contenue);
+        }
 
 
-
-    }
 }

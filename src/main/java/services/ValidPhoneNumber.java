@@ -1,11 +1,13 @@
 package services;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 public class ValidPhoneNumber {
-        public static void validateNumber(String phoneNumber) throws IOException, InterruptedException {
+        public static boolean validateNumber(String phoneNumber) throws IOException, InterruptedException {
 
 
 
@@ -19,8 +21,8 @@ public class ValidPhoneNumber {
 
             HttpResponse<String> response = HttpClient.newHttpClient()
                     .send(request, HttpResponse.BodyHandlers.ofString());
-
-            System.out.println(response.body());
+            JSONObject jsonResponse = new JSONObject(response.body());
+            return jsonResponse.getBoolean("isValidNumber");
         }
     }
 

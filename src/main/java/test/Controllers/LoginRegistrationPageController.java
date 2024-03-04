@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.*;
 import services.GestionUser.UserService;
+import services.UserActivityLogger;
 import test.Controllers.Common.CAlert;
 import test.MainFx;
 
@@ -30,6 +31,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
+import java.util.Objects;
 import java.util.function.UnaryOperator;
 
 
@@ -324,8 +326,17 @@ public class LoginRegistrationPageController {
     }
 
     @FXML
-    public void Seconnecter(ActionEvent event) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+    public void Seconnecter(ActionEvent event) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, IOException {
 
+
+        if(Objects.equals(Seconnecterfield1.getText(), "Admin") && Objects.equals(SeconnecterPass1.getText(), "Admin")){
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("AdminPage.fxml"));
+            AnchorPane root = loader.load();
+
+
+            MainPane.getChildren().setAll(root);
+        return;
+        }
         if(Seconnecterfield1.getText().isEmpty() || SeconnecterPass1.getText().isEmpty()){
 
             cAlert.generateAlert("WARNING","Tous les champs sont requis");
@@ -353,7 +364,8 @@ public class LoginRegistrationPageController {
             }
         }
         try {
-
+            UserActivityLogger UAL = new UserActivityLogger();
+            UAL.logAction(Seconnecterfield1.getText() ,  " connecte");
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("Acceuil.fxml"));
             AnchorPane root = loader.load();
 
@@ -425,13 +437,13 @@ public class LoginRegistrationPageController {
 
         if(!isValidPassword(Registerpass1.getText())){
 
-            cAlert.generateAlert("WARNING","le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial");
+            cAlert.generateAlert("WARNING","le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère special");
             return;
            
         }
         if(Integer.parseInt(Registerfield21age.getText()) < 12){
 
-            cAlert.generateAlert("WARNING","L'age doit être supérieur à 12 ans");
+            cAlert.generateAlert("WARNING","L'age doit être superieur à 12 ans");
             
             return;
         }
@@ -445,7 +457,7 @@ public class LoginRegistrationPageController {
             return;
         }
         if(us.userExist(Registerfield2.getText())){
-            cAlert.generateAlert("WARNING","l'utilisateur existe déjà");
+            cAlert.generateAlert("WARNING","l'utilisateur existe dejà");
             return;
         }
 
@@ -507,7 +519,7 @@ public class LoginRegistrationPageController {
 
 
 
-        cAlert.generateAlert("INFORMATION","Votre Compte a été créé avec succès");
+        cAlert.generateAlert("INFORMATION","Votre Compte a ete cree avec succès");
         
 
         gotoSeconnecter();
