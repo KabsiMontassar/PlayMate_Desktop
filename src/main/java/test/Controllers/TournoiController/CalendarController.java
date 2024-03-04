@@ -190,7 +190,7 @@ public class CalendarController implements Initializable {
     }
     @FXML
     void retour(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("tournoiClient.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoiClient.fxml"));
         AnchorPane root = loader.load();
         calender.getChildren().setAll(root);
     }

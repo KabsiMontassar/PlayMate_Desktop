@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Optional;
 
 import services.GestionTournoi.ServiceTournoi;
+import test.MainFx;
 
 
 public class FirstController {
@@ -118,7 +119,7 @@ public class FirstController {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i;
         Tournoi t = Ts.allTournoi().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/test/GestionTournoi/DetailTournoi.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/DetailTournoi.fxml"));
         Parent root = loader.load();
         DetailTournoiController controller = loader.getController();
         controller.initData(t);
@@ -133,7 +134,7 @@ public class FirstController {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i;
         Tournoi selectedTournoi = Ts.allTournoi().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/test/GestionTournoi/DetailTournoi.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/DetailTournoi.fxml"));
         Parent root = loader.load();
         DetailTournoiController controller = loader.getController();
         controller.initData(selectedTournoi);
@@ -149,7 +150,7 @@ public class FirstController {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Tournoi selectedTournoi = Ts.allTournoi().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/test/GestionTournoi/DetailTournoi.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/DetailTournoi.fxml"));
         Parent root = loader.load();
         DetailTournoiController controller = loader.getController();
         controller.initData(selectedTournoi);
@@ -213,7 +214,7 @@ public class FirstController {
 
     public void AjouterTournoi(ActionEvent actionEvent) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/test/GestionTournoi/FormulaireTournoi.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/FormulaireTournoi.fxml"));
         Parent root = loader.load();
         AjoutTournoiController controller = loader.getController();
         Stage stage = new Stage();

@@ -49,7 +49,7 @@ public class ModifierTournoiController implements Initializable {
         errorLabel3.setVisible(false);
         first = new ArrayList<>();
         WebEngine webEngine = mapView.getEngine();
-        webEngine.load(getClass().getResource("/test/GestionTournoi/googlemaps.html").toExternalForm());
+        webEngine.load(MainFx.class.getResource("GestionTournoi/googlemaps.html").toExternalForm());
 
         // Enable JavaScript communication
         webEngine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
@@ -165,7 +165,7 @@ public class ModifierTournoiController implements Initializable {
 
     public void goToTournoi(ActionEvent actionEvent) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("tournoi.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
         AnchorPane root = loader.load();
         FormulaireRoot.getChildren().setAll(root);
     }
@@ -250,7 +250,7 @@ public class ModifierTournoiController implements Initializable {
             Tournoi tournoi = new Tournoi(tournoiActuel.getId(), Integer.parseInt(InputNombreéquipes.getText()), InputNom.getText(), imagePath, InputAddress.getText(), InputDateDébut.getText(), InputDateFin.getText(), 2);
             ts.modifier(tournoi);
             System.out.println(tournoi);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/test/GestionTournoi/tournoi.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Gestion_Tournoi");

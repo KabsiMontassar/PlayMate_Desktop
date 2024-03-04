@@ -99,7 +99,7 @@ public class AfficherController implements Initializable {
     @FXML
     void Ajouter(ActionEvent event) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("formEquipe.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GestionEquipe/formEquipe.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 640, 360);
 
         Stage stage = new Stage();

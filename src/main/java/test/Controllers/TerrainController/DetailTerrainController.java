@@ -78,7 +78,7 @@ public class DetailTerrainController {
     //*******************************************************************************************
     @FXML
     void modifd(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("Terrain.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/Terrain.fxml"));
         Parent root = loader.load();
         TerrainController controller = loader.getController();
         controller.initData(terrainActuel);
@@ -91,7 +91,7 @@ public class DetailTerrainController {
     //*******************************************************************************************
     @FXML
     void retourd() throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("PageTerrain.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/PageTerrain.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Liste des terrains");
