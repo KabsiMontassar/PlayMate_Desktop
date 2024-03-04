@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import models.User;
 import services.GestionUser.UserService;
+import services.SMSTwilio;
 import test.Controllers.Common.CAlert;
 
 import javax.crypto.BadPaddingException;
@@ -85,11 +86,11 @@ public class   VerificationCodeController {
     }
     private int count = 1;
     @FXML
-    void renvoyerCode(ActionEvent event) throws Exception {
+    void renvoyerCode(ActionEvent event) {
         if(count < 5){
             count++;
-          //  SMSAPI sms = new SMSAPI();
-           // sms.run(String.valueOf(u.getPhone()), u.getVerificationCode());
+            System.out.println("sms sent with twilio to "+ CurrentUser.getPhone() +"containing this code : "+ u.getVerificationCode());
+         //   SMSTwilio.sendSms(CurrentUser.getPhone(), u.getVerificationCode());
         }else{
             cAlert.generateAlert("WARNING","Vous avez atteint le nombre maximal de tentatives");
         }
@@ -144,7 +145,7 @@ public class   VerificationCodeController {
         if(!isValidPassword(passfield1.getText())){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Mot de passe invalide");
-            alert.setContentText("le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial");
+            alert.setContentText("le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère special");
             alert.setHeaderText("CAlert Alert");
             alert.showAndWait();
             passfield1.setText("");

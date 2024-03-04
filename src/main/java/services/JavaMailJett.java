@@ -47,9 +47,7 @@ public class JavaMailJett {
                                                                         + "<br />Voici votre code de vérification! <h3> " + Code + "</h3>")));
 
         try {
-            // trigger the API call
             MailjetResponse response = client.post(email);
-            // Read the response data and status
             System.out.println(response.getStatus());
             System.out.println(response.getData());
         } catch (MailjetException e) {

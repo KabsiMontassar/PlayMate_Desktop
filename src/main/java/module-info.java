@@ -28,6 +28,7 @@ module test {
    // requires sendgrid.java;
    // requires java.http.client;
     requires google.api.services.gmail.v1.rev110;
+    requires twilio;
     // requires java.http.client;
     opens test to javafx.fxml;
     exports test;

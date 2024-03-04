@@ -1,0 +1,30 @@
+package services;
+
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+public class SMSTwilio {
+
+
+
+        public static final String ACCOUNT_SID = "AC12eed8a71e731ee34e7436a42dfdb038";
+        public static final String AUTH_TOKEN = "e129bbb54e4b2a90529c6bd97603fc5c";
+
+        static {
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+        }
+        public static void sendSms(int toPhoneNumber, String messageBody){
+            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+            Message message = Message.creator(
+
+
+                   // toPhoneNumber = 28153435;
+                    new PhoneNumber("+21628153435"),
+                    new PhoneNumber("+15169792720"),
+                    messageBody
+            ) .create();
+
+            System.out.println("SMS Sent with SID: " + message.getSid());
+        }
+    }
+

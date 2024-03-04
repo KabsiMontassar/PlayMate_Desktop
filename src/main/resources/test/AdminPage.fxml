@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="adminPage" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #C4CCD1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.Controllers.AdminPage">
+   <children>
+      <AnchorPane layoutX="50.0" layoutY="70.0" prefHeight="620.0" prefWidth="1180.0" style="-fx-background-color: #033E6A; -fx-background-radius: 30;">
+         <children>
+            <AnchorPane layoutX="30.0" layoutY="297.0" prefHeight="40.0" prefWidth="485.0" style="-fx-background-color: #EDEDED; -fx-background-radius: 5;">
+               <children>
+                  <Text fx:id="element2" layoutX="10.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="460.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="30.0" layoutY="352.0" prefHeight="40.0" prefWidth="485.0" style="-fx-background-color: #EDEDED; -fx-background-radius: 5;">
+               <children>
+                  <Text fx:id="element3" layoutX="10.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="460.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="30.0" layoutY="406.0" prefHeight="40.0" prefWidth="485.0" style="-fx-background-color: #EDEDED; -fx-background-radius: 5;">
+               <children>
+                  <Text fx:id="element4" layoutX="10.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="460.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="30.0" layoutY="459.0" prefHeight="40.0" prefWidth="485.0" style="-fx-background-color: #EDEDED; -fx-background-radius: 5;">
+               <children>
+                  <Text fx:id="element5" layoutX="10.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="460.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="30.0" layoutY="512.0" prefHeight="40.0" prefWidth="485.0" style="-fx-background-color: #EDEDED; -fx-background-radius: 5;">
+               <children>
+                  <Text fx:id="element6" layoutX="10.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="460.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="30.0" layoutY="244.0" prefHeight="40.0" prefWidth="485.0" style="-fx-background-color: #EDEDED; -fx-background-radius: 5;">
+               <children>
+                  <Text fx:id="element1" layoutX="10.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="460.0">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Text>
+               </children>
+            </AnchorPane>
+            <BarChart fx:id="chart" alternativeRowFillVisible="false" layoutX="537.0" layoutY="26.0" prefHeight="562.0" prefWidth="612.0" style="-fx-background-color: #EDEDED;" title="Nombre d'utilisateurs par mois">
+              <xAxis>
+                <CategoryAxis label="Mois" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis label="Utilisateurs" side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <AnchorPane layoutX="98.0" layoutY="54.0" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #EDEDED; -fx-background-radius: 10;">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/active-user.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="userActive" layoutX="60.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilisateur active" wrappingWidth="212.525390625">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="98.0" layoutY="150.0" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #EDEDED; -fx-background-radius: 10;">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Images/remove-user.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="UserInactive" layoutX="60.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilisateur désactiver">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Text layoutX="234.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tableau de bord de gestion des utilisateurs" textAlignment="CENTER" wrappingWidth="812.13671875">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="0.18957345971563977" startY="0.8009478672985783">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.24671052396297455" green="0.9868420958518982" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.0117647061124444" green="0.24313725531101227" blue="0.4156862795352936" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Text>
+      <Button fx:id="btnlogout" layoutX="32.0" layoutY="20.0" mnemonicParsing="false" onAction="#logout" prefHeight="29.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-border-color: #033e6a; -fx-border-radius: 5;" text="Logout" textFill="#033e6a">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

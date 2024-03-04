@@ -290,7 +290,7 @@ private String FromMapAddress;
     }
     @FXML
     void DesactiverProfile(ActionEvent event) {
-        if (showConfirmationDialog("Etes-vous sûr de vouloir désactiver votre compte?")) {
+        if (showConfirmationDialog("Etes-vous sûr de vouloir desactiver votre compte?")) {
             try {
                 UserService us = new UserService();
 
@@ -412,7 +412,7 @@ UpdateUser.setEmail(CurrentUser.getEmail());
         us.update(UpdateUser);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Profil mis à jour avec succès\n");
-        alert.setHeaderText("votre compte a été mis à jour");
+        alert.setHeaderText("votre compte a ete mis à jour");
         alert.showAndWait();
     }
 

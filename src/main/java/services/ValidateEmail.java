@@ -20,6 +20,7 @@ public class ValidateEmail {
 
 
         JSONObject jsonResponse = new JSONObject(response.body());
+        System.out.println(jsonResponse);
 
 
 
