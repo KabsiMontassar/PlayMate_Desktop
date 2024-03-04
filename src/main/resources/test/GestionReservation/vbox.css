@@ -1,0 +1,33 @@
+#vbox1, #vbox2, #vbox3 {
+    -fx-background-color: rgba(2, 54, 92, 0.0);
+    -fx-background-radius: 7px;
+    -fx-padding: 5px;
+}
+
+#vbox1:hover, #vbox2:hover, #vbox3:hover {
+    -fx-background-color: rgba(2, 54, 92, 0.8);
+}
+
+#vbox1 Label, #vbox2 Label, #vbox3 Label {
+    -fx-text-fill: #4caf50;
+}
+##anchrocreation1:hover{
+-fx-background-color: rgba(2, 54, 92, 0.8);
+
+}
+#vbox1 Button11, #vbox2 Button22, #vbox3 Button33 {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4caf50;
+    -fx-background-radius: 7px;
+    -fx-border-color: #4caf50;
+    -fx-border-width: 2px;
+    -fx-padding: 5px 5px;
+}
+#vbox1:hover{
+-fx-background-color: rgba(255, 255, 255, 0.5);
+}
+
+#vbox1 Button11:hover, #vbox2 Button22:hover, #vbox3 Button33:hover {
+    -fx-background-color: #4caf50;
+    -fx-text-fill: #02365c;
+}

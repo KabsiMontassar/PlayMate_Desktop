@@ -35,12 +35,15 @@ module test {
     requires google.api.client;
     requires com.google.api.client.extensions.jetty.auth;
     requires com.google.api.client;
-    requires mail;
+   // requires mail;
     requires com.google.api.client.extensions.java6.auth;
     requires com.google.api.client.auth;
     requires com.google.api.client.json.gson;
     requires com.google.zxing;
     requires com.google.zxing.javase;
+    requires fastjson;
+    requires org.apache.httpcomponents.httpclient;
+    requires org.apache.httpcomponents.httpcore;
     // requires java.http.client;
     opens test to javafx.fxml;
 
@@ -48,12 +51,14 @@ module test {
 
     opens services.GestionUser to javafx.fxml;
     exports test.Controllers.UserController;
-    exports test.Controllers.Common;
-    opens test.Controllers.Common to javafx.fxml;
+
     opens test.Controllers.UserController to javafx.fxml;
     opens test.Controllers.EquipeController to javafx.fxml;
     opens test.Controllers.TerrainController to javafx.fxml;
     opens test.Controllers.TournoiController to javafx.fxml;
+    opens test.Controllers.ReservationController to javafx.fxml;
+    opens test.Controllers.ProduitController to javafx.fxml;
+
     exports test;
     exports models;
 }
