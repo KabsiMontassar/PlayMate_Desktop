@@ -14,128 +14,151 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" style="test2.c" stylesheets="@test2.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.ReservationController">
- <HBox layoutX="483.0" layoutY="39.0" prefHeight="61.0" prefWidth="572.0" spacing="10" AnchorPane.bottomAnchor="780.0" AnchorPane.rightAnchor="225.0">
-     <Button fx:id="buttonAccueil" prefHeight="40.0" prefWidth="105.0" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Accueil" textFill="#02365c">
+ <HBox layoutX="503.0" layoutY="35.0" prefHeight="75.0" prefWidth="572.0" spacing="10" AnchorPane.bottomAnchor="1053.0" AnchorPane.rightAnchor="205.20000000000005" AnchorPane.topAnchor="35.0">
+     <Button fx:id="buttonAccueil" prefHeight="50.0" prefWidth="105.0" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Accueil" textFill="#02365c">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
-     <Button fx:id="buttonActualites" prefHeight="40.0" prefWidth="105.0" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Actualités" textFill="#02365c">
+     <Button fx:id="buttonActualites" prefHeight="50.0" prefWidth="105.0" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Actualités" textFill="#02365c">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
-     <Button fx:id="buttonReservation" prefHeight="40.0" prefWidth="105.0" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Réservation" textFill="#02365c">
+     <Button fx:id="buttonReservation" prefHeight="50.0" prefWidth="105.0" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Réservation" textFill="#02365c">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
-     <Button fx:id="buttonEvenement" prefHeight="40.0" prefWidth="105.0" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Événement" textFill="#02365c">
+     <Button fx:id="buttonEvenement" prefHeight="50.0" prefWidth="105.0" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Événement" textFill="#02365c">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
-      <SplitMenuButton id="split-menu-button" mnemonicParsing="false" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #4CAF50; -fx-text-fill: #02365C; -fx-border-color: #02365C; -fx-background-radius: 7px; -fx-border-radius: 10px; -fx-padding: 2px 8px;" stylesheets="splitMenuButton.css">
+      <SplitMenuButton id="split-menu-button" mnemonicParsing="false" prefHeight="50.0" prefWidth="105.0" style="-fx-background-color: #4CAF50; -fx-text-fill: #02365C; -fx-border-color: #02365C; -fx-background-radius: 7px; -fx-border-radius: 10px; -fx-padding: 2px 8px;" stylesheets="splitMenuButton.css">
         <items>
           <MenuItem mnemonicParsing="false" text="parametre" />
             <MenuItem mnemonicParsing="false" text="historique" />
+            <MenuItem mnemonicParsing="false" onAction="#chargerInterfaceSuppression" text="Annulation" />
           <MenuItem mnemonicParsing="false" text="se déconnecter" />
         </items>
       </SplitMenuButton>
  </HBox>
-   <AnchorPane id="anchro1" layoutX="130.0" layoutY="125.0" prefHeight="755.0" prefWidth="1080.0" style="-fx-padding: 0;" stylesheets="@test2.css" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+   <AnchorPane id="anchro1" layoutX="55.0" layoutY="102.0" prefHeight="999.0" prefWidth="1180.0" style="-fx-padding: 0;" stylesheets="@test2.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="102.0">
       <children>
-         <Label id="label1" layoutX="162.0" layoutY="32.0" prefHeight="39.0" prefWidth="760.0" stylesheets="@test2.css" text="                 Créez votre légende" textAlignment="CENTER" textFill="#4caf50" AnchorPane.bottomAnchor="684.0" AnchorPane.leftAnchor="162.0" AnchorPane.rightAnchor="158.0" AnchorPane.topAnchor="32.0">
+         <Label id="label1" layoutX="176.0" layoutY="20.0" prefHeight="20.0" prefWidth="760.0" stylesheets="@test2.css" text="                           Créez votre légende" textAlignment="CENTER" textFill="#4caf50" AnchorPane.leftAnchor="176.0" AnchorPane.rightAnchor="144.0">
             <font>
                <Font name="Arial Black" size="34.0" />
             </font>
          </Label>
-         <VBox id="vbox1" fx:id="vbox1" layoutX="124.0" layoutY="137.0" onMouseExited="#AfficherVboxtout" onMouseMoved="#AfficherVbox1Seulement" prefHeight="622.0" prefWidth="270.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="110.0">
+         <VBox id="vbox1" fx:id="vbox1" layoutX="196.0" layoutY="103.0" onMouseExited="#AfficherVboxtout" onMouseMoved="#AfficherVbox1Seulement" prefHeight="580.0" prefWidth="290.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="289.0" AnchorPane.leftAnchor="196.0" AnchorPane.topAnchor="100.0">
             <children>
-               <Label id="label3" prefHeight="40.0" prefWidth="300.0" stylesheets="@test2.css" text="        Créez votre partie !" textFill="#4caf50">
+               <Label id="label3" prefHeight="26.0" prefWidth="329.0" stylesheets="@test2.css" text="        Créez votre partie !" textFill="#4caf50">
                   <font>
                      <Font name="Arial Black" size="17.0" />
-                  </font></Label>
-               <AnchorPane id="anchrocreation1" prefHeight="547.0" prefWidth="250.0">
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="10.0" />
+                  </VBox.margin>
+               </Label>
+               <AnchorPane id="anchrocreation1" prefHeight="509.0" prefWidth="290.0">
                   <children>
-                     <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="80.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="83.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="32.0">
                         <image>
                            <Image url="@367401473_585490203796779_7106352973885908640_n.png" />
                         </image>
                      </ImageView>
-                     <Text fill="#4caf50" layoutX="17.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Participez à un événement palpitant où vous créez, défiez des rivaux et attendez avec anticipation les confirmations des propriétaires de terrains pour une expérience de jeu captivante. Formulaire à la conquête : Remplissez-le avec flair! Choix stratégiques : Sélectionnez vos terrains favoris! Affrontez l'inconnu : Attendez qu'un adversaire se manifeste pour le défi! Confirmation en suspense : Attendez le feu vert du propriétaire du terrain!" textAlignment="CENTER" wrappingWidth="238.91235733032227" AnchorPane.bottomAnchor="89.533203125" AnchorPane.topAnchor="160.591796875">
+                     <Text fill="#4caf50" layoutX="9.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Participez à un événement palpitant où vous créez, défiez des rivaux et attendez avec anticipation les confirmations des propriétaires de terrains pour une expérience de jeu captivante. Formulaire à la conquête : Choix stratégiques : Sélectionnez vos terrains favoris! Affrontez l'inconnu : Attendez qu'un adversaire se manifeste pour le défi! Confirmation en suspense : Attendez le feu vert du propriétaire du terrain!" textAlignment="CENTER" wrappingWidth="274.1124610900879" AnchorPane.bottomAnchor="72.67539062499998" AnchorPane.topAnchor="155.0">
                         <font>
                            <Font name="Arial Black" size="14.0" />
                         </font>
                      </Text>
-                     <Button id="Button11" layoutX="95.0" layoutY="490.0" mnemonicParsing="false" onAction="#ReserverTerrain" prefHeight="30.0" prefWidth="60.0" stylesheets="@button.css" text="choisir" textOverrun="CLIP" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="73.0">
+                     <Button id="Button11" layoutX="79.0" layoutY="438.0" mnemonicParsing="false" onAction="#ReserverTerrain" prefHeight="30.0" prefWidth="60.0" stylesheets="@button.css" text="choisir" textOverrun="CLIP" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="79.0" AnchorPane.rightAnchor="89.0">
                         <font>
                            <Font name="Arial Black" size="12.0" />
-                        </font></Button>
+                        </font>
+                     </Button>
                   </children>
                   <VBox.margin>
-                     <Insets top="20.0" />
-                  </VBox.margin></AnchorPane>
+                     <Insets top="10.0" />
+                  </VBox.margin>
+               </AnchorPane>
             </children>
+            <padding>
+               <Insets left="10.0" />
+            </padding>
          </VBox>
-         <VBox id="vbox2" fx:id="vbox2" layoutX="428.0" layoutY="137.0" onMouseExited="#AfficherVboxtout" onMouseMoved="#AfficherVbox2Seulement" prefHeight="622.0" prefWidth="270.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="110.0">
+         <VBox id="vbox2" fx:id="vbox2" layoutX="528.0" layoutY="98.0" onMouseExited="#AfficherVboxtout" onMouseMoved="#AfficherVbox2Seulement" prefHeight="571.0" prefWidth="288.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="349.0" AnchorPane.leftAnchor="528.0" AnchorPane.rightAnchor="464.0" AnchorPane.topAnchor="100.0">
             <children>
-               <Label id="label3" prefHeight="40.0" prefWidth="300.0" stylesheets="@test2.css" text="    En quête d'adversaires" textFill="#4caf50">
+               <Label id="label3" prefHeight="26.0" prefWidth="326.0" stylesheets="@test2.css" text="      En quête d'adversaires" textFill="#4caf50">
                   <font>
                      <Font name="Arial Black" size="17.0" />
                   </font>
+                  <VBox.margin>
+                     <Insets bottom="10.0" />
+                  </VBox.margin>
                </Label>
-               <AnchorPane id="anchrocreation2" prefHeight="572.0" prefWidth="252.0">
+               <AnchorPane id="anchrocreation2" prefHeight="504.0" prefWidth="288.0">
                   <children>
-                     <Text fill="#4caf50" layoutX="2.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plongez dans l'action en rejoignant des parties, choisissez vos terrains tactiquement, et attendez la confirmation des propriétaires pour une expérience de jeu passionnante!1. Explorez l'action: Rejoignez une partie en cours!2. Formulaires futés : Complétez-les pour entrer dans l'arène!3. Adoptez la tactique du terrain :Alignez vos choix sur ceux de votre adversaire pour un défi passionnant!&quot;4. En suspense : Attendre avec impatience la validation du propriétaire du terrain!" textAlignment="CENTER" wrappingWidth="266.9123725891113" AnchorPane.bottomAnchor="91.533203125" AnchorPane.topAnchor="157.591796875">
+                     <Text fill="#4caf50" layoutX="6.0" layoutY="173.408203125" strokeType="OUTSIDE" strokeWidth="0.0" text="Participez à des jeux palpitants : rejoignez des parties, sélectionnez vos terrains avec stratégie et attendez l'accord des propriétaires pour commencer. Entrez dans l'action en vous inscrivant à une partie. Remplissez intelligemment vos formulaires pour accéder à l'arène. Choisissez vos terrains judicieusement pour un affrontement captivant. Restez dans l'attente de l'approbation du propriétaire." textAlignment="CENTER" wrappingWidth="276.51237869262695" AnchorPane.bottomAnchor="108.0" AnchorPane.topAnchor="155.0">
                         <font>
                            <Font name="Arial Black" size="14.0" />
                         </font>
                      </Text>
-                     <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="71.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="83.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="35.0">
                         <image>
                            <Image url="@426184527_1045045299907489_7955346661872487039_n.png" />
                         </image>
                      </ImageView>
-                     <Button id="Button22" layoutX="86.0" layoutY="473.0" mnemonicParsing="false" onAction="#chercherAdversaire" prefHeight="30.0" prefWidth="60.0" stylesheets="@button.css" text="choisir" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="82.0" />
+                     <Button id="Button22" layoutX="84.0" layoutY="449.0" mnemonicParsing="false" onAction="#chercherAdversaire" prefHeight="30.0" prefWidth="60.0" stylesheets="@button.css" text="choisir" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="84.0" />
                   </children>
                   <VBox.margin>
-                     <Insets top="20.0" />
+                     <Insets top="10.0" />
                   </VBox.margin>
                </AnchorPane>
             </children>
          </VBox>
-         <VBox id="vbox3" fx:id="vbox3" layoutX="727.0" layoutY="106.0" onMouseExited="#AfficherVboxtout" onMouseMoved="#AfficherVbox3Seulement" prefHeight="0.0" prefWidth="270.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="106.0">
+         <VBox id="vbox3" fx:id="vbox3" layoutX="846.0" layoutY="99.0" onMouseExited="#AfficherVboxtout" onMouseMoved="#AfficherVbox3Seulement" prefHeight="580.0" prefWidth="290.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="251.0" AnchorPane.rightAnchor="138.79999999999995" AnchorPane.topAnchor="100.0">
             <children>
-               <Label id="label3" prefHeight="40.0" prefWidth="300.0" stylesheets="@test2.css" text="         Lansez un defi" textFill="#4caf50">
+               <Label id="label3" prefHeight="26.0" prefWidth="317.0" stylesheets="@test2.css" text="           Lansez un defi" textFill="#4caf50">
                   <font>
                      <Font name="Arial Black" size="17.0" />
                   </font>
+                  <VBox.margin>
+                     <Insets bottom="10.0" />
+                  </VBox.margin>
                </Label>
-               <AnchorPane id="anchrocreation3" prefHeight="564.0" prefWidth="270.0">
+               <AnchorPane id="anchrocreation3" prefHeight="453.0" prefWidth="290.0">
                   <children>
-                     <Text fill="#4caf50" layoutX="10.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plongez dans une expérience de jeu captivante en créant votre propre partie, remplissant des formulaires stratégiques, en choisissant judicieusement un terrain, et en attendant avec anticipation la confirmation du propriétaire pour un défi palpitant. Initiez le défi : Créez votre propre arène de jeu! Paperasse ludique : Remplissez les formulaires avec brio! Terrain de prédilection : Optez pour un seul terrain stratégique! Sous suspense : Attendez la validation du propriétaire du terrain choisi!" textAlignment="CENTER" wrappingWidth="258.9123725891111" AnchorPane.bottomAnchor="80.533203125" AnchorPane.topAnchor="151.591796875">
+                     <Text fill="#4caf50" layoutX="10.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lancez une partie captivante en sélectionnant stratégiquement votre terrain et en remplissant les formulaires nécessaires. Créez votre propre espace de jeu pour un affrontement passionnant, et attendez avec espoir l'approbation du propriétaire du terrain. Cette anticipation renforce l'excitation et la stratégie de votre aventure ludique." textAlignment="CENTER" wrappingWidth="273.8458442687986" AnchorPane.bottomAnchor="137.0" AnchorPane.topAnchor="155.0">
                         <font>
                            <Font name="Arial Black" size="14.0" />
                         </font>
                      </Text>
-                     <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="79.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="76.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="31.0">
                         <image>
                            <Image url="@414701634_1410039389583838_1223732391004318772_n.png" />
                         </image>
                      </ImageView>
-                     <Button id="Button33" layoutX="86.0" layoutY="477.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" stylesheets="@button.css" text="choisir" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="82.0" />
+                     <Button id="Button33" layoutX="92.0" layoutY="451.0" mnemonicParsing="false" onAction="#LancerDefi" prefHeight="30.0" prefWidth="60.0" stylesheets="@button.css" text="choisir" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="76.0" />
                   </children>
                   <VBox.margin>
-                     <Insets top="20.0" />
+                     <Insets top="10.0" />
                   </VBox.margin>
                </AnchorPane>
             </children>
+            <padding>
+               <Insets right="10.0" />
+            </padding>
          </VBox>
-      </children></AnchorPane>
-   <ImageView fitHeight="46.0" fitWidth="79.0" layoutX="236.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="250.0">
+      </children>
+   </AnchorPane>
+   <ImageView fitHeight="108.0" fitWidth="116.0" layoutX="147.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="147.0">
       <image>
-         <Image url="@playmateLogo.png" />
+         <Image url="@LogoPlayMate.png" />
       </image>
    </ImageView>
+   <padding>
+      <Insets top="10.0" />
+   </padding>
 </AnchorPane>

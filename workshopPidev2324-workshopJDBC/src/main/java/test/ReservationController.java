@@ -13,8 +13,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import models.BlackList;
 import models.Reservation;
 import models.Terrain;
+import services.BlacklistService;
 import services.ReservationService;
 import services.TerrainService;
 
@@ -122,6 +124,9 @@ public class ReservationController implements Initializable {
     //hover
 
     @FXML
+    private VBox vboxSupprimer;
+
+    @FXML
     private VBox vbox1;
 
     @FXML
@@ -134,8 +139,27 @@ public class ReservationController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
+
+
     }
 
+
+    @FXML
+    void chargerInterfaceSuppression(ActionEvent event) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SupprimerReservation.fxml"));
+            Parent root = (Parent) loader.load();
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
 
 
     public boolean verfierHeure(String horaire) {
@@ -227,6 +251,20 @@ public class ReservationController implements Initializable {
         }
     }
 
+    public void LancerDefi(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("LancerVous.fxml"));
+            Parent root = (Parent) loader.load();
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
     public void AfficherVbox1Seulement(MouseEvent mouseEvent) {
 
         vbox1.setVisible(true);
@@ -252,6 +290,59 @@ public class ReservationController implements Initializable {
         vbox2.setVisible(false);
         vbox3.setVisible(true);
     }
+
+
+
+    public void supprimerUneReservation() throws SQLException {
+        vboxSupprimer.setVisible(true);
+        vboxSupprimer.getChildren().clear();
+        ReservationService reservationService = new ReservationService();
+
+         //  ****************************      id user 8
+        List<Reservation> reservations = reservationService.getReservationByIdMembre(8);
+        for (Reservation reservation : reservations){
+            AnchorPane anchorPane = new AnchorPane();
+            HBox hBox = new HBox();
+            Label dateRes = new Label(reservation.getDateReservation());
+            Label HeureRes = new Label(reservation.getHeureReservation());
+            Label nomEq = new Label(reservation.getNomEquipe1());
+//            Label nomEq2 = new Label();
+//            if(!reservation.getNomEquipe2().equals("")){
+//                Label nomEq2 = new Label(reservation.getNomEquipe1());
+//            }else {
+//                Label nomEq2 = new Label("");
+//            }
+
+            dateRes.getStyleClass().add("label-style");
+            HeureRes.getStyleClass().add("label-style");
+            nomEq.getStyleClass().add("label-style");
+
+
+            Button btnReserver = new Button("Supprimer");
+            btnReserver.getStyleClass().add("reserver-button");
+
+            btnReserver.setOnAction(event -> {
+
+                try {
+
+                    reservationService.supprimerReservation(reservation.getIdReservation());
+                    supprimerUneReservation();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+
+            hBox.getChildren().addAll(dateRes, HeureRes, nomEq, btnReserver);
+            anchorPane.getChildren().addAll(hBox);
+            vboxSupprimer.getChildren().add(anchorPane);
+
+
+        }
+
+
+
+    }
+
 
 
 /*

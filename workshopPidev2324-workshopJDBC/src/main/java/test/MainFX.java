@@ -29,16 +29,17 @@ import java.io.IOException;
 
 public class MainFX extends Application {
 
-    /*
+
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws Exception {
         //FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("chercherAdversaire.fxml"));
         //FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("reserverTerrainVersion2.fxml"));
-        //FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("choix2.fxml"));
+       FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("choix2.fxml"));
         //FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("LancerVous.fxml"));
-        FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("BlackList.fxml"));
+        //FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("BlackList.fxml"));
+        //FXMLLoader fxmlLoader = new FXMLLoader(MainFX.class.getResource("SupprimerReservation.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
 
@@ -49,12 +50,11 @@ public class MainFX extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-     */
-
+}
 
 
 
+/*
     private static final int width = 1280;
     private static final int height = 720;
 
@@ -123,12 +123,10 @@ public class MainFX extends Application {
 
             Image ballImage = new Image("test/ballon.png");
             gc.drawImage(ballImage, ballXPos, ballYPos, BALL_R * 2, BALL_R * 2);
-/*
-            gc.setFill(Color.WHITE);
-            gc.fillRect(0, height / 2 - PLAYER_HEIGHT / 2, PLAYER_WIDTH, PLAYER_HEIGHT);
-            gc.fillRect(width - PLAYER_WIDTH, height / 2 - PLAYER_HEIGHT / 2, PLAYER_WIDTH, PLAYER_HEIGHT);
 
- */
+
+
+
         } else {
             gc.setStroke(Color.WHITE);
             gc.setTextAlign(TextAlignment.CENTER);
@@ -173,3 +171,4 @@ public class MainFX extends Application {
     }
 
 
+*/

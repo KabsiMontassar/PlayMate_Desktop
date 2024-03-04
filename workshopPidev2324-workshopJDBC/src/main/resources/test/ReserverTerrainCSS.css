@@ -1,6 +1,6 @@
 /* styles.css */
 
-.anchor-pane-style {
+.anchor-pane-style , #vbox5 {
  -fx-background-color: rgba(76, 175, 80, 0.5);
 -fx-border-radius: 7px ;
     -fx-border-color: #02365c;

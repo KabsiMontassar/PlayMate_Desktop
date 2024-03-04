@@ -106,7 +106,7 @@ public class ReserverTerrainController implements Initializable {
         // *********************************************************************************************
         //                                                 monta heeeet numro hatit 7
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(8);
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(7);
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
@@ -121,6 +121,7 @@ public class ReserverTerrainController implements Initializable {
     }
 
 // ajouter photo et video
+    // comme quoi reservation 1 er equi
     public void  showTerrains() throws SQLException {
 
         TerrainService ts = new TerrainService();
@@ -169,7 +170,10 @@ public class ReserverTerrainController implements Initializable {
 
                                 ReservationService reservationService1 = new ReservationService();
                                 int dernieridReservationAjouter = reservationService1.getLastIdReservationAddRecently();
-                                passerPaiement( dernieridReservationAjouter , idUser);
+                                PaimentController paimentController = new PaimentController();
+                                paimentController.SetIdReservation(dernieridReservationAjouter);
+                                paimentController.PaymentAPI();
+//                                passerPaiement( dernieridReservationAjouter , idUser);
                                 //id user a changer de montassar
 
                             } catch (SQLException e) {

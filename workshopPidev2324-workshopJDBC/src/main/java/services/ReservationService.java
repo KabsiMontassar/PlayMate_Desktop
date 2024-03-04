@@ -127,7 +127,7 @@ public class ReservationService {
         // pour l affichage dans la table par membre
         public List<Reservation> getReservationByIdMembre(int idm) throws SQLException {
             List<Reservation> reservations = new ArrayList<>();
-            String query = "SELECT r.* FROM reservation r JOIN payment p ON r.idReservation = p.idReservation JOIN membre m ON p.idMembre = m.idMembre WHERE m.idMembre =  = ?";
+            String query = "SELECT r.* FROM reservation r JOIN payment p ON r.idReservation = p.idReservation JOIN membre m ON p.idMembre = m.idMembre WHERE m.idMembre =   ? ";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setInt(1, idm);
             ResultSet rs = ps.executeQuery();

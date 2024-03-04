@@ -17,10 +17,10 @@
     <children>
         <ImageView fitHeight="93.0" fitWidth="100.0" layoutX="129.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@playmateLogo.png" />
+                <Image url="@LogoPlayMate.png" />
             </image>
         </ImageView>
-        <AnchorPane id="anchroCreerPartie" fx:id="anchroPane2" layoutX="38.0" layoutY="93.0" prefHeight="603.0" prefWidth="1230.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="12.0">
+        <AnchorPane id="anchroCreerPartie" fx:id="anchroPane2" layoutX="38.0" layoutY="93.0" prefHeight="583.0" prefWidth="1230.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="12.0">
             <children>
                 <DatePicker id="date" fx:id="datepicker" layoutX="860.0" layoutY="27.0" prefHeight="26.0" prefWidth="167.0" promptText="chosir une date" />
                 <Label id="label" layoutX="425.0" layoutY="36.0" prefHeight="23.0" prefWidth="114.0" text="    Heure :" textAlignment="CENTER" textFill="#02365c" AnchorPane.rightAnchor="700.6">
@@ -40,12 +40,12 @@
                     </font>
                 </Label>
             <VBox fx:id="Vbox1" layoutX="64.0" layoutY="181.0" prefHeight="379.0" prefWidth="864.0" stylesheets="@ReserverTerrainCSS.css" AnchorPane.leftAnchor="64.0" AnchorPane.rightAnchor="302.0" />
-            <Label fx:id="horaireInvalides" layoutX="547.0" layoutY="70.0" prefHeight="17.0" prefWidth="166.0" text="horaire invalides" textFill="#ff1f1f" AnchorPane.leftAnchor="547.0">
+            <Label fx:id="horaireInvalides" layoutX="547.0" layoutY="70.0" prefHeight="17.0" prefWidth="166.0" text="horaire invalide !" textFill="#ff1f1f" AnchorPane.leftAnchor="547.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="dateInvalide" layoutX="870.0" layoutY="70.0" prefHeight="35.0" prefWidth="173.0" text="date invalide" textFill="#ff1f1f" AnchorPane.leftAnchor="870.0">
+            <Label fx:id="dateInvalide" layoutX="870.0" layoutY="70.0" prefHeight="35.0" prefWidth="173.0" text="date invalide !" textFill="#ff1f1f" AnchorPane.leftAnchor="870.0">
                <font>
                   <Font size="15.0" />
                </font>

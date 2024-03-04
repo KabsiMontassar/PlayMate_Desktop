@@ -2,7 +2,7 @@ package services;
 
 import com.alibaba.fastjson.JSONObject;
 import models.Paiement;
-import models.PaymentRequest;
+//import models.PaymentRequest;
 import utils.MyDatabase;
 
 import java.io.BufferedReader;
@@ -15,6 +15,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PaiementService {
@@ -22,43 +23,15 @@ public class PaiementService {
     public PaiementService(){
         connection = MyDatabase.getInstance().getConnection();
     }
-/*
 
-    private static final String API_BASE_URL = "https://api.preprod.konnect.network/api/v2/";
-    private static final String API_KEY = "65db3ac24e8dd3df3f9691d4:gLTHG7FIRGzdO8QLe5";
-
-    public String initiatePayment(PaymentRequest paymentRequest) throws IOException {
-        OkHttpClient client = new OkHttpClient();
-
-        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"), paymentRequest.toJson().toString());
-        Request request = new Request.Builder()
-                .url(API_BASE_URL + "payments/init-payment")
-                .addHeader("x-api-key", API_KEY)
-                .post(requestBody)
-                .build();
-
-        try (Response response = client.newCall(request).execute()) {
-            if (response.isSuccessful()) {
-                JSONObject jsonResponse = new JSONObject(response.body().string());
-                return jsonResponse.getString("payUrl");
-            }
-        }
-
-        return null;
-    }
-
-
-
- */
-
-    public boolean AjouterPaiement(Paiement paiement) throws SQLException {
-        String query = "INSERT INTO Payment (idMembre, idReservation, datePayment, horairePayment,Payed) VALUES (?,?,?,?,?);";
+    public boolean AjouterPaiement(Paiement paiement,String paymentRef1) throws SQLException {
+        String query = "INSERT INTO Payment (idMembre, idReservation, datePayment, horairePayment,paymentRef) VALUES (?,?,?,?,?);";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, paiement.getIdmembre());
         ps.setInt(2, paiement.getIdreservation());
         ps.setString(3, paiement.getDate());
         ps.setString(4, paiement.getHeure());
-        ps.setBoolean(5,false);
+        ps.setString(5,paymentRef1);
 
         ps.executeUpdate();
         int lignesAffectees = ps.executeUpdate();
@@ -67,18 +40,35 @@ public class PaiementService {
 
 
     }
-    public boolean confirmerPaiment(int idpaiement){
-        String query = "UPDATE payment SET Payed = TRUE WHERE idPayment = ?;";
-        PreparedStatement ps = null;
-        try {
-            ps = connection.prepareStatement(query);
+//    public boolean confirmerPaiment(int idpaiement){
+//        String query = "UPDATE payment SET Payed = TRUE WHERE idPayment = ?;";
+//        PreparedStatement ps = null;
+//        try {
+//            ps = connection.prepareStatement(query);
+//
+//            ps.setInt(1, idpaiement);
+//            ps.executeUpdate();
+//            return true;
+//        } catch (SQLException e) {
+//            System.out.println(e.getMessage());
+//        }
+//        return false;
+//    }
 
-            ps.setInt(1, idpaiement);
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+
+    public int getLastIdPayment() throws SQLException {
+        int lastIdPayment = -1; // Ou toute autre valeur par défaut selon votre logique
+
+        String query = "SELECT idPayment FROM payment ORDER BY idPayment DESC LIMIT 1";
+
+        try (PreparedStatement ps = connection.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
+
+            if (rs.next()) {
+                lastIdPayment = rs.getInt("idPayment");
+            }
         }
-        return false;
+
+        return lastIdPayment;
     }
 }
