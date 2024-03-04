@@ -1,8 +1,14 @@
 package services.GestionUser;
 
 import models.*;
+import services.Encryption;
 import utils.MyDatabase;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +23,7 @@ public class UserService implements IService<User> {
 
 
 
-    public User getByEmail(String e) throws SQLException {
+    public User getByEmail(String e) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         User user = new User(); // Initialize user as null
         String query = "SELECT * FROM user WHERE email = ?";
         PreparedStatement ps = connection.prepareStatement(query);
@@ -64,12 +70,13 @@ public class UserService implements IService<User> {
 
 
 
-    public void addJoueur(Joueur J ) throws SQLException{
+    public void addJoueur(Joueur J ) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
         PreparedStatement psUser = connection.prepareStatement(QueryToUser);
         psUser.setString(1, J.getEmail());
-        psUser.setString(2, J.getPassword());
+        psUser.setString(2,  Encryption.encrypt(J.getPassword()));
         psUser.setString(3, J.getName());
+
         psUser.setInt(4, J.getAge());
         psUser.setInt(5, J.getPhone());
         psUser.setString(6, J.getRole().toString());
@@ -89,11 +96,11 @@ public class UserService implements IService<User> {
         psJoueur.setInt(1, id);
         psJoueur.executeUpdate();
     }
-    public void addFournisseur(Fournisseur F) throws SQLException{
+    public void addFournisseur(Fournisseur F) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
         PreparedStatement psUser = connection.prepareStatement(QueryToUser);
         psUser.setString(1, F.getEmail());
-        psUser.setString(2, F.getPassword());
+        psUser.setString(2,  Encryption.encrypt(F.getPassword()));
         psUser.setString(3, F.getName());
         psUser.setInt(4, F.getAge());
         psUser.setInt(5, F.getPhone());
@@ -112,11 +119,11 @@ public class UserService implements IService<User> {
 
         psFournisseur.executeUpdate();
     }
-    public void addOrganisateur(Organisateur O) throws SQLException{
+    public void addOrganisateur(Organisateur O) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified ,address) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
         PreparedStatement psUser = connection.prepareStatement(QueryToUser);
         psUser.setString(1, O.getEmail());
-        psUser.setString(2, O.getPassword());
+        psUser.setString(2,  Encryption.encrypt(O.getPassword()));
         psUser.setString(3, O.getName());
         psUser.setInt(4, O.getAge());
         psUser.setInt(5, O.getPhone());
@@ -135,11 +142,11 @@ public class UserService implements IService<User> {
 
         psOrganisateur.executeUpdate();
     }
-    public void addProprietairedeTerarin(Proprietaire_de_terrain P) throws SQLException{
+    public void addProprietairedeTerarin(Proprietaire_de_terrain P) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
         PreparedStatement psUser = connection.prepareStatement(QueryToUser);
         psUser.setString(1, P.getEmail());
-        psUser.setString(2, P.getPassword());
+        psUser.setString(2,  Encryption.encrypt(P.getPassword()));
         psUser.setString(3, P.getName());
         psUser.setInt(4, P.getAge());
         psUser.setInt(5, P.getPhone());
@@ -172,7 +179,7 @@ public class UserService implements IService<User> {
 
 
 
-    public void update(User t ) throws SQLException{
+    public void update(User t ) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
 
         String query = "UPDATE user SET age = ?, name = ?  , address = ? , password = ? , phone = ?  WHERE email = ?";
 
@@ -181,7 +188,7 @@ public class UserService implements IService<User> {
         ps.setInt(1, t.getAge());
         ps.setString(2, t.getName());
         ps.setString(3, t.getAddress());
-        ps.setString(4, t.getPassword());
+        ps.setString(4,  Encryption.encrypt(t.getPassword()));
         ps.setInt(5, t.getPhone());
         ps.setString(6, t.getEmail());
         ps.executeUpdate();
@@ -246,7 +253,7 @@ public class UserService implements IService<User> {
         ps.executeUpdate();
     }
 
-    public void InvertStatus(String email) throws SQLException {
+    public void InvertStatus(String email) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         String query = "UPDATE user SET Status = ?  WHERE email = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         if (getByEmail(email).getStatus()) {
@@ -260,7 +267,7 @@ public class UserService implements IService<User> {
 
 
 
-    public List<User> getAll() throws SQLException{
+    public List<User> getAll() throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         List<User> users = new ArrayList<>();
         String query = "SELECT * FROM user";
         Statement st = connection.createStatement();
@@ -285,7 +292,7 @@ public class UserService implements IService<User> {
         return users;
     }
 
-    public boolean Login(String e, String P) throws SQLException {
+    public boolean Login(String e, String P) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         User U1 = getByEmail(e);
         if (U1 == null || U1.getPassword() == null || U1.getPassword().isEmpty()) {
             return false;

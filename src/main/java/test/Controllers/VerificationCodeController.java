@@ -10,6 +10,11 @@ import models.User;
 import services.GestionUser.UserService;
 import test.Controllers.Common.CAlert;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.function.UnaryOperator;
 
@@ -92,7 +97,7 @@ public class   VerificationCodeController {
     }
 
     @FXML
-    void verifierCode(ActionEvent event) throws SQLException {
+    void verifierCode(ActionEvent event) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         u = us.getByEmail(emailtf.getText());
 
         String inputtedCode = field1.getText() + field2.getText() + field3.getText() + field4.getText() + field5.getText() + field6.getText();

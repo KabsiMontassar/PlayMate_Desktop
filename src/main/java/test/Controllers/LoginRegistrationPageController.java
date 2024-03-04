@@ -22,7 +22,12 @@ import services.GestionUser.UserService;
 import test.Controllers.Common.CAlert;
 import test.MainFx;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 import java.util.function.UnaryOperator;
@@ -131,7 +136,7 @@ public class LoginRegistrationPageController {
     CAlert cAlert = new CAlert();
 
     private User CurrentUser ;
-    public void setData(User us) {
+    public void setData(User us) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
 
         this.CurrentUser = us;
         Seconnecterfield1.setText(us.getEmail());
@@ -319,7 +324,7 @@ public class LoginRegistrationPageController {
     }
 
     @FXML
-    public void Seconnecter(ActionEvent event) throws SQLException {
+    public void Seconnecter(ActionEvent event) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
 
         if(Seconnecterfield1.getText().isEmpty() || SeconnecterPass1.getText().isEmpty()){
 
