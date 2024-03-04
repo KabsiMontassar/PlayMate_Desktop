@@ -33,7 +33,7 @@ public class PaiementService {
         ps.setString(4, paiement.getHeure());
         ps.setString(5,paymentRef1);
 
-        ps.executeUpdate();
+//        ps.executeUpdate();
         int lignesAffectees = ps.executeUpdate();
 
         return lignesAffectees > 0;

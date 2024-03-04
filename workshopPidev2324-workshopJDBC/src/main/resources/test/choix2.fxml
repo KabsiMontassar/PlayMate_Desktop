@@ -51,7 +51,7 @@
                <Font name="Arial Black" size="34.0" />
             </font>
          </Label>
-         <VBox id="vbox1" fx:id="vbox1" layoutX="196.0" layoutY="103.0" onMouseExited="#AfficherVboxtout" onMouseMoved="#AfficherVbox1Seulement" prefHeight="580.0" prefWidth="290.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="289.0" AnchorPane.leftAnchor="196.0" AnchorPane.topAnchor="100.0">
+         <VBox id="vbox1" fx:id="vbox1" layoutX="196.0" layoutY="103.0" onMouseExited="#AfficherVboxtout" onMouseMoved="#AfficherVbox1Seulement" prefHeight="552.0" prefWidth="294.0" stylesheets="vbox.css" AnchorPane.bottomAnchor="485.0" AnchorPane.leftAnchor="196.0" AnchorPane.topAnchor="100.0">
             <children>
                <Label id="label3" prefHeight="26.0" prefWidth="329.0" stylesheets="@test2.css" text="        Créez votre partie !" textFill="#4caf50">
                   <font>

@@ -157,24 +157,6 @@ public class PaimentController implements Initializable {
     }
 
 
-    /*     maadch button tw bech nrj3 payment*/
-    public void payer() throws SQLException {
-
-        if (controleSaisieCVV(CVV.getText()) && controleSaisieNumero(numero.getText()) && controleSaisieNomProprietaire(NOM.getText()) && controleSaisieDateCarteBancaire(date.getText())) {
-            LocalDate dateCourrant = LocalDate.now();
-            LocalTime timeCourrant = LocalTime.now();
-
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            String dateString = dateCourrant.format(formatter);
-
-            DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm:ss");
-            String heureEnString = timeCourrant.format(formatter2);
-
-
-            Paiement paiement = new Paiement(8,/*this.GetIdUser(),*/this.GetIdReservation(), dateString, heureEnString , " ");
-
-      }
-    }
 
     public Paiement creerPaiment() throws SQLException {
 
@@ -189,8 +171,7 @@ public class PaimentController implements Initializable {
 
 
         Paiement paiement = new Paiement(8,/*this.GetIdUser(),*/this.GetIdReservation(), dateString, heureEnString , " ");
-//        PaiementService paiementService = new PaiementService();
-//        paiementService.AjouterPaiement(paiement);
+
         return  paiement ;
 
     }
@@ -200,12 +181,9 @@ public class PaimentController implements Initializable {
         PaymentAPI paymentAPI = new PaymentAPI();
         try {
         PaiementService paiementService = new PaiementService();
-//            int idpayment = paiementService.getLastIdPayment();
+
             Paiement paiement = new Paiement();
             paiement = creerPaiment();
-
-
-
 
             // Initialise le paiement
             String response = paymentAPI.initPayment(paiement);  // null
@@ -252,3 +230,24 @@ public class PaimentController implements Initializable {
     }
 
 }
+
+
+/*     maadch button tw bech nrj3 payment*/
+/*    public void payer() throws SQLException {
+
+        if (controleSaisieCVV(CVV.getText()) && controleSaisieNumero(numero.getText()) && controleSaisieNomProprietaire(NOM.getText()) && controleSaisieDateCarteBancaire(date.getText())) {
+            LocalDate dateCourrant = LocalDate.now();
+            LocalTime timeCourrant = LocalTime.now();
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            String dateString = dateCourrant.format(formatter);
+
+            DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("HH:mm:ss");
+            String heureEnString = timeCourrant.format(formatter2);
+
+
+            Paiement paiement = new Paiement(8,this.GetIdReservation(), dateString, heureEnString , " ");
+
+      }
+    }
+*/

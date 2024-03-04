@@ -298,24 +298,19 @@ public class ReservationController implements Initializable {
         vboxSupprimer.getChildren().clear();
         ReservationService reservationService = new ReservationService();
 
-         //  ****************************      id user 8
-        List<Reservation> reservations = reservationService.getReservationByIdMembre(8);
+         //  ****************************      id user 8       et en futrue
+        List<Reservation> reservations =      reservationService.getAllFutureReservationsByIdMembre(8)  ; //  reservationService.getAllReservationByIdMembre(8);
         for (Reservation reservation : reservations){
             AnchorPane anchorPane = new AnchorPane();
             HBox hBox = new HBox();
             Label dateRes = new Label(reservation.getDateReservation());
             Label HeureRes = new Label(reservation.getHeureReservation());
-            Label nomEq = new Label(reservation.getNomEquipe1());
-//            Label nomEq2 = new Label();
-//            if(!reservation.getNomEquipe2().equals("")){
-//                Label nomEq2 = new Label(reservation.getNomEquipe1());
-//            }else {
-//                Label nomEq2 = new Label("");
-//            }
+
+
 
             dateRes.getStyleClass().add("label-style");
             HeureRes.getStyleClass().add("label-style");
-            nomEq.getStyleClass().add("label-style");
+
 
 
             Button btnReserver = new Button("Supprimer");
@@ -332,7 +327,7 @@ public class ReservationController implements Initializable {
                 }
             });
 
-            hBox.getChildren().addAll(dateRes, HeureRes, nomEq, btnReserver);
+            hBox.getChildren().addAll(dateRes, HeureRes, btnReserver);
             anchorPane.getChildren().addAll(hBox);
             vboxSupprimer.getChildren().add(anchorPane);
 

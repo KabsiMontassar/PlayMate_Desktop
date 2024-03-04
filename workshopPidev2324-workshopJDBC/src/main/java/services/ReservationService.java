@@ -13,16 +13,17 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.Date;
-import java.util.List;
+import java.util.stream.Collectors;
 
 import static models.TypeReservation.ReserverTerrainPourEquipe;
 /*implements IService<Reservation> */
 public class ReservationService {
-    private Connection connection;
+    private static Connection connection;
     public ReservationService(){
         connection = MyDatabase.getInstance().getConnection();
     }
@@ -45,14 +46,14 @@ public class ReservationService {
             ps.executeUpdate();
             */
 
-        String query = "INSERT INTO reservation (isConfirm, dateReservation, heureReservation, type, idTerrain , nomEquipe1) VALUES (?, ?, ?, ?, ?,?)";
+        String query = "INSERT INTO reservation (isConfirm, dateReservation, heureReservation, type, idTerrain ) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setBoolean(1, false);
         ps.setString(2, reservation.getDateReservation());
         ps.setString(3, reservation.getHeureReservation());
         ps.setString(4, reservation.getType());
         ps.setInt(5, reservation.getIdTerrain());
-        ps.setString(6, reservation.getNomEquipe1());
+
 
         ps.executeUpdate();
 
@@ -64,15 +65,14 @@ public class ReservationService {
         // j ai les deux noms
     public void ajouterReservationPourLancerUnePartie(Reservation reservation) throws SQLException {
 
-        String query = "INSERT INTO reservation (isConfirm, dateReservation, heureReservation, type, idTerrain , nomEquipe1 , nomEquipe2) VALUES (?, ?, ?, ?, ?,? ,?)";
+        String query = "INSERT INTO reservation (isConfirm, dateReservation, heureReservation, type, idTerrain ) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setBoolean(1, false);
         ps.setString(2, reservation.getDateReservation());
         ps.setString(3, reservation.getHeureReservation());
         ps.setString(4, reservation.getType());
         ps.setInt(5, reservation.getIdTerrain());
-        ps.setString(6, reservation.getNomEquipe1());
-        ps.setString(7,reservation.getNomEquipe2());
+
 
         ps.executeUpdate();
 
@@ -81,22 +81,7 @@ public class ReservationService {
 
     }
 
-    public boolean updateNomEquipe2(int idReservation, String nomEquipe2) throws SQLException {
-        String query = "UPDATE reservation SET nomEquipe2 = ? WHERE idReservation = ?";
 
-        try (PreparedStatement ps = connection.prepareStatement(query)) {
-            ps.setString(1, nomEquipe2);
-            ps.setInt(2, idReservation);
-
-            int affectedRows = ps.executeUpdate();
-            if (affectedRows == 0) {
-                return false ;
-            }
-        } catch (SQLException e) {
-            return  false;
-        }
-        return true ;
-    }
 
         // tous les reservations
         public List<Reservation> getAllReservation() throws SQLException {
@@ -113,7 +98,7 @@ public class ReservationService {
                 reservation.setHeureReservation(rs.getString("heureReservation"));
                 reservation.setType(TypeReservation.valueOf(rs.getString("type")));
                 reservation.setIdTerrain(rs.getInt("idTerrain"));
-                reservation.setNomEquipe1(rs.getString("nomEquipe1"));
+
 
                 reservations.add(reservation);
 
@@ -125,13 +110,14 @@ public class ReservationService {
 
 
         // pour l affichage dans la table par membre
-        public List<Reservation> getReservationByIdMembre(int idm) throws SQLException {
+        public static List<Reservation> getAllReservationByIdMembre(int idm) throws SQLException {
             List<Reservation> reservations = new ArrayList<>();
             String query = "SELECT r.* FROM reservation r JOIN payment p ON r.idReservation = p.idReservation JOIN membre m ON p.idMembre = m.idMembre WHERE m.idMembre =   ? ";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setInt(1, idm);
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
+
                 Reservation reservation = new Reservation();
                 reservation.setIdReservation(rs.getInt("idReservation"));
                 reservation.setConfirm(rs.getBoolean("isConfirm"));
@@ -139,7 +125,7 @@ public class ReservationService {
                 reservation.setHeureReservation(rs.getString("heureReservation"));
                 reservation.setType(TypeReservation.valueOf(rs.getString("type")));
                 reservation.setIdTerrain(rs.getInt("idTerrain"));
-                reservation.setNomEquipe1(rs.getString("nomEquipe1"));
+
 
                 reservations.add(reservation);
 
@@ -148,6 +134,83 @@ public class ReservationService {
 
 
         }
+
+    public static List<Reservation> getAllFutureUniqueReservations() throws SQLException {
+        List<Reservation> allReservations = new ArrayList<>();
+        Map<String, Integer> reservationUnique = new HashMap<>();
+        String query = "SELECT * FROM reservation ";
+
+        PreparedStatement ps = connection.prepareStatement(query);
+        ResultSet rs = ps.executeQuery();
+
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        // Première passe pour compter les occurrences
+        while (rs.next()) {
+            String dateString = rs.getString("dateReservation");
+            String heureString = rs.getString("heureReservation");
+            LocalDateTime reservationDateTime = LocalDateTime.parse(dateString + " " + heureString, formatter);
+
+            if (reservationDateTime.isAfter(now)) {
+                int idTerrain = rs.getInt("idTerrain");
+                String uniqueKey = dateString + "-" + heureString + "-" + idTerrain;
+
+                Reservation reservation = new Reservation();
+                reservation.setIdReservation(rs.getInt("idReservation"));
+                reservation.setConfirm(rs.getBoolean("isConfirm"));
+                reservation.setDateReservation(dateString);
+                reservation.setHeureReservation(heureString);
+                reservation.setType(TypeReservation.valueOf(rs.getString("type")));
+                reservation.setIdTerrain(idTerrain);
+
+                allReservations.add(reservation);
+                reservationUnique.put(uniqueKey, reservationUnique.getOrDefault(uniqueKey, 0) + 1);
+            }
+        }
+
+        // Filtrer pour exclure les doublons
+        List<Reservation> uniqueFutureReservations = allReservations.stream()
+                .filter(reservation -> reservationUnique.get(reservation.getDateReservation() + "-" + reservation.getHeureReservation() + "-" + reservation.getIdTerrain()) == 1)
+                .collect(Collectors.toList());
+
+        return uniqueFutureReservations;
+    }
+
+
+
+    public static List<Reservation> getAllFutureReservationsByIdMembre(int idm) throws SQLException {
+        List<Reservation> reservations = new ArrayList<>();
+        String query = "SELECT r.* FROM reservation r JOIN payment p ON r.idReservation = p.idReservation JOIN membre m ON p.idMembre = m.idMembre WHERE m.idMembre = ?";
+
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, idm);
+        ResultSet rs = ps.executeQuery();
+
+        LocalDate today = LocalDate.now();
+
+        while (rs.next()) {
+            String dateString = rs.getString("dateReservation");
+            LocalDate reservationDate = LocalDate.parse(dateString);
+
+            if (reservationDate.isAfter(today)) {
+                Reservation reservation = new Reservation();
+                reservation.setIdReservation(rs.getInt("idReservation"));
+                reservation.setConfirm(rs.getBoolean("isConfirm"));
+                reservation.setDateReservation(dateString); // Gardez comme String ou convertissez en LocalDate selon votre besoin
+                reservation.setHeureReservation(rs.getString("heureReservation"));
+                reservation.setType(TypeReservation.valueOf(rs.getString("type")));
+                reservation.setIdTerrain(rs.getInt("idTerrain"));
+
+
+                reservations.add(reservation);
+            }
+        }
+
+        return reservations;
+    }
+
+
 
         // avoir l info d une reservation
         public Reservation getReservationByIdReservation(int id ) throws SQLException {
@@ -163,49 +226,14 @@ public class ReservationService {
                 reservation.setHeureReservation(rs.getString("heureReservation"));
                 reservation.setType(TypeReservation.valueOf(rs.getString("type")));
                 reservation.setIdTerrain(rs.getInt("idTerrain"));
-                reservation.setNomEquipe1(rs.getString("nomEquipe1"));
+
 
             }
             return reservation;
 
 
         }
-        //************************** appel de la partie blacklist dans la classe blacklistServices            a faire !
-    // a changer apres modification db
-    /*
-        public  void annulerReservation(int idReservation , int idMembre) throws SQLException {
-            ReservationService reservationService =  new ReservationService();
-            Reservation reservation = reservationService.getReservationByIdReservation(idReservation);
 
-
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDate dateTransformee = LocalDate.parse(reservation.getDateReservation(), formatter);
-            LocalDate dateActuelle = LocalDate.now();
-            if(dateTransformee.isEqual(dateActuelle)){
-                BlackList blackList = new BlackList();
-                blackList.setReservation(reservation);
-                /*
-                blackList.setIdTerrain(reservation.getIdTerrain());
-                blackList.setCause("annulation apres 24h");
-                blackList.setDuree(30);
-                blackList.setIdMembre(idMembre);
-
-                String query = "INSERT INTO blacklist (idReservation, idMembre, idTerrain, duree, cause) VALUES (?,?,?,?,?);";
-                PreparedStatement ps = connection.prepareStatement(query);
-                ps.setInt(1, idReservation);
-                ps.setInt(2, blackList.getIdMembre());
-                ps.setInt(3, blackList.getIdMembre());
-                ps.setInt(4, blackList.getDuree());
-                ps.setString(5, blackList.getCause());
-
-                ps.executeUpdate();
-
-
-            }
-
-        }
-
-     */
         // appel de l historique
         public void supprimerReservation(int idreservation) throws SQLException {
 
@@ -237,7 +265,7 @@ public class ReservationService {
                 reservation.setHeureReservation(rs.getString("heureReservation"));
                 reservation.setType(TypeReservation.valueOf(rs.getString("type")));
                 reservation.setIdTerrain(rs.getInt("idTerrain"));
-                reservation.setNomEquipe1(rs.getString("nomEquipe1"));
+
 
                 if (reservation.getDateReservation() != null && sontMemesDates(reservation.getDateReservation(), date)) {
                     LocalTime heureMatchReserve = LocalTime.parse(reservation.getHeureReservation());
@@ -289,4 +317,60 @@ public class ReservationService {
 
 
 
+    //************************** appel de la partie blacklist dans la classe blacklistServices            a faire !
+    // a changer apres modification db
+    /*
+        public  void annulerReservation(int idReservation , int idMembre) throws SQLException {
+            ReservationService reservationService =  new ReservationService();
+            Reservation reservation = reservationService.getReservationByIdReservation(idReservation);
+
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate dateTransformee = LocalDate.parse(reservation.getDateReservation(), formatter);
+            LocalDate dateActuelle = LocalDate.now();
+            if(dateTransformee.isEqual(dateActuelle)){
+                BlackList blackList = new BlackList();
+                blackList.setReservation(reservation);
+                /*
+                blackList.setIdTerrain(reservation.getIdTerrain());
+                blackList.setCause("annulation apres 24h");
+                blackList.setDuree(30);
+                blackList.setIdMembre(idMembre);
+
+                String query = "INSERT INTO blacklist (idReservation, idMembre, idTerrain, duree, cause) VALUES (?,?,?,?,?);";
+                PreparedStatement ps = connection.prepareStatement(query);
+                ps.setInt(1, idReservation);
+                ps.setInt(2, blackList.getIdMembre());
+                ps.setInt(3, blackList.getIdMembre());
+                ps.setInt(4, blackList.getDuree());
+                ps.setString(5, blackList.getCause());
+
+                ps.executeUpdate();
+
+
+            }
+
+        }
+
+     */
+
+
+
 }
+/*
+*  public boolean updateNomEquipe2(int idReservation, String nomEquipe2) throws SQLException {
+        String query = "UPDATE reservation SET nomEquipe2 = ? WHERE idReservation = ?";
+
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, nomEquipe2);
+            ps.setInt(2, idReservation);
+
+            int affectedRows = ps.executeUpdate();
+            if (affectedRows == 0) {
+                return false ;
+            }
+        } catch (SQLException e) {
+            return  false;
+        }
+        return true ;
+    }*/

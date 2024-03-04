@@ -10,30 +10,19 @@ public class Reservation {
     private String heureReservation ;
     private  TypeReservation type ;
     private int idTerrain ;
-    private String  nomEquipe1 ;
-    private String  nomEquipe2 ;
+
 
 
     public Reservation() {
     }
 
-    public Reservation(boolean isConfirm, String dateReservation, String heureReservation, TypeReservation type , int idTerrain ,String  nomEquipe1 ) {
-        this.idTerrain = idTerrain ;
-        this.isConfirm = isConfirm;
-        this.dateReservation = dateReservation;
-        this.heureReservation = heureReservation;
-        this.type = type;
-        this.nomEquipe1 = nomEquipe1 ;
-    }
 
-    public Reservation(boolean isConfirm, String dateReservation, String heureReservation, TypeReservation type , int idTerrain ,String  nomEquipe1 ,String  nomEquipe2 ) {
+    public Reservation(boolean isConfirm, String dateReservation, String heureReservation, TypeReservation type , int idTerrain  ) {
         this.idTerrain = idTerrain ;
         this.isConfirm = isConfirm;
         this.dateReservation = dateReservation;
         this.heureReservation = heureReservation;
         this.type = type;
-        this.nomEquipe1 = nomEquipe1 ;
-        this.nomEquipe2 = nomEquipe2 ;
     }
 
     public int getIdTerrain() {
@@ -85,22 +74,6 @@ public class Reservation {
         this.type = type;
     }
 
-    public String getNomEquipe1() {
-        return nomEquipe1;
-    }
-
-    public void setNomEquipe1(String nomEquipe1) {
-        this.nomEquipe1 = nomEquipe1;
-    }
-
-    public String getNomEquipe2() {
-        return nomEquipe2;
-    }
-
-    public void setNomEquipe2(String nomEquipe2) {
-        this.nomEquipe2 = nomEquipe2;
-    }
-
 
     @Override
     public String toString() {
@@ -111,8 +84,6 @@ public class Reservation {
                 ", heureReservation='" + heureReservation + '\'' +
                 ", type=" + type +
                 ", idTerrain=" + idTerrain +
-                ", nomEquipe1='" + nomEquipe1 + '\'' +
-                ", nomEquipe2='" + nomEquipe2 + '\'' +
                 '}';
     }
 }

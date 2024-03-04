@@ -204,7 +204,7 @@ public class LancezVousController implements Initializable {
 
             if(reservationService1.VerfierDisponibleTerrain( idTerrain,terraine.getDuree(),heure.getText(),convertirDateEnString(datepicker))) {
 
-                Reservation r1 = new Reservation(false, convertirDateEnString(datepicker), heure.getText(), ReserverTerrainPourEquipe, idTerrain, nom_equipe.getValue(), nom_equipe2.getValue());
+                Reservation r1 = new Reservation(false, convertirDateEnString(datepicker), heure.getText(), ReserverTerrainPourEquipe, idTerrain);
                 ReservationService reservationService = new ReservationService();
                 reservationService.ajouterReservationPourLancerUnePartie(r1);
 

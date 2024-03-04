@@ -21,11 +21,17 @@ import java.util.List;
 public class Main {
 
 
-    public static void main(String[] args) throws  MailjetException {
+    public static void main(String[] args) throws MailjetException, SQLException {
 
-
-        MailJettAPI mailJettAPI = new MailJettAPI();
-        mailJettAPI.send("aziztaraji1@gmail.com","playmatepidev@gmail.com", "33355");
+//
+//        MailJettAPI mailJettAPI = new MailJettAPI();
+//        mailJettAPI.send("aziztaraji1@gmail.com","playmatepidev@gmail.com", "33355");
+/*
+        ReservationService reservationService = new ReservationService();
+        List<Reservation> list = reservationService.getReservationByIdMembre(8);
+        for (Reservation reservation : list){
+            System.out.println(reservation.toString());
+        }*/
     }
 
 

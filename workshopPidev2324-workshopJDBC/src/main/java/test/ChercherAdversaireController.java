@@ -27,6 +27,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static models.TypeReservation.ReserverTerrainPourEquipe;
+import static models.TypeReservation.PostulerCommeAdversaire;
+
 public class ChercherAdversaireController implements Initializable {
 
 
@@ -111,7 +114,7 @@ public class ChercherAdversaireController implements Initializable {
 
         ReservationService reservationService = new ReservationService();
 
-        List<Reservation> reservationList = reservationService.getAllReservation();
+        List<Reservation> reservationList =  reservationService.getAllFutureUniqueReservations();  //reservationService.getAllReservation();
 
 
         for (Reservation reservation : reservationList) {
@@ -125,11 +128,10 @@ public class ChercherAdversaireController implements Initializable {
             anchorPane3.getStyleClass().add("anchor-pane-style");
             anchorPane3.setPadding(new Insets(10, 10, 10, 10));
             Label idReservationLabel = new Label("Id: " + reservation.getIdReservation());
-            Label nomEquipeLabel = new Label("Nom: " + reservation.getNomEquipe1());
+            //Label nomEquipeLabel = new Label("Nom: " + reservation.getNomEquipe1());
             Label DateReservationLabel = new Label("Address: " + reservation.getDateReservation());
             Label heureReservationLabel = new Label("Gradin: " + reservation.getHeureReservation());
 
-            nomEquipeLabel.getStyleClass().add("label-style2");
             DateReservationLabel.getStyleClass().add("label-style2");
             heureReservationLabel.getStyleClass().add("label-style2");
 
@@ -163,12 +165,15 @@ public class ChercherAdversaireController implements Initializable {
                 btnReserver.setOnAction(event -> {
 
                     try {
-                        ReservationService reservationService1 = new ReservationService();
-                        if (reservationService1.updateNomEquipe2(reservation.getIdReservation(), nom_equipe.getValue())) {
-                            System.out.println("6");
-                            passerPaiement(reservation.getIdReservation(), idUser);
-                        }
-                        //id user a changer de montassar
+
+                        ajouterReservationCommeAdverdaire(terrain.getId(),reservation.getDateReservation() ,reservation.getHeureReservation());
+
+
+                        int dernieridReservationAjouter = reservationService.getLastIdReservationAddRecently();
+                        PaimentController paimentController = new PaimentController();
+                        paimentController.SetIdReservation(dernieridReservationAjouter);
+                        paimentController.PaymentAPI();
+
 
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
@@ -179,7 +184,7 @@ public class ChercherAdversaireController implements Initializable {
                 hBox.setSpacing(10);
                 hBox.getStyleClass().add("hbox-with-padding");
 
-                hBox.getChildren().addAll(nomLabel, addressLabel, gradinLabel, vestiaireLabel, dureeLabel, prixLabel, nomEquipeLabel,DateReservationLabel,heureReservationLabel, btnReserver );
+                hBox.getChildren().addAll(nomLabel, addressLabel, gradinLabel, vestiaireLabel, dureeLabel, prixLabel,DateReservationLabel,heureReservationLabel, btnReserver );
 
                 hBox.setSpacing(10);
 
@@ -189,6 +194,15 @@ public class ChercherAdversaireController implements Initializable {
         }
     }
 
+    public void ajouterReservationCommeAdverdaire(int idTerrain , String dateReser ,String heure  ) throws SQLException {
+        Reservation r1 = new Reservation(false, dateReser, heure, PostulerCommeAdversaire, idTerrain);
+        ReservationService reservationService = new ReservationService();
+        reservationService.ajouterReservation(r1);
+
+    }
+
+
+    /********************************/
     public void passerPaiement(int idReservation, int idUser) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Paiment.fxml"));

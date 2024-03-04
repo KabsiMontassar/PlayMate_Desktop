@@ -106,7 +106,7 @@ public class ReserverTerrainController implements Initializable {
         // *********************************************************************************************
         //                                                 monta heeeet numro hatit 7
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(7);
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(8);
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
@@ -203,7 +203,7 @@ public class ReserverTerrainController implements Initializable {
 
             if(reservationService1.VerfierDisponibleTerrain( idTerrain,terraine.getDuree(),heure.getText(),convertirDateEnString(datepicker))) {
 
-                Reservation r1 = new Reservation(false, convertirDateEnString(datepicker), heure.getText(), ReserverTerrainPourEquipe, idTerrain, nom_equipe.getValue());
+                Reservation r1 = new Reservation(false, convertirDateEnString(datepicker), heure.getText(), ReserverTerrainPourEquipe, idTerrain);
                 ReservationService reservationService = new ReservationService();
                 reservationService.ajouterReservation(r1);
 
@@ -306,6 +306,9 @@ public class ReserverTerrainController implements Initializable {
 
     //       ------------------------------------------------------------------------------------------------
     public void AfficherTerrain(ActionEvent actionEvent) throws SQLException {
+        dateInvalide.setVisible(false);
+        horaireInvalides.setVisible(false);
+        nomEquipeInvalide.setVisible(false);
         showTerrains();
     }
     public void passerPaiement(int idReservation , int idUser){
