@@ -1,7 +1,6 @@
 package test.Controllers.UserController;
 
 
-import com.mailjet.client.errors.MailjetException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
@@ -20,9 +19,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.*;
 import services.GestionUser.UserService;
-import services.JavaMailJett;
 import services.UserActivityLogger;
-import test.Controllers.Common.CAlert;
 import test.MainFx;
 
 import javax.crypto.BadPaddingException;

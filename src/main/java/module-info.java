@@ -32,6 +32,15 @@ module test {
     requires com.fasterxml.jackson.core;
     requires com.fasterxml.jackson.databind;
     requires javafx.media;
+    requires google.api.client;
+    requires com.google.api.client.extensions.jetty.auth;
+    requires com.google.api.client;
+    requires mail;
+    requires com.google.api.client.extensions.java6.auth;
+    requires com.google.api.client.auth;
+    requires com.google.api.client.json.gson;
+    requires com.google.zxing;
+    requires com.google.zxing.javase;
     // requires java.http.client;
     opens test to javafx.fxml;
 

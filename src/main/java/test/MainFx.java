@@ -3,9 +3,7 @@ package test;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import test.Controllers.Common.CAlert;
 
 
 public class MainFx extends Application {
