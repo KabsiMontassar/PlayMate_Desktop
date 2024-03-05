@@ -59,6 +59,9 @@ module test {
     opens test.Controllers.ReservationController to javafx.fxml;
     opens test.Controllers.ProduitController to javafx.fxml;
 
+
+    requires org.apache.pdfbox;
+
     exports test;
     exports models;
 }

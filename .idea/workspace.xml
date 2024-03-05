@@ -5,102 +5,92 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/AvisTerrain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Equipe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Terrain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/GestionEquipe/EquipeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/GestionEquipe/MemberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/GestionTerrain/AvisService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/GestionTerrain/ITerrain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/GestionTerrain/TerrainService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/AfficherController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/EquipeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/FormEquipeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/AvisController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/DetailTerrainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/DonnerAvisController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/JavaMailJett.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/PageTerrainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/StatesApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/TerrainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/autoCompleteAPi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/avisPropTController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/smsAPi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/statController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/TerrainDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ProfilePictures/33.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ballT.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/player.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/AvisTerrain.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/DetailTerrain.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/DonnerAvis.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/Equipe.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/PageTerrain.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/Terrain.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/afficherEquipe.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/avisPropT.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/css/styles1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/css/styles2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/css/styles3.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/css/styles5.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/detailuser.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/equipeYemen.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/formEquipe.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/stat.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reservation_Details.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/HistoriqueController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/historique.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/historique.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/historiqueAdmin.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/historiqueBackground.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/imprimerbtn.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_alibaba_fastjson_1_2_75.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_api_client_google_api_client_1_25_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_apis_google_api_services_youtube_v3_rev222_1_25_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_guava_guava_20_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_http_client_google_http_client_1_39_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_http_client_google_http_client_jackson2_1_25_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_oauth_client_google_oauth_client_1_25_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_oauth_client_google_oauth_client_java6_1_31_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_oauth_client_google_oauth_client_jetty_1_31_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_21_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_mailjet_mailjet_client_5_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_mysql_mysql_connector_j_8_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_4_9_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_squareup_okio_okio_2_8_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__io_grpc_grpc_context_1_27_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__io_opencensus_opencensus_api_0_28_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__io_opencensus_opencensus_contrib_http_util_0_28_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_jetbrains_annotations_13_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_1_4_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_common_1_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_json_json_20190722.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_base_21_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_base_win_21_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_controls_21_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_controls_win_21_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_fxml_21_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_21_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_graphics_21_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_21_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_media_21_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_media_win_21_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/workshoppidev.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Joueur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/BlackList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/BlackList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Historique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Historique.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AdminPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/Emailus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/Emailus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/LoginRegistrationPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/LoginRegistrationPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservezMaintenant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ReservezMaintenant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/VerificationCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/VerificationCodeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/apropos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/apropos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionReservation/BlacklistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionReservation/BlacklistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionReservation/HistoriqueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionReservation/HistoriqueService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionReservation/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionReservation/ReservationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/BlackListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/BlackListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/PaimentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/PaimentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/test/MainFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/MainFx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/Acceuil.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/AdminPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/AdminPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/Apropos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/Apropos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/LoginRegistrationPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/LoginRegistrationPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/Profile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/VerificationCode.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/VerificationCode.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/emailus.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/emailus.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/reservezMaintenant.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/reservezMaintenant.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Joueur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Historique.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Historique.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Acceuil.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/AdminPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/AdminPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Apropos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Apropos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/AcceuilController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/AdminPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/Emailus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/LoginRegistrationPageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProfileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservezMaintenant.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/VerificationCodeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/apropos.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/LoginRegistrationPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/LoginRegistrationPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionReservation/HistoriqueService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionReservation/HistoriqueService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionReservation/ReservationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionReservation/ReservationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/PaimentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/PaimentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test/MainFx.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/MainFx.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Profile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/VerificationCode.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/VerificationCode.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/emailus.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/emailus.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/reservezMaintenant.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/reservezMaintenant.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/MyDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/MyDatabase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/avis.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="FxmlFile" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -120,33 +110,64 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Maven.pidev_spartans_3a29 [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Montassar&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Github/pidev_spartans_3a29/Pidev&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Main.executor": "Run",
+    "Application.MainFx.executor": "Run",
+    "Maven.pidev_spartans_3a29 [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Montassar",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/azizb/Bureau/3eme/2eme sem/PIDev/pidev_spartans_3a29/src/main/resources/test/GestionReservation",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\azizb\Bureau\3eme\2eme sem\PIDev\pidev_spartans_3a29\src\main\resources\test\GestionReservation" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Github\pidev_spartans_3a29\Pidev\src\main\resources\ProfilePictures" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainFx">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.Main" />
+      <module name="pidev_spartans_3a29" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainFx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.MainFx" />
+      <module name="pidev_spartans_3a29" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Pidev" />
       <method v="2">
@@ -160,12 +181,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainFx" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
         <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-        <option value="jdk-21.0.1-temurin-21.0.1-4caba194b151-b7b86d5d" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>

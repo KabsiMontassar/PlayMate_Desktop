@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import models.BlackList;
+import models.User;
 import services.GestionReservation.*;
 
 import java.net.URL;
@@ -95,21 +96,22 @@ public class BlackListController implements Initializable {
         anchroPaneafficherBlackliste.setVisible(true);
         vboxAfficherrBlackListe1.getChildren().clear();
         BlacklistService blacklistService = new BlacklistService();
-
+        ReservationService reservationService = new ReservationService();
         List<BlackList> blackLists = blacklistService.getAllBlackLists();
         for (BlackList blackList :blackLists){
             AnchorPane anchorPane = new AnchorPane();
             HBox hBox = new HBox();
-            Label nomMembre = new Label("yemen");
+            User user = ReservationService.getUserWithIdReservation(blackList.getIdReservation());
+            Label name = new Label("nom: "+user.getName());
+            Label email= new Label("email: "+user.getEmail());
             Label duree = new Label(""+blackList.getDuree());
             Label Cause = new Label(blackList.getCause());
 
-            nomMembre.getStyleClass().add("label-style");
             duree.getStyleClass().add("label-style");
             Cause.getStyleClass().add("label-style");
 
 
-            hBox.getChildren().addAll(nomMembre, duree, Cause);
+            hBox.getChildren().addAll(name ,email , duree, Cause);
             anchorPane.getChildren().addAll(hBox);
             vboxAfficherrBlackListe1.getChildren().add(anchorPane);
 

@@ -2,17 +2,15 @@ package models;
 
 public class Historique {
     private int idHistorique ;
-    private String dateReservation,heureReservtion ;
-    private int idMembre ;
+
+    private int idReservation ;
 
     public Historique() {
     }
 
-    public Historique( String dateReservation, String heureReservtion, int idMembre) {
-
-        this.dateReservation = dateReservation;
-        this.heureReservtion = heureReservtion;
-        this.idMembre = idMembre;
+    public Historique(int idHistorique, int idReservation) {
+        this.idHistorique = idHistorique;
+        this.idReservation = idReservation;
     }
 
     public int getIdHistorique() {
@@ -23,38 +21,19 @@ public class Historique {
         this.idHistorique = idHistorique;
     }
 
-    public String getDateReservation() {
-        return dateReservation;
+    public int getIdReservation() {
+        return this.idReservation;
     }
 
-    public void setDateReservation(String dateReservation) {
-        this.dateReservation = dateReservation;
+    public void setIdReservation(int idReservation) {
+        this.idReservation = idReservation;
     }
-
-    public String getHeureReservtion() {
-        return heureReservtion;
-    }
-
-    public void setHeureReservtion(String heureReservtion) {
-        this.heureReservtion = heureReservtion;
-    }
-
-    public int getIdMembre() {
-        return idMembre;
-    }
-
-    public void setIdMembre(int idMembre) {
-        this.idMembre = idMembre;
-    }
-
 
     @Override
     public String toString() {
         return "Historique{" +
                 "idHistorique=" + idHistorique +
-                ", dateReservation='" + dateReservation + '\'' +
-                ", heureReservtion='" + heureReservtion + '\'' +
-                ", idMembre=" + idMembre +
+                ", idReservation=" + idReservation +
                 '}';
     }
 }
