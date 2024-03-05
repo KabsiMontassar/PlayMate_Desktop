@@ -326,7 +326,7 @@ public class PageTerrainController  {
 
     @FXML
     void stat(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("stat.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/stat.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("Login");
