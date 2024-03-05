@@ -1,5 +1,7 @@
 package models;
 
+import java.security.NoSuchAlgorithmException;
+
 public class Organisateur extends User{
     private String Nom_Organisation;
 
@@ -13,11 +15,13 @@ public class Organisateur extends User{
         this.Nom_Organisation = "";
     }
 
-    public Organisateur(String nom_Organisateur) {
+    public Organisateur(String nom_Organisateur) throws NoSuchAlgorithmException {
+        super();
         this.Nom_Organisation = nom_Organisateur;
     }
 
-    public Organisateur() {
+    public Organisateur() throws NoSuchAlgorithmException {
+        super();
 
     }
 
