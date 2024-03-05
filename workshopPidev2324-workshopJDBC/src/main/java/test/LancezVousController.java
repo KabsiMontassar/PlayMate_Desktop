@@ -131,7 +131,7 @@ public class LancezVousController implements Initializable {
     public void  showTerrains() throws SQLException {
 
         TerrainService ts = new TerrainService();
-        ObservableList<Terrain> terrains = ts.getAllTerrains();
+        List<Terrain> terrains = ts.getAllTerrains();           /*changer*/
 
         Vbox1.getChildren().clear();
         Vbox1.getStyleClass().add("vbox-spacing");

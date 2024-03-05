@@ -55,7 +55,7 @@ public class TerrainService {
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, id);
         ps.executeUpdate();}
-    public ObservableList<Terrain> getAllTerrains() {
+    public List<Terrain> getAllTerrains() {
         ObservableList<Terrain> terrains = FXCollections.observableArrayList();
         String query = "SELECT * FROM terrain";
         try (PreparedStatement ps = connection.prepareStatement(query);

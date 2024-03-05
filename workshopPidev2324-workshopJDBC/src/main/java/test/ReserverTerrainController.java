@@ -125,7 +125,7 @@ public class ReserverTerrainController implements Initializable {
     public void  showTerrains() throws SQLException {
 
         TerrainService ts = new TerrainService();
-        ObservableList<Terrain> terrains = ts.getAllTerrains();
+        List<Terrain> terrains = ts.getAllTerrains();         /*                  observ*/
 
         Vbox1.getChildren().clear();
         Vbox1.getStyleClass().add("vbox-spacing");

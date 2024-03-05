@@ -191,7 +191,7 @@ public class ReservationController implements Initializable {
     private void showTerrains() {
         TerrainService ts = new TerrainService();
 
-        ObservableList<Terrain> terrains = ts.getAllTerrains();
+        List<Terrain> terrains = ts.getAllTerrains();    /**/
         for (Terrain terrain : terrains) {
             HBox terrainBox = new HBox();
             terrainBox.setSpacing(10);
