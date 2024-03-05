@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather Forecast</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f7f7f7;
+    }
+    #weatherContainer {
+      margin-top: 50px;
+    }
+    .forecast-item {
+      margin-bottom: 30px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .search-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .search-container button {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <input id="locationInput" type="text" placeholder="Enter a location...">
+  <button onclick="fetchWeather()">Get Weather</button>
+</div>
+<div id="weatherContainer"></div>
+
+<script>
+  function fetchWeather() {
+    var location = document.getElementById('locationInput').value;
+    var apiKey = 'c6147ca1bcd86843a87c6f7a0a40673e';
+    var apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}&units=metric`;
+
+    fetch(apiURL)
+            .then(response => response.json())
+            .then(data => displayWeather(data))
+            .catch(error => console.error('Error fetching weather:', error));
+  }
+
+  function displayWeather(data) {
+    var container = document.getElementById('weatherContainer');
+    container.innerHTML = ''; // Clear previous results
+
+    if (data.list) {
+      var forecastHtml = '<h2>5 Day / 3 Hour Forecast</h2>';
+      data.list.forEach((forecast, index) => {
+        if(index % 8 === 0) {
+          var date = new Date(forecast.dt_txt).toLocaleString();
+          forecastHtml += `<div class="forecast-item">
+                                            <h3>${date}</h3>
+                                            <p>Temperature: ${forecast.main.temp} °C</p>
+                                            <p>Condition: ${forecast.weather[0].description}</p>
+                                            <p>Wind Speed: ${forecast.wind.speed} m/s</p>
+                                        </div>`;
+        }
+      });
+      container.innerHTML = forecastHtml;
+    } else {
+      container.innerHTML = `<p>Weather forecast data not available. Please try another location.</p>`;
+    }
+  }
+</script>
+</body>
+</html>

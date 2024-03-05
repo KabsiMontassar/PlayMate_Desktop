@@ -1,0 +1,90 @@
+/* styles.css */
+
+.anchor-pane-style , #vbox5 {
+ -fx-background-color: rgba(76, 175, 80, 0.5);
+-fx-border-radius: 7px ;
+    -fx-border-color: #02365c;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-padding: 20px;
+}
+
+.label-style {
+    -fx-font-size: 18px; /* Taille de la police */
+    -fx-text-fill: #333; /* Couleur du texte */
+    -fx-font-weight: bold; /* Police en gras */
+    -fx-padding: 5px 5px 5px 5px;
+}
+
+
+
+
+.vbox-spacing {
+    -fx-spacing: 10px;
+}
+
+
+.reserver-button , #button41 {
+    -fx-background-color: #4CAF50;
+        -fx-border-color: #52B66C;
+        -fx-border-radius: 3px;
+        -fx-font-size: 17px;
+        -fx-font-weight: bold;
+        -fx-font-family: "Arial Black";
+        -fx-padding: 10px 10px;
+}
+
+.reserver-button:hover ,  #button41:hover {
+    -fx-background-color: #B6E66C;
+}
+
+.reserver-button:pressed ,  #button41:pressed {
+    -fx-background-color: #388e3c;
+}
+
+.reserver-button:focused ,  #button41:focused {
+    -fx-background-color: #4CAF50;
+    -fx-border-color: #53D56F;
+    -fx-border-width: 2px;
+}
+
+.reserver-button:disabled ,   #button41:disabled {
+    -fx-opacity: 0.5;
+}
+
+/* ************************************************           res btn 2       *******************************************/
+
+.label-style2 {
+    -fx-font-size: 13px; /* Taille de la police */
+    -fx-text-fill: #333; /* Couleur du texte */
+    -fx-font-weight: bold; /* Police en gras */
+    -fx-padding: 5px 5px 5px 5px;
+}
+
+.reserver-button2  {
+    -fx-background-color: #4CAF50;
+        -fx-border-color: #52B66C;
+        -fx-border-radius: 3px;
+        -fx-font-size: 13px;
+        -fx-font-weight: bold;
+        -fx-font-family: "Arial Black";
+        -fx-padding: 2px 2px;
+}
+
+.reserver-button2:hover {
+    -fx-background-color: #B6E66C;
+}
+
+.reserver-button2:pressed{
+    -fx-background-color: #388e3c;
+}
+
+.reserver-button2:focused {
+    -fx-background-color: #4CAF50;
+    -fx-border-color: #53D56F;
+    -fx-border-width: 2px;
+}
+
+.reserver-button2:disabled {
+    -fx-opacity: 0.5;
+}

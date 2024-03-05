@@ -1,0 +1,53 @@
+#anchroCreerPartie{
+-fx-background-image : url(imageview1.jpg.png);
+-fx-background-radius: 10 px ;
+-fx-border-radius: 10px ;
+-fx-background-size : cover ;
+-fx-background-position:centre ;}
+
+#label{
+
+        -fx-background-color: rgba(76, 175, 80,0.80);
+       -fx-background-radius : 7px
+       }
+#heure , #choixequipe , #date {
+    -fx-background-color: #e3dcd6;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 9px ;
+    -fx-border-color: #4CAF50;
+    -fx-border-width: 5px;
+    -fx-padding: 3px;
+    -fx-font-size: 14px;
+}
+
+#heure:focused , #choixequipe:focused , #date:focused {
+    -fx-border-color: #9EE26F;
+    -fx-border-radius: 9px ;
+    -fx-border-width: 2px;
+    -fx-background-color: #3AA261;
+}
+#tableview1 , #tableview2{
+ -fx-background-color: rgba(76, 175, 80,0.90);
+       -fx-background-radius : 7px
+}
+
+#tableview1 .column-header {
+    -fx-background-color: #48A14D;
+    -fx-text-fill: #02365c;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius : 3px
+}
+
+#tableview2 .column-header {
+    -fx-background-color: #48A14D;
+    -fx-text-fill: #02365c;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius : 3px
+}
+/*
+.hbox-with-padding {
+    -fx-padding: 20px 20px 20px 20px;
+}
+*/

@@ -1,0 +1,7 @@
+#amchro2 {
+-fx-background-image : url(trouverAdversaire.png);
+-fx-background-radius: 10 px ;
+-fx-border-radius: 10px ;
+-fx-background-size : cover ;
+-fx-background-position:centre ;
+}

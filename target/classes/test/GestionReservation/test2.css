@@ -1,0 +1,43 @@
+
+#label1{
+ -fx-background-color: rgba(2, 54, 92,0.80);
+-fx-background-radius : 15px ;
+}
+/*#anchro1{
+-fx-background-image : url(soccer-768482_960_720.jpg);
+-fx-background-size : cover ;
+-fx-background-position:centre ;
+}*/
+
+#label3 , #button41 {
+        -fx-background-color: rgba(2, 54, 92,0.80);
+       -fx-background-radius : 7px
+       }
+#anchrocreation1 , #anchrocreation2 ,#anchrocreation3{
+-fx-background-color: rgba(2, 54, 92,0.80);
+    -fx-background-radius : 7px ;
+}
+/*
+#label5{
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-content-display: center;
+    -fx-background-color: rgba(255, 255, 92,0.80);
+}*/
+#textarea1{
+    -fx-background-color: rgba(2, 54, 92,0.80);
+
+}
+#dropdown1{
+-fx-background-color: rgba(2, 54, 92,0.80);
+-fx-background-radius : 10px;
+
+-fx-background-color: #3498db;
+    -fx-text-fill: #f00fff;
+    -fx-border-color: #2c0050;
+}
+#profile1{
+-fx-background-color: #3498db;
+    -fx-text-fill: #f00fff;
+    -fx-border-color: #2c0050;
+}

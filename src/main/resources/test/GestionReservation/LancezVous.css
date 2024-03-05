@@ -1,0 +1,9 @@
+#anchroLansezVous{
+-fx-background-image : url(LancezVous2.png);
+-fx-background-size : cover ;
+-fx-background-position:centre ;
+}
+#anchroLansez2{
+-fx-background-color: rgba(2, 54, 92,0.50);
+    -fx-background-radius : 7px ;
+}

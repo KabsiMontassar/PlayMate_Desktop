@@ -1,0 +1,25 @@
+.terrain-box { /* Style de la boîte de terrain */
+    -fx-background-color: #f0f0f0; /* Couleur de fond */
+    -fx-padding: 10px; /* Marge intérieure */
+    -fx-spacing: 5px; /* Espacement entre les éléments */
+    -fx-border-color: #ddd; /* Couleur de la bordure */
+    -fx-border-width: 1px; /* Largeur de la bordure */
+    -fx-border-radius: 5px; /* Rayon de la bordure */
+}
+/* Style du nom du terrain */
+.terrain-name {
+    -fx-font-weight: bold; /* Police en gras */
+    -fx-font-size: 16px; /* Taille de la police */
+}
+/* Style des boutons */
+.button {
+    -fx-background-color: #0a2f55; /* Couleur de fond des boutons */
+    -fx-text-fill: white; /* Couleur du texte des boutons */
+    -fx-font-weight: bold; /* Police en gras */
+    -fx-padding: 5px 10px; /* Marge intérieure des boutons */
+    -fx-border-radius: 5px; /* Rayon des coins des boutons */
+}
+/* Style des boutons au survol */
+.button:hover {
+    -fx-background-color: #0a2f55; /* Couleur de fond au survol */
+}

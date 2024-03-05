@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="mainroot" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #033E6A;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.Controllers.TournoiController.FirstController">
+    <AnchorPane layoutX="123.0" layoutY="47.0" prefHeight="662.0" prefWidth="741.0" style="-fx-background-color: #EDEDED; -fx-background-radius: 20;">
+        <AnchorPane layoutY="-3.0" prefHeight="153.0" prefWidth="803.0" style="-fx-background-color: #C4CCD1; -fx-background-radius: 20 20 0 0;">
+            <Text fill="#033e6a" layoutX="33.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Afficher Les Tournois" textAlignment="CENTER">
+                <font>
+                    <Font name="Roboto Bold" size="35.0" />
+                </font>
+            </Text>
+        </AnchorPane>
+        <Button fx:id="btnAjouterTournoi" contentDisplay="CENTER" layoutX="588.0" layoutY="610.0" mnemonicParsing="false" onAction="#AjouterTournoi" prefWidth="200.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Ajouter Tournoi" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+      <AnchorPane fx:id="BOX1" layoutX="14.0" layoutY="167.0" prefHeight="423.0" prefWidth="234.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fx:id="img1" fitHeight="249.0" fitWidth="200.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Text layoutX="106.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Button fx:id="btnSupp1" contentDisplay="CENTER" layoutX="14.0" layoutY="383.0" mnemonicParsing="false" onAction="#supp1" prefHeight="38.0" prefWidth="107.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Supprimer" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnDetail1" contentDisplay="CENTER" layoutX="126.0" layoutY="383.0" mnemonicParsing="false" onAction="#detail1" prefHeight="38.0" prefWidth="98.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Détails" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Text fx:id="nom1" layoutX="105.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="BOX2" layoutX="285.0" layoutY="167.0" prefHeight="423.0" prefWidth="234.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fx:id="img2" fitHeight="249.0" fitWidth="200.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Text layoutX="101.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Button fx:id="btnSupp2" contentDisplay="CENTER" layoutX="12.0" layoutY="383.0" mnemonicParsing="false" onAction="#supp2" prefHeight="38.0" prefWidth="107.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Supprimer" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnDetail2" contentDisplay="CENTER" layoutX="124.0" layoutY="383.0" mnemonicParsing="false" onAction="#detail2" prefHeight="38.0" prefWidth="98.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Détails" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Text fx:id="nom2" layoutX="100.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="BOX3" layoutX="554.0" layoutY="167.0" prefHeight="423.0" prefWidth="234.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fx:id="img3" fitHeight="249.0" fitWidth="200.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Text layoutX="101.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Button fx:id="btnsupp3" contentDisplay="CENTER" layoutX="14.0" layoutY="384.0" mnemonicParsing="false" onAction="#supp3" prefHeight="38.0" prefWidth="107.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Supprimer" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnDetail3" contentDisplay="CENTER" layoutX="126.0" layoutY="384.0" mnemonicParsing="false" onAction="#detail3" prefHeight="38.0" prefWidth="98.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Détails" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Text fx:id="nom3" layoutX="101.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+         </children>
+      </AnchorPane>
+      <Button fx:id="btnsuivant" layoutX="410.0" layoutY="616.0" mnemonicParsing="false" onAction="#suivant" text="&gt;" />
+      <Button fx:id="btnretour" layoutX="365.0" layoutY="616.0" mnemonicParsing="false" onAction="#retour" text="&lt;" />
+    </AnchorPane>
+
+</AnchorPane>
