@@ -5,9 +5,7 @@ import services.Encryption;
 import services.GestionUser.CurrentTime;
 import services.GestionUser.VerificationCodeGenerator;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+import javax.crypto.*;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
@@ -27,6 +25,8 @@ public class User {
 
 
 
+    KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+    SecretKey secretKey = keyGenerator.generateKey();
     private String Email ;
     private String Address;
 
@@ -115,11 +115,11 @@ public class User {
     }
 
     public String getPassword() throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        return Encryption.decrypt(Password);
+        return Password;
     }
 
     public void setPassword(String password) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        this.Password = Encryption.encrypt(password);
+        this.Password = password;
     }
 
     public int getPhone() {
@@ -175,7 +175,7 @@ public class User {
     }
 
 
-    public User(){}
+    public User() throws NoSuchAlgorithmException {}
     public User(int id, String Email , String Password, String Name , int age , int Phone , String address , Roles role , String image ) throws Exception {
         this.id = id;
         this.Email = Email;

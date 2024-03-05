@@ -84,7 +84,7 @@ public class AcceuilController {
         }else{
             currentIndex = 2;
         }
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource(elements.get(currentIndex)));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/"+elements.get(currentIndex)));
         AnchorPane root = loader.load();
         System.out.println(elements.get(((currentIndex-1)+3)%3));
         root.setStyle("-fx-background-color: white;");
@@ -109,7 +109,7 @@ public class AcceuilController {
     void btnseeProfile(ActionEvent event) {
         try {
 
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("Profile.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Profile.fxml"));
             AnchorPane root = loader.load();
 
 
@@ -135,7 +135,7 @@ public class AcceuilController {
             UserService us = new UserService();
             UserActivityLogger UAL = new UserActivityLogger();
             UAL.logAction(CurrentUser.getEmail() ,  " deconnecter");
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("LoginRegistrationPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/LoginRegistrationPage.fxml"));
             AnchorPane root = loader.load();
 
             LoginRegistrationPageController Registrationcontroller = loader.getController();

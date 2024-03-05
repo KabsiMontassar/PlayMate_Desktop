@@ -21,6 +21,7 @@ import services.GestionEquipe.MemberService;
 
 import javax.swing.text.TabableView;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,7 +76,7 @@ public class FormEquipeController implements Initializable {
         MemberService servive = new MemberService();
         try {
             return  this.mode.equals("ADD") ? new ArrayList<>() : servive.findMembresByEquipe(this.equipe.getIdEquipe());
-        } catch (SQLException e) {
+        } catch (SQLException | NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
     }
@@ -122,7 +123,11 @@ public class FormEquipeController implements Initializable {
             Dragboard db = event.getDragboard();
             boolean success = false;
             if (db.hasString()) {
-                targetTableView.getItems().add(new Joueur(db.getString()));
+                try {
+                    targetTableView.getItems().add(new Joueur(db.getString()));
+                } catch (NoSuchAlgorithmException e) {
+                    throw new RuntimeException(e);
+                }
                 success = true;
             }
             event.setDropCompleted(success);

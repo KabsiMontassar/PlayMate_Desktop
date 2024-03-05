@@ -11,6 +11,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -161,6 +162,17 @@
             <Font size="22.0" />
          </font>
       </TextField>
+      <Line fx:id="faible" endX="-10.0" layoutX="255.0" layoutY="433.0" startX="-100.0" stroke="RED" visible="false" />
+      <Line fx:id="moyen" endX="-10.0" layoutX="345.0" layoutY="433.0" startX="-100.0" stroke="#eeda00" visible="false" />
+      <Line fx:id="moyen2" endX="-10.0" layoutX="255.0" layoutY="433.0" startX="-100.0" stroke="#eeda00" visible="false" />
+      <Line fx:id="fort" endX="-10.0" layoutX="435.0" layoutY="433.0" startX="-100.0" stroke="LIME" visible="false" />
+      <Line fx:id="fort1" endX="-10.0" layoutX="345.0" layoutY="433.0" startX="-100.0" stroke="LIME" visible="false" />
+      <Line fx:id="fort2" endX="-10.0" layoutX="255.0" layoutY="433.0" startX="-100.0" stroke="LIME" visible="false" />
+      <Text fx:id="textcfort" layoutX="170.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="59.13671875">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
    </AnchorPane>
    <AnchorPane fx:id="RightPane" layoutX="930.0" layoutY="50.0" prefHeight="620.0" prefWidth="300.0" style="-fx-background-color: rgba(0, 0, 0, 0.1);">
       <Text fx:id="Registrertxt1" fill="WHITE" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Un de nous ?" textAlignment="CENTER" visible="false" wrappingWidth="300.0">

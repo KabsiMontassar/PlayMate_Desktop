@@ -1,6 +1,7 @@
 package test.Controllers.UserController;
 
 
+import com.mailjet.client.errors.MailjetException;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
@@ -11,8 +12,11 @@ import javafx.fxml.FXMLLoader;
 
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 
 import javafx.stage.Stage;
@@ -25,6 +29,7 @@ import test.MainFx;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import java.awt.*;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -41,6 +46,13 @@ public class LoginRegistrationPageController {
     public TextField Registerfield111numero;
     public TextField Registerfield21age;
     public Text RegisterLabel111numero;
+    public Line fort;
+    public Line moyen;
+    public Line faible;
+    public Line moyen2;
+    public Line fort1;
+    public Line fort2;
+    public Text textcfort;
     @FXML
     private Button BtnSinscrire;
 
@@ -133,6 +145,8 @@ public class LoginRegistrationPageController {
     @FXML
     private PasswordField registerPass2;
 
+
+
     UserService us = new UserService();
     CAlert cAlert = new CAlert();
 
@@ -147,11 +161,12 @@ public class LoginRegistrationPageController {
 
     public void initialize() throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
 
-        UserActivityLogger UAL = new UserActivityLogger();
-        UserService us = new UserService();
-        System.out.println(us.getByEmail(UserActivityLogger.extractEmail(UAL.getLastLineOfFile())));
-
-
+        faible.setVisible(false);
+        moyen.setVisible(false);
+        moyen2.setVisible(false);
+        fort.setVisible(false);
+        fort1.setVisible(false);
+        fort2.setVisible(false);
 
 
 
@@ -207,18 +222,61 @@ public class LoginRegistrationPageController {
     }
 
     public boolean isValidName(String name){
-        return name.matches("^[a-zA-Z]*$");
+
+        return name.matches("^(?!\\s)(?!.*\\s$)[a-zA-Zéàè ]*(?:[a-zA-Zéàè][a-zA-Zéàè ]*){0,3}$");
+
+
     }
     public boolean isValidEmail(String email){
-        return email.matches("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$");
+        return email.matches("^[a-zA-Z][a-zA-Z0-9._-]*@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$");
     }
-    public boolean isValidPassword(String password){
-        return password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$");
+    public boolean isValidPassword(String password) {
+        if (password.matches("^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[-_@#$%^&+=])[a-zA-Z][-_a-zA-Z0-9@#$%^&+=]*[a-zA-Z0-9]$") && password.length() >= 8) {
+            faible.setVisible(false);
+            moyen.setVisible(false);
+            moyen2.setVisible(false);
+            fort.setVisible(true);
+            fort1.setVisible(true);
+            fort2.setVisible(true);
+            return true;
+        } else if (password.matches("^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]*[a-zA-Z][a-zA-Z0-9]*$") && password.length() >= 8) {
+            // Medium password with characters, digits, and uppercase letters
+            faible.setVisible(false);
+            moyen.setVisible(true);
+            moyen2.setVisible(true);
+            fort.setVisible(false);
+            fort1.setVisible(false);
+            fort2.setVisible(false);
+            return true;
+        } else if (password.matches("^(?=.*[a-zA-Z])[a-zA-Z]*$") && password.length() >= 8) {
+            // Weak password with characters and digits
+            faible.setVisible(true);
+            moyen.setVisible(false);
+            moyen2.setVisible(false);
+            fort.setVisible(false);
+            fort1.setVisible(false);
+            fort2.setVisible(false);
+            return false;
+        } else {
+            // Password does not meet any strength criteria
+            faible.setVisible(true);
+            moyen.setVisible(false);
+            moyen2.setVisible(false);
+            fort.setVisible(false);
+            fort1.setVisible(false);
+            fort2.setVisible(false);
+            return false;
+        }
     }
+
 
 
     public void SinscrireSlideBtn(ActionEvent actionEvent) {
-
+        moyen.setVisible(false);
+        moyen2.setVisible(false);
+        fort.setVisible(false);
+        fort1.setVisible(false);
+        fort2.setVisible(false);
        Seconnecterheader.setVisible(false);
         SeconnecterLabel1.setVisible(false);
         Seconnecterfield1.setVisible(false);
@@ -261,6 +319,7 @@ public class LoginRegistrationPageController {
             rbtn3.setVisible(true);
             rbtn4.setVisible(true);
             registerPass2.setVisible(true);
+
         }));
         timeline.play();
 
@@ -288,7 +347,12 @@ public class LoginRegistrationPageController {
         rbtn3.setVisible(false);
         rbtn4.setVisible(false);
         registerPass2.setVisible(false);
-
+        faible.setVisible(true);
+        moyen.setVisible(false);
+        moyen2.setVisible(false);
+        fort.setVisible(false);
+        fort1.setVisible(false);
+        fort2.setVisible(false);
 
         TranslateTransition transition1 = new TranslateTransition(Duration.seconds(1), leftPane);
         transition1.setToX(leftPane.getTranslateX() - 300); // Move left by 50 pixels (adjust as needed)
@@ -308,6 +372,13 @@ public class LoginRegistrationPageController {
             SeconnecterTxt1.setVisible(true);
             SeconnecterTxt2.setVisible(true);
             BtnSinscrire.setVisible(true);
+            faible.setVisible(true);
+            moyen.setVisible(false);
+            moyen2.setVisible(false);
+            fort.setVisible(false);
+            fort1.setVisible(false);
+            fort2.setVisible(false);
+
         }));
         timeline.play();
     }
@@ -319,7 +390,7 @@ public class LoginRegistrationPageController {
     @FXML
     public void Oublietlemotdepass(ActionEvent event) throws Exception {
 
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("VerificationCode.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser//VerificationCode.fxml"));
             AnchorPane root = loader.load();
 
             Scene scene = new Scene(root);
@@ -330,11 +401,11 @@ public class LoginRegistrationPageController {
     }
 
     @FXML
-    public void Seconnecter(ActionEvent event) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, IOException {
+    public void Seconnecter(ActionEvent event) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, IOException, InterruptedException, MailjetException {
 
 
         if(Objects.equals(Seconnecterfield1.getText(), "Admin") && Objects.equals(SeconnecterPass1.getText(), "Admin")){
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("AdminPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/AdminPage.fxml"));
             AnchorPane root = loader.load();
 
 
@@ -439,7 +510,7 @@ public class LoginRegistrationPageController {
 
         if(!isValidPassword(Registerpass1.getText())){
 
-            cAlert.generateAlert("WARNING","le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère special");
+            cAlert.generateAlert("WARNING","le mot de passe est invalid");
             return;
            
         }

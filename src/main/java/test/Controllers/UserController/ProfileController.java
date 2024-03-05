@@ -1,5 +1,6 @@
 package test.Controllers.UserController;
 
+import com.mailjet.client.errors.MailjetException;
 import javafx.application.Platform;
 import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
@@ -33,6 +34,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -53,7 +55,7 @@ public class ProfileController {
 
     public Text tdds ;
     public AnchorPane imganchodid;
-
+    private String imagePath;
     public Button btnlocation;
     public WebView mavView;
     public Button confirmer;
@@ -174,13 +176,14 @@ private String FromMapAddress;
                 CurrentUser.getPhone() == 0 ? "" : String.valueOf(CurrentUser.getPhone())
         );
 
-        if( CurrentUser.getImage() != null){
+        imagePath = CurrentUser.getImage() != null ? CurrentUser.getImage() : "";
 
-            Path targetPath = Paths.get("src/main/resources/ProfilePictures", CurrentUser.getImage());
-            Image image = new Image(targetPath.toUri().toString());
+        if (imagePath != null && !imagePath.isEmpty()) {
+
+            Image image = new Image(CurrentUser.getImage());
             imgview.setImage(image);
-
-        }
+        } else {
+            imgview.setImage(null);}
 
     }
 
@@ -298,24 +301,15 @@ private String FromMapAddress;
             } catch (SQLException e) {
                 e.printStackTrace();
 
-            } catch (NoSuchPaddingException e) {
-                throw new RuntimeException(e);
-            } catch (IllegalBlockSizeException e) {
-                throw new RuntimeException(e);
-            } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException(e);
-            } catch (BadPaddingException e) {
-                throw new RuntimeException(e);
-            } catch (InvalidKeyException e) {
+            } catch (NoSuchPaddingException | MailjetException | IOException | InvalidKeyException |
+                     BadPaddingException | NoSuchAlgorithmException | InterruptedException | IllegalBlockSizeException e) {
                 throw new RuntimeException(e);
             }
             try {
-                UserService us = new UserService();
 
-                FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("LoginRegistrationPage.fxml"));
+                FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/LoginRegistrationPage.fxml"));
                 AnchorPane root = loader.load();
 
-                LoginRegistrationPageController controller = loader.getController();
                 profileRoot.getChildren().setAll(root);
 
 
@@ -337,29 +331,19 @@ private String FromMapAddress;
     }
 
 
-
     @FXML
     void changerphoto(ActionEvent event) throws SQLException {
 
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Image File");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png")
-        );
-        File selectedFile = fileChooser.showOpenDialog(btnuploadimage.getScene().getWindow());
+        fileChooser.setTitle("Choisir une image");
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Fichiers image", "*.png", "*.jpg" ));
+        File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
-            UserService us = new UserService();
-            us.updatePhoto(CurrentUser.getId() +".png",CurrentUser.getEmail());
+            imagePath = selectedFile.toURI().toString();
+            Image image = new Image(imagePath);
+            us.updatePhoto(imagePath,CurrentUser.getEmail());
+            imgview.setImage(image);
 
-            try {
-                String filename = CurrentUser.getId() +".png";
-                Path targetPath = Paths.get("src/main/resources/ProfilePictures", filename);
-                Files.copy(selectedFile.toPath(), targetPath, StandardCopyOption.REPLACE_EXISTING);
-                Image image = new Image(targetPath.toUri().toString());
-                imgview.setImage(image);
-            } catch ( IOException e) {
-                e.printStackTrace();
-            }
         }
 
 
@@ -421,7 +405,7 @@ UpdateUser.setEmail(CurrentUser.getEmail());
             UserService us = new UserService();
 
 
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("Acceuil.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
             Parent root = loader.load();
 
 
