@@ -27,7 +27,7 @@ module test {
     requires com.google.auth.oauth2;
    // requires sendgrid.java;
    // requires java.http.client;
-    requires google.api.services.gmail.v1.rev110;
+    //requires google.api.services.gmail.v1.rev110;
     requires twilio;
     requires com.fasterxml.jackson.core;
     requires com.fasterxml.jackson.databind;
