@@ -5,97 +5,70 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/AvisTerrain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Equipe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/Terrain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/GestionEquipe/EquipeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/GestionEquipe/MemberService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/GestionTerrain/AvisService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/GestionTerrain/ITerrain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/services/GestionTerrain/TerrainService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/AfficherController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/EquipeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/FormEquipeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/AvisController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/DetailTerrainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/DonnerAvisController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/JavaMailJett.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/PageTerrainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/StatesApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/TerrainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/autoCompleteAPi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/avisPropTController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/smsAPi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/statController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/utils/TerrainDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ProfilePictures/33.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/ballT.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/player.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/AvisTerrain.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/DetailTerrain.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/DonnerAvis.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/Equipe.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/PageTerrain.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/Terrain.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/afficherEquipe.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/avisPropT.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/css/styles1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/css/styles2.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/css/styles3.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/css/styles5.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/detailuser.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/equipeYemen.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/formEquipe.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/stat.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Joueur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AdminPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/Emailus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/Emailus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/LoginRegistrationPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/LoginRegistrationPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservezMaintenant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ReservezMaintenant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/VerificationCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/VerificationCodeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/apropos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/apropos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/UserActivityLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/UserActivityLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/LoginRegistrationPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/LoginRegistrationPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/test/MainFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/MainFx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/Acceuil.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/AdminPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/AdminPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/Apropos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/Apropos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/LoginRegistrationPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/LoginRegistrationPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/Profile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/VerificationCode.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/VerificationCode.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/emailus.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/emailus.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/reservezMaintenant.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/reservezMaintenant.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Joueur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Joueur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/AvisTerrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/AvisTerrain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/BlackList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/BlackList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Categorie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Categorie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Equipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Equipe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Gmailer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Gmailer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Historique.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Historique.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/MailJettAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/MailJettAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Paiement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Paiement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Participation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Participation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/PaymentAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/PaymentAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Reservation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Roles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Roles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Terrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Terrain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Tournoi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Tournoi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/TypeReservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/TypeReservation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Acceuil.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/AdminPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/AdminPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Apropos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Apropos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/AcceuilController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/AdminPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/Emailus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/LoginRegistrationPageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProfileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservezMaintenant.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/VerificationCodeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/apropos.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/LoginRegistrationPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/LoginRegistrationPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionProduit/CategorieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionProduit/CategorieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionProduit/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionProduit/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionReservation/ReservationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionReservation/ReservationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionUser/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionUser/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/JavaMailJett.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/JavaMailJett.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/SMSTwilio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/SMSTwilio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/UserActivityLogger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/UserActivityLogger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/ValidPhoneNumber.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/ValidPhoneNumber.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/ValidateEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/ValidateEmail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/EquipeController/EquipeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/EquipeController/EquipeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/EquipeController/FormEquipeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/EquipeController/FormEquipeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/Products.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/Products.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/ProductsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/ProductsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/BlackListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/BlackListController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ChercherAdversaireController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ChercherAdversaireController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/LancezVousController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/LancezVousController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/PaimentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/PaimentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReservationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReserverTerrainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReserverTerrainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/AvisController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/AvisController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/DetailTerrainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/DetailTerrainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/DonnerAvisController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/DonnerAvisController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/JavaMailJett.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/JavaMailJett.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/StatesApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/StatesApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/TerrainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/TerrainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/autoCompleteAPi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/autoCompleteAPi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/smsAPi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/smsAPi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/statController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/statController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/AjoutTournoiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/AjoutTournoiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/CalendarActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/CalendarActivity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/CalendarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/CalendarController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/ModifierTournoiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/ModifierTournoiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AcceuilController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AcceuilController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AdminPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AdminPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/CAlert.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/CAlert.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/LoginRegistrationPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/LoginRegistrationPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/ProfileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/VerificationCodeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/VerificationCodeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test/MainFx.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/MainFx.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Profile.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/VerificationCode.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/VerificationCode.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/emailus.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/emailus.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/reservezMaintenant.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/reservezMaintenant.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/MyDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/MyDatabase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,6 +162,7 @@
       <workItem from="1709082705414" duration="803000" />
       <workItem from="1709108809680" duration="5463000" />
       <workItem from="1709582407113" duration="636000" />
+      <workItem from="1709634717784" duration="948000" />
     </task>
     <servers />
   </component>
