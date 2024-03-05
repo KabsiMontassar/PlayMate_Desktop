@@ -82,7 +82,7 @@ public class ChercherAdversaireController implements Initializable {
         //                                                 monta heeeet numro hatit 7
         // *****************************************************************************************
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(8);
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(37);
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
