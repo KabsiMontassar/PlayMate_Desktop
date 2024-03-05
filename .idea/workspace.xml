@@ -5,9 +5,226 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx_web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/MainFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/MainFx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/workshoppidev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/workshoppidev.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Pidev-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-console-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-console-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-datetime-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-debug-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-errorhandling-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-fibers-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-file-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-file-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-file-l2-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-handle-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-heap-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-interlocked-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-libraryloader-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-localization-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-memory-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-namedpipe-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-processenvironment-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-processthreads-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-processthreads-l1-1-1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-profile-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-rtlsupport-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-string-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-synch-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-synch-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-sysinfo-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-timezone-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-core-util-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-conio-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-convert-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-environment-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-filesystem-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-heap-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-locale-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-math-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-multibyte-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-private-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-process-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-runtime-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-stdio-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-string-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-time-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/api-ms-win-crt-utility-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/app" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/app.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/awt.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/fontmanager.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/freetype.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/java.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/java.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/javajpeg.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/javaw.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/jawt.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/jimage.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/jli.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/jrunscript.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/jsound.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/keytool.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/lcms.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/mlib_image.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/msvcp140.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/net.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/nio.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/prefs.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/server/jvm.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/splashscreen.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/syslookup.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/ucrtbase.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/vcruntime140.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/vcruntime140_1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/verify.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/bin/zip.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/conf/jaxp.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/conf/logging.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/conf/net.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/conf/security/java.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/conf/security/java.security" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/conf/security/policy/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/conf/security/policy/limited/default_US_export.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/conf/security/policy/limited/default_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/conf/security/policy/limited/exempt_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/conf/security/policy/unlimited/default_US_export.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/conf/security/policy/unlimited/default_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/conf/sound.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.base/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.base/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.base/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.base/aes.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.base/asm.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.base/c-libutl.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.base/cldr.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.base/icu.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.base/public_suffix.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.base/unicode.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.base/wepoll.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.base/zlib.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.datatransfer/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.datatransfer/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.datatransfer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.desktop/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.desktop/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.desktop/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.desktop/colorimaging.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.desktop/freetype.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.desktop/giflib.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.desktop/harfbuzz.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.desktop/jpeg.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.desktop/lcms.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.desktop/libpng.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.desktop/mesa3d.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.logging/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.logging/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.logging/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.prefs/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.prefs/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.prefs/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.scripting/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.scripting/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.scripting/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.sql/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.sql/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.sql/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.transaction.xa/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.transaction.xa/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.transaction.xa/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.xml/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.xml/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.xml/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.xml/bcel.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.xml/dom.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.xml/jcup.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.xml/xalan.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/java.xml/xerces.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/jdk.unsupported/ADDITIONAL_LICENSE_INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/jdk.unsupported/ASSEMBLY_EXCEPTION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/legal/jdk.unsupported/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/classlist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/fontconfig.bfc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/fontconfig.properties.src" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/jawt.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/jrt-fs.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/jvm.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/jvm.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/modules" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/psfont.properties.ja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/psfontj2d.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/security/blocked.certs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/security/cacerts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/security/default.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/security/public_suffix_list.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/tzdb.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/lib/tzmappings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/app/release" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/AvisTerrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/AvisTerrain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/BlackList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/BlackList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Categorie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Categorie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Equipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Equipe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Gmailer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Gmailer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Historique.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Historique.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/MailJettAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/MailJettAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Paiement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Paiement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Participation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Participation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/PaymentAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/PaymentAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Product.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Reservation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Roles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Roles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Terrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Terrain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Tournoi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Tournoi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/TypeReservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/TypeReservation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionProduit/CategorieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionProduit/CategorieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionProduit/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionProduit/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionReservation/ReservationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionReservation/ReservationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionUser/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionUser/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/JavaMailJett.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/JavaMailJett.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/SMSTwilio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/SMSTwilio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/UserActivityLogger.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/UserActivityLogger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/ValidPhoneNumber.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/ValidPhoneNumber.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/ValidateEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/ValidateEmail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/EquipeController/EquipeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/EquipeController/EquipeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/EquipeController/FormEquipeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/EquipeController/FormEquipeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/Products.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/Products.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/ProductsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/ProductsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/BlackListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/BlackListController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ChercherAdversaireController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ChercherAdversaireController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/LancezVousController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/LancezVousController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/PaimentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/PaimentController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReservationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReserverTerrainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReserverTerrainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/AvisController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/AvisController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/DetailTerrainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/DetailTerrainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/DonnerAvisController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/DonnerAvisController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/JavaMailJett.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/JavaMailJett.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/StatesApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/StatesApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/TerrainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/TerrainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/autoCompleteAPi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/autoCompleteAPi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/smsAPi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/smsAPi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/statController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/statController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/AjoutTournoiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/AjoutTournoiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/CalendarActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/CalendarActivity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/CalendarController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/CalendarController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/ModifierTournoiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/ModifierTournoiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AcceuilController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AcceuilController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AdminPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AdminPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/CAlert.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/CAlert.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/LoginRegistrationPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/LoginRegistrationPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/ProfileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/VerificationCodeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/VerificationCodeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/MainFx.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/MainFx.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/avis.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,36 +249,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Maven.pidev_spartans_3a29 [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "SeifDev",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/seifl/Downloads/openjfx-21.0.2_windows-x64_bin-sdk (1)/javafx-sdk-21.0.2/lib/javafx-swt.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Maven.pidev_spartans_3a29 [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;SeifDev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/seifl/Downloads/openjfx-21.0.2_windows-x64_bin-sdk (1)/javafx-sdk-21.0.2/lib/javafx-swt.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.15632184&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Github\pidev_spartans_3a29\Pidev\src\main\resources\ProfilePictures" />
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.MainFx" />
+      <module name="workshoppidev" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Pidev" />
       <method v="2">
@@ -107,10 +336,15 @@
       <workItem from="1709630384344" duration="27000" />
       <workItem from="1709630436904" duration="150000" />
       <workItem from="1709630602840" duration="547000" />
+      <workItem from="1709631180288" duration="1552000" />
+      <workItem from="1709637892704" duration="51000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
