@@ -85,9 +85,11 @@
       </Text>
       <Button fx:id="qr3" layoutX="94.0" layoutY="465.0" mnemonicParsing="false" onAction="#generateqrcode3" text="Generate QRCode" />
    </AnchorPane>
-   <Button fx:id="btnajout" layoutX="1028.0" layoutY="658.0" mnemonicParsing="false" onAction="#Ajout" text="Ajout" />
+   <Button fx:id="Traduire" mnemonicParsing="false" onAction="#Traduire" prefHeight="40.0" prefWidth="188.0" styleClass="search-button"  text="Traduire" textFill="WHITE" />
+   <Button fx:id="btnajout" layoutX="923.0" layoutY="658.0" mnemonicParsing="false" onAction="#Ajout" text="Ajout" />
    <Button fx:id="btnretour" layoutX="665.0" layoutY="671.0" mnemonicParsing="false" onAction="#retour" prefWidth="100.0" text="&lt;" />
    <Button fx:id="btnsuivant" layoutX="765.0" layoutY="671.0" mnemonicParsing="false" onAction="#suivant" prefWidth="100.0" text="&gt;" />
-   <Button fx:id="liencategorie" layoutX="1092.0" layoutY="658.0" mnemonicParsing="false" onAction="#categorie" text="Categorie" />
-   <Button fx:id="mail" layoutX="1183.0" layoutY="658.0" mnemonicParsing="false" onAction="#EnvoyerMail" text="Envoyer Mail" />
+   <Button fx:id="liencategorie" layoutX="988.0" layoutY="658.0" mnemonicParsing="false" onAction="#categorie" text="Categorie" />
+   <Button fx:id="mail" layoutX="1076.0" layoutY="658.0" mnemonicParsing="false" onAction="#EnvoyerMail" text="Envoyer Mail" />
+   <Button fx:id="stat" layoutX="1179.0" layoutY="658.0" mnemonicParsing="false" onAction="#allerversstat" text="Statistiques" />
 </AnchorPane>

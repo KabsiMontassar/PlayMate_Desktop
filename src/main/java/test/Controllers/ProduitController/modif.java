@@ -15,7 +15,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Categorie;
 import services.GestionProduit.CategorieService;
-import test.MainFx;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -86,9 +85,7 @@ public class modif implements Initializable {
     }
     @FXML
     void RetourVersCategorie(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Categorie.fxml"));
-
-        Parent root = loader.load();
+        Parent root = FXMLLoader.load(getClass().getResource("/Categorie.fxml"));
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

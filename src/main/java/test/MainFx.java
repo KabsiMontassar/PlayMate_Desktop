@@ -10,7 +10,7 @@ public class MainFx extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Products.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainFx.class.getResource("/test/GestionProduit/Products.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
 
