@@ -1,0 +1,26 @@
+.imprimer-button  {
+                 -fx-background-color: #4CAF50;
+                 -fx-border-color: #52B66C;
+                 /*-fx-text-fill: #02365c;
+                 -fx-font-size: 20px;
+                 -fx-padding: 10 20;*/
+                 -fx-border-radius: 3px;
+             }
+.imprimer-button:hover  {
+                 -fx-background-color: #B6E66C;
+             }
+ .imprimer-button:pressed  {
+    -fx-background-color: #388e3c;
+}
+
+
+.imprimer-button:focused {
+    -fx-background-color: #4CAF50;
+    -fx-border-color: #53D56F;
+    -fx-border-width: 2px;
+}
+
+
+.imprimer-button:disabled  {
+    -fx-opacity: 0.5;
+}
