@@ -10,7 +10,7 @@ public class MainFx extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainFx.class.getResource("GestionReservation/BlackList.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainFx.class.getResource("GestionReservation/jeuPlayMate.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
 
