@@ -4,80 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reservation_Details.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/HistoriqueController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/historique.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/historique.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/historiqueAdmin.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/historiqueBackground.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/imprimerbtn.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_alibaba_fastjson_1_2_75.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_api_client_google_api_client_1_25_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_apis_google_api_services_youtube_v3_rev222_1_25_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_guava_guava_20_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_http_client_google_http_client_1_39_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_http_client_google_http_client_jackson2_1_25_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_oauth_client_google_oauth_client_1_25_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_oauth_client_google_oauth_client_java6_1_31_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_oauth_client_google_oauth_client_jetty_1_31_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_21_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_mailjet_mailjet_client_5_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_mysql_mysql_connector_j_8_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_4_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__com_squareup_okio_okio_2_8_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__commons_codec_commons_codec_1_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__io_grpc_grpc_context_1_27_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__io_opencensus_opencensus_api_0_28_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__io_opencensus_opencensus_contrib_http_util_0_28_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_jetbrains_annotations_13_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_1_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_jetbrains_kotlin_kotlin_stdlib_common_1_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_json_json_20190722.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_base_21_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_base_win_21_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_controls_21_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_controls_win_21_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_fxml_21_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_21_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_graphics_21_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_21_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_media_21_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/libraries/Maven__org_openjfx_javafx_media_win_21_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/workshoppidev.iml" afterDir="false" />
+    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="modification reservation pdf .. et debut blackliste">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/BlackList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/BlackList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Historique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Historique.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionReservation/BlacklistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionReservation/BlacklistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionReservation/HistoriqueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionReservation/HistoriqueService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionReservation/ReservationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionReservation/ReservationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/BlackListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/BlackListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/PaimentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/PaimentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/MainFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/MainFx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Historique.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Historique.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionReservation/HistoriqueService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionReservation/HistoriqueService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionReservation/ReservationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionReservation/ReservationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/PaimentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/PaimentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/MainFx.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/MainFx.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/avis.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,9 +145,31 @@
       <workItem from="1709108809680" duration="5463000" />
       <workItem from="1709582407113" duration="636000" />
     </task>
+    <task id="LOCAL-00001" summary="modification reservation pdf .. et debut blackliste">
+      <option name="closed" value="true" />
+      <created>1709663493826</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709663493826</updated>
+    </task>
+    <task id="LOCAL-00002" summary="modification reservation pdf .. et debut blackliste">
+      <option name="closed" value="true" />
+      <created>1709663504564</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709663504564</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Create workspace.xml" />
+    <MESSAGE value="modification reservation pdf .. et debut blackliste" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification reservation pdf .. et debut blackliste" />
   </component>
 </project>
