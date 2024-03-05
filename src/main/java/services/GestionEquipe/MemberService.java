@@ -5,6 +5,7 @@ import models.Joueur;
 
 import utils.MyDatabase;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,6 +35,8 @@ public class MemberService {
                     // Set other member attributes as needed
                     membres.add(membre);
                 }
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -42,7 +45,7 @@ public class MemberService {
     }
 
 
-    public List<Joueur> findMembresByEquipe(int idEquipe) throws SQLException {
+    public List<Joueur> findMembresByEquipe(int idEquipe) throws SQLException, NoSuchAlgorithmException {
         List<Joueur> membres = new ArrayList<>();
         String query = "SELECT m.* FROM membre m JOIN membreParEquipe me ON m.idMembre = me.idMembre WHERE me.idEquipe = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
@@ -75,6 +78,8 @@ public class MemberService {
                     // Set other member attributes as needed
                     membres.add(membre);
                 }
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         }
         return membres;

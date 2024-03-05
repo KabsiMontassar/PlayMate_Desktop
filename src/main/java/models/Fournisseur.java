@@ -1,5 +1,7 @@
 package models;
 
+import java.security.NoSuchAlgorithmException;
+
 public class Fournisseur extends User{
 
     private String Nom_Societe;
@@ -16,9 +18,12 @@ public class Fournisseur extends User{
         super(id, Email, Password, Name, age, Phone, address, role, image);
         this.Nom_Societe = "";
     }
-    public Fournisseur() {
+
+    public Fournisseur() throws NoSuchAlgorithmException {
+        super();
 
     }
+
     public Fournisseur(String Email, String Password, String Name, int age, int Phone, Roles role) throws Exception {
         super(Email, Password, Name, age, Phone, role);
         this.Nom_Societe = "";

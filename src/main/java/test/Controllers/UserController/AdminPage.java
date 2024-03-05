@@ -108,7 +108,7 @@ public class AdminPage {
     public void logout() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("LoginRegistrationPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/LoginRegistrationPage.fxml"));
             AnchorPane root = loader.load();
 
             adminPage.getChildren().setAll(root);

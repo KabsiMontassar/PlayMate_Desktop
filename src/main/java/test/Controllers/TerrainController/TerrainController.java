@@ -253,7 +253,8 @@ public class TerrainController {
         if (selectedFile != null) {
             imagePath = selectedFile.toURI().toString();
             Image image = new Image(imagePath);
-            img.setImage(image);}}
+            img.setImage(image);}
+    }
     //*******************************************************************************************
     @FXML
     void addvid(ActionEvent event) {
