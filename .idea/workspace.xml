@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/MainFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/MainFx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/workshoppidev.iml" beforeDir="false" afterPath="$PROJECT_DIR$/workshopPidev2324-workshopJDBC/workshoppidev.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,15 +43,15 @@
     "git-widget-placeholder": "SeifDev",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/seifl/Documents/GitHub/pidev_spartans_3a29",
+    "last_opened_file_path": "C:/Users/seifl/Downloads/openjfx-21.0.2_windows-x64_bin-sdk (1)/javafx-sdk-21.0.2/lib/javafx-swt.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
     "vue.rearranger.settings.migration": "true"
   }
@@ -105,6 +106,7 @@
       <workItem from="1709582407113" duration="636000" />
       <workItem from="1709630384344" duration="27000" />
       <workItem from="1709630436904" duration="150000" />
+      <workItem from="1709630602840" duration="547000" />
     </task>
     <servers />
   </component>
