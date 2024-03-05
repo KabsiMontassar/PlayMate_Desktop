@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="modification reservation pdf .. et debut blackliste">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/JeuPlayMate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/JeuPlayMateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/jeuPlayMate.fxml" afterDir="false" />
+    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="jeu playmate bien">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReserverTerrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReserverTerrainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/test/MainFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/MainFx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/BlackList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/BlackList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/chercherAdversaire.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/chercherAdversaire.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/choix2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/choix2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/historiqueAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/historiqueAdmin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/reserverTerrainVersion2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/reserverTerrainVersion2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/test2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/test2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionReservation/historiqueAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionReservation/historiqueAdmin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test/MainFx.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/MainFx.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709666360447</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="jeu playmate bien">
+      <option name="closed" value="true" />
+      <created>1709668470916</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709668470916</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +196,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create workspace.xml" />
     <MESSAGE value="modification reservation pdf .. et debut blackliste" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification reservation pdf .. et debut blackliste" />
+    <MESSAGE value="jeu playmate bien" />
+    <option name="LAST_COMMIT_MESSAGE" value="jeu playmate bien" />
   </component>
 </project>
