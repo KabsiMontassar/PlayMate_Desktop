@@ -16,7 +16,7 @@
                 <CategoryAxis side="BOTTOM" />
             </xAxis>
             <yAxis>
-                <NumberAxis fx:id="yAxis" side="LEFT" />
+                <NumberAxis fx:id="yAxis" side="LEFT" upperBound="10.0" />
             </yAxis>
         </BarChart>
       <Text fill="#0a2f55" layoutX="318.0" layoutY="112.0" strokeLineJoin="ROUND" strokeWidth="0.0" text="Analyse de popularité des terrains" textAlignment="CENTER">
@@ -25,5 +25,6 @@
          </font>
       </Text>
       <Button fx:id="btretour" layoutX="592.0" layoutY="656.0" mnemonicParsing="false" onAction="#retour" prefHeight="43.0" prefWidth="124.0" style="-fx-background-color: #0a2f55;" text="Retour" textFill="WHITE" />
+      <Button fx:id="btexport" layoutX="1125.0" layoutY="656.0" mnemonicParsing="false" onAction="#exporterEnExcel" prefHeight="43.0" prefWidth="124.0" style="-fx-background-color: #0a2f55;" text="Exporter en excel" textFill="WHITE" />
     </children>
 </AnchorPane>
