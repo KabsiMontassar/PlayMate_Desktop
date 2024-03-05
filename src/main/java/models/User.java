@@ -115,11 +115,11 @@ public class User {
     }
 
     public String getPassword() throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        return Password;
+        return Encryption.decrypt(Password);
     }
 
     public void setPassword(String password) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        this.Password = password;
+        this.Password = Encryption.encrypt(password);
     }
 
     public int getPhone() {
