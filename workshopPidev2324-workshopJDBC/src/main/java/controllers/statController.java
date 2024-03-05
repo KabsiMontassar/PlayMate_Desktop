@@ -47,8 +47,6 @@ public class statController {
                 public String toString(Number object) {
                     return String.format("%d", object.intValue());
                 }});
-            // Définir l'incrémentation de l'axe des ordonnées à 2
-            yAxis.setTickUnit(5);
             // Définir la valeur de départ de l'axe des ordonnées à 0
             yAxis.setLowerBound(0);
             // Désactiver la génération automatique des étiquettes
