@@ -9,10 +9,14 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.GestionTerrain.AvisService;
 import models.Terrain;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -70,7 +74,23 @@ public class statController {
         }
     }
 
-
+    @FXML
+    void exporterEnExcel(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Enregistrer le fichier Excel");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers CSV", "*.csv"));
+        File file = fileChooser.showSaveDialog(barChart.getScene().getWindow());
+        if (file != null) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+                writer.write("Terrain           Commentaires\n");
+                for (XYChart.Data<String, Number> data : barChart.getData().get(0).getData()) {
+                    writer.write(data.getXValue() + "           " + data.getYValue() + "\n");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 
 
