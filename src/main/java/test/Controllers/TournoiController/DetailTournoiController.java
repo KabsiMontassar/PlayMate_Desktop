@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import models.Tournoi;
+import services.GestionTournoi.ServiceTournoi;
 import test.MainFx;
 
 import java.io.IOException;

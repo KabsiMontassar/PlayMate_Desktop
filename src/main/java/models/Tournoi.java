@@ -15,6 +15,8 @@ public class Tournoi {
     private String datedebut;
     private String datefin;
 
+    private int visite;
+
     private List<Participation> participationList = new ArrayList<>() ;
 
     private int orgid ;
@@ -29,6 +31,7 @@ public class Tournoi {
         this.datefin = datefin;
         this.participationList = new ArrayList<>();
         this.orgid = orgid;
+        this.visite = 0 ;
     }
 
     public Tournoi(int id, int nbrquipeMax, String nom, String affiche, String address, String datedebut, String datefin) {
@@ -40,6 +43,7 @@ public class Tournoi {
         this.datedebut = datedebut;
         this.datefin = datefin;
         this.participationList = new ArrayList<>();
+        this.visite = 0 ;
     }
 
     public Tournoi() {
@@ -54,6 +58,7 @@ public class Tournoi {
         this.datefin = datefin;
         this.participationList = new ArrayList<>();
         this.orgid = orgid;
+        this.visite = 0 ;
     }
 
     public Tournoi(int nbrquipeMax, String nom, String affiche, String address, String datedebut, String datefin) {
@@ -63,6 +68,7 @@ public class Tournoi {
         this.Address = address;
         this.datedebut = datedebut;
         this.datefin = datefin;
+        this.visite = 0 ;
     }
 
     public int getId() {
@@ -137,6 +143,14 @@ public class Tournoi {
         this.orgid = org;
     }
 
+    public int getVisite() {
+        return visite;
+    }
+
+    public void setVisite(int visite) {
+        this.visite = visite;
+    }
+
     @Override
     public String toString() {
         return "Tournoi{" +
@@ -147,8 +161,9 @@ public class Tournoi {
                 ", Address='" + Address + '\'' +
                 ", datedebut='" + datedebut + '\'' +
                 ", datefin='" + datefin + '\'' +
+                ", visite=" + visite +
                 ", participationList=" + participationList +
-                ", org=" + orgid +
+                ", orgid=" + orgid +
                 '}';
     }
 

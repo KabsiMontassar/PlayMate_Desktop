@@ -6,17 +6,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Tournoi;
 import services.GestionTournoi.ServiceTournoi;
 import test.MainFx;
+import utils.MyDatabase;
 
 import java.io.IOException;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AfficherListeTournoisClientController {
@@ -47,6 +52,9 @@ public class AfficherListeTournoisClientController {
     @FXML
     private Button btnCalendar;
 
+    @FXML
+    private TextField recherche;
+
 
     @FXML
     private ImageView img1;
@@ -69,6 +77,15 @@ public class AfficherListeTournoisClientController {
     @FXML
     private Text nom3;
 
+    @FXML
+    private Text visite1;
+
+    @FXML
+    private Text visite2;
+
+    @FXML
+    private Text visite3;
+
     int i= 0;
     ServiceTournoi Ts = new ServiceTournoi();
     //*******************************************************************
@@ -83,18 +100,22 @@ public class AfficherListeTournoisClientController {
             if(tournois.size()-1-i*3>=0){
                 BOX1.setVisible(true);
                 nom1.setText(tournois.get(i*3).getNom());
+                visite1.setText(String.valueOf(tournois.get(i*3).getVisite()));
+                System.out.println(tournois.get(i*3));
                 img1.setImage(new Image(tournois.get(i*3).getAffiche()));}
             else{BOX1.setVisible(false);}
             if(tournois.size()-2-i*3>=0){
                 BOX2.setVisible(true);
                 nom2.setText(tournois.get(1+i*3).getNom());
-                img2.setImage(new Image(tournois.get(1+i*3).getAffiche()));}
+                img2.setImage(new Image(tournois.get(1+i*3).getAffiche()));
+                visite2.setText(String.valueOf(tournois.get(1+i*3).getVisite()));}
             else{
                 BOX2.setVisible(false);}
             if(tournois.size()-3-i*3>=0){
                 BOX3.setVisible(true);
                 nom3.setText(tournois.get(2+i*3).getNom());
                 img3.setImage(new Image(tournois.get(2+i*3).getAffiche()));
+                visite3.setText(String.valueOf(tournois.get(2+i*3).getVisite()));
             }else{BOX3.setVisible(false);}}else{
             BOX1.setVisible(false);
             BOX2.setVisible(false);
@@ -118,6 +139,7 @@ public class AfficherListeTournoisClientController {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i;
         Tournoi t = Ts.allTournoi().get(index);
+        incrementNbClick(t.getId());
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/DetailClient.fxml"));
         Parent root;
         root = loader.load();
@@ -134,6 +156,7 @@ public class AfficherListeTournoisClientController {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Tournoi selectedTournoi = Ts.allTournoi().get(index);
+        incrementNbClick(selectedTournoi.getId());
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/DetailClient.fxml"));
         Parent root = loader.load();
         DetailClientController controller = loader.getController();
@@ -149,6 +172,7 @@ public class AfficherListeTournoisClientController {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
         Tournoi selectedTournoi = Ts.allTournoi().get(index);
+        incrementNbClick(selectedTournoi.getId());
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/DetailClient.fxml"));
         Parent root = loader.load();
         DetailClientController controller = loader.getController();
@@ -172,4 +196,47 @@ public class AfficherListeTournoisClientController {
 
     }
 
+    @FXML
+    void recherche(KeyEvent event) {
+        String searchTerm = recherche.getText().trim();
+        try {
+            if (searchTerm.isEmpty()) {
+                // If search term is empty, display all tournaments
+                actualise(Ts.allTournoi());
+            } else {
+                // If search term is not empty, display searched tournaments
+                List<Tournoi> filteredList = searchTournoi(searchTerm);
+                actualise(filteredList);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Method to search tournaments based on a search term
+    private List<Tournoi> searchTournoi(String searchTerm) {
+        List<Tournoi> filteredList = new ArrayList<>();
+        try {
+            for (Tournoi tournoi : Ts.allTournoi()) {
+                if (tournoi.getNom().toLowerCase().contains(searchTerm.toLowerCase())) {
+                    filteredList.add(tournoi);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return filteredList;
+    }
+
+    private void incrementNbClick(int espaceId) {
+        try {
+            String updateQuery = "UPDATE tournoi SET visite = visite + 1 WHERE id = ?";
+            PreparedStatement pst = MyDatabase.getInstance().getConnection().prepareStatement(updateQuery);
+            pst.setInt(1, espaceId);
+            pst.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
+

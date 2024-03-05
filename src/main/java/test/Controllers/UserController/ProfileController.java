@@ -230,7 +230,7 @@ private String FromMapAddress;
 
 
     }
-
+    CAlert c = new CAlert();
     public void handleSelectedLocation(double latitude, double longitude) {
         Platform.runLater(() -> {
             System.out.println("Selected Location: " + latitude + ", " + longitude);
@@ -242,7 +242,9 @@ private String FromMapAddress;
                 locationInfo += placeName + " ";
             }
             String address = locationInfo.substring(locationInfo.indexOf(' ')+1).trim();
-
+            if(!address.contains("Tunisia")){
+                 c.generateAlert("Warning","Invalid Address");
+            }
             Inputaddress.setText(address);
         });
     }
@@ -441,10 +443,10 @@ UpdateUser.setEmail(CurrentUser.getEmail());
         mappane.setVisible(false);
         Inputaddress.setText("");
     }
-    CAlert c = new CAlert();
+    CAlert ca = new CAlert();
     public void confirmer(ActionEvent actionEvent) {
         if (!Inputaddress.getText().contains("Tunisia")) {
-            c.generateAlert("WARNING", "Address invalid");
+            ca.generateAlert("WARNING", "Address invalid");
             return;
         }
 

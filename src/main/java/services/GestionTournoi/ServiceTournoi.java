@@ -5,11 +5,6 @@ import models.Participation;
 import models.Tournoi;
 import utils.MyDatabase;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +59,7 @@ public class ServiceTournoi {
         ps.executeUpdate();
         System.out.println("tournoi modifieé avec succés");
     }
-public Organisateur getbyidorg(int id) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+public Organisateur getbyidorg(int id) throws SQLException {
     Organisateur org = null; // Initialize Tournoi as null
     String query = "SELECT * FROM user WHERE id = ?";
     PreparedStatement ps = connection.prepareStatement(query);
@@ -126,6 +121,7 @@ public Organisateur getbyidorg(int id) throws SQLException, NoSuchPaddingExcepti
             Tr.setDatefin(rs.getString("datefin"));
 
             Tr.setAddress(rs.getString("address"));
+            Tr.setVisite(rs.getInt("visite"));
 
             Tournois.add(Tr);
         }
@@ -148,6 +144,7 @@ public Organisateur getbyidorg(int id) throws SQLException, NoSuchPaddingExcepti
         }
         return Participations;
     }
+
 
 
 
