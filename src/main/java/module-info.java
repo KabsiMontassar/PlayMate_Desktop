@@ -44,6 +44,7 @@ module test {
     requires fastjson;
     requires org.apache.httpcomponents.httpclient;
     requires org.apache.httpcomponents.httpcore;
+ //   requires mail;
     // requires java.http.client;
     opens test to javafx.fxml;
 

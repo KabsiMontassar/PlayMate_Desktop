@@ -149,8 +149,9 @@ public class LoginRegistrationPageController {
 
         UserActivityLogger UAL = new UserActivityLogger();
         UserService us = new UserService();
+        System.out.println(us.getByEmail(UserActivityLogger.extractEmail(UAL.getLastLineOfFile())));
 
-         setData(us.getByEmail(UserActivityLogger.extractEmail(UAL.getLastLineOfFile())));
+
 
 
 
