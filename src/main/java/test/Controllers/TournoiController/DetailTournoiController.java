@@ -86,7 +86,7 @@ public class DetailTournoiController {
         FirstController controller = loader.getController(); // Retrieve the controller
         controller.SetIdUser(GetIdUser());
 
-        FormulaireRoot.getChildren().setAll(root);
+
 
         Stage stage = new Stage();
         stage.setTitle("Modifier");

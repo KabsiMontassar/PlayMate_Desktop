@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="MainPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-image: url('terr_LE_auto_x2.jpg');-fx-background-size: cover; -fx-background-repeat: no-repeat;" stylesheets="style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.Controllers.ProduitController.Products">
+<AnchorPane fx:id="MainPane" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-image: url('terr_LE_auto_x2.jpg');-fx-background-size: cover; -fx-background-repeat: no-repeat;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.Controllers.ProduitController.Products">
    <AnchorPane fx:id="BOX1" layoutX="60.0" layoutY="70.0" prefHeight="550.0" prefWidth="320.0" style="-fx-border-color: green;">
       <ImageView fx:id="Img1" fitHeight="140.0" fitWidth="170.0" layoutX="75.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="btnModif1" layoutX="109.0" layoutY="336.0" mnemonicParsing="false" onAction="#Modif1" text="Modification" />
@@ -85,7 +85,7 @@
       </Text>
       <Button fx:id="qr3" layoutX="94.0" layoutY="465.0" mnemonicParsing="false" onAction="#generateqrcode3" text="Generate QRCode" />
    </AnchorPane>
-   <Button fx:id="Traduire" mnemonicParsing="false" onAction="#Traduire" prefHeight="40.0" prefWidth="188.0" styleClass="search-button"  text="Traduire" textFill="WHITE" />
+   <Button fx:id="Traduire" mnemonicParsing="false" onAction="#Traduire" prefHeight="40.0" prefWidth="188.0" styleClass="search-button" text="Traduire" textFill="WHITE" />
    <Button fx:id="btnajout" layoutX="923.0" layoutY="658.0" mnemonicParsing="false" onAction="#Ajout" text="Ajout" />
    <Button fx:id="btnretour" layoutX="665.0" layoutY="671.0" mnemonicParsing="false" onAction="#retour" prefWidth="100.0" text="&lt;" />
    <Button fx:id="btnsuivant" layoutX="765.0" layoutY="671.0" mnemonicParsing="false" onAction="#suivant" prefWidth="100.0" text="&gt;" />

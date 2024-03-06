@@ -1,5 +1,6 @@
 package test.Controllers.ProduitController;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,21 +11,18 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.Categorie;
+
+import java.io.*;
+import java.sql.SQLException;
+import java.util.List;
+import javafx.scene.control.Button;
 import models.Product;
 import services.GestionProduit.CategorieService;
 import services.GestionProduit.ProductService;
-
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
+import test.MainFx;
 
 //*******************************************************************************************
 public class stat {
@@ -39,6 +37,15 @@ public class stat {
     private CategorieService cs;
     @FXML
     private Button btretour;
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
     //*******************************************************************************************
     public stat() {
         this.cs = new CategorieService();
@@ -81,10 +88,15 @@ public class stat {
     }
     @FXML
     void retour(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/Products.fxml"));
-        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Products.fxml"));
+        Parent root = loader.load();
+        Products controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
+        Stage stage = new Stage();
+
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
     }
     @FXML
     private Button Excel;

@@ -58,6 +58,9 @@ module test {
 
 
     requires org.apache.pdfbox;
+    requires mail;
+    requires com.google.gson;
+    requires okhttp3;
 
     exports test;
     exports models;

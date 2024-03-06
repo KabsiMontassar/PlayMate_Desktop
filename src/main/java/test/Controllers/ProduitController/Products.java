@@ -27,6 +27,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import models.Categorie;
 import models.Gmailer;
 import models.Product;
 import okhttp3.OkHttpClient;
@@ -34,12 +35,15 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import services.GestionProduit.ProductService;
+import test.MainFx;
+
 
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -147,6 +151,21 @@ Img1
     * */
     int i= 0;
 
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+        try {
+            actualise(ps.getAllbyidFor(idUser));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
 
 
     ProductService ps = new ProductService();
@@ -200,7 +219,7 @@ Img1
     void retour(ActionEvent event) {
         i -=1;
         try {
-            actualise(ps.getAll());
+            actualise(ps.getAllbyidFor(GetIdUser()));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -211,7 +230,7 @@ Img1
         i +=1;
         try {
 
-            actualise(ps.getAll());
+            actualise(ps.getAllbyidFor(GetIdUser()));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -220,10 +239,15 @@ Img1
     @FXML
     void Ajout(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/GestionProd.fxml"));
-        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/GestionProd.fxml"));
+        Parent root = loader.load();
+        ProductsController controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
+        Stage stage = new Stage();
+
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
     }
 
 
@@ -235,8 +259,8 @@ Img1
     void Modif1(ActionEvent event) throws SQLException, IOException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Product selectedProduct = ps.getAll().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GestionProd.fxml"));
+        Product selectedProduct = ps.getAllbyidFor(GetIdUser()).get(index);
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/GestionProd.fxml"));
         Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -249,8 +273,8 @@ Img1
     void modif2(ActionEvent event) throws SQLException, IOException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Product selectedProduct = ps.getAll().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GestionProd.fxml"));
+        Product selectedProduct = ps.getAllbyidFor(GetIdUser()).get(index);
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/GestionProd.fxml"));
         Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -263,8 +287,8 @@ Img1
     void modif3(ActionEvent event) throws IOException, SQLException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(8)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Product selectedProduct = ps.getAll().get(index);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GestionProd.fxml"));
+        Product selectedProduct = ps.getAllbyidFor(GetIdUser()).get(index);
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/GestionProd.fxml"));
         Parent root = loader.load();
         Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -281,7 +305,7 @@ Img1
 
         List<Product> products;
         try {
-            products = ps.getAll();
+            products = ps.getAllbyidFor(GetIdUser());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -308,7 +332,7 @@ Img1
 
         List<Product> products;
         try {
-            products = ps.getAll();
+            products = ps.getAllbyidFor(GetIdUser());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -335,7 +359,7 @@ Img1
         Alert alert;
         List<Product> products;
         try {
-            products = ps.getAll();
+            products = ps.getAllbyidFor(GetIdUser());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -361,24 +385,25 @@ Img1
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            actualise(ps.getAll());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
     }
     @FXML
     void categorie(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/Categorie.fxml"));
-        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Categorie.fxml"));
+        Parent root = loader.load();
+        Categories controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
+        Stage stage = new Stage();
+
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
     }
     @FXML
     void EnvoyerMail(ActionEvent event) throws Exception {
         ProductService ps=new ProductService();
-        String aa=ps.getAll().toString();
+        String aa=ps.getAllbyidFor(GetIdUser()).toString();
         //System.out.println(aa);
         new Gmailer().sendMail("A new message", aa);
         JOptionPane.showMessageDialog(null, "Envoie avec succes");
@@ -387,7 +412,7 @@ Img1
     void generateqrcode1(ActionEvent event) throws SQLException, IOException, WriterException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(2)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Product selectedProduct = ps.getAll().get(index);
+        Product selectedProduct = ps.getAllbyidFor(GetIdUser()).get(index);
         String data=selectedProduct.toString();
         String path="/Users/seifl/Desktop/QRcodes/"+selectedProduct.getNom()+".jpg";
 
@@ -400,7 +425,7 @@ Img1
     void generateqrcode2(ActionEvent event) throws SQLException, WriterException, IOException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(2)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Product selectedProduct = ps.getAll().get(index);
+        Product selectedProduct = ps.getAllbyidFor(GetIdUser()).get(index);
         String data=selectedProduct.toString();
         String path="/Users/seifl/Desktop/QRcodes/"+selectedProduct.getNom()+".jpg";
 
@@ -413,7 +438,7 @@ Img1
     void generateqrcode3(ActionEvent event) throws SQLException, WriterException, IOException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(2)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Product selectedProduct = ps.getAll().get(index);
+        Product selectedProduct = ps.getAllbyidFor(GetIdUser()).get(index);
         String data=selectedProduct.toString();
         String path="/Users/seifl/Desktop/QRcodes/"+selectedProduct.getNom()+".jpg";
 
@@ -424,10 +449,14 @@ Img1
     }
     @FXML
     void allerversstat(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/stat.fxml"));
-        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/stat.fxml"));
+        Parent root = loader.load();
+        Products controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
     }
     private static final String API_KEY = "28f3f5fdf3644946806ce4f2671b5ab2";
     private static final String location = "southafricanorth";

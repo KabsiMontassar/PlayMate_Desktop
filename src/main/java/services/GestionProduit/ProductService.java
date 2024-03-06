@@ -68,6 +68,26 @@ public class ProductService implements IService<Product> {
         return products;
     }
 
+
+    public List<Product> getAllbyidFor(int id) throws SQLException {
+        String sql = "select * from product WHERE idfournisseur  = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+        ResultSet rs = preparedStatement.executeQuery(sql);
+        List<Product> products = FXCollections.observableArrayList();
+        while (rs.next()) {
+            Product u = new Product();
+            u.setId(rs.getInt("id"));
+            u.setNom(rs.getString("nom"));
+            u.setDescription(rs.getString("description"));
+            u.setPrix(rs.getInt("prix"));
+            u.setImage(rs.getString("image"));
+            u.setCategorie(rs.getInt("categorie"));
+            products.add(u);
+        }
+        return products;
+    }
+
     @Override
     public Product getById(int idproduct) throws SQLException {
         String sql = "SELECT `nom`, `prix` FROM `product` WHERE `id` = ?";

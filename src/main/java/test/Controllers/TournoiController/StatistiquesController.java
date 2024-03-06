@@ -3,6 +3,7 @@ package test.Controllers.TournoiController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.XYChart;
@@ -10,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import models.Tournoi;
 import test.MainFx;
 import utils.MyDatabase;
@@ -99,7 +101,10 @@ public class StatistiquesController {
     void retour(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
         AnchorPane root = loader.load();
-        StatsTournoi.getChildren().setAll(root);
+        Stage stage = new Stage();
+        stage.setTitle("Détails du Tournoi");
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
     }

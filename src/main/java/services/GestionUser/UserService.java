@@ -200,6 +200,7 @@ public class UserService implements IService<User> {
         PreparedStatement psProprietairedeTerarin = connection.prepareStatement(QueryToProprietairedeTerarin);
         psProprietairedeTerarin.setInt(1, id);
         psProprietairedeTerarin.executeUpdate();
+
     }
 
 

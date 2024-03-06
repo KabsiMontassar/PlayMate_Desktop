@@ -2,6 +2,7 @@ package services.GestionProduit;
 
 import javafx.collections.FXCollections;
 import models.Categorie;
+import services.GestionProduit.IService;
 import utils.MyDatabase;
 
 import java.sql.*;
@@ -61,6 +62,7 @@ public class CategorieService implements IService<Categorie> {
         }
         return categories;
     }
+
 
     @Override
     public Categorie getById(int id) throws SQLException {

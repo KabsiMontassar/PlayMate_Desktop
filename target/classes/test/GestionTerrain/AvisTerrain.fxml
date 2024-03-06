@@ -77,4 +77,5 @@
          <Font name="Bell MT Bold" size="14.0" />
       </font>
    </Text>
+   <Button fx:id="btnlogout" layoutX="36.0" layoutY="668.0" mnemonicParsing="false" onAction="#retour1" prefHeight="32.0" prefWidth="129.0" text="Retour" />
     </AnchorPane>
