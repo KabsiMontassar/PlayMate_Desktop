@@ -372,7 +372,7 @@ public class LoginRegistrationPageController {
             SeconnecterTxt1.setVisible(true);
             SeconnecterTxt2.setVisible(true);
             BtnSinscrire.setVisible(true);
-            faible.setVisible(true);
+            faible.setVisible(false);
             moyen.setVisible(false);
             moyen2.setVisible(false);
             fort.setVisible(false);
@@ -390,7 +390,7 @@ public class LoginRegistrationPageController {
     @FXML
     public void Oublietlemotdepass(ActionEvent event) throws Exception {
 
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser//VerificationCode.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/VerificationCode.fxml"));
             AnchorPane root = loader.load();
 
             Scene scene = new Scene(root);
