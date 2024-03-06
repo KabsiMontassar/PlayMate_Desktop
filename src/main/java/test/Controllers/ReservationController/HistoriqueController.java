@@ -115,17 +115,8 @@ public class HistoriqueController implements Initializable {
 
                     ImprimerPdf(user.getName(),user.getEmail(),reservation.getHeureReservation(), reservation.getDateReservation(),terrain.getNomTerrain(),terrain.getPrix());
 
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                } catch (NoSuchPaddingException e) {
-                    throw new RuntimeException(e);
-                } catch (IllegalBlockSizeException e) {
-                    throw new RuntimeException(e);
-                } catch (NoSuchAlgorithmException e) {
-                    throw new RuntimeException(e);
-                } catch (BadPaddingException e) {
-                    throw new RuntimeException(e);
-                } catch (InvalidKeyException e) {
+                } catch (SQLException | NoSuchPaddingException | IllegalBlockSizeException | NoSuchAlgorithmException |
+                         BadPaddingException | InvalidKeyException e) {
                     throw new RuntimeException(e);
                 }
 

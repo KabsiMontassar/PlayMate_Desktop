@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionTerrain/TerrainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionTerrain/TerrainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/PageTerrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/PageTerrainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/TerrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/TerrainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/statController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/statController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" afterDir="false" />
+    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="update payment">
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/HistoriqueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/HistoriqueController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,5 +128,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update payment" />
+    <option name="LAST_COMMIT_MESSAGE" value="update payment" />
   </component>
 </project>
