@@ -347,7 +347,7 @@ public class LoginRegistrationPageController {
         rbtn3.setVisible(false);
         rbtn4.setVisible(false);
         registerPass2.setVisible(false);
-        faible.setVisible(true);
+        faible.setVisible(false);
         moyen.setVisible(false);
         moyen2.setVisible(false);
         fort.setVisible(false);

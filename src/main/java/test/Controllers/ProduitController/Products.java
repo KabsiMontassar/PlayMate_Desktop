@@ -35,13 +35,20 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import services.GestionProduit.ProductService;
+import services.GestionUser.UserService;
+import test.Controllers.UserController.AcceuilController;
 import test.MainFx;
 
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +58,8 @@ import java.util.ResourceBundle;
 public class Products implements Initializable {
 
 
-
+    public Button Traduire;
+    public Button gotoaccueil;
     @FXML
     private Button qr1;
 
@@ -402,11 +410,11 @@ Img1
     }
     @FXML
     void EnvoyerMail(ActionEvent event) throws Exception {
-        ProductService ps=new ProductService();
+      /*  ProductService ps=new ProductService();
         String aa=ps.getAllbyidFor(GetIdUser()).toString();
         //System.out.println(aa);
         new Gmailer().sendMail("A new message", aa);
-        JOptionPane.showMessageDialog(null, "Envoie avec succes");
+        JOptionPane.showMessageDialog(null, "Envoie avec succes");*/
     }
     @FXML
     void generateqrcode1(ActionEvent event) throws SQLException, IOException, WriterException {
@@ -451,7 +459,7 @@ Img1
     void allerversstat(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/stat.fxml"));
         Parent root = loader.load();
-        Products controller = loader.getController();
+        stat controller = loader.getController();
         controller.SetIdUser(GetIdUser());
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
@@ -540,4 +548,19 @@ Img1
         popupStage.setScene(scene);
         popupStage.show();
     }
+    UserService us = new UserService()  ;
+
+
+    public void gotoaccueil(ActionEvent actionEvent) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
+        Parent root = loader.load();
+        AcceuilController controller = loader.getController();
+        controller.setData(us.getByid(GetIdUser()));
+        Stage stage = new Stage();
+
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+
     }
+}

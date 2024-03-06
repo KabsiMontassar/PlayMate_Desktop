@@ -7,13 +7,17 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.Roles;
 import models.User;
 import services.GestionUser.UserService;
 import services.UserActivityLogger;
+import test.Controllers.EquipeController.EquipeController;
 import test.Controllers.ProduitController.Products;
 import test.Controllers.ProduitController.ProductsController;
 import test.Controllers.ReservationController.ReservationController;
@@ -42,6 +46,10 @@ public class AcceuilController {
     public Button sername;
     public AnchorPane notificationicon;
 
+
+    @FXML
+    private ChoiceBox<String> choicebox;
+
     @FXML
     private Button btnlogout;
 
@@ -59,27 +67,49 @@ public class AcceuilController {
     private Button VoirTerrain;
 
     public void setData(User u) {
+        if(u.getRole() == Roles.Organisateur){
+            choicebox.getItems().add("Voir Tournois");
+        }
+        if(u.getRole() == Roles.Proprietaire_de_Terrain){
+            choicebox.getItems().add("Voir Terrains");
+        }
+        if(u.getRole() == Roles.Joueur){
+            choicebox.getItems().add("Voir Equipe");
+        }
+        choicebox.getItems().add("Voir Profile");
+        choicebox.getItems().add("Logout");
 
         this.CurrentUser = u ;
-        System.out.println(CurrentUser);
-        if(CurrentUser.getRole() != Roles.Proprietaire_de_Terrain){
-            VoirTerrain.setVisible(false);
-        }
 
-        if(CurrentUser.getRole() != Roles.Organisateur){
 
-            btnOrganisateur.setVisible(false);
-        }
-
-        if(CurrentUser.getRole() != Roles.Fournisseur){
-
-            voirProduit.setVisible(false);
-        }
 
 
     }
-    public void initialize() throws IOException {
 
+
+    public void initialize() throws IOException {
+        choicebox.setOnAction(event -> {
+            String selectedItem = choicebox.getSelectionModel().getSelectedItem();
+            switch (selectedItem) {
+                case "Voir Tournois":
+                    VoirOrganisateur();
+                    break;
+                case "Voir Terrains":
+                    VoirTerrain();
+                    break;
+                case "Voir Profile":
+                    btnseeProfile();
+                    break;
+                case "Logout":
+                    logoutaction();
+                    break;
+                case "Voir Equipe":
+                    toEquipe();
+                    break;
+                default:
+                    break;
+            }
+        });
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/reservezMaintenant.fxml"));
         AnchorPane root = loader.load();
         root.setStyle("-fx-background-color: white;");
@@ -88,8 +118,28 @@ public class AcceuilController {
 
     }
 
+    private void toEquipe() {
+        try {
+
+            UserService us = new UserService();
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionEquipe/Equipe.fxml"));
+            AnchorPane root = loader.load();
+
+            EquipeController ptg = loader.getController();
 
 
+            ptg.SetIdUser(us.getByEmail(CurrentUser.getEmail()).getId());
+            Container.getChildren().setAll(root);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException |
+                 BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     @FXML
@@ -134,7 +184,7 @@ public class AcceuilController {
 
 
     @FXML
-    void btnseeProfile(ActionEvent event) {
+    void btnseeProfile() {
         try {
 
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Profile.fxml"));
@@ -157,7 +207,7 @@ public class AcceuilController {
 
     }
     @FXML
-    void logoutaction(ActionEvent event) {
+    void logoutaction() {
         try {
 
             UserService us = new UserService();
@@ -182,7 +232,7 @@ public class AcceuilController {
     }
 
     @FXML
-    void VoirTerrain(ActionEvent event) {
+    void VoirTerrain() {
         try {
 
             UserService us = new UserService();
@@ -229,7 +279,7 @@ public class AcceuilController {
         }
     }
 
-    public void VoirOrganisateur(ActionEvent actionEvent) {
+    public void VoirOrganisateur() {
 
         try {
 
@@ -276,28 +326,7 @@ public class AcceuilController {
         }
     }
 
-    public void voirFournisseur(ActionEvent actionEvent) {
-        try {
 
-            UserService us = new UserService();
-
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Products.fxml"));
-            AnchorPane root = loader.load();
-
-            Products ptg = loader.getController();
-
-
-            ptg.SetIdUser(us.getByEmail(CurrentUser.getEmail()).getId());
-            Container.getChildren().setAll(root);
-
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SQLException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException |
-                 BadPaddingException | InvalidKeyException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     public void voirProduit(ActionEvent actionEvent) {
         try {
@@ -324,6 +353,23 @@ public class AcceuilController {
     }
 
     public void voirTerrain2(ActionEvent actionEvent) {
+    }
+
+    public void openjeu(ActionEvent actionEvent) {
+        try {
+
+
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/jeuPlayMate.fxml"));
+            AnchorPane root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Gestion_Tournoi");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

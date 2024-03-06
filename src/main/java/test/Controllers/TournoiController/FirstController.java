@@ -316,6 +316,10 @@ UserService us = new UserService();
         Parent root = loader.load();
         AcceuilController controller = loader.getController();
         controller.setData(us.getByid(GetIdUser()));
-        main.getChildren().addAll(root);
+        Stage stage = new Stage();
+        stage.setTitle("Gestion_Tournoi");
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) actionEvent.getSource()).getScene().getWindow().hide();
     }
 }

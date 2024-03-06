@@ -6,12 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ChercherAdversaireController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ChercherAdversaireController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/LancezVousController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/LancezVousController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReserverTerrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReserverTerrainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/EquipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/EquipeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Products.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/LoginRegistrationPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/LoginRegistrationPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionEquipe/Equipe.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionEquipe/Equipe.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/Products.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/Products.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/modif.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/modif.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/choix2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/choix2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/reserverTerrainVersion2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/reserverTerrainVersion2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReserverTerrainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReserverTerrainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/Products.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/Products.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionUser/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionUser/Acceuil.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +54,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.FX.executor": "Run",
     "Application.MainFx.executor": "Run",
     "Maven.pidev_spartans_3a29 [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -55,7 +64,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/azizb/Bureau/3eme/2eme sem/pidev_spartans_3a29-551ca533ef2d1f9cc89c81f12e516ae88a913719/pidev_spartans_3a29-551ca533ef2d1f9cc89c81f12e516ae88a913719",
+    "last_opened_file_path": "D:/Github/pidev_spartans_3a29/Pidev/src/main/java/test/Controllers/ProduitController",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -82,20 +91,13 @@
       <recent name="D:\Github\pidev_spartans_3a29\Pidev\src\main\java\test\Controllers\TournoiController" />
       <recent name="D:\Github\pidev_spartans_3a29\Pidev\src\main\resources\ProfilePictures" />
     </key>
-    <key name="ExtractSuperBase.RECENT_KEYS">
-      <recent name="test.Controllers.ReservationController" />
-    </key>
   </component>
   <component name="RunManager">
-    <configuration name="MainFx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="FX" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-21" />
       <option name="MAIN_CLASS_NAME" value="test.MainFx" />
       <module name="pidev_spartans_3a29" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PROGRAM_PARAMETERS" value="--module-path &quot;C:\Users\seifl\Downloads\openjfx-21.0.2_windows-x64_bin-sdk\javafx-sdk-21.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml,javafx.media" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -113,11 +115,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.MainFx" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -156,34 +153,11 @@
       <workItem from="1709663217325" duration="10006000" />
       <workItem from="1709679078173" duration="5422000" />
       <workItem from="1709684864458" duration="425000" />
-      <workItem from="1709685723677" duration="14785000" />
+      <workItem from="1709685723677" duration="11366000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="AZIZAVECINTEGRATION" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>

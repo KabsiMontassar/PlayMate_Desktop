@@ -44,7 +44,7 @@ public class Gmailer {
             throws IOException {
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(
                 jsonFactory, new InputStreamReader(
-                        Objects.requireNonNull(Gmailer.class.getResourceAsStream("/clientsecret123.json"))
+                        Objects.requireNonNull(Gmailer.class.getResourceAsStream("/test/GestionProduit/clientsecret123.json"))
                 )
         );
 

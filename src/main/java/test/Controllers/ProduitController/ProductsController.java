@@ -113,10 +113,10 @@ public class ProductsController  {
         Products controller = loader.getController();
         controller.SetIdUser(GetIdUser());
         Stage stage = new Stage();
-
         stage.setScene(new Scene(root));
         stage.show();
         ((Button) event.getSource()).getScene().getWindow().hide();
+
     }
     public void initialiseData(Product product) {
         this.prod = product;
@@ -188,6 +188,7 @@ public class ProductsController  {
                 prod.setPrix(Integer.parseInt(prixform.getText()));
                 prod.setCategorie((categorieform.getValue()));
                 prod.setImage(imagef.getImage().getUrl());
+                prod.setIdfournisseur(GetIdUser());
                 ProductService cc = new ProductService();
                 cc.update(prod, prod.getId());
                 // Mise à jour de la liste des terrains affichés
@@ -241,7 +242,7 @@ public class ProductsController  {
         }
 
         else {
-            cs.add(new Product(nomform.getText(),descriptionform.getText(),Integer.parseInt(prixform.getText()),imagePath,categorieform.getValue()));
+            cs.add(new Product(nomform.getText(),descriptionform.getText(),Integer.parseInt(prixform.getText()),imagePath,categorieform.getValue(),GetIdUser()));
             JOptionPane.showMessageDialog(null, "Ajout Success!");
 
             effacer();

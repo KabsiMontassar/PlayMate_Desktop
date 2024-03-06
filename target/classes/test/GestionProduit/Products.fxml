@@ -92,4 +92,5 @@
    <Button fx:id="liencategorie" layoutX="988.0" layoutY="658.0" mnemonicParsing="false" onAction="#categorie" text="Categorie" />
    <Button fx:id="mail" layoutX="1076.0" layoutY="658.0" mnemonicParsing="false" onAction="#EnvoyerMail" text="Envoyer Mail" />
    <Button fx:id="stat" layoutX="1179.0" layoutY="658.0" mnemonicParsing="false" onAction="#allerversstat" text="Statistiques" />
+   <Button fx:id="gotoaccueil" layoutX="239.0" layoutY="20.0" mnemonicParsing="false" onAction="#gotoaccueil" text="Retour" />
 </AnchorPane>
