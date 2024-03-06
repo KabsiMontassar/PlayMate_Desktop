@@ -71,6 +71,11 @@ public class AcceuilController {
             btnOrganisateur.setVisible(false);
         }
 
+        if(CurrentUser.getRole() != Roles.Fournisseur){
+
+            voirProduit.setVisible(false);
+        }
+
 
     }
     public void initialize() throws IOException {
@@ -316,6 +321,9 @@ public class AcceuilController {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public void voirTerrain2(ActionEvent actionEvent) {
     }
 }
 

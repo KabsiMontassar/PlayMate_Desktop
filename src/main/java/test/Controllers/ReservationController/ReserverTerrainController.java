@@ -36,6 +36,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -45,9 +46,10 @@ import test.MainFx;
 
 import static models.TypeReservation.ReserverTerrainPourEquipe;
 
-public class ReserverTerrainController implements Initializable {
-
-//((Stage) actionevent.getScene().getWindow()).hide();
+public class ReserverTerrainController implements Initializable  {
+    public ReserverTerrainController() {
+    }
+    //((Stage) actionevent.getScene().getWindow()).hide();
 
     @FXML
     private VBox Vbox1;
@@ -79,7 +81,7 @@ public class ReserverTerrainController implements Initializable {
     @FXML
     private ChoiceBox<String> nom_equipe;
 
-
+    List<Equipe> equipeList = new ArrayList<>();
 
     @FXML
     private Label horaireInvalides;
@@ -90,39 +92,36 @@ public class ReserverTerrainController implements Initializable {
     private TextField heure;
 
     @FXML
-    private ComboBox<String> filterchoice;
+    private ComboBox<String> filterchoice = new ComboBox<>();
 
 // montaaaaaaaaaaaasar a3tini id user
 
+    EquipeService equipeService = new EquipeService();
 
     private int IdUser;
 
-    public void SetIdUser(int idUser) {
+    public void SetIdUser(int idUser) throws SQLException {
 
+        String[] nom = nomEquipes(idUser);
+        nom_equipe.getItems().addAll(nom);
         this.IdUser = idUser;
     }
     public int GetIdUser() {
         return this.IdUser;
     }
 
-    public void initialize(URL location, ResourceBundle resources) {
+   @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         horaireInvalides.setVisible(false);
         dateInvalide.setVisible(false);
         nomEquipeInvalide.setVisible(false);
-
-        //      ----------------------------------------------   ID USER  YAAAAAAAAAAAAAAAAA MONTASSAR
-        String[] nom = nomEquipes();
-        nom_equipe.getItems().addAll(nom);
-
         filterchoice.setItems(FXCollections.observableArrayList("prix","duree"));
+
     }
     //     ------------------------------------------------------------   idUser
-    public String[] nomEquipes(){
-        EquipeService equipeService = new EquipeService();
-        // *********************************************************************************************
-        //                                                 monta heeeet numro hatit 7
-        try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(GetIdUser());
+    public String[] nomEquipes(int idUser) throws SQLException {
+        System.out.println("hello");
+           equipeList = equipeService.getEquipesParMembre(idUser);
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
@@ -131,9 +130,7 @@ public class ReserverTerrainController implements Initializable {
                 index++;
             }
             return nomEquipe;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
     }
 
 // ajouter photo et video
@@ -373,9 +370,10 @@ public class ReserverTerrainController implements Initializable {
     public void ActualiserLaPageReservation(ActionEvent actionEvent) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/reserverTerrainVersion2.fxml"));
-            Parent root = (Parent) loader.load();
+            Parent root = loader.load();
 
-            ReserverTerrainController C  = loader.load();
+            ReserverTerrainController C = loader.getController();
+
             C.SetIdUser(GetIdUser());
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -384,8 +382,8 @@ public class ReserverTerrainController implements Initializable {
         }catch (Exception e){
             System.out.println(e);
         }
-    }
-}
+    }}
+
 
 
 //    public void  showTerrains() throws SQLException {
