@@ -18,6 +18,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.GestionTerrain.TerrainService;
 import services.GestionUser.UserService;
+import test.Controllers.UserController.AcceuilController;
 import test.MainFx;
 
 import javax.crypto.BadPaddingException;
@@ -33,6 +34,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 //*******************************************************************
 public class AvisController  {
+
     @FXML
     private AnchorPane BOX1;
     @FXML
@@ -77,6 +79,10 @@ public class AvisController  {
     private Text nom3;
     @FXML
     private TextField search;
+
+    @FXML
+    private Button btnlogout;
+
     @FXML
     private ComboBox<String> sort;
     TerrainService Ts = new TerrainService();
@@ -87,15 +93,15 @@ public class AvisController  {
     private User CurrentUser;
     int i= 0;
     List<Terrain> sortedTerrains ;
+
     public void setData(User u ){
         this.CurrentUser = u;
-         sortedTerrains = Ts.getTerrainbyPropid(CurrentUser.getId());
-
+         sortedTerrains = Ts.getAllTerrains();
+        sort.getItems().addAll("Prix Croissant", "Prix Décroissant");
+        actualise(sortedTerrains);
     }
     //*******************************************************************
-    public void initialize() {
-        sort.getItems().addAll("Prix Croissant", "Prix Décroissant");
-        actualise(sortedTerrains);}
+
     //*******************************************************************
     void actualise(List<Terrain> terrains){
         if(terrains.size()-1-i*3>0){
@@ -252,4 +258,19 @@ public class AvisController  {
             default:
                 break;}
         actualise(sortedTerrains);
-        i = 0;}}
+        i = 0;}
+
+    @FXML
+    void retour1(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        AcceuilController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
+
+    }
+
+}
