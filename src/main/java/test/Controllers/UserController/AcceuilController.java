@@ -14,6 +14,7 @@ import models.Roles;
 import models.User;
 import services.GestionUser.UserService;
 import services.UserActivityLogger;
+import test.Controllers.TerrainController.AvisController;
 import test.Controllers.TerrainController.PageTerrainController;
 import test.MainFx;
 
@@ -31,7 +32,8 @@ public class AcceuilController {
     public AnchorPane Container;
     public Button sername;
     public AnchorPane notificationicon;
-
+    @FXML
+    private Button voirTerrain2;
     @FXML
     private Button btnlogout;
 
@@ -185,6 +187,21 @@ public class AcceuilController {
             throw new RuntimeException(e);
         }
     }
+
+    @FXML
+    void voirTerrain2(ActionEvent event) {
+        try {
+            UserService us = new UserService();
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/AvisTerrain.fxml"));
+            AnchorPane root = loader.load();
+            AvisController ac = loader.getController();
+            ac.setData(us.getByEmail(CurrentUser.getEmail()));
+            Container.getChildren().setAll(root);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException |
+                 BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);}}
     }
 
 
