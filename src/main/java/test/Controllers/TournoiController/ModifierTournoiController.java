@@ -185,7 +185,10 @@ public class ModifierTournoiController implements Initializable {
         FirstController controller = loader.load();
         controller.SetIdUser(GetIdUser());
         AnchorPane root = loader.load();
-        FormulaireRoot.getChildren().setAll(root);
+        Stage stage = new Stage();
+        stage.setTitle("Détails du Tournoi");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void initData(Tournoi tournoi) {

@@ -7,6 +7,7 @@ public class Product {
     private int prix;
     private String image;
     private int categorie;
+    private int nbcategorie;
     public Product() {
     }
 
@@ -17,6 +18,14 @@ public class Product {
         this.prix = prix;
         this.image = image;
         this.categorie = categorie;
+    }
+
+    public int getNbcategorie() {
+        return nbcategorie;
+    }
+
+    public void setNbcategorie(int nbcategorie) {
+        this.nbcategorie = nbcategorie;
     }
 
     public Product(String nom, String description, int prix) {

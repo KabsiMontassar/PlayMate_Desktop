@@ -11,10 +11,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Categorie;
+import models.Product;
 import services.GestionProduit.CategorieService;
+import services.GestionProduit.ProductService;
 import test.MainFx;
 
 import javax.swing.*;
@@ -25,7 +28,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class modif implements Initializable {
+public class modif  {
     @FXML
     private Button ajouter;
     @FXML
@@ -47,20 +50,25 @@ public class modif implements Initializable {
     private Button validerf;
 
     int i= 0;
+    private int IdUser;
 
-    private Categorie cat;
-    int id;
-
-    CategorieService cs = new CategorieService();
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void SetIdUser(int idUser) {
         try {        nomform.setText("");
             descriptionform.setText("");
             actualise(cs.getAll());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        this.IdUser = idUser;
     }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+    private Categorie cat;
+    int id;
+
+    CategorieService cs = new CategorieService();
+
     void actualise(List<Categorie> categorieList)
     {   /*Categories mm=new Categories();
         int x=mm.i;
@@ -87,11 +95,14 @@ public class modif implements Initializable {
     @FXML
     void RetourVersCategorie(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Categorie.fxml"));
-
         Parent root = loader.load();
-        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        Categories controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
+        Stage stage = new Stage();
+
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
 
 
     }

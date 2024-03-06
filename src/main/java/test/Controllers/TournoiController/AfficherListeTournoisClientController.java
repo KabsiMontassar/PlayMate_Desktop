@@ -14,17 +14,26 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Tournoi;
+import models.User;
 import services.GestionTournoi.ServiceTournoi;
+import services.GestionUser.UserService;
+import test.Controllers.UserController.AcceuilController;
 import test.MainFx;
 import utils.MyDatabase;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AfficherListeTournoisClientController {
+    public Button Btnback;
     @FXML
     private AnchorPane BOX1;
 
@@ -249,6 +258,19 @@ public class AfficherListeTournoisClientController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+UserService us = new UserService() ;
+    public void goToTournoiClient(ActionEvent actionEvent) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
+        Parent root = loader.load();
+        AcceuilController controller = loader.getController();
+        controller.setData(us.getByid(GetIdUser()));
+        Stage stage = new Stage();
+        stage.setTitle("Détails Tournoi");
+        stage.setScene(new Scene(root));
+        stage.show();
+
+
     }
 }
 

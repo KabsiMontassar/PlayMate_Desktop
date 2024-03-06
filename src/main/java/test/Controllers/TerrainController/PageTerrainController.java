@@ -103,15 +103,7 @@ public class PageTerrainController  {
         terrains.addAll(Ts.getTerrainbyPropid(CurrentUser.getId()));
         actualise(terrains);
     }
-
-    //*******************************************************************
-
-
-
-
-
-    //**
-    //*******************************************************************
+//****************************************************************************
     void actualise(List<Terrain> terrains) {
         // Affichage ou masquage du bouton suivant en fonction du nombre de terrains restants à afficher
         if (terrains.size() - 1 - i * 3 > 0) {

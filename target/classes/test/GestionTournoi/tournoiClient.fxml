@@ -78,5 +78,10 @@
       <Button fx:id="btnsuivant" layoutX="410.0" layoutY="616.0" mnemonicParsing="false" onAction="#suivant" text="&gt;" />
       <Button fx:id="btnretour" layoutX="365.0" layoutY="616.0" mnemonicParsing="false" onAction="#retour" text="&lt;" />
     </AnchorPane>
+   <Button fx:id="Btnback" layoutX="35.0" layoutY="24.0" mnemonicParsing="false" onAction="#goToTournoiClient" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 1; -fx-padding: 1; -fx-font-weight: bold;" text="&lt;&lt;" textFill="WHITE">
+      <font>
+         <Font size="19.0" />
+      </font>
+   </Button>
 
 </AnchorPane>

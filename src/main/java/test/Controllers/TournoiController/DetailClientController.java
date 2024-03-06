@@ -98,7 +98,10 @@ public class DetailClientController implements Initializable {
         AfficherListeTournoisClientController controller = loader.load();
         controller.SetIdUser(GetIdUser());
         AnchorPane root = loader.load();
-        detailroot.getChildren().setAll(root);
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void initData(Tournoi tournoi) throws SQLException {
@@ -144,7 +147,10 @@ public class DetailClientController implements Initializable {
 
         controller.SetIdUser(GetIdUser());
         controller.initData(tournoiActuel);
-        detailroot.getChildren().setAll(root);
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
 
 
     }
@@ -168,7 +174,10 @@ public class DetailClientController implements Initializable {
      else {showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de participation à supprimer n'est pas valide.");}
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoiClient.fxml"));
         AnchorPane root = loader.load();
-        detailroot.getChildren().setAll(root);
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
