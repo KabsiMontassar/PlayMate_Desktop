@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import models.*;
 import utils.MyDatabase;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -27,24 +28,31 @@ public class ReservationService {
     public ReservationService(){
         connection = MyDatabase.getInstance().getConnection();
     }
+/*select u.*
+FROM user u
+join payment p on p.idMembre = u.id
+JOIN reservation r ON r.idReservation = p.idReservation
+WHERE r.idReservation = 6;*/
+    public static User getUserWithIdReservation(int idReservation) throws SQLException, NoSuchAlgorithmException {
 
+        User user = new User();
+        String query = "select u.* FROM user u join payment p on p.idMembre = u.id JOIN reservation r ON r.idReservation = p.idReservation WHERE r.idReservation = ?;";
+        PreparedStatement ps = connection.prepareStatement(query);
+
+        ps.setInt(1,idReservation);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            user.setId(rs.getInt("id"));
+            user.setName(rs.getString("Name"));
+            user.setEmail(rs.getString("Email"));
+
+
+        }
+        return user ;
+    }
 
     public void ajouterReservation(Reservation reservation) throws SQLException {
-        /*
-        ********************************************************true
-        for (int i = 0; i < terrains.size(); i++) {
-            String query = "INSERT INTO reservation (isConfirm, dateReservation, heureReservation, type, idTerrain)\n" +
-                    "VALUES (?, ?, ?, ?, ?)";
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setBoolean(1, false);
-            ps.setString(2, reservation.getDateReservation());
-            ps.setString(3, reservation.getHeureReservation());
-            ps.setString(4, reservation.getType());
 
-            ps.setInt(5, terrains.get(i).getId());
-
-            ps.executeUpdate();
-            */
 
         String query = "INSERT INTO reservation (isConfirm, dateReservation, heureReservation, type, idTerrain ) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(query);
@@ -135,6 +143,7 @@ public class ReservationService {
 
         }
 
+
     public static List<Reservation> getAllFutureUniqueReservations() throws SQLException {
         List<Reservation> allReservations = new ArrayList<>();
         Map<String, Integer> reservationUnique = new HashMap<>();
@@ -181,7 +190,7 @@ public class ReservationService {
 
     public static List<Reservation> getAllFutureReservationsByIdMembre(int idm) throws SQLException {
         List<Reservation> reservations = new ArrayList<>();
-        String query = "SELECT r.* FROM reservation r JOIN payment p ON r.idReservation = p.idReservation JOIN membre m ON p.idMembre = m.idMembre WHERE m.idMembre = ?";
+        String query = "SELECT r.* FROM reservation r JOIN payment p ON r.idReservation = p.idReservation JOIN membre m ON p.idMembre = m.JoueurId WHERE m.JoueurId = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, idm);

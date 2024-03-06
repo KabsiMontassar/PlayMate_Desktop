@@ -14,20 +14,29 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Tournoi;
+import services.GestionUser.UserService;
+import test.Controllers.UserController.AcceuilController;
 import test.MainFx;
 
 import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
 import services.GestionTournoi.ServiceTournoi;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
 
 public class FirstController {
     public AnchorPane mainroot;
 
     public AnchorPane main;
+    public Button Btnback;
     @FXML
     private AnchorPane BOX1;
     @FXML
@@ -78,7 +87,15 @@ public class FirstController {
     @FXML
     private Text nom3;
 
+    private int IdUser;
 
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
     int i= 0;
     ServiceTournoi Ts = new ServiceTournoi();
     //*******************************************************************
@@ -136,7 +153,8 @@ public class FirstController {
         stage.setTitle("Détails Tournoi");
         stage.setScene(new Scene(root));
         stage.show();
-        ((Button) event.getSource()).getScene().getWindow().hide();}
+        ((Button) event.getSource()).getScene().getWindow().hide();
+    }
     //*******************************************************************************************
     @FXML
     void detail2(ActionEvent event) throws IOException, SQLException {
@@ -278,6 +296,8 @@ public class FirstController {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/FormulaireTournoi.fxml"));
         Parent root = loader.load();
         AjoutTournoiController controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
+
         Stage stage = new Stage();
         stage.setTitle("Gestion_Tournoi");
         stage.setScene(new Scene(root));
@@ -287,5 +307,12 @@ public class FirstController {
 
     }
 
-
+UserService us = new UserService();
+    public void goToTournoiClient(ActionEvent actionEvent) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
+        Parent root = loader.load();
+        AcceuilController controller = loader.getController();
+        controller.setData(us.getByid(GetIdUser()));
+        main.getChildren().addAll(root);
+    }
 }

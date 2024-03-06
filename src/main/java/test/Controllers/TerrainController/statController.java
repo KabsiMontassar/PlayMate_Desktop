@@ -105,4 +105,6 @@ public class statController {
         stage.setScene(new Scene(root));
         stage.show();
         // Récupérer la fenêtre actuelle et la cacher
-        ((Stage) btretour.getScene().getWindow()).hide();}}
+        ((Stage) btretour.getScene().getWindow()).hide();}
+
+}

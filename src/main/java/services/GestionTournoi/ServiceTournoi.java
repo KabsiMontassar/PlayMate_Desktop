@@ -113,6 +113,35 @@ public Organisateur getbyidorg(int id) throws SQLException, NoSuchAlgorithmExcep
         List<Tournoi> Tournois = new ArrayList<>();
         String query = "SELECT * FROM Tournoi";
         Statement st = connection.createStatement();
+
+
+        ResultSet rs = st.executeQuery(query);
+        while (rs.next()) {
+
+            Tournoi Tr = new Tournoi();
+
+            Tr.setId(rs.getInt("id"));
+            Tr.setNbrquipeMax(rs.getInt("NbmaxEquipe"));
+            Tr.setNom(rs.getString("nom"));
+            Tr.setAffiche(rs.getString("affiche"));
+            Tr.setDatedebut(rs.getString("datedebut"));
+            Tr.setDatefin(rs.getString("datefin"));
+
+            Tr.setAddress(rs.getString("address"));
+            Tr.setVisite(rs.getInt("visite"));
+
+            Tournois.add(Tr);
+        }
+        return Tournois;
+    }
+
+
+    public List<Tournoi> allTournoibyorg(int o ) throws SQLException {
+        List<Tournoi> Tournois = new ArrayList<>();
+        String query = "SELECT * FROM Tournoi WHERE idOrganisateur = ?";
+        PreparedStatement st = connection.prepareStatement(query);
+
+        st.setInt(1, o);
         ResultSet rs = st.executeQuery(query);
         while (rs.next()) {
 

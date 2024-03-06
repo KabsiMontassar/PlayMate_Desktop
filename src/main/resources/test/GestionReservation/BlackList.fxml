@@ -51,7 +51,7 @@
             <VBox fx:id="vboxSupprimerBlackListe" layoutX="64.0" layoutY="26.0" prefHeight="200.0" prefWidth="531.0" />
          </children>
       </AnchorPane>
-      <HBox layoutX="97.0" layoutY="166.0" prefHeight="47.0" prefWidth="757.0">
+      <HBox layoutX="97.0" layoutY="166.0" prefHeight="40.0" prefWidth="758.0">
          <children>
             <Button mnemonicParsing="false" onAction="#afficherBlacklist" prefHeight="33.0" prefWidth="176.0" style="-fx-background-color: #4CAF50; -fx-background-radius: 15px;" text="afficher blackList" textFill="#02365c">
                <font>

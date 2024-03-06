@@ -34,6 +34,16 @@ public class ParticipationController implements Initializable {
 
 
     }
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
 
 
     @FXML
@@ -65,17 +75,23 @@ public class ParticipationController implements Initializable {
 
    ServiceTournoi st = new ServiceTournoi();
     @FXML
-    void goToDetailsClient(ActionEvent event) throws IOException {
+    void goToDetailsClient(ActionEvent event) throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/TournoiClient.fxml"));
         AnchorPane root = loader.load();
-        detailroot.getChildren().setAll(root);
+        AfficherListeTournoisClientController controller = loader.getController(); // Retrieve the controller
+        controller.SetIdUser(GetIdUser());
+
+        Stage stage = new Stage();
+        stage.setTitle("Détails du Tournoi");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void initData(Tournoi tournoi) throws SQLException {
         this.tournoiActuel = tournoi;
         ServiceParticipation ps = new ServiceParticipation();
 
-        nomEquipes = ps.getNomsEquipesPourMembre(3);
+        nomEquipes = ps.getNomsEquipesPourMembre(GetIdUser());
         System.out.println(nomEquipes);
         options = FXCollections.observableArrayList(nomEquipes);
         nomequipe.setItems(options);
@@ -119,12 +135,14 @@ if(validateNbrParticipation() && validateEquipeParticipation( nomequipe.getValue
         alert.setContentText("Êtes-vous sûr de vouloir participez dans ce tournoi ?");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            Participation nouvelleParticipation = new Participation(3, nomEquipeSelectionne, idTournoi);
+            Participation nouvelleParticipation = new Participation(GetIdUser(), nomEquipeSelectionne, idTournoi);
             ps.ajouter(nouvelleParticipation);
             tournoiActuel.ajouterParticipation(nouvelleParticipation);
             System.out.println(nouvelleParticipation);
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoiClient.fxml"));
             Parent root = loader.load();
+            AfficherListeTournoisClientController c = loader.load();
+            c.SetIdUser(GetIdUser());
             Stage stage = new Stage();
             stage.setTitle("Gestion_Tournoi");
             stage.setScene(new Scene(root));

@@ -46,6 +46,16 @@ public class CalendarController implements Initializable {
 
     @FXML
     private AnchorPane calender;
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

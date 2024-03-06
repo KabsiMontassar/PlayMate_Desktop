@@ -45,6 +45,18 @@ import org.json.JSONObject;
 
 public class ModifierTournoiController implements Initializable {
 
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         errorLabel.setVisible(false);
@@ -169,8 +181,14 @@ public class ModifierTournoiController implements Initializable {
     public void goToTournoi(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
+
+        FirstController controller = loader.load();
+        controller.SetIdUser(GetIdUser());
         AnchorPane root = loader.load();
-        FormulaireRoot.getChildren().setAll(root);
+        Stage stage = new Stage();
+        stage.setTitle("Détails du Tournoi");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void initData(Tournoi tournoi) {
@@ -250,10 +268,11 @@ public class ModifierTournoiController implements Initializable {
     public void ModifierTournoi(ActionEvent actionEvent) throws SQLException, IOException {
         if ( validateNombreEquipes() && validateNom() && validateDate()) {
             ServiceTournoi ts = new ServiceTournoi();
-            Tournoi tournoi = new Tournoi(tournoiActuel.getId(), Integer.parseInt(InputNombreéquipes.getText()), InputNom.getText(), imagePath, InputAddress.getText(), InputDateDébut.getText(), InputDateFin.getText(), 2);
+            Tournoi tournoi = new Tournoi(tournoiActuel.getId(), Integer.parseInt(InputNombreéquipes.getText()), InputNom.getText(), imagePath, InputAddress.getText(), InputDateDébut.getText(), InputDateFin.getText());
             ts.modifier(tournoi);
             System.out.println(tournoi);
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
+
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Gestion_Tournoi");

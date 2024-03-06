@@ -64,7 +64,17 @@ public class ChercherAdversaireController implements Initializable {
                                     // montaaaaaaaaaaaasar a3tini id user
 
      */
-    private int idUser;
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -82,7 +92,7 @@ public class ChercherAdversaireController implements Initializable {
         //                                                 monta heeeet numro hatit 7
         // *****************************************************************************************
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(37);
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(GetIdUser());
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
@@ -173,7 +183,7 @@ public class ChercherAdversaireController implements Initializable {
                         int dernieridReservationAjouter = reservationService.getLastIdReservationAddRecently();
                         PaimentController paimentController = new PaimentController();
                         paimentController.SetIdReservation(dernieridReservationAjouter);
-                        paimentController.PaymentAPI();
+                        paimentController.appelPaymentAPI(terrain.getPrix());
 
 
                     } catch (SQLException e) {

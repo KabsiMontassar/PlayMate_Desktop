@@ -14,17 +14,26 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Tournoi;
+import models.User;
 import services.GestionTournoi.ServiceTournoi;
+import services.GestionUser.UserService;
+import test.Controllers.UserController.AcceuilController;
 import test.MainFx;
 import utils.MyDatabase;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AfficherListeTournoisClientController {
+    public Button Btnback;
     @FXML
     private AnchorPane BOX1;
 
@@ -88,8 +97,24 @@ public class AfficherListeTournoisClientController {
 
     int i= 0;
     ServiceTournoi Ts = new ServiceTournoi();
+
+    List<Tournoi> Tournois = new ArrayList<>();
     //*******************************************************************
-    public void initialize() throws SQLException {actualise(Ts.allTournoi());}
+
+
+    private int IdUser;
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
+    public void SetIdUser(int idUser) throws SQLException {
+
+        this.IdUser = idUser;
+        Tournois = Ts.allTournoi();
+        actualise(Tournois);
+    }
+
+
     //*******************************************************************
     void actualise(List<Tournoi> tournois){
         if(tournois.size()-1-i*3>0){btnsuivant.setVisible(true);}
@@ -125,12 +150,12 @@ public class AfficherListeTournoisClientController {
     @FXML
     void retour(ActionEvent event) throws SQLException {
         i -=1;
-        actualise(Ts.allTournoi());}
+        actualise(Tournois);}
     //*******************************************************************************************
     @FXML
     void suivant(ActionEvent event) throws SQLException {
         i +=1;
-        actualise(Ts.allTournoi());}
+        actualise(Tournois);}
     //*******************************************************************************************
 
     //*******************************************************************************************
@@ -138,13 +163,14 @@ public class AfficherListeTournoisClientController {
     void detail1(ActionEvent event) throws IOException, SQLException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i;
-        Tournoi t = Ts.allTournoi().get(index);
+        Tournoi t = Tournois.get(index);
         incrementNbClick(t.getId());
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/DetailClient.fxml"));
         Parent root;
         root = loader.load();
         DetailClientController controller = loader.getController();
         controller.initData(t);
+        controller.SetIdUser(GetIdUser());
         Stage stage = new Stage();
         stage.setTitle("Détails Tournoi");
         stage.setScene(new Scene(root));
@@ -155,11 +181,12 @@ public class AfficherListeTournoisClientController {
     void detail2(ActionEvent event) throws IOException, SQLException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Tournoi selectedTournoi = Ts.allTournoi().get(index);
+        Tournoi selectedTournoi = Tournois.get(index);
         incrementNbClick(selectedTournoi.getId());
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/DetailClient.fxml"));
         Parent root = loader.load();
         DetailClientController controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
         controller.initData(selectedTournoi);
         Stage stage = new Stage();
         stage.setTitle("Détails du Tournoi");
@@ -171,11 +198,13 @@ public class AfficherListeTournoisClientController {
     void detail3(ActionEvent event) throws IOException, SQLException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Tournoi selectedTournoi = Ts.allTournoi().get(index);
+        Tournoi selectedTournoi = Tournois.get(index);
         incrementNbClick(selectedTournoi.getId());
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/DetailClient.fxml"));
+
         Parent root = loader.load();
         DetailClientController controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
         controller.initData(selectedTournoi);
         Stage stage = new Stage();
         stage.setTitle("Détails du Tournoi");
@@ -183,47 +212,39 @@ public class AfficherListeTournoisClientController {
         stage.show();
         ((Button) event.getSource()).getScene().getWindow().hide();}
 
-    @FXML
-    void calendar(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/Calender.fxml"));
-        Parent root = loader.load();
-        CalendarController controller = loader.getController();
-        Stage stage = new Stage();
-        stage.setTitle("Gestion_Tournoi");
-        stage.setScene(new Scene(root));
-        stage.show();
-        ((Button) event.getSource()).getScene().getWindow().hide();
-
-    }
+//    @FXML
+//    void calendar(ActionEvent event) throws IOException {
+//        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/Calender.fxml"));
+//        Parent root = loader.load();
+//        CalendarController controller = loader.getController();
+//        Stage stage = new Stage();
+//        stage.setTitle("Gestion_Tournoi");
+//        stage.setScene(new Scene(root));
+//        stage.show();
+//        ((Button) event.getSource()).getScene().getWindow().hide();
+//
+//    }
 
     @FXML
     void recherche(KeyEvent event) {
         String searchTerm = recherche.getText().trim();
-        try {
-            if (searchTerm.isEmpty()) {
-                // If search term is empty, display all tournaments
-                actualise(Ts.allTournoi());
-            } else {
-                // If search term is not empty, display searched tournaments
-                List<Tournoi> filteredList = searchTournoi(searchTerm);
-                actualise(filteredList);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (searchTerm.isEmpty()) {
+            // If search term is empty, display all tournaments
+            actualise(Tournois);
+        } else {
+            // If search term is not empty, display searched tournaments
+            List<Tournoi> filteredList = searchTournoi(searchTerm);
+            actualise(filteredList);
         }
     }
 
     // Method to search tournaments based on a search term
     private List<Tournoi> searchTournoi(String searchTerm) {
         List<Tournoi> filteredList = new ArrayList<>();
-        try {
-            for (Tournoi tournoi : Ts.allTournoi()) {
-                if (tournoi.getNom().toLowerCase().contains(searchTerm.toLowerCase())) {
-                    filteredList.add(tournoi);
-                }
+        for (Tournoi tournoi : Tournois) {
+            if (tournoi.getNom().toLowerCase().contains(searchTerm.toLowerCase())) {
+                filteredList.add(tournoi);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
         return filteredList;
     }
@@ -237,6 +258,19 @@ public class AfficherListeTournoisClientController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+UserService us = new UserService() ;
+    public void goToTournoiClient(ActionEvent actionEvent) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
+        Parent root = loader.load();
+        AcceuilController controller = loader.getController();
+        controller.setData(us.getByid(GetIdUser()));
+        Stage stage = new Stage();
+        stage.setTitle("Détails Tournoi");
+        stage.setScene(new Scene(root));
+        stage.show();
+
+
     }
 }
 

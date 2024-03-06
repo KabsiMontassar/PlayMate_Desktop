@@ -133,6 +133,21 @@ public class ReservationController implements Initializable {
 
     @FXML
     private VBox vbox3;
+
+
+
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
+
+
     //********************************************
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -143,22 +158,7 @@ public class ReservationController implements Initializable {
     }
 
 
-    @FXML
-    void chargerInterfaceSuppression(ActionEvent event) {
 
-        try {
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/SupprimerReservation.fxml"));
-            Parent root = (Parent) loader.load();
-
-
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-        }catch (Exception e){
-            System.out.println(e);
-        }
-    }
 
 
     public boolean verfierHeure(String horaire) {
@@ -222,17 +222,19 @@ public class ReservationController implements Initializable {
     public void ReserverTerrain(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/reserverTerrainVersion2.fxml"));
-            Parent root = (Parent) loader.load();
-
+            AnchorPane root = loader.load();
+            ReserverTerrainController c = loader.getController(); // Retrieve the controller
+            c.SetIdUser(GetIdUser());
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
+
 
     public void chercherAdversaire(ActionEvent actionEvent) {
 
@@ -240,7 +242,8 @@ public class ReservationController implements Initializable {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/chercherAdversaire.fxml"));
             Parent root = (Parent) loader.load();
 
-
+            ChercherAdversaireController c = loader.load();
+            c.SetIdUser(GetIdUser());
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -254,7 +257,8 @@ public class ReservationController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/LancerVous.fxml"));
             Parent root = (Parent) loader.load();
-
+            LancezVousController c = loader.load();
+            c.SetIdUser(GetIdUser());
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -335,6 +339,39 @@ public class ReservationController implements Initializable {
 
 
 
+    }
+
+    @FXML
+    void chargerInterfaceSuppression(ActionEvent event) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/SupprimerReservation.fxml"));
+            Parent root = (Parent) loader.load();
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+    public void chargerInterfaceHistorique(ActionEvent actionEvent) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/historique.fxml"));
+            Parent root = (Parent) loader.load();
+            HistoriqueController c = loader.load();
+            c.SetIdUser(GetIdUser());
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
 
