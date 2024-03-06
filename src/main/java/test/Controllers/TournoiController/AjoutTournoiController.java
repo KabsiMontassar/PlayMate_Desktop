@@ -19,6 +19,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.Tournoi;
 import services.GestionTournoi.ServiceTournoi;
+import test.Controllers.UserController.CAlert;
 import test.MainFx;
 
 import java.io.BufferedReader;
@@ -35,6 +36,7 @@ import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 import javafx.scene.web.WebEngine;
@@ -46,14 +48,27 @@ import org.json.JSONObject;
 
 public class AjoutTournoiController implements Initializable {
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
         errorLabel.setVisible(false);
         errorLabel2.setVisible(false);
         errorLabel3.setVisible(false);
         first = new ArrayList<>();
+
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         WebEngine webEngine = mapView.getEngine();
-        webEngine.load(MainFx.class.getResource("GestionTournoi/googlemaps.html").toExternalForm());
+        webEngine.load(Objects.requireNonNull(getClass().getResource("/test/GestionTournoi/googlemaps.html")).toExternalForm());
 
         // Enable JavaScript communication
         webEngine.getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
@@ -63,28 +78,22 @@ public class AjoutTournoiController implements Initializable {
             }
         });
     }
-
+CAlert c = new CAlert();
     public void handleSelectedLocation(double latitude, double longitude) {
         Platform.runLater(() -> {
             System.out.println("Selected Location: " + latitude + ", " + longitude);
             String placeName = getPlaceName(latitude, longitude);
+            System.out.println("Selected Montasar: " + latitude + ", " + longitude);
+
             String locationInfo = "";
             if (placeName != null && !placeName.isEmpty()) {
                 locationInfo += placeName + " ";
             }
             String address = locationInfo.substring(locationInfo.indexOf(' ')+1).trim();
-            if (!address.contains("Tunisia")) {
-                Alert alert;
-                alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Adresse Invalide");
-                alert.setHeaderText(null);
-                alert.setContentText("Tu peux pas Sélectionner une adresse en dehors de Tunisia");
-                alert.showAndWait();
-                return;
+            if(!address.contains("Tunisia")){
+                c.generateAlert("Warning","Invalid Address");
             }
             InputAddress.setText(address);
-
-            // You can perform any necessary actions with the received latitude, longitude, and placeName here
         });
     }
 
@@ -180,10 +189,18 @@ public class AjoutTournoiController implements Initializable {
 
 
     public void goToTournoi(ActionEvent actionEvent) throws IOException {
-
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
         AnchorPane root = loader.load();
+        FirstController controller = loader.getController(); // Retrieve the controller
+        controller.SetIdUser(GetIdUser());
+
         FormulaireRoot.getChildren().setAll(root);
+
+        Stage stage = new Stage();
+        stage.setTitle("Modifier");
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) actionEvent.getSource()).getScene().getWindow().hide();
     }
 
     public void initData(Tournoi tournoi) {
@@ -277,12 +294,14 @@ public class AjoutTournoiController implements Initializable {
 
         if (validateNombreEquipes() && validateNom() && validateDate()) {
             ServiceTournoi ts = new ServiceTournoi();
-            Tournoi tournoi = new Tournoi(Integer.parseInt(InputNombreéquipes.getText()), InputNom.getText(), imagePath, InputAddress.getText(), InputDateDébut.getText(), InputDateFin.getText(), 2);
+            Tournoi tournoi = new Tournoi(Integer.parseInt(InputNombreéquipes.getText()), InputNom.getText(), imagePath, InputAddress.getText(), InputDateDébut.getText(), InputDateFin.getText(), GetIdUser());
             ts.ajouter(tournoi);
             System.out.println(tournoi);
-            TournoiData.tournois.add(tournoi);
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
-            Parent root = loader.load();
+
+            AnchorPane root = loader.load();
+            FirstController controller = loader.load();
+            controller.SetIdUser(GetIdUser());
             Stage stage = new Stage();
             stage.setTitle("Gestion_Tournoi");
             stage.setScene(new Scene(root));

@@ -78,7 +78,15 @@ public class FirstController {
     @FXML
     private Text nom3;
 
+    private int IdUser;
 
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
     int i= 0;
     ServiceTournoi Ts = new ServiceTournoi();
     //*******************************************************************
@@ -278,6 +286,8 @@ public class FirstController {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/FormulaireTournoi.fxml"));
         Parent root = loader.load();
         AjoutTournoiController controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
+
         Stage stage = new Stage();
         stage.setTitle("Gestion_Tournoi");
         stage.setScene(new Scene(root));
@@ -286,6 +296,9 @@ public class FirstController {
 
 
     }
+
+
+
 
 
 }

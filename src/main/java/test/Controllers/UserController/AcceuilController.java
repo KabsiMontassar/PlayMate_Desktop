@@ -16,6 +16,8 @@ import services.GestionUser.UserService;
 import services.UserActivityLogger;
 import test.Controllers.ReservationController.ReservationController;
 import test.Controllers.TerrainController.PageTerrainController;
+import test.Controllers.TournoiController.AfficherListeTournoisClientController;
+import test.Controllers.TournoiController.FirstController;
 import test.MainFx;
 
 import javax.crypto.BadPaddingException;
@@ -29,6 +31,8 @@ public class AcceuilController {
     public Button retourbtn;
     public Button nextbtn;
     public Button btnReservation;
+    public Button btnOrganisateur;
+    public Button btnevenementPart;
     private User CurrentUser ;
     public AnchorPane Container;
     public Button sername;
@@ -55,8 +59,12 @@ public class AcceuilController {
         this.CurrentUser = u ;
         System.out.println(CurrentUser);
         if(CurrentUser.getRole() != Roles.Proprietaire_de_Terrain){
-            System.out.println(CurrentUser.getRole());
             VoirTerrain.setVisible(false);
+        }
+
+        if(CurrentUser.getRole() != Roles.Organisateur){
+
+            btnOrganisateur.setVisible(false);
         }
 
 
@@ -198,6 +206,53 @@ public class AcceuilController {
             AnchorPane root = loader.load();
 
             ReservationController ptg = loader.getController();
+
+
+            ptg.SetIdUser(us.getByEmail(CurrentUser.getEmail()).getId());
+            Container.getChildren().setAll(root);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException |
+                 BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void VoirOrganisateur(ActionEvent actionEvent) {
+
+        try {
+
+            UserService us = new UserService();
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
+            AnchorPane root = loader.load();
+
+            FirstController ptg = loader.getController();
+
+
+            ptg.SetIdUser(us.getByEmail(CurrentUser.getEmail()).getId());
+            Container.getChildren().setAll(root);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException |
+                 BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void evenementPart(ActionEvent actionEvent) {
+        try {
+
+            UserService us = new UserService();
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoiClient.fxml"));
+            AnchorPane root = loader.load();
+
+            AfficherListeTournoisClientController ptg = loader.getController();
 
 
             ptg.SetIdUser(us.getByEmail(CurrentUser.getEmail()).getId());

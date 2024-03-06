@@ -52,6 +52,18 @@ public class StatistiquesController {
         loadChartData();
     }
 
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
+
+
     private void loadChartData() throws SQLException {
 // Assurez-vous que la connexion à la base de données est configurée correctement
         String query = "SELECT COUNT(*) AS count FROM participation WHERE idTournoi = ?";

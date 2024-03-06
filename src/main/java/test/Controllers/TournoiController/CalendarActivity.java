@@ -7,6 +7,8 @@ public class CalendarActivity {
     private String clientName;
     private Integer serviceNo;
 
+
+
     public CalendarActivity(ZonedDateTime date, String clientName, Integer serviceNo) {
         this.date = date;
         this.clientName = clientName;
