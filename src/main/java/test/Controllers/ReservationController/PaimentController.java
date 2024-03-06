@@ -182,7 +182,7 @@ public class PaimentController implements Initializable {
     }
 
 
-    public void PaymentAPI(/*ActionEvent event*/) throws SQLException {
+    public void appelPaymentAPI(int prix) throws SQLException {
         PaymentAPI paymentAPI = new PaymentAPI();
         try {
         PaiementService paiementService = new PaiementService();
@@ -191,7 +191,7 @@ public class PaimentController implements Initializable {
             paiement = creerPaiment();
 
             // Initialise le paiement
-            String response = paymentAPI.initPayment(paiement);  // null
+            String response = paymentAPI.initPayment(paiement,prix);  // null
 
             // Récupère l'URL de paiement
             String payUrl = paymentAPI.extractPayUrlFromResponse(response);

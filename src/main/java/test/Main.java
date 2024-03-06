@@ -2,8 +2,10 @@ package test;
 
 import com.mailjet.client.errors.MailjetException;
 import models.Historique;
+import models.Terrain;
 import services.*;
 import services.GestionReservation.HistoriqueService;
+import services.GestionReservation.PaiementService;
 import services.GestionUser.UserService;
 
 import javax.crypto.BadPaddingException;
@@ -18,14 +20,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
 
-        HistoriqueService historiqueService = new HistoriqueService();
-        historiqueService.actualiserTableHistorique();
-        List<Historique> list = historiqueService.getAllHistorique();
-        for(Historique historique : list){
-            System.out.println(historique.toString());
-        }
-
-        }
+        PaiementService paiementService = new PaiementService();
+        Terrain terrain = paiementService.getTerrainByIdPayment(6);
+        System.out.println(terrain.toString());
+    }
 
 
 }

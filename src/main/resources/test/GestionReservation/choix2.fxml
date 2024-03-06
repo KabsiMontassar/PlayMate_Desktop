@@ -38,7 +38,7 @@
       <SplitMenuButton id="split-menu-button" mnemonicParsing="false" prefHeight="50.0" prefWidth="105.0" style="-fx-background-color: #4CAF50; -fx-text-fill: #02365C; -fx-border-color: #02365C; -fx-background-radius: 7px; -fx-border-radius: 10px; -fx-padding: 2px 8px;" stylesheets="splitMenuButton.css">
         <items>
           <MenuItem mnemonicParsing="false" text="parametre" />
-            <MenuItem mnemonicParsing="false" text="historique" />
+            <MenuItem mnemonicParsing="false" onAction="#chargerInterfaceHistorique" text="historique" />
             <MenuItem mnemonicParsing="false" onAction="#chargerInterfaceSuppression" text="Annulation" />
           <MenuItem mnemonicParsing="false" text="se déconnecter" />
         </items>

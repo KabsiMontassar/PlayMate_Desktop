@@ -93,7 +93,17 @@ public class ReserverTerrainController implements Initializable {
     private ComboBox<String> filterchoice;
 
 // montaaaaaaaaaaaasar a3tini id user
-    private int idUser ;
+
+
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
 
     public void initialize(URL location, ResourceBundle resources) {
         horaireInvalides.setVisible(false);
@@ -209,7 +219,7 @@ public class ReserverTerrainController implements Initializable {
                         int dernieridReservationAjouter = reservationService1.getLastIdReservationAddRecently();
                         PaimentController paimentController = new PaimentController();
                         paimentController.SetIdReservation(dernieridReservationAjouter);
-                        paimentController.PaymentAPI();
+                        paimentController.appelPaymentAPI(terrain.getPrix());
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }

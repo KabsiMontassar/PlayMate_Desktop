@@ -1,6 +1,8 @@
 package services.GestionReservation;
 
+import models.Historique;
 import models.Paiement;
+import models.Terrain;
 import utils.MyDatabase;
 
 import java.sql.Connection;
@@ -60,5 +62,19 @@ public class PaiementService {
         }
 
         return lastIdPayment;
+    }
+    public Terrain getTerrainByIdPayment(int idPayement) throws SQLException {
+        Terrain terrain = new Terrain();
+        String query = "SELECT terrain.* FROM payment JOIN reservation ON payment.idReservation = reservation.idReservation JOIN terrain ON reservation.idTerrain = terrain.id WHERE payment.idPayment = ? ;";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, idPayement);
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            terrain.setId(rs.getInt("id"));
+            terrain.setNomTerrain(rs.getString("nomTerrain"));
+            terrain.setPrix(rs.getInt("prix"));
+        }
+        return terrain;
     }
 }

@@ -173,7 +173,7 @@ public class ChercherAdversaireController implements Initializable {
                         int dernieridReservationAjouter = reservationService.getLastIdReservationAddRecently();
                         PaimentController paimentController = new PaimentController();
                         paimentController.SetIdReservation(dernieridReservationAjouter);
-                        paimentController.PaymentAPI();
+                        paimentController.appelPaymentAPI(terrain.getPrix());
 
 
                     } catch (SQLException e) {

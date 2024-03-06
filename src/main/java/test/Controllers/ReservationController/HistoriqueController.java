@@ -41,26 +41,31 @@ public class HistoriqueController implements Initializable {
     @FXML
     private VBox vboxHistorique;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        try {
-            afficherHistoriquePourAdmin();
-            //afficherHistorique(this.GetIdUser());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-//    ***************************************************************************    REQUIRES : ****************
+    //    ***************************************************************************    REQUIRES : ****************
+
     private int IdUser;
     public void SetIdUser(int idUser) {
         this.IdUser = idUser;
     }
     public int GetIdUser() {
-          return  36 ;                            /*****************         36         ****************** */
+        return  36 ;                            /*****************         36         ****************** */
         //return this.IdUser;
     }
     // *************************************************************************** ****************************
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        try {
+            //afficherHistoriquePourAdmin();
+            afficherHistorique(this.GetIdUser());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void  afficherHistorique(int idJoueur) throws SQLException {
 
         HistoriqueService historiqueService = new HistoriqueService();
@@ -285,13 +290,6 @@ public class HistoriqueController implements Initializable {
 
 
             });
-
-
-
-
-
-
-
             hBox.setSpacing(10);
 
 
