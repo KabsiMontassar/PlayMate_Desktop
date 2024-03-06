@@ -7,17 +7,27 @@ public class Product {
     private int prix;
     private String image;
     private int categorie;
+    private int idfournisseur;
     private int nbcategorie;
     public Product() {
     }
 
-    public Product(int id, String nom, String description, int prix, String image, int categorie) {
+    public Product(int id, String nom, String description, int prix, String image, int categorie,int idfournisseur) {
         this.id = id;
         this.nom = nom;
         this.description = description;
         this.prix = prix;
         this.image = image;
         this.categorie = categorie;
+        this.idfournisseur=idfournisseur;
+    }
+
+    public int getIdfournisseur() {
+        return idfournisseur;
+    }
+
+    public void setIdfournisseur(int idfournisseur) {
+        this.idfournisseur = idfournisseur;
     }
 
     public int getNbcategorie() {
@@ -53,6 +63,15 @@ public class Product {
         this.prix = prix;
         this.image = image;
         this.categorie = categorie;
+    }
+
+    public Product( String nom, String description, int prix, String image, int categorie,int idfournisseur) {
+        this.nom = nom;
+        this.description = description;
+        this.prix = prix;
+        this.image = image;
+        this.categorie = categorie;
+        this.idfournisseur=idfournisseur;
     }
 
 

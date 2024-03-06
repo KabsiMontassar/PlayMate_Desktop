@@ -17,13 +17,15 @@ public class ProductService implements IService<Product> {
 
     @Override
     public void add(Product product) throws SQLException {
-        String sql = "insert into product (nom,description,prix,image,categorie) VALUES (?,?,?,?,?)";
+        String sql = "insert into product (idfournisseur,nom,description,prix,image,categorie) VALUES (?,?,?,?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        preparedStatement.setString(1, product.getNom());
-        preparedStatement.setString(2, product.getDescription());
-        preparedStatement.setInt(3, product.getPrix());
-        preparedStatement.setString(4, product.getImage());
-        preparedStatement.setInt(5,product.getCategorie());
+        preparedStatement.setInt(1,product.getIdfournisseur());
+        preparedStatement.setString(2, product.getNom());
+        preparedStatement.setString(3, product.getDescription());
+        preparedStatement.setInt(4, product.getPrix());
+        preparedStatement.setString(5, product.getImage());
+        preparedStatement.setInt(6,product.getCategorie());
+
         preparedStatement.executeUpdate();
     }
 
@@ -63,6 +65,7 @@ public class ProductService implements IService<Product> {
             u.setPrix(rs.getInt("prix"));
             u.setImage(rs.getString("image"));
             u.setCategorie(rs.getInt("categorie"));
+            u.setIdfournisseur(rs.getInt("idfournisseur"));
             products.add(u);
         }
         return products;
@@ -73,7 +76,7 @@ public class ProductService implements IService<Product> {
         String sql = "select * from product WHERE idfournisseur  = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, id);
-        ResultSet rs = preparedStatement.executeQuery(sql);
+        ResultSet rs = preparedStatement.executeQuery();
         List<Product> products = FXCollections.observableArrayList();
         while (rs.next()) {
             Product u = new Product();
@@ -83,6 +86,7 @@ public class ProductService implements IService<Product> {
             u.setPrix(rs.getInt("prix"));
             u.setImage(rs.getString("image"));
             u.setCategorie(rs.getInt("categorie"));
+            u.setIdfournisseur(rs.getInt("idfournisseur"));
             products.add(u);
         }
         return products;
