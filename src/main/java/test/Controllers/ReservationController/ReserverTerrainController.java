@@ -46,8 +46,9 @@ import test.MainFx;
 import static models.TypeReservation.ReserverTerrainPourEquipe;
 
 public class ReserverTerrainController implements Initializable {
-
-//((Stage) actionevent.getScene().getWindow()).hide();
+    public ReserverTerrainController() {
+    }
+    //((Stage) actionevent.getScene().getWindow()).hide();
 
     @FXML
     private VBox Vbox1;
@@ -372,9 +373,10 @@ public class ReserverTerrainController implements Initializable {
     public void ActualiserLaPageReservation(ActionEvent actionEvent) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/reserverTerrainVersion2.fxml"));
-            Parent root = (Parent) loader.load();
+            Parent root = loader.load();
 
-            ReserverTerrainController C  = loader.load();
+            ReserverTerrainController C = loader.getController();
+
             C.SetIdUser(GetIdUser());
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -383,8 +385,8 @@ public class ReserverTerrainController implements Initializable {
         }catch (Exception e){
             System.out.println(e);
         }
-    }
-}
+    }}
+
 
 
 //    public void  showTerrains() throws SQLException {

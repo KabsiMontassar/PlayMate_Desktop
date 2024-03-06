@@ -219,21 +219,33 @@ public class ReservationController implements Initializable {
 
     }
 
+    @FXML
+    private AnchorPane anchroChoix2;
+
+
     public void ReserverTerrain(ActionEvent actionEvent) {
         try {
 //            System.out.println("l id avant avec yhis; "+this.GetIdUser());
 //            System.out.println("l id avant avec id; "+this.IdUser);
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/reserverTerrainVersion2.fxml"));
             AnchorPane root = loader.load();
+<<<<<<< Updated upstream
             ReserverTerrainController c = loader.getController();
             c.SetIdUser(this.GetIdUser());
 
+=======
+            ReserverTerrainController c = loader.getController(); // Retrieve the controller
+            c.SetIdUser(GetIdUser());
+>>>>>>> Stashed changes
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
+<<<<<<< Updated upstream
             System.out.println("ID utilisateur après SetIdUser: " + c.GetIdUser());
+=======
+>>>>>>> Stashed changes
         } catch (Exception e) {
             System.out.println(e);
         }
