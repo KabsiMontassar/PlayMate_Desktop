@@ -17,7 +17,7 @@
                     <Font name="Roboto Bold" size="35.0" />
                 </font>
             </Text>
-         <Button fx:id="btnCalendar" contentDisplay="CENTER" layoutX="48.0" layoutY="87.0" mnemonicParsing="false" onAction="#calendar" prefHeight="38.0" prefWidth="164.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Calendrier" textAlignment="CENTER" textFill="WHITE">
+         <Button fx:id="btnCalendar" contentDisplay="CENTER" layoutX="48.0" layoutY="87.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="164.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Calendrier" textAlignment="CENTER" textFill="WHITE">
             <font>
                <Font size="15.0" />
             </font>

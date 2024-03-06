@@ -222,18 +222,19 @@ public class ReservationController implements Initializable {
     public void ReserverTerrain(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/reserverTerrainVersion2.fxml"));
-            Parent root = (Parent) loader.load();
-            ReserverTerrainController c = loader.load();
+            AnchorPane root = loader.load();
+            ReserverTerrainController c = loader.getController(); // Retrieve the controller
             c.SetIdUser(GetIdUser());
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
     }
+
 
     public void chercherAdversaire(ActionEvent actionEvent) {
 

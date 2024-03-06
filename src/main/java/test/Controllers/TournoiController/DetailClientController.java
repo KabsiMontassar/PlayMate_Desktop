@@ -28,6 +28,18 @@ import java.util.ResourceBundle;
 
 public class DetailClientController implements Initializable {
 
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btparticiper.setVisible(false);
@@ -79,10 +91,12 @@ public class DetailClientController implements Initializable {
 
 
     @FXML
-    public void goToTournoiClient(ActionEvent actionEvent) throws IOException {
+    public void goToTournoiClient(ActionEvent actionEvent) throws IOException, SQLException {
 
 
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoiClient.fxml"));
+        AfficherListeTournoisClientController controller = loader.load();
+        controller.SetIdUser(GetIdUser());
         AnchorPane root = loader.load();
         detailroot.getChildren().setAll(root);
     }
@@ -127,6 +141,8 @@ public class DetailClientController implements Initializable {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/Participation.fxml"));
         AnchorPane root = loader.load();
         ParticipationController controller = loader.getController();
+
+        controller.SetIdUser(GetIdUser());
         controller.initData(tournoiActuel);
         detailroot.getChildren().setAll(root);
 

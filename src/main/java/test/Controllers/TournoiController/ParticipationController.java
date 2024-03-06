@@ -34,6 +34,16 @@ public class ParticipationController implements Initializable {
 
 
     }
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
 
 
     @FXML
