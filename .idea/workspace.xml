@@ -4,29 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="choicebox reser">
+    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="update payment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/PaymentAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/PaymentAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionReservation/PaiementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionReservation/PaiementService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ChercherAdversaireController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ChercherAdversaireController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/HistoriqueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/HistoriqueController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/BlackListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/BlackListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/CreerMatch.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/LancezVousController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/LancezVousController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/PaimentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/PaimentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReserverTerrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReserverTerrainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/MainFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/MainFx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/choix2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/choix2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/PaymentAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/PaymentAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/HistoriqueController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/HistoriqueController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/PaimentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/PaimentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReserverTerrainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReserverTerrainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionReservation/BlackList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionReservation/BlackList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionReservation/chercherAdversaire.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionReservation/chercherAdversaire.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionReservation/choix2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionReservation/choix2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionReservation/reserverTerrainVersion2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionReservation/reserverTerrainVersion2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionReservation/test2.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionReservation/test2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionReservation/PaiementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionReservation/PaiementService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ChercherAdversaireController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ChercherAdversaireController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/LancezVousController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/LancezVousController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReservationController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709677750608</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update payment">
+      <option name="closed" value="true" />
+      <created>1709684483631</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709684483631</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +211,7 @@
     <MESSAGE value="modification reservation pdf .. et debut blackliste" />
     <MESSAGE value="jeu playmate bien" />
     <MESSAGE value="choicebox reser" />
-    <option name="LAST_COMMIT_MESSAGE" value="choicebox reser" />
+    <MESSAGE value="update payment" />
+    <option name="LAST_COMMIT_MESSAGE" value="update payment" />
   </component>
 </project>

@@ -42,6 +42,16 @@ public class BlackListController implements Initializable {
     private VBox vboxSupprimerBlackListe;
     @FXML
     private VBox vboxAfficherrBlackListe1;
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
