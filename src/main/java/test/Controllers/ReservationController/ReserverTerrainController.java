@@ -92,7 +92,7 @@ public class ReserverTerrainController implements Initializable  {
     private TextField heure;
 
     @FXML
-    private ComboBox<String> filterchoice = new ComboBox<>();
+    private ComboBox<String> filterchoice = new ComboBox<>(FXCollections.observableArrayList("prix", "duree"));
 
 // montaaaaaaaaaaaasar a3tini id user
 
@@ -102,20 +102,29 @@ public class ReserverTerrainController implements Initializable  {
 
     public void SetIdUser(int idUser) throws SQLException {
 
-        String[] nom = nomEquipes(idUser);
-        nom_equipe.getItems().addAll(nom);
+
         this.IdUser = idUser;
     }
     public int GetIdUser() {
-        return this.IdUser;
+        return 37;
     }
 
    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        horaireInvalides.setVisible(false);
-        dateInvalide.setVisible(false);
-        nomEquipeInvalide.setVisible(false);
-        filterchoice.setItems(FXCollections.observableArrayList("prix","duree"));
+       horaireInvalides.setVisible(false);
+       dateInvalide.setVisible(false);
+       nomEquipeInvalide.setVisible(false);
+
+
+       String[] nom = new String[0];
+       try {
+           nom = nomEquipes(this.GetIdUser());
+       } catch (SQLException e) {
+           throw new RuntimeException(e);
+       }
+       nom_equipe.getItems().addAll(nom);
+
+       filterchoice.setItems(FXCollections.observableArrayList("prix","duree"));
 
     }
     //     ------------------------------------------------------------   idUser

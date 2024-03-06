@@ -67,12 +67,8 @@ public class ChercherAdversaireController implements Initializable {
     private int IdUser;
 
     public void SetIdUser(int idUser) {
-        String[] nom = nomEquipes(idUser);
-        nom_equipe.getItems().addAll(nom);
+
         this.IdUser = idUser;
-    }
-    public int GetIdUser() {
-        return this.IdUser;
     }
 
 
@@ -81,18 +77,20 @@ public class ChercherAdversaireController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         nomEquipeInvalide.setVisible(false);
+        String[] nom = nomEquipes();
+        nom_equipe.getItems().addAll(nom);
 
 
 
     }
 
-    public String[] nomEquipes(int idUser) {
+    public String[] nomEquipes() {
         EquipeService equipeService = new EquipeService();
         // *********************************************************************************************
-        //                                                 monta heeeet numro hatit 7
+        //
         // *****************************************************************************************
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(idUser);
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(this.GetIdUser());
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
@@ -115,6 +113,9 @@ public class ChercherAdversaireController implements Initializable {
             VoirReservation.setVisible(false);
             showReservation();
         }
+    }
+    public int GetIdUser() {
+        return 37;
     }
 
     public void showReservation() throws SQLException {
