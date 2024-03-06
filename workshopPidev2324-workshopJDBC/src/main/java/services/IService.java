@@ -14,4 +14,5 @@ public interface IService<T> {
     List<T> getAll() throws SQLException;
     
     T getById(int id) throws  SQLException;
+
 }
