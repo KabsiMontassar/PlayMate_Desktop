@@ -46,8 +46,9 @@ import test.MainFx;
 import static models.TypeReservation.ReserverTerrainPourEquipe;
 
 public class ReserverTerrainController implements Initializable {
-
-//((Stage) actionevent.getScene().getWindow()).hide();
+    public ReserverTerrainController() {
+    }
+    //((Stage) actionevent.getScene().getWindow()).hide();
 
     @FXML
     private VBox Vbox1;
@@ -98,7 +99,6 @@ public class ReserverTerrainController implements Initializable {
     private int IdUser;
 
     public void SetIdUser(int idUser) {
-
         this.IdUser = idUser;
     }
     public int GetIdUser() {
@@ -119,10 +119,10 @@ public class ReserverTerrainController implements Initializable {
     //     ------------------------------------------------------------   idUser
     public String[] nomEquipes(){
         EquipeService equipeService = new EquipeService();
-        // *********************************************************************************************
-        //                                                 monta heeeet numro hatit 7
+
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(GetIdUser());
+            System.out.println("dans la class res ter con avec this "+this.GetIdUser()+" avec id"+this.IdUser);
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(36);
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
@@ -373,9 +373,10 @@ public class ReserverTerrainController implements Initializable {
     public void ActualiserLaPageReservation(ActionEvent actionEvent) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/reserverTerrainVersion2.fxml"));
-            Parent root = (Parent) loader.load();
+            Parent root = loader.load();
 
-            ReserverTerrainController C  = loader.load();
+            ReserverTerrainController C = loader.getController();
+
             C.SetIdUser(GetIdUser());
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -384,8 +385,8 @@ public class ReserverTerrainController implements Initializable {
         }catch (Exception e){
             System.out.println(e);
         }
-    }
-}
+    }}
+
 
 
 //    public void  showTerrains() throws SQLException {

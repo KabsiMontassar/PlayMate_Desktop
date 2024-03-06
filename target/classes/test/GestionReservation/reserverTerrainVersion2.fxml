@@ -72,7 +72,7 @@
                   <Font name="Arial Black" size="19.0" />
                </font>
             </Label>
-            <ComboBox fx:id="filterchoice" layoutX="508.0" layoutY="106.0" prefWidth="150.0" />
+            <ComboBox fx:id="filterBox" layoutX="508.0" layoutY="106.0" prefWidth="150.0" />
             </children>
          <stylesheets>
             <URL value="@ReserveTerrain.css" />
@@ -80,7 +80,7 @@
             <URL value="@button.css" />
          </stylesheets>
         </AnchorPane>
-        <HBox layoutX="624.0" layoutY="35.0" prefHeight="46.0" prefWidth="528.0" spacing="10">
+        <HBox layoutX="624.0" layoutY="35.0" prefHeight="63.0" prefWidth="528.0" spacing="10">
             <children>
                 <Button fx:id="buttonAccueil" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Accueil" textFill="#02365c">
                     <font>
