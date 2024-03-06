@@ -9,5 +9,8 @@
         <module name="workshoppidev" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="pidev_spartans_3a29" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
