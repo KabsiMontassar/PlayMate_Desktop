@@ -400,6 +400,9 @@ UserService us = new UserService();
 
     }
 
+    public void jouerPlaymate(ActionEvent actionEvent) {
+    }
+
 
 
 /*
