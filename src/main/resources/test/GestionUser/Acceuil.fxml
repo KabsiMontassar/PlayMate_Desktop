@@ -93,7 +93,7 @@
                <Font name="System Bold" size="15.0" />
             </font>
          </Button>
-         <Button fx:id="voirProduit" layoutX="210.0" layoutY="59.0" mnemonicParsing="false" onAction="#voirFournisseur" style="-fx-background-color: #EFECEC;" text="Voir Terrain">
+         <Button fx:id="voirProduit" layoutX="210.0" layoutY="59.0" mnemonicParsing="false" onAction="#voirFournisseur" style="-fx-background-color: #EFECEC;" text="voir Produit">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>

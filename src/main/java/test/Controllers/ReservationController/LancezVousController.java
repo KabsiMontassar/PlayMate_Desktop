@@ -69,10 +69,10 @@ public class LancezVousController implements Initializable {
     private Label nomEquipeInvalide1;
 
     @FXML
-    private ChoiceBox<String> nom_equipe;
+    private ChoiceBox<String> nom_equipe = new ChoiceBox<>();
 
     @FXML
-    private ChoiceBox<String> nom_equipe2;
+    private ChoiceBox<String> nom_equipe2 = new ChoiceBox<>();
     @FXML
     private VBox Vbox1;
 
@@ -87,7 +87,10 @@ public class LancezVousController implements Initializable {
     private int IdUser;
 
     public void SetIdUser(int idUser) {
+        String[] nom = nomEquipes(idUser);
 
+        nom_equipe.getItems().addAll(nom);
+        nom_equipe2.getItems().addAll(nom);
         this.IdUser = idUser;
     }
     public int GetIdUser() {
@@ -103,10 +106,7 @@ public class LancezVousController implements Initializable {
         dateInvalide.setVisible(false);
         horaireInvalides.setVisible(false);
 
-        String[] nom = nomEquipes();
 
-        nom_equipe.getItems().addAll(nom);
-        nom_equipe2.getItems().addAll(nom);
     }
 
 
@@ -124,12 +124,12 @@ public class LancezVousController implements Initializable {
 
     //*********************************************************************
 
-    public String[] nomEquipes(){
+    public String[] nomEquipes(int idUser){
         EquipeService equipeService = new EquipeService();
         // *********************************************************************************************
         //                                                 monta heeeet numro hatit 7
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(GetIdUser());     /*this.GetIdUser()*/
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(idUser);     /*this.GetIdUser()*/
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;

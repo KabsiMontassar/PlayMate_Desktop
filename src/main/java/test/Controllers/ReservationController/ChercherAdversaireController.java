@@ -59,15 +59,16 @@ public class ChercherAdversaireController implements Initializable {
     private Button buttonReservation;
 
     @FXML
-    private ChoiceBox<String> nom_equipe;
+    private ChoiceBox<String> nom_equipe = new ChoiceBox<>();
     /*
-                                    // montaaaaaaaaaaaasar a3tini id user
+
 
      */
     private int IdUser;
 
     public void SetIdUser(int idUser) {
-
+        String[] nom = nomEquipes(idUser);
+        nom_equipe.getItems().addAll(nom);
         this.IdUser = idUser;
     }
     public int GetIdUser() {
@@ -80,19 +81,18 @@ public class ChercherAdversaireController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         nomEquipeInvalide.setVisible(false);
-        String[] nom = nomEquipes();
-        nom_equipe.getItems().addAll(nom);
+
 
 
     }
 
-    public String[] nomEquipes() {
+    public String[] nomEquipes(int idUser) {
         EquipeService equipeService = new EquipeService();
         // *********************************************************************************************
         //                                                 monta heeeet numro hatit 7
         // *****************************************************************************************
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(GetIdUser());
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(idUser);
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;

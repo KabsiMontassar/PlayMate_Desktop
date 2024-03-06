@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchroChoix2" maxHeight="720.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@test2.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.Controllers.ReservationController.ReservationController">
+<AnchorPane fx:id="anchroChoix2" maxHeight="720.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@test2.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.Controllers.ReservationController.ReservationController">
  <HBox layoutX="503.0" layoutY="55.0" prefHeight="56.0" prefWidth="572.0" spacing="10" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="45.0">
      <Button fx:id="buttonAccueil" prefHeight="50.0" prefWidth="105.0" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Accueil" textFill="#02365c">
          <font>
@@ -38,7 +38,7 @@
       <SplitMenuButton id="split-menu-button" mnemonicParsing="false" prefHeight="50.0" prefWidth="105.0" style="-fx-background-color: #4CAF50; -fx-text-fill: #02365C; -fx-border-color: #02365C; -fx-background-radius: 7px; -fx-border-radius: 10px; -fx-padding: 2px 8px;" stylesheets="splitMenuButton.css">
         <items>
           <MenuItem mnemonicParsing="false" text="parametre" />
-            <MenuItem mnemonicParsing="false" text="historique" />
+            <MenuItem mnemonicParsing="false" onAction="#chargerInterfaceHistorique" text="historique" />
             <MenuItem mnemonicParsing="false" onAction="#chargerInterfaceSuppression" text="Annulation" />
           <MenuItem mnemonicParsing="false" text="se déconnecter" />
         </items>
