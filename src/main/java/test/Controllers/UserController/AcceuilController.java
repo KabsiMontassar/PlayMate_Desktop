@@ -14,6 +14,7 @@ import models.Roles;
 import models.User;
 import services.GestionUser.UserService;
 import services.UserActivityLogger;
+import test.Controllers.ReservationController.ReservationController;
 import test.Controllers.TerrainController.PageTerrainController;
 import test.MainFx;
 
@@ -27,6 +28,7 @@ import java.util.Arrays;
 public class AcceuilController {
     public Button retourbtn;
     public Button nextbtn;
+    public Button btnReservation;
     private User CurrentUser ;
     public AnchorPane Container;
     public Button sername;
@@ -185,7 +187,31 @@ public class AcceuilController {
             throw new RuntimeException(e);
         }
     }
+
+    public void Toreservation(ActionEvent actionEvent) {
+
+        try {
+
+            UserService us = new UserService();
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/choix2.fxml"));
+            AnchorPane root = loader.load();
+
+            ReservationController ptg = loader.getController();
+
+
+            ptg.SetIdUser(us.getByEmail(CurrentUser.getEmail()).getId());
+            Container.getChildren().setAll(root);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException |
+                 BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
     }
+}
 
 
 

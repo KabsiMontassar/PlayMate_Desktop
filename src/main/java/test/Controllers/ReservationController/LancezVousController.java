@@ -129,7 +129,7 @@ public class LancezVousController implements Initializable {
         // *********************************************************************************************
         //                                                 monta heeeet numro hatit 7
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(37);     /*this.GetIdUser()*/
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(GetIdUser());     /*this.GetIdUser()*/
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
@@ -359,7 +359,8 @@ public class LancezVousController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/reserverTerrainVersion2.fxml"));
             Parent root = (Parent) loader.load();
-
+            LancezVousController c = loader.load();
+            c.SetIdUser(GetIdUser());
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();

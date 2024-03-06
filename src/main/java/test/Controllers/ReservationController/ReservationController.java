@@ -223,7 +223,8 @@ public class ReservationController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/reserverTerrainVersion2.fxml"));
             Parent root = (Parent) loader.load();
-
+            ReserverTerrainController c = loader.load();
+            c.SetIdUser(GetIdUser());
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -240,7 +241,8 @@ public class ReservationController implements Initializable {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/chercherAdversaire.fxml"));
             Parent root = (Parent) loader.load();
 
-
+            ChercherAdversaireController c = loader.load();
+            c.SetIdUser(GetIdUser());
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -254,7 +256,8 @@ public class ReservationController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/LancerVous.fxml"));
             Parent root = (Parent) loader.load();
-
+            LancezVousController c = loader.load();
+            c.SetIdUser(GetIdUser());
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -358,7 +361,8 @@ public class ReservationController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/historique.fxml"));
             Parent root = (Parent) loader.load();
-
+            HistoriqueController c = loader.load();
+            c.SetIdUser(GetIdUser());
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();

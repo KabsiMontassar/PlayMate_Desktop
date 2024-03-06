@@ -47,7 +47,7 @@ import static models.TypeReservation.ReserverTerrainPourEquipe;
 
 public class ReserverTerrainController implements Initializable {
 
-
+//((Stage) actionevent.getScene().getWindow()).hide();
 
     @FXML
     private VBox Vbox1;
@@ -122,7 +122,7 @@ public class ReserverTerrainController implements Initializable {
         // *********************************************************************************************
         //                                                 monta heeeet numro hatit 7
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(36);
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(GetIdUser());
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
@@ -358,7 +358,7 @@ public class ReserverTerrainController implements Initializable {
             Parent root = (Parent) loader.load();
             PaimentController paimentController = loader.getController();
             paimentController.SetIdReservation(idReservation);
-            paimentController.SetIdUser(idUser); ;
+            paimentController.SetIdUser(idUser);
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -375,7 +375,8 @@ public class ReserverTerrainController implements Initializable {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/reserverTerrainVersion2.fxml"));
             Parent root = (Parent) loader.load();
 
-
+            ReserverTerrainController C  = loader.load();
+            C.SetIdUser(GetIdUser());
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
