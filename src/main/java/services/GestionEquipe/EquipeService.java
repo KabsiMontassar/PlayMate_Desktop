@@ -5,6 +5,7 @@ import models.Joueur;
 
 import utils.MyDatabase;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -72,6 +73,8 @@ public class EquipeService {
                     // Set other member attributes as needed
                     membres.add(membre);
                 }
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         }
         return membres;

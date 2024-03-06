@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="StatsTournoi" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #C4CCD1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.Controllers.TournoiController.StatistiquesController">
+    <children>
+        <AnchorPane layoutX="50.0" layoutY="70.0" prefHeight="620.0" prefWidth="1180.0" style="-fx-background-color: #033E6A; -fx-background-radius: 30;">
+            <children>
+                <AnchorPane layoutX="98.0" layoutY="54.0" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #EDEDED; -fx-background-radius: 10;">
+                    <children>
+                        <Text fx:id="nbrvisite" layoutX="64.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de visite" wrappingWidth="212.525390625">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="98.0" layoutY="150.0" prefHeight="70.0" prefWidth="300.0" style="-fx-background-color: #EDEDED; -fx-background-radius: 10;">
+                    <children>
+                        <Text fx:id="nbrparticipations" layoutX="38.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de participations">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+            <BarChart fx:id="chart" layoutX="467.0" layoutY="102.0" prefHeight="475.0" prefWidth="667.0" style="-fx-background-color: white;" title="Statistiques du Tournoi">
+              <xAxis>
+                <CategoryAxis fx:id="nom1" label="Nom du tournoi" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis label="Statistiques" side="LEFT" />
+              </yAxis>
+            </BarChart>
+            </children>
+        </AnchorPane>
+        <Text layoutX="234.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tableau de bord de gestion des Tournois" textAlignment="CENTER" wrappingWidth="812.13671875">
+            <font>
+                <Font name="System Bold" size="29.0" />
+            </font>
+            <fill>
+                <LinearGradient endX="1.0" endY="0.18957345971563977" startY="0.8009478672985783">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.24671052396297455" green="0.9868420958518982" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.0117647061124444" green="0.24313725531101227" blue="0.4156862795352936" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Text>
+        <Button fx:id="btnRetour" layoutX="32.0" layoutY="20.0" mnemonicParsing="false" onAction="#retour" prefHeight="29.0" prefWidth="110.0" style="-fx-background-color: transparent; -fx-border-color: #033e6a; -fx-border-radius: 5;" text="Retour" textFill="#033e6a">
+            <font>
+                <Font name="System Bold" size="13.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

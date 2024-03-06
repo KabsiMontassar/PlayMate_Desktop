@@ -8,7 +8,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import models.AvisTerrain;
 import models.Terrain;
+import models.User;
 import services.GestionTerrain.AvisService;
+import services.GestionUser.UserService;
 
 import java.sql.SQLException;
 
@@ -30,6 +32,16 @@ public class DonnerAvisController {
     @FXML
     private Button submitbt;
     private int terrainId;
+
+
+    UserService us = new UserService();
+    private  User CurrentUser  ;
+
+    public  void setData(User u){
+        this.CurrentUser = u;
+    }
+    //**
+
     //*******************************************************************************************
     @FXML
     public void initialize() {

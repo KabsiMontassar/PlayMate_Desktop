@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -28,8 +29,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -37,6 +40,8 @@ import java.util.regex.Pattern;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import netscape.javascript.JSObject;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AjoutTournoiController implements Initializable {
@@ -68,6 +73,15 @@ public class AjoutTournoiController implements Initializable {
                 locationInfo += placeName + " ";
             }
             String address = locationInfo.substring(locationInfo.indexOf(' ')+1).trim();
+            if (!address.contains("Tunisia")) {
+                Alert alert;
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Adresse Invalide");
+                alert.setHeaderText(null);
+                alert.setContentText("Tu peux pas Sélectionner une adresse en dehors de Tunisia");
+                alert.showAndWait();
+                return;
+            }
             InputAddress.setText(address);
 
             // You can perform any necessary actions with the received latitude, longitude, and placeName here
@@ -192,22 +206,35 @@ public class AjoutTournoiController implements Initializable {
         String dateFinText = InputDateFin.getText();
 
         try {
-
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate dateDebut = LocalDate.parse(dateDebutText, formatter);
             LocalDate dateFin = LocalDate.parse(dateFinText, formatter);
 
+            // Vérifiez si la date de début est après la date de fin
             if (dateDebut.isAfter(dateFin)) {
-               errorLabel.setVisible(true);
-                return  false ;
-            } else {
-                errorLabel.setVisible(false);
-                return  true ;
+                errorLabel.setText("La date de début doit être avant la date de fin.");
+                errorLabel.setVisible(true);
+                return false;
             }
+
+            // Calculez la différence en jours entre la date de début et la date de fin
+            long daysBetween = ChronoUnit.DAYS.between(dateDebut, dateFin);
+
+            // Vérifiez si la différence est supérieure à 30 jours
+            if (daysBetween > 30) {
+                errorLabel.setText("La différence entre les dates ne doit pas dépasser 30 jours.");
+                errorLabel.setVisible(true);
+                return false;
+            }
+
+            // Si toutes les validations sont réussies
+            errorLabel.setVisible(false);
+            return true;
+
         } catch (DateTimeParseException e) {
+            errorLabel.setText("Format sous la forme dd/mm/aaaa svp.");
             errorLabel.setVisible(true);
-            errorLabel.setText("Format sous la forme dd/mm/aaaa svp .");
-            return false ;
+            return false;
         }
     }
 

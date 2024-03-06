@@ -32,11 +32,6 @@
             <artifactId>okhttp</artifactId>
             <version>4.9.3</version>
         </dependency>
-
-
-
-
-
         <dependency>
             <groupId>com.mailjet</groupId>
             <artifactId>mailjet-client</artifactId>

@@ -8,12 +8,9 @@ module test {
     requires java.sql;
     requires sinch.sdk.java;
     requires mailjet.client;
-   // requires com.mailjet.api;
+
     requires javax.mail.api;
-    //requires com.google.api.client;
-    //requires com.google.api.client.json.gson;
-   // requires google.api.services.gmail.v1.rev110;
-  //  requires google.api.client;
+
     requires org.apache.commons.codec;
     requires javafx.web;
 
@@ -25,8 +22,7 @@ module test {
     requires jdk.jsobject;
     requires java.net.http;
     requires com.google.auth.oauth2;
-   // requires sendgrid.java;
-   // requires java.http.client;
+
     requires google.api.services.gmail.v1.rev110;
     requires twilio;
     requires com.fasterxml.jackson.core;
@@ -44,6 +40,7 @@ module test {
     requires fastjson;
     requires org.apache.httpcomponents.httpclient;
     requires org.apache.httpcomponents.httpcore;
+ //   requires mail;
     // requires java.http.client;
     opens test to javafx.fxml;
 
