@@ -78,7 +78,21 @@ public class LancezVousController implements Initializable {
 
 
     // ***********   id user
-    private int idUser ;
+    //*********************************
+//*****************************************************************
+
+    //*****************************************************************
+
+    //*****************************************************************
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
 
 
 
@@ -93,7 +107,6 @@ public class LancezVousController implements Initializable {
 
         nom_equipe.getItems().addAll(nom);
         nom_equipe2.getItems().addAll(nom);
-
     }
 
 
@@ -116,7 +129,7 @@ public class LancezVousController implements Initializable {
         // *********************************************************************************************
         //                                                 monta heeeet numro hatit 7
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(10);
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(37);     /*this.GetIdUser()*/
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
@@ -156,7 +169,8 @@ public class LancezVousController implements Initializable {
                         Label gradinLabel = new Label("Gradin: " + terrain.getGradin());
                         Label vestiaireLabel = new Label("Vestiaire: " + terrain.getVestiaire());
                         Label statusLabel = new Label("Status: " + terrain.getStatus());
-                        Label prixLabel = new Label("Prix: " + terrain.getPrix());
+                        int price = (2*terrain.getPrix());
+                        Label prixLabel = new Label("Prix: " + price);
                         Label dureeLabel = new Label("Durée: " + terrain.getDuree());
 
                         nomLabel.getStyleClass().add("label-style");
@@ -178,8 +192,10 @@ public class LancezVousController implements Initializable {
 
                                 ReservationService reservationService1 = new ReservationService();
                                 int dernieridReservationAjouter = reservationService1.getLastIdReservationAddRecently();
-                                passerPaiement( dernieridReservationAjouter , idUser);
-                                //id user a changer de montassar
+
+                                PaimentController paimentController = new PaimentController();
+                                paimentController.SetIdReservation(dernieridReservationAjouter);
+                                paimentController.appelPaymentAPI(price);
 
                             } catch (SQLException e) {
                                 throw new RuntimeException(e);

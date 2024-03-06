@@ -133,6 +133,21 @@ public class ReservationController implements Initializable {
 
     @FXML
     private VBox vbox3;
+
+
+
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
+
+
     //********************************************
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -143,22 +158,7 @@ public class ReservationController implements Initializable {
     }
 
 
-    @FXML
-    void chargerInterfaceSuppression(ActionEvent event) {
 
-        try {
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/SupprimerReservation.fxml"));
-            Parent root = (Parent) loader.load();
-
-
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-        }catch (Exception e){
-            System.out.println(e);
-        }
-    }
 
 
     public boolean verfierHeure(String horaire) {
@@ -335,6 +335,38 @@ public class ReservationController implements Initializable {
 
 
 
+    }
+
+    @FXML
+    void chargerInterfaceSuppression(ActionEvent event) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/SupprimerReservation.fxml"));
+            Parent root = (Parent) loader.load();
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+    public void chargerInterfaceHistorique(ActionEvent actionEvent) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/historique.fxml"));
+            Parent root = (Parent) loader.load();
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
 
