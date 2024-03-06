@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -14,46 +17,62 @@
                     <Font name="Roboto Bold" size="35.0" />
                 </font>
             </Text>
-         <Button fx:id="btnCalendar" contentDisplay="CENTER" layoutX="595.0" layoutY="85.0" mnemonicParsing="false" onAction="#calendar" prefHeight="38.0" prefWidth="164.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Calendrier" textAlignment="CENTER" textFill="WHITE">
+         <Button fx:id="btnCalendar" contentDisplay="CENTER" layoutX="48.0" layoutY="87.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="164.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Calendrier" textAlignment="CENTER" textFill="WHITE">
             <font>
                <Font size="15.0" />
             </font>
          </Button>
+            <Rectangle fx:id="recherchebox" arcHeight="5.0" arcWidth="5.0" fill="#033e6a" height="35.0" layoutX="543.0" layoutY="89.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="recherche" width="224.0" />
+            <TextField fx:id="recherche" layoutX="581.0" layoutY="93.0" onKeyTyped="#recherche" prefHeight="26.0" prefWidth="178.0" promptText="Rechercher" styleClass="recherche-input" stylesheets="@styles.css">
+                <font>
+                    <Font size="14.0" />
+                </font></TextField>
+         <ImageView fitHeight="26.0" fitWidth="25.0" layoutX="556.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@418596348_1411778762801049_6381498642919127964_n.png" />
+            </image>
+         </ImageView>
         </AnchorPane>
       <AnchorPane fx:id="BOX1" layoutX="14.0" layoutY="167.0" prefHeight="423.0" prefWidth="234.0" style="-fx-background-color: white;">
          <children>
             <ImageView fx:id="img1" fitHeight="249.0" fitWidth="200.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Text layoutX="106.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Text layoutX="28.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
             <Button fx:id="btnDetail1" contentDisplay="CENTER" layoutX="73.0" layoutY="384.0" mnemonicParsing="false" onAction="#detail1" prefHeight="38.0" prefWidth="98.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Détails" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Text fx:id="nom1" layoutX="105.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Text fx:id="nom1" layoutX="73.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Text layoutX="28.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de visite:" />
+            <Text fx:id="visite1" layoutX="138.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="BOX2" layoutX="285.0" layoutY="167.0" prefHeight="423.0" prefWidth="234.0" style="-fx-background-color: white;">
          <children>
             <ImageView fx:id="img2" fitHeight="249.0" fitWidth="200.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Text layoutX="101.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Text layoutX="35.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
             <Button fx:id="btnDetail2" contentDisplay="CENTER" layoutX="68.0" layoutY="384.0" mnemonicParsing="false" onAction="#detail2" prefHeight="38.0" prefWidth="98.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Détails" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Text fx:id="nom2" layoutX="100.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Text fx:id="nom2" layoutX="101.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Text layoutX="30.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de visite:" />
+            <Text fx:id="visite2" layoutX="140.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="BOX3" layoutX="554.0" layoutY="167.0" prefHeight="423.0" prefWidth="234.0" style="-fx-background-color: white;">
          <children>
             <ImageView fx:id="img3" fitHeight="249.0" fitWidth="200.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-            <Text layoutX="101.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Text layoutX="38.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
             <Button fx:id="btnDetail3" contentDisplay="CENTER" layoutX="71.0" layoutY="385.0" mnemonicParsing="false" onAction="#detail3" prefHeight="38.0" prefWidth="98.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Détails" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Text fx:id="nom3" layoutX="101.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Text fx:id="nom3" layoutX="101.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Text layoutX="36.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de visite:" />
+            <Text fx:id="visite3" layoutX="146.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
          </children>
       </AnchorPane>
       <Button fx:id="btnsuivant" layoutX="410.0" layoutY="616.0" mnemonicParsing="false" onAction="#suivant" text="&gt;" />

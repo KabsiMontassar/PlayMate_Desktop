@@ -24,18 +24,18 @@ public class SMSTwilio {
                 c.generateAlert("WARNING","Vous n'êtes pas en mesure de recevoir des sms car votre adresse numero n'existe pas.");
                 return ;
             }
-
-            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-            Message message = Message.creator(
-
-
-                   // toPhoneNumber = 28153435;
-                    new PhoneNumber("+21628153435"),
-                    new PhoneNumber("+15169792720"),
-                    messageBody
-            ) .create();
-
-            System.out.println("SMS Sent with SID: " + message.getSid());
+            System.out.println("Code sent using twilio"+ messageBody);
+//            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+//            Message message = Message.creator(
+//
+//
+//                   // toPhoneNumber = 28153435;
+//                    new PhoneNumber("+21628153435"),
+//                    new PhoneNumber("+15169792720"),
+//                    messageBody
+//            ) .create();
+//
+//            System.out.println("SMS Sent with SID: " + message.getSid());
         }
     }
 

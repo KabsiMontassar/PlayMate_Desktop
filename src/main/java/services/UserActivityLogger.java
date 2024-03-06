@@ -24,7 +24,7 @@ public class UserActivityLogger {
     public String getLastLineOfFile() {
         String lastLine = null;
         try {
-            File file = new File("D://Github//pidev_spartans_3a29//Pidev//src//main//resourcesuser_activity_log.txt");
+            File file = new File("E://Github//pidev_spartans_3a29//src//main//resourcesuser_activity_log.txt");
             if (file.exists()) {
                 try (RandomAccessFile raf = new RandomAccessFile(file, "r")) {
                     long length = raf.length();

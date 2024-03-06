@@ -4,12 +4,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 import models.Participation;
 import models.Tournoi;
 import services.GestionTournoi.ServiceParticipation;
@@ -19,17 +22,30 @@ import test.MainFx;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class DetailClientController implements Initializable {
+
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btparticiper.setVisible(false);
         btannuler.setVisible(false);
         WebEngine webEngine = weatherView.getEngine();
-        webEngine.load(getClass().getResource("/test/weather.html").toExternalForm());
+        webEngine.load(MainFx.class.getResource("GestionTournoi/weather.html").toExternalForm());
     }
     @FXML
     private Button Btnback;
@@ -75,10 +91,12 @@ public class DetailClientController implements Initializable {
 
 
     @FXML
-    public void goToTournoiClient(ActionEvent actionEvent) throws IOException {
+    public void goToTournoiClient(ActionEvent actionEvent) throws IOException, SQLException {
 
 
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoiClient.fxml"));
+        AfficherListeTournoisClientController controller = loader.load();
+        controller.SetIdUser(GetIdUser());
         AnchorPane root = loader.load();
         detailroot.getChildren().setAll(root);
     }
@@ -120,9 +138,11 @@ public class DetailClientController implements Initializable {
 
     @FXML
     void participerd(ActionEvent event) throws SQLException, IOException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("Participation.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/Participation.fxml"));
         AnchorPane root = loader.load();
         ParticipationController controller = loader.getController();
+
+        controller.SetIdUser(GetIdUser());
         controller.initData(tournoiActuel);
         detailroot.getChildren().setAll(root);
 
@@ -146,7 +166,7 @@ public class DetailClientController implements Initializable {
                 }
             }}
      else {showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de participation à supprimer n'est pas valide.");}
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("tournoiClient.fxml"));
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoiClient.fxml"));
         AnchorPane root = loader.load();
         detailroot.getChildren().setAll(root);
     }

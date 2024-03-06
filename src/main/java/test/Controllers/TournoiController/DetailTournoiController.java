@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import models.Tournoi;
+import services.GestionTournoi.ServiceTournoi;
 import test.MainFx;
 
 import java.io.IOException;
@@ -41,7 +42,19 @@ public class DetailTournoiController {
     private AnchorPane detailroot;
 
     private Tournoi tournoiActuel;
-   public void initData(Tournoi tournoi) {
+
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
+
+    public void initData(Tournoi tournoi) {
        tournoiActuel = tournoi;
         nombre.setText(String.valueOf(tournoi.getNbrquipeMax()));
         nomd.setText(tournoi.getNom());
@@ -58,6 +71,8 @@ public class DetailTournoiController {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/FormulaireModif.fxml"));
         Parent root = loader.load();
         ModifierTournoiController controller = loader.getController();
+
+        controller.SetIdUser(GetIdUser());
         controller.initData(tournoiActuel);
         Stage stage = new Stage();
         stage.setTitle("Modifier");
@@ -66,11 +81,18 @@ public class DetailTournoiController {
         ((Button) event.getSource()).getScene().getWindow().hide();}
 
     public void goToTournoi(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
+        AnchorPane root = loader.load();
+        FirstController controller = loader.getController(); // Retrieve the controller
+        controller.SetIdUser(GetIdUser());
 
+        FormulaireRoot.getChildren().setAll(root);
 
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
-            AnchorPane root = loader.load();
-        detailroot.getChildren().setAll(root);
-        }
+        Stage stage = new Stage();
+        stage.setTitle("Modifier");
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+    }
     }
 

@@ -14,7 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Tournoi;
-
+import test.MainFx;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Optional;
 
 import services.GestionTournoi.ServiceTournoi;
-import test.MainFx;
 
 
 public class FirstController {
@@ -41,6 +40,16 @@ public class FirstController {
     private ImageView img2;
     @FXML
     private ImageView img3;
+
+    @FXML
+    private Button btnStat1;
+
+    @FXML
+    private Button btnStat2;
+
+    @FXML
+    private Button btnStat3;
+
     @FXML
     private AnchorPane MainPane;
 
@@ -69,7 +78,15 @@ public class FirstController {
     @FXML
     private Text nom3;
 
+    private int IdUser;
 
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
     int i= 0;
     ServiceTournoi Ts = new ServiceTournoi();
     //*******************************************************************
@@ -212,11 +229,65 @@ public class FirstController {
         } else {
             showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de terrain à supprimer n'est pas valide.");}}
 
+
+    @FXML
+    void stat1(ActionEvent event) throws SQLException, IOException {
+        Button btn = (Button) event.getSource();
+        int index = Integer.parseInt(btn.getId().substring(7)) - 1+3*i;
+        Tournoi t = Ts.allTournoi().get(index);
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/Stats.fxml"));
+        Parent root = loader.load();
+        StatistiquesController controller = loader.getController();
+        controller.initData(t);
+        Stage stage = new Stage();
+        stage.setTitle("Statistiques du Tournoi");
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
+
+    }
+
+    @FXML
+    void stat2(ActionEvent event) throws SQLException, IOException {
+        Button btn = (Button) event.getSource();
+        int index = Integer.parseInt(btn.getId().substring(7)) - 1+3*i;
+        Tournoi selectedTournoi = Ts.allTournoi().get(index);
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/Stats.fxml"));
+        Parent root = loader.load();
+        StatistiquesController controller = loader.getController();
+        controller.initData(selectedTournoi);
+        Stage stage = new Stage();
+        stage.setTitle("Détails du Tournoi");
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
+
+    }
+
+    @FXML
+    void stat3(ActionEvent event) throws SQLException, IOException {
+        Button btn = (Button) event.getSource();
+        int index = Integer.parseInt(btn.getId().substring(7)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
+        Tournoi selectedTournoi = Ts.allTournoi().get(index);
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/Stats.fxml"));
+        Parent root = loader.load();
+        StatistiquesController controller = loader.getController();
+        controller.initData(selectedTournoi);
+        Stage stage = new Stage();
+        stage.setTitle("Détails du Tournoi");
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
+
+    }
+
     public void AjouterTournoi(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/FormulaireTournoi.fxml"));
         Parent root = loader.load();
         AjoutTournoiController controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
+
         Stage stage = new Stage();
         stage.setTitle("Gestion_Tournoi");
         stage.setScene(new Scene(root));
@@ -225,6 +296,9 @@ public class FirstController {
 
 
     }
+
+
+
 
 
 }

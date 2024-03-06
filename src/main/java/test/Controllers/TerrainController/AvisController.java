@@ -17,9 +17,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.GestionTerrain.TerrainService;
+import services.GestionUser.UserService;
 import test.MainFx;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -73,8 +80,18 @@ public class AvisController  {
     @FXML
     private ComboBox<String> sort;
     TerrainService Ts = new TerrainService();
-    List<Terrain> sortedTerrains = Ts.getAllTerrains();
+
+
+    UserService us = new UserService();
+
+    private User CurrentUser;
     int i= 0;
+    List<Terrain> sortedTerrains ;
+    public void setData(User u ){
+        this.CurrentUser = u;
+         sortedTerrains = Ts.getTerrainbyPropid(CurrentUser.getId());
+
+    }
     //*******************************************************************
     public void initialize() {
         sort.getItems().addAll("Prix Croissant", "Prix Décroissant");
@@ -121,12 +138,14 @@ public class AvisController  {
         actualise(sortedTerrains);}
     //*******************************************************************************************
     @FXML
-    void detail1(ActionEvent event) throws IOException {
+    void detail1(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         Button btn = (Button) event.getSource();
         Terrain terrain = sortedTerrains.get(i*3);
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/detailuser.fxml"));
         Parent root = loader.load();
+
         DetailTerrainController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         controller.initData(terrain);
         Stage stage = new Stage();
         stage.setTitle("Détails Terrain");
@@ -134,25 +153,29 @@ public class AvisController  {
         stage.show();}
     //*******************************************************************************************
     @FXML
-    void detail2(ActionEvent event) throws IOException {
+    void detail2(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         Button btn = (Button) event.getSource();
         Terrain terrain = sortedTerrains.get(1+i*3);
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/detailuser.fxml"));
         Parent root = loader.load();
+
         DetailTerrainController controller = loader.getController();
         controller.initData(terrain);
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         Stage stage = new Stage();
         stage.setTitle("Détails du Terrain");
         stage.setScene(new Scene(root));
         stage.show();}
     //*******************************************************************************************
     @FXML
-    void detail3(ActionEvent event) throws IOException {
+    void detail3(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         Button btn = (Button) event.getSource();
         Terrain terrain = sortedTerrains.get(2+i*3);
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/detailuser.fxml"));
         Parent root = loader.load();
+
         DetailTerrainController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         controller.initData(terrain);
         Stage stage = new Stage();
         stage.setTitle("Détails du Terrain");
@@ -160,12 +183,14 @@ public class AvisController  {
         stage.show();}
     //*******************************************************************************************
     @FXML
-    public void add_avis1(ActionEvent event) throws IOException {
+    public void add_avis1(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
             Button btn = (Button) event.getSource();
         Terrain terrain = sortedTerrains.get(i*3);
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DonnerAvis.fxml"));
             Parent root = loader.load();
+
             DonnerAvisController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
             controller.initData(terrain);
             Stage stage = new Stage();
             stage.setTitle("Donner un avis");
@@ -173,12 +198,14 @@ public class AvisController  {
             stage.show();}
         //*******************************************************************************************
     @FXML
-    void add_avis2(ActionEvent event) throws IOException {
+    void add_avis2(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         Button btn = (Button) event.getSource();
         Terrain terrain = sortedTerrains.get(1+i*3);
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DonnerAvis.fxml"));
         Parent root = loader.load();
+
         DonnerAvisController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         controller.initData(terrain);
         Stage stage = new Stage();
         stage.setTitle("Donner un avis");
@@ -186,12 +213,14 @@ public class AvisController  {
         stage.show();}
     //*******************************************************************************************
     @FXML
-    void add_avis3(ActionEvent event) throws IOException {
+    void add_avis3(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         Button btn = (Button) event.getSource();
         Terrain terrain = sortedTerrains.get(2+i*3);
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DonnerAvis.fxml"));
         Parent root = loader.load();
+
         DonnerAvisController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         controller.initData(terrain);
         Stage stage = new Stage();
         stage.setTitle("Donner un avis");

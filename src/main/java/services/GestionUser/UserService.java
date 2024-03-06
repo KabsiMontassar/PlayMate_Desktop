@@ -1,13 +1,16 @@
 package services.GestionUser;
 
+import com.mailjet.client.errors.MailjetException;
 import models.*;
 import services.Encryption;
+import services.JavaMailJett;
 import services.UserActivityLogger;
 import utils.MyDatabase;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
@@ -105,7 +108,7 @@ public class UserService implements IService<User> {
         String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
         PreparedStatement psUser = connection.prepareStatement(QueryToUser);
         psUser.setString(1, J.getEmail());
-        psUser.setString(2,  Encryption.encrypt(J.getPassword()));
+        psUser.setString(2,  J.getPassword());
         psUser.setString(3, J.getName());
 
         psUser.setInt(4, J.getAge());
@@ -131,7 +134,7 @@ public class UserService implements IService<User> {
         String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
         PreparedStatement psUser = connection.prepareStatement(QueryToUser);
         psUser.setString(1, F.getEmail());
-        psUser.setString(2,  Encryption.encrypt(F.getPassword()));
+        psUser.setString(2,  F.getPassword());
         psUser.setString(3, F.getName());
         psUser.setInt(4, F.getAge());
         psUser.setInt(5, F.getPhone());
@@ -154,7 +157,7 @@ public class UserService implements IService<User> {
         String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified ,address) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
         PreparedStatement psUser = connection.prepareStatement(QueryToUser);
         psUser.setString(1, O.getEmail());
-        psUser.setString(2,  Encryption.encrypt(O.getPassword()));
+        psUser.setString(2,  O.getPassword());
         psUser.setString(3, O.getName());
         psUser.setInt(4, O.getAge());
         psUser.setInt(5, O.getPhone());
@@ -179,7 +182,7 @@ public class UserService implements IService<User> {
         String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
         PreparedStatement psUser = connection.prepareStatement(QueryToUser);
         psUser.setString(1, P.getEmail());
-        psUser.setString(2,  Encryption.encrypt(P.getPassword()));
+        psUser.setString(2,  P.getPassword());
         psUser.setString(3, P.getName());
         psUser.setInt(4, P.getAge());
         psUser.setInt(5, P.getPhone());
@@ -223,7 +226,7 @@ public class UserService implements IService<User> {
         ps.setInt(1, t.getAge());
         ps.setString(2, t.getName());
         ps.setString(3, t.getAddress());
-        ps.setString(4,  Encryption.encrypt(t.getPassword()));
+        ps.setString(4,  t.getPassword());
         ps.setInt(5, t.getPhone());
         ps.setString(6, t.getEmail());
         UAL.logAction(t.getEmail() ,  "effectué de la mise à jour à son Compte");
@@ -255,7 +258,7 @@ public class UserService implements IService<User> {
         }
         return org;
     }
-    public Fournisseur getFournisseurbyid(int id)throws SQLException{
+    public Fournisseur getFournisseurbyid(int id) throws SQLException, NoSuchAlgorithmException {
         Fournisseur four = new Fournisseur(); // Initialize user as null
         String query = "SELECT * FROM fournisseur WHERE Fournisseur_id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
@@ -292,14 +295,16 @@ public class UserService implements IService<User> {
         ps.executeUpdate();
     }
 
-    public void InvertStatus(String email) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+    public void InvertStatus(String email) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, IOException, InterruptedException, MailjetException {
 
         String query = "UPDATE user SET Status = ?  WHERE email = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         if (getByEmail(email).getStatus()) {
             ps.setBoolean(1, false);
+
             UAL.logAction(email ,  "Desactiver son compte");
         } else {
+            JavaMailJett.send2(email);
             ps.setBoolean(1, true);
             UAL.logAction(email ,  "activer son compte");
         }

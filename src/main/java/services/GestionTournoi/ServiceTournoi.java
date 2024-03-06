@@ -64,7 +64,7 @@ public class ServiceTournoi {
         ps.executeUpdate();
         System.out.println("tournoi modifieé avec succés");
     }
-public Organisateur getbyidorg(int id) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+public Organisateur getbyidorg(int id) throws SQLException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
     Organisateur org = null; // Initialize Tournoi as null
     String query = "SELECT * FROM user WHERE id = ?";
     PreparedStatement ps = connection.prepareStatement(query);
@@ -113,6 +113,8 @@ public Organisateur getbyidorg(int id) throws SQLException, NoSuchPaddingExcepti
         List<Tournoi> Tournois = new ArrayList<>();
         String query = "SELECT * FROM Tournoi";
         Statement st = connection.createStatement();
+
+
         ResultSet rs = st.executeQuery(query);
         while (rs.next()) {
 
@@ -126,6 +128,34 @@ public Organisateur getbyidorg(int id) throws SQLException, NoSuchPaddingExcepti
             Tr.setDatefin(rs.getString("datefin"));
 
             Tr.setAddress(rs.getString("address"));
+            Tr.setVisite(rs.getInt("visite"));
+
+            Tournois.add(Tr);
+        }
+        return Tournois;
+    }
+
+
+    public List<Tournoi> allTournoibyorg(int o ) throws SQLException {
+        List<Tournoi> Tournois = new ArrayList<>();
+        String query = "SELECT * FROM Tournoi WHERE idOrganisateur = ?";
+        PreparedStatement st = connection.prepareStatement(query);
+
+        st.setInt(1, o);
+        ResultSet rs = st.executeQuery(query);
+        while (rs.next()) {
+
+            Tournoi Tr = new Tournoi();
+
+            Tr.setId(rs.getInt("id"));
+            Tr.setNbrquipeMax(rs.getInt("NbmaxEquipe"));
+            Tr.setNom(rs.getString("nom"));
+            Tr.setAffiche(rs.getString("affiche"));
+            Tr.setDatedebut(rs.getString("datedebut"));
+            Tr.setDatefin(rs.getString("datefin"));
+
+            Tr.setAddress(rs.getString("address"));
+            Tr.setVisite(rs.getInt("visite"));
 
             Tournois.add(Tr);
         }
@@ -148,6 +178,7 @@ public Organisateur getbyidorg(int id) throws SQLException, NoSuchPaddingExcepti
         }
         return Participations;
     }
+
 
 
 

@@ -1,0 +1,80 @@
+/* weather-style.css - Design Amélioré */
+body {
+    font-family: 'Poppins', sans-serif; /* Utilisation de Poppins pour une touche moderne */
+    background: linear-gradient(to right, #6dd5ed, #2193b0); /* Arrière-plan dégradé */
+    color: #023047;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+#weatherContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Légère transparence */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8.5px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.forecast-item {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.forecast-item:hover {
+    transform: translateY(-10px);
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+.search-container input, .search-container button {
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-container button {
+    background-color: #38bdf8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #0ea5e9;
+    transform: scale(1.05);
+}
+
+h2 {
+    margin-top: 0;
+    color: #023e8a;
+}
+
+/* Ajout de petites améliorations pour les médias queries si nécessaire */
+@media (max-width: 768px) {
+    #weatherContainer {
+        width: 100%;
+        height: auto;
+        margin: 20px;
+        flex-direction: column;
+    }
+}

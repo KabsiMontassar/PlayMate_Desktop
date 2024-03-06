@@ -67,7 +67,7 @@
         </Button>
       <TextField fx:id="InputDateDébut" layoutX="49.0" layoutY="300.0" prefWidth="200.0" style="-fx-border-color: grey; -fx-border-width: 1; -fx-background-color: transparent; -fx-padding: 8; -fx-border-radius: 3;" />
       <TextField fx:id="InputDateFin" layoutX="375.0" layoutY="307.0" prefWidth="200.0" style="-fx-border-color: grey; -fx-border-width: 1; -fx-background-color: transparent; -fx-padding: 8; -fx-border-radius: 3;" />
-      <Label fx:id="errorLabel" layoutX="198.0" layoutY="355.0" text="La date Début ne peut pas étre avant la Date fin" textFill="RED" />
+      <Label fx:id="errorLabel" layoutX="167.0" layoutY="355.0" text="La date Début ne peut pas étre avant la Date fin " textFill="RED" />
       <Label fx:id="errorLabel2" layoutX="34.0" layoutY="246.0" text="Nombre Invalide. Le Nombre doit etre soit 8,16,24,48" textFill="RED" />
       <Label fx:id="errorLabel3" layoutX="366.0" layoutY="246.0" text="le Nom ne contient pas des caractères spéciaux" textFill="RED" />
     </AnchorPane>

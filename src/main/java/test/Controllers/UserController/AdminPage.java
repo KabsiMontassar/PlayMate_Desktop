@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import services.GestionUser.UserService;
+import test.Controllers.ReservationController.HistoriqueController;
 import test.MainFx;
 
 import java.io.BufferedReader;
@@ -20,6 +21,8 @@ import java.util.Map;
 public class AdminPage {
 
     public Button btnlogout;
+    public Button btnhistorique;
+    public Button btnlisteNoir;
     @FXML
     private AnchorPane adminPage;
 
@@ -108,7 +111,7 @@ public class AdminPage {
     public void logout() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("LoginRegistrationPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/LoginRegistrationPage.fxml"));
             AnchorPane root = loader.load();
 
             adminPage.getChildren().setAll(root);
@@ -117,4 +120,22 @@ public class AdminPage {
             e.printStackTrace();
         }
     }
+
+    public void voirlistenoir(ActionEvent actionEvent) {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/BlackList.fxml"));
+            AnchorPane root = loader.load();
+
+            adminPage.getChildren().setAll(root);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+
+
 }

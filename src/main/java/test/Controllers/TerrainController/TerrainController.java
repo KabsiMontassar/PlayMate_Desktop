@@ -18,6 +18,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import models.User;
 import services.GestionTerrain.TerrainService;
 import java.io.File;
 import java.io.IOException;
@@ -78,10 +79,17 @@ public class TerrainController {
     @FXML
     private ComboBox<String> scrollableComboBox;
     private int selectedIndex = 0;
+
+    private  User  CurrentUser  ;
+
+    public  void setData(User e) {
+        this.CurrentUser = e ;
+
+    }
+
     //*******************************************************************************************
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        showTerrains(); // Affiche la liste des terrains
         cbGradin.setSelected(false); // Décoche la case à cocher Gradin
         cbVestiaire.setSelected(false); // Décoche la case à cocher Vestiaire
         cbStatus.setSelected(false); // Décoche la case à cocher Status
@@ -106,9 +114,7 @@ public class TerrainController {
         btnsave.setVisible(visible); // Rend visible ou invisible le bouton d'ajout
     }
     //*******************************************************************************************
-    private void showTerrains() {
-        List<Terrain> terrains = ts.getAllTerrains(); // Récupère la liste des terrains depuis le service
-    }
+
     //*******************************************************************************************
     @FXML
     void clearField() {
@@ -153,15 +159,14 @@ public class TerrainController {
                     return;
                 }
             // Vérifier si le nom du terrain existe déjà dans la liste
-                boolean nomExiste = ts.getAllTerrains().stream().anyMatch(terrain -> terrain.getNomTerrain().equalsIgnoreCase(nomTerrain));
+                boolean nomExiste = ts.getTerrainbyPropid(CurrentUser.getId()).stream().anyMatch(terrain -> terrain.getNomTerrain().equalsIgnoreCase(nomTerrain));
             if (nomExiste) {
                 showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Le nom du terrain existe déjà.");
             } else {
                 int prixValue = Integer.parseInt(tfprix.getText()); //Convertir le prix en float
                 // Créer un nouveau terrain avec les données saisies
                 Terrain terrain = new Terrain(tfaddress.getText(), cbGradin.isSelected(), cbVestiaire.isSelected(), cbStatus.isSelected(), tfnom.getText(), prixValue, Integer.parseInt(tfduree.getText()), tfgouvernorat.getValue(), imagePath, videoPath);
-                ts.add(terrain);
-                showTerrains(); // Mettre à jour l'affichage après avoir ajouté un nouveau terrain
+                ts.add(CurrentUser,terrain);
                 clearField(); // Efface les champs après l'ajout
                 ((Button) event.getSource()).getScene().getWindow().hide();
                 voirlist();}}}
@@ -210,7 +215,6 @@ public class TerrainController {
             TerrainService terrainService = new TerrainService();
             terrainService.update(terrainActuel);
             // Mise à jour de la liste des terrains affichés
-            showTerrains();
             clearField();
             ((Button) event.getSource()).getScene().getWindow().hide();
             voirlist();}}
@@ -253,7 +257,8 @@ public class TerrainController {
         if (selectedFile != null) {
             imagePath = selectedFile.toURI().toString();
             Image image = new Image(imagePath);
-            img.setImage(image);}}
+            img.setImage(image);}
+    }
     //*******************************************************************************************
     @FXML
     void addvid(ActionEvent event) {
@@ -273,6 +278,8 @@ public class TerrainController {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/PageTerrain.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
+        PageTerrainController controller= loader.getController();
+        controller.setData(CurrentUser);
         stage.setTitle("Liste des terrains");
         stage.setScene(new Scene(root));
         stage.show();

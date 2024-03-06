@@ -5,36 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/stat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/stat.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Categories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Categories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Products.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/ProductsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/modif.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/modif.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/MainFx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/MainFx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/Categorie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/Categorie.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/GestionProd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/GestionProd.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/Products.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/Products.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/koura_LE_auto_x2_colored_toned_light_ai.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/koura_LE_auto_x2_colored_toned_light_ai.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/modif.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/modif.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/terr_LE_auto_x2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/terr_LE_auto_x2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionProduit/Categorie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionProduit/Categorie.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionProduit/GestionProd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionProduit/GestionProd.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionProduit/Products.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionProduit/Products.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionProduit/koura_LE_auto_x2_colored_toned_light_ai.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionProduit/koura_LE_auto_x2_colored_toned_light_ai.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionProduit/modif.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionProduit/modif.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionProduit/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionProduit/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionProduit/terr_LE_auto_x2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionProduit/terr_LE_auto_x2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceTournoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceTournoi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReservationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/statController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/statController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AfficherListeTournoisClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AfficherListeTournoisClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AjoutTournoiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AjoutTournoiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/CalendarActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/CalendarActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/CalendarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailTournoiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailTournoiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ModifierTournoiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ModifierTournoiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ParticipationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ParticipationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/StatistiquesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/StatistiquesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/tournoiClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/tournoiClient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/weather.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,57 +57,39 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Application.MainFx.executor&quot;: &quot;Run&quot;,
     &quot;Maven.pidev_spartans_3a29 [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;SeifDev&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/seifl/Documents/GitHub/pidev_spartans_3a29/src/main/resources/test/GestionProduit&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/lenovo/Desktop/javafx-sdk-11.0.2/lib/javafx-swt.jar&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.15632184&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.44067797&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\seifl\Documents\GitHub\pidev_spartans_3a29\src\main\resources\test\GestionProduit" />
-      <recent name="C:\Users\seifl\Documents\GitHub\pidev_spartans_3a29\src\main\java\test\Controllers\ProduitController" />
-      <recent name="C:\Users\seifl\Documents\GitHub\pidev_spartans_3a29\src\main\java\services\GestionProduit" />
-      <recent name="C:\Users\seifl\Documents\GitHub\pidev_spartans_3a29\src\main\java\models" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Github\pidev_spartans_3a29\Pidev\src\main\resources\test\GestionTournoi" />
+      <recent name="D:\Github\pidev_spartans_3a29\Pidev\src\main\java\models" />
+      <recent name="D:\Github\pidev_spartans_3a29\Pidev\src\main\java\services\GestionTournoi" />
+      <recent name="D:\Github\pidev_spartans_3a29\Pidev\src\main\java\test\Controllers\TournoiController" />
       <recent name="D:\Github\pidev_spartans_3a29\Pidev\src\main\resources\ProfilePictures" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="models" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="MainFX" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="test.MainFx" />
-      <module name="pidev_spartans_3a29" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Pidev" />
       <method v="2">
@@ -149,21 +132,20 @@
       <workItem from="1709082705414" duration="803000" />
       <workItem from="1709108809680" duration="5463000" />
       <workItem from="1709582407113" duration="636000" />
-      <workItem from="1709630384344" duration="27000" />
-      <workItem from="1709630436904" duration="150000" />
-      <workItem from="1709630602840" duration="547000" />
-      <workItem from="1709631180288" duration="1552000" />
-      <workItem from="1709637892704" duration="51000" />
-      <workItem from="1709668965718" duration="999000" />
-      <workItem from="1709675560500" duration="1933000" />
-      <workItem from="1709677525038" duration="2179000" />
+      <workItem from="1709634717784" duration="1612000" />
+      <workItem from="1709639929422" duration="1226000" />
+      <workItem from="1709643380786" duration="1005000" />
+      <workItem from="1709644704050" duration="239000" />
+      <workItem from="1709644978261" duration="395000" />
+      <workItem from="1709645389502" duration="1381000" />
+      <workItem from="1709663217325" duration="10006000" />
+      <workItem from="1709679078173" duration="5422000" />
+      <workItem from="1709684864458" duration="425000" />
+      <workItem from="1709685723677" duration="7035000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

@@ -31,7 +31,7 @@ module test {
     requires google.api.client;
     requires com.google.api.client.extensions.jetty.auth;
     requires com.google.api.client;
-    // requires mail;
+   // requires mail;
     requires com.google.api.client.extensions.java6.auth;
     requires com.google.api.client.auth;
     requires com.google.api.client.json.gson;
@@ -40,7 +40,7 @@ module test {
     requires fastjson;
     requires org.apache.httpcomponents.httpclient;
     requires org.apache.httpcomponents.httpcore;
-    //   requires mail;
+ //   requires mail;
     // requires java.http.client;
     opens test to javafx.fxml;
 
@@ -55,6 +55,9 @@ module test {
     opens test.Controllers.TournoiController to javafx.fxml;
     opens test.Controllers.ReservationController to javafx.fxml;
     opens test.Controllers.ProduitController to javafx.fxml;
+
+
+    requires org.apache.pdfbox;
 
     exports test;
     exports models;
