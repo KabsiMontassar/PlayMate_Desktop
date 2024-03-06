@@ -402,11 +402,11 @@ Img1
     }
     @FXML
     void EnvoyerMail(ActionEvent event) throws Exception {
-        ProductService ps=new ProductService();
+      /*  ProductService ps=new ProductService();
         String aa=ps.getAllbyidFor(GetIdUser()).toString();
         //System.out.println(aa);
         new Gmailer().sendMail("A new message", aa);
-        JOptionPane.showMessageDialog(null, "Envoie avec succes");
+        JOptionPane.showMessageDialog(null, "Envoie avec succes");*/
     }
     @FXML
     void generateqrcode1(ActionEvent event) throws SQLException, IOException, WriterException {
@@ -451,7 +451,7 @@ Img1
     void allerversstat(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/stat.fxml"));
         Parent root = loader.load();
-        Products controller = loader.getController();
+        stat controller = loader.getController();
         controller.SetIdUser(GetIdUser());
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

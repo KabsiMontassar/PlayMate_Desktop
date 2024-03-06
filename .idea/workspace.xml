@@ -6,29 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/MyDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/MyDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Gmailer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Gmailer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionProduit/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionProduit/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Categories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Categories.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Products.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/ProductsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/GestionProd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionProduit/GestionProd.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Categorie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Categorie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Gmailer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Gmailer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/Product.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Product.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionProduit/CategorieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionProduit/CategorieService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/services/GestionProduit/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionProduit/ProductService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/Categories.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/Categories.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/Products.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/Products.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/ProductsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/ProductsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/modif.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/modif.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/stat$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/stat$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/stat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/stat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/FirstController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/FirstController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AcceuilController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AcceuilController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionProduit/Categorie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionProduit/Categorie.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionProduit/Products.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionProduit/Products.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionProduit/stat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionProduit/stat.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionProduit/GestionProd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionProduit/GestionProd.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test/GestionUser/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionUser/Acceuil.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/MyDatabase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/MyDatabase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +93,16 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="FX" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="test.MainFx" />
+      <module name="pidev_spartans_3a29" />
+      <option name="PROGRAM_PARAMETERS" value="--module-path &quot;C:\Users\seifl\Downloads\openjfx-21.0.2_windows-x64_bin-sdk\javafx-sdk-21.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml,javafx.media" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Pidev" />
       <method v="2">

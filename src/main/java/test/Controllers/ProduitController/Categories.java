@@ -179,7 +179,6 @@ public class Categories implements Initializable {
         modif controller = loader.getController();
         controller.SetIdUser(GetIdUser());
         Stage stage = new Stage();
-        stage.setTitle("Détails Tournoi");
         stage.setScene(new Scene(root));
         stage.show();
         ((Button) event.getSource()).getScene().getWindow().hide();
