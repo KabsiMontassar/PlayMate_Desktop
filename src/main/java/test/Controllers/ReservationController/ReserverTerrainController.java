@@ -98,7 +98,6 @@ public class ReserverTerrainController implements Initializable {
     private int IdUser;
 
     public void SetIdUser(int idUser) {
-
         this.IdUser = idUser;
     }
     public int GetIdUser() {
@@ -119,10 +118,10 @@ public class ReserverTerrainController implements Initializable {
     //     ------------------------------------------------------------   idUser
     public String[] nomEquipes(){
         EquipeService equipeService = new EquipeService();
-        // *********************************************************************************************
-        //                                                 monta heeeet numro hatit 7
+
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(GetIdUser());
+            System.out.println("dans la class res ter con avec this "+this.GetIdUser()+" avec id"+this.IdUser);
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(36);
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;

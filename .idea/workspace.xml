@@ -6,24 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceTournoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceTournoi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/statController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/statController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AfficherListeTournoisClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AfficherListeTournoisClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AjoutTournoiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AjoutTournoiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/CalendarActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/CalendarActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/CalendarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailTournoiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailTournoiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ModifierTournoiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ModifierTournoiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ParticipationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ParticipationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/StatistiquesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/StatistiquesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/tournoiClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/tournoiClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/weather.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReserverTerrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ReservationController/ReserverTerrainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/chercherAdversaire.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionReservation/chercherAdversaire.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReservationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReserverTerrainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReserverTerrainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionReservation/chercherAdversaire.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionReservation/chercherAdversaire.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +78,19 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="MainFx" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.MainFx" />
+      <module name="pidev_spartans_3a29" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Pidev" />
       <method v="2">
@@ -103,6 +104,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainFx" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>

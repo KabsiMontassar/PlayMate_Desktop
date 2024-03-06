@@ -221,9 +221,31 @@ public class ReservationController implements Initializable {
 
     public void ReserverTerrain(ActionEvent actionEvent) {
         try {
+//            System.out.println("l id avant avec yhis; "+this.GetIdUser());
+//            System.out.println("l id avant avec id; "+this.IdUser);
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/reserverTerrainVersion2.fxml"));
             AnchorPane root = loader.load();
-            ReserverTerrainController c = loader.getController(); // Retrieve the controller
+            ReserverTerrainController c = loader.getController();
+            c.SetIdUser(this.GetIdUser());
+
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            System.out.println("ID utilisateur après SetIdUser: " + c.GetIdUser());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+
+    public void chercherAdversaire(ActionEvent actionEvent) {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/chercherAdversaire.fxml"));
+            AnchorPane root = loader.load();
+            ChercherAdversaireController c = loader.getController(); // Retrieve the controller
             c.SetIdUser(GetIdUser());
 
             Scene scene = new Scene(root);
@@ -233,31 +255,14 @@ public class ReservationController implements Initializable {
         } catch (Exception e) {
             System.out.println(e);
         }
-    }
 
-
-    public void chercherAdversaire(ActionEvent actionEvent) {
-
-        try {
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/chercherAdversaire.fxml"));
-            Parent root = (Parent) loader.load();
-
-            ChercherAdversaireController c = loader.load();
-            c.SetIdUser(GetIdUser());
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-        }catch (Exception e){
-            System.out.println(e);
-        }
     }
 
     public void LancerDefi(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/LancerVous.fxml"));
-            Parent root = (Parent) loader.load();
-            LancezVousController c = loader.load();
+            AnchorPane root =  loader.load();
+            LancezVousController c = loader.getController();
             c.SetIdUser(GetIdUser());
 
             Scene scene = new Scene(root);
@@ -361,8 +366,8 @@ public class ReservationController implements Initializable {
 
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/historique.fxml"));
-            Parent root = (Parent) loader.load();
-            HistoriqueController c = loader.load();
+            AnchorPane root = loader.load();
+            HistoriqueController c = loader.getController();
             c.SetIdUser(GetIdUser());
 
             Scene scene = new Scene(root);
