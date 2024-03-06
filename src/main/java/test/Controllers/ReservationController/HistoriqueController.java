@@ -49,7 +49,7 @@ public class HistoriqueController implements Initializable {
         this.IdUser = idUser;
     }
     public int GetIdUser() {
-        return  36 ;                            /*****************         36         ****************** */
+        return  this.IdUser ;                            /*****************         36         ****************** */
         //return this.IdUser;
     }
     // *************************************************************************** ****************************
@@ -115,8 +115,8 @@ public class HistoriqueController implements Initializable {
 
                     ImprimerPdf(user.getName(),user.getEmail(),reservation.getHeureReservation(), reservation.getDateReservation(),terrain.getNomTerrain(),terrain.getPrix());
 
-                } catch (SQLException | NoSuchPaddingException | IllegalBlockSizeException | NoSuchAlgorithmException |
-                         BadPaddingException | InvalidKeyException e) {
+                } catch (SQLException | InvalidKeyException | BadPaddingException | NoSuchAlgorithmException |
+                         IllegalBlockSizeException | NoSuchPaddingException e) {
                     throw new RuntimeException(e);
                 }
 

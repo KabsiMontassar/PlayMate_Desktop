@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import models.*;
 import utils.MyDatabase;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,7 +33,7 @@ FROM user u
 join payment p on p.idMembre = u.id
 JOIN reservation r ON r.idReservation = p.idReservation
 WHERE r.idReservation = 6;*/
-    public static User getUserWithIdReservation(int idReservation) throws SQLException {
+    public static User getUserWithIdReservation(int idReservation) throws SQLException, NoSuchAlgorithmException {
 
         User user = new User();
         String query = "select u.* FROM user u join payment p on p.idMembre = u.id JOIN reservation r ON r.idReservation = p.idReservation WHERE r.idReservation = ?;";

@@ -13,6 +13,7 @@ import models.User;
 import services.GestionReservation.*;
 
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -101,7 +102,7 @@ public class BlackListController implements Initializable {
 
     }
 
-    public void afficherBlacklist(ActionEvent actionEvent) throws SQLException {
+    public void afficherBlacklist(ActionEvent actionEvent) throws SQLException, NoSuchAlgorithmException {
 
         anchroPaneafficherBlackliste.setVisible(true);
         vboxAfficherrBlackListe1.getChildren().clear();
