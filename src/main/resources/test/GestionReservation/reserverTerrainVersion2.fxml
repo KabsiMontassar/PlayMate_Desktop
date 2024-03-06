@@ -40,7 +40,7 @@
                         <Font name="Arial Black" size="15.0" />
                     </font>
                 </Label>
-            <VBox fx:id="Vbox1" layoutX="64.0" layoutY="181.0" prefHeight="379.0" prefWidth="864.0" stylesheets="@ReserverTerrainCSS.css" AnchorPane.leftAnchor="64.0" AnchorPane.rightAnchor="302.0" />
+            <VBox fx:id="Vbox1" layoutX="117.0" layoutY="203.0" prefHeight="379.0" prefWidth="864.0" stylesheets="@ReserverTerrainCSS.css" AnchorPane.leftAnchor="117.0" AnchorPane.rightAnchor="249.0" />
             <Label fx:id="horaireInvalides" layoutX="547.0" layoutY="70.0" prefHeight="17.0" prefWidth="166.0" text="horaire invalide !" textFill="#ff1f1f" AnchorPane.leftAnchor="547.0">
                <font>
                   <Font size="15.0" />

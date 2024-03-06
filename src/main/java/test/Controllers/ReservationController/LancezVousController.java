@@ -84,18 +84,7 @@ public class LancezVousController implements Initializable {
     //*****************************************************************
 
     //*****************************************************************
-    private int IdUser;
 
-    public void SetIdUser(int idUser) {
-        String[] nom = nomEquipes(idUser);
-
-        nom_equipe.getItems().addAll(nom);
-        nom_equipe2.getItems().addAll(nom);
-        this.IdUser = idUser;
-    }
-    public int GetIdUser() {
-        return this.IdUser;
-    }
 
 
 
@@ -105,6 +94,11 @@ public class LancezVousController implements Initializable {
         nomEquipeInvalide.setVisible(false);
         dateInvalide.setVisible(false);
         horaireInvalides.setVisible(false);
+
+        String[] nom = nomEquipes();
+
+        nom_equipe.getItems().addAll(nom);
+        nom_equipe2.getItems().addAll(nom);
 
 
     }
@@ -124,12 +118,12 @@ public class LancezVousController implements Initializable {
 
     //*********************************************************************
 
-    public String[] nomEquipes(int idUser){
+    public String[] nomEquipes(){
         EquipeService equipeService = new EquipeService();
         // *********************************************************************************************
-        //                                                 monta heeeet numro hatit 7
+        //
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(idUser);     /*this.GetIdUser()*/
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(this.GetIdUser());     /*this.GetIdUser()*/
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
@@ -211,6 +205,15 @@ public class LancezVousController implements Initializable {
                 }
             }
         }
+    }
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return 37;
     }
     public void ajouterReservationTerrain(int idTerrain ) throws SQLException {
 
