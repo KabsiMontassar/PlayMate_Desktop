@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="main" prefHeight="720" prefWidth="1280.0" styleClass="form_container" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.stat">
+<AnchorPane fx:id="main" prefHeight="720" prefWidth="1280.0" styleClass="form_container" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.Controllers.ProduitController.stat">
 
     <children>
         <BarChart fx:id="barChart" layoutX="353.0" layoutY="226.0" prefHeight="340.0" prefWidth="540.0">
