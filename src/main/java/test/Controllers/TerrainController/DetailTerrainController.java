@@ -14,9 +14,18 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import models.User;
+import services.GestionUser.UserService;
 import test.MainFx;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
+
 //*******************************************************************************************
 public class DetailTerrainController {
     @FXML
@@ -45,6 +54,17 @@ public class DetailTerrainController {
     private Label vestd;
     //*******************************************************************************************
     private Terrain terrainActuel;
+
+    UserService us = new UserService();
+    private  User CurrentUser  ;
+
+    public  void setData(User u){
+        this.CurrentUser = u;
+    }
+    //**
+
+
+
     //*******************************************************************************************
     private String getAvailability(boolean value) {
         return value ? "disponible" : "indisponible";
@@ -77,10 +97,11 @@ public class DetailTerrainController {
             mediaPlayer.play();}}
     //*******************************************************************************************
     @FXML
-    void modifd(ActionEvent event) throws IOException {
+    void modifd(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/Terrain.fxml"));
         Parent root = loader.load();
         TerrainController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         controller.initData(terrainActuel);
         controller.setajouterButtonVisibility(false); // Masquer le bouton "Modifier"
         Stage stage = new Stage();
@@ -90,9 +111,11 @@ public class DetailTerrainController {
         ((Button) event.getSource()).getScene().getWindow().hide();}
     //*******************************************************************************************
     @FXML
-    void retourd() throws IOException {
+    void retourd() throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/PageTerrain.fxml"));
         Parent root = loader.load();
+        PageTerrainController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         Stage stage = new Stage();
         stage.setTitle("Liste des terrains");
         stage.setScene(new Scene(root));

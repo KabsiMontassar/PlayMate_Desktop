@@ -85,8 +85,10 @@ public class User {
 
                 this.role = Roles.Organisateur;
                 break;
-            default:
+            case "Proprietaire_de_Terrain" :
                 this.role = Roles.Proprietaire_de_Terrain;
+                break;
+            default:
                 break;
 
         }

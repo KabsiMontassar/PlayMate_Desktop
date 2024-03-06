@@ -9,9 +9,16 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import services.GestionUser.UserService;
 import test.MainFx;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.util.List;
 //*******************************************************************************************
 public class avisPropTController {
@@ -43,6 +50,15 @@ public class avisPropTController {
     //*******************************************************************************************
     List<AvisTerrain> lt;
     Terrain t = new Terrain();
+
+    UserService us = new UserService();
+    private  User CurrentUser  ;
+
+    public  void setData(User u){
+        this.CurrentUser = u;
+    }
+    //**
+    //**
     int i =0;
     //*******************************************************************
     void actualise(List<AvisTerrain> avisTerrains){
@@ -83,11 +99,13 @@ public class avisPropTController {
     public void initData(List<AvisTerrain> avisTerrains) {
         this.lt = avisTerrains;
         actualise(avisTerrains);}
-    //*******************************************************************************************
+
     @FXML
-    void retourlist(ActionEvent event) throws IOException {
+    void retourlist(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/PageTerrain.fxml"));
         Parent root = loader.load();
+        PageTerrainController pg =  loader.getController();
+        pg.setData(us.getByEmail(CurrentUser.getEmail()));
         Stage stage = new Stage();
         stage.setTitle("Liste des terrains");
         stage.setScene(new Scene(root));

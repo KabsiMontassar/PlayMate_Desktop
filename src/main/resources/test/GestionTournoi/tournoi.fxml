@@ -35,6 +35,11 @@
                </font>
             </Button>
             <Text fx:id="nom1" layoutX="105.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Button fx:id="btnStat1" contentDisplay="CENTER" layoutX="65.0" layoutY="263.0" mnemonicParsing="false" onAction="#stat1" prefHeight="38.0" prefWidth="107.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Statistiques" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="BOX2" layoutX="285.0" layoutY="167.0" prefHeight="423.0" prefWidth="234.0" style="-fx-background-color: white;">
@@ -52,6 +57,11 @@
                </font>
             </Button>
             <Text fx:id="nom2" layoutX="100.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Button fx:id="btnStat2" contentDisplay="CENTER" layoutX="59.0" layoutY="263.0" mnemonicParsing="false" onAction="#stat2" prefHeight="38.0" prefWidth="107.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Statistiques" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="BOX3" layoutX="554.0" layoutY="167.0" prefHeight="423.0" prefWidth="234.0" style="-fx-background-color: white;">
@@ -69,6 +79,11 @@
                </font>
             </Button>
             <Text fx:id="nom3" layoutX="101.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom: " />
+            <Button fx:id="btnStat3" contentDisplay="CENTER" layoutX="65.0" layoutY="267.0" mnemonicParsing="false" onAction="#stat3" prefHeight="38.0" prefWidth="107.0" style="-fx-background-color: #033e6a; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;" text="Statistiques" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
       <Button fx:id="btnsuivant" layoutX="410.0" layoutY="616.0" mnemonicParsing="false" onAction="#suivant" text="&gt;" />

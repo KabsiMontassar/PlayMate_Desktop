@@ -10,9 +10,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import models.Roles;
 import models.User;
 import services.GestionUser.UserService;
 import services.UserActivityLogger;
+import test.Controllers.TerrainController.PageTerrainController;
 import test.MainFx;
 
 import javax.crypto.BadPaddingException;
@@ -43,6 +45,20 @@ public class AcceuilController {
 
     private int currentIndex = 0;
 
+    @FXML
+    private Button VoirTerrain;
+
+    public void setData(User u) {
+
+        this.CurrentUser = u ;
+        System.out.println(CurrentUser);
+        if(CurrentUser.getRole() != Roles.Proprietaire_de_Terrain){
+            System.out.println(CurrentUser.getRole());
+            VoirTerrain.setVisible(false);
+        }
+
+
+    }
     public void initialize() throws IOException {
 
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/reservezMaintenant.fxml"));
@@ -95,14 +111,7 @@ public class AcceuilController {
         transition.play();
     }
 
-    public void setData(User u) {
 
-        this.CurrentUser = u ;
-        System.out.println(CurrentUser);
-
-
-
-    }
 
 
     @FXML
@@ -153,5 +162,30 @@ public class AcceuilController {
         }
     }
 
+    @FXML
+    void VoirTerrain(ActionEvent event) {
+        try {
 
-}
+            UserService us = new UserService();
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/PageTerrain.fxml"));
+            AnchorPane root = loader.load();
+
+            PageTerrainController ptg = loader.getController();
+
+
+            ptg.setData(us.getByEmail(CurrentUser.getEmail()));
+            Container.getChildren().setAll(root);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException |
+                 BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    }
+
+
+
