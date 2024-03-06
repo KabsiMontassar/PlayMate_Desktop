@@ -188,6 +188,7 @@ public class ProductsController  {
                 prod.setPrix(Integer.parseInt(prixform.getText()));
                 prod.setCategorie((categorieform.getValue()));
                 prod.setImage(imagef.getImage().getUrl());
+                prod.setIdfournisseur(GetIdUser());
                 ProductService cc = new ProductService();
                 cc.update(prod, prod.getId());
                 // Mise à jour de la liste des terrains affichés
