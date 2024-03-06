@@ -14,6 +14,8 @@ import models.Roles;
 import models.User;
 import services.GestionUser.UserService;
 import services.UserActivityLogger;
+import test.Controllers.ProduitController.Products;
+import test.Controllers.ProduitController.ProductsController;
 import test.Controllers.ReservationController.ReservationController;
 import test.Controllers.TerrainController.PageTerrainController;
 import test.Controllers.TournoiController.AfficherListeTournoisClientController;
@@ -33,6 +35,8 @@ public class AcceuilController {
     public Button btnReservation;
     public Button btnOrganisateur;
     public Button btnevenementPart;
+    public Button voirProduit;
+    public Button produitbtn;
     private User CurrentUser ;
     public AnchorPane Container;
     public Button sername;
@@ -265,6 +269,53 @@ public class AcceuilController {
                  BadPaddingException | InvalidKeyException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void voirFournisseur(ActionEvent actionEvent) {
+        try {
+
+            UserService us = new UserService();
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Products.fxml"));
+            AnchorPane root = loader.load();
+
+            Products ptg = loader.getController();
+
+
+            ptg.SetIdUser(us.getByEmail(CurrentUser.getEmail()).getId());
+            Container.getChildren().setAll(root);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException |
+                 BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void voirProduit(ActionEvent actionEvent) {
+        try {
+
+            UserService us = new UserService();
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Products.fxml"));
+            AnchorPane root = loader.load();
+
+            Products ptg = loader.getController();
+
+
+            ptg.SetIdUser(us.getByEmail(CurrentUser.getEmail()).getId());
+            Container.getChildren().setAll(root);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException |
+                 BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
 

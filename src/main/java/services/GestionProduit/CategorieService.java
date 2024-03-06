@@ -2,10 +2,10 @@ package services.GestionProduit;
 
 import javafx.collections.FXCollections;
 import models.Categorie;
+import services.GestionProduit.IService;
 import utils.MyDatabase;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CategorieService implements IService<Categorie> {
@@ -63,6 +63,7 @@ public class CategorieService implements IService<Categorie> {
         return categories;
     }
 
+
     @Override
     public Categorie getById(int id) throws SQLException {
         String sql = "SELECT `nom`, `description` FROM `categorie` WHERE `id` = ?";
@@ -80,18 +81,6 @@ public class CategorieService implements IService<Categorie> {
             return null;
         }
     }
-    public List<Categorie> getidnomCategorie() throws SQLException {
-        String sql = "SELECT id,nom FROM categorie";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        ResultSet rs = preparedStatement.executeQuery();
-        List<Categorie> categories = new ArrayList<>();
-        while (rs.next()) {
-            Categorie u = new Categorie();
-            u.setId(rs.getInt("id"));
-            u.setNom(rs.getString("nom"));
-            categories.add(u);
-        }
-        return categories;
 
-    }
+
 }

@@ -148,6 +148,7 @@ public class FirstController {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/DetailTournoi.fxml"));
         Parent root = loader.load();
         DetailTournoiController controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
         controller.initData(t);
         Stage stage = new Stage();
         stage.setTitle("Détails Tournoi");
@@ -165,6 +166,7 @@ public class FirstController {
         Parent root = loader.load();
         DetailTournoiController controller = loader.getController();
         controller.initData(selectedTournoi);
+        controller.SetIdUser(GetIdUser());
         Stage stage = new Stage();
         stage.setTitle("Détails du Tournoi");
         stage.setScene(new Scene(root));
@@ -181,6 +183,7 @@ public class FirstController {
         Parent root = loader.load();
         DetailTournoiController controller = loader.getController();
         controller.initData(selectedTournoi);
+        controller.SetIdUser(GetIdUser());
         Stage stage = new Stage();
         stage.setTitle("Détails du Tournoi");
         stage.setScene(new Scene(root));

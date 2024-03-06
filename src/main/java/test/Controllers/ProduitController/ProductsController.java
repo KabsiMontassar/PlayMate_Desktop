@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.converter.NumberStringConverter;
 import models.Categorie;
 import models.Product;
 import services.GestionProduit.CategorieService;
@@ -27,8 +28,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
 
-public class ProductsController implements Initializable {
+public class ProductsController  {
 
     @FXML
     private Button ajouter;
@@ -76,15 +78,45 @@ public class ProductsController implements Initializable {
     private Product prod;
     @FXML
     private ChoiceBox<Integer> categorieform;
+
+    private int IdUser;
+
+    public void SetIdUser(int idUser) {
+        nomform.setText("");
+        descriptionform.setText("");
+        prixform.setText("");
+        categorieform.setValue(null);
+        CategorieService cs=new CategorieService();
+        List<Categorie> test= null;
+        try {
+            test = cs.getAll();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        for(Categorie cat : test)
+        {
+            categorieform.getItems().add(cat.getId());
+        }
+        categorieform.setOnAction(event -> affichernom());
+
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+        return this.IdUser;
+    }
     ProductService cs = new ProductService();
 
     @FXML
     void RetourVersProducts(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Products.fxml"));
         Parent root = loader.load();
-        Stage stage= (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        Products controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
+        Stage stage = new Stage();
+
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
     }
     public void initialiseData(Product product) {
         this.prod = product;
@@ -234,27 +266,7 @@ public class ProductsController implements Initializable {
 
 
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-         nomform.setText("");
-            descriptionform.setText("");
-            prixform.setText("");
-            categorieform.setValue(null);
-        CategorieService cs=new CategorieService();
-        List<Categorie> test= null;
-        try {
-            test = cs.getAll();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        for(Categorie cat : test)
-        {
-            categorieform.getItems().add(cat.getId());
-        }
-        categorieform.setOnAction(event -> affichernom());
 
-
-    }
     @FXML
     public void affichernom() {
         if (categorieform.getValue() != null) {
@@ -270,7 +282,7 @@ public class ProductsController implements Initializable {
     public void insererimage(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choisir une image");
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Fichiers image", "*.png", "*.jpg", "*.gif"));
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Fichiers image", "*.png", "*.jpg"));
         File selectedFile = fileChooser.showOpenDialog(null);
         if (selectedFile != null) {
             imagePath = selectedFile.toURI().toString();
