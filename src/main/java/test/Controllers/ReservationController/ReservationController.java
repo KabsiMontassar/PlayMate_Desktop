@@ -41,15 +41,22 @@ import services.GestionTerrain.TerrainService;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
 import javafx.scene.control.Button;
+import services.GestionUser.UserService;
 import test.Controllers.TournoiController.DetailTournoiController;
+import test.Controllers.UserController.AcceuilController;
 import test.MainFx;
 
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.awt.*;
 import java.awt.MenuItem;
 import java.awt.TextField;
@@ -378,6 +385,19 @@ public class ReservationController  {
         }catch (Exception e){
             System.out.println(e);
         }
+    }
+UserService us = new UserService();
+    public void gotoaccueil(ActionEvent actionEvent) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
+        Parent root = loader.load();
+        AcceuilController controller = loader.getController();
+        controller.setData(us.getByid(GetIdUser()));
+        Stage stage = new Stage();
+
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+
     }
 
 

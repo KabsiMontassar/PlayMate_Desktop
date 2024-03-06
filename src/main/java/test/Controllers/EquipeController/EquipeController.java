@@ -2,18 +2,32 @@ package test.Controllers.EquipeController;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import models.Equipe;
 import services.GestionEquipe.EquipeService;
+import services.GestionUser.UserService;
+import test.Controllers.UserController.AcceuilController;
+import test.MainFx;
 ;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import java.io.IOException;
 import java.net.URL;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -26,7 +40,7 @@ public class EquipeController implements Initializable {
     @FXML
     private VBox vbox1;
     @FXML
-    private ChoiceBox<String> nomEquipeChoice;
+    private ChoiceBox<String> nomEquipeChoice = new ChoiceBox<>();
 
     @FXML
     private Label inavlideNbreEquipe;
@@ -50,14 +64,27 @@ public class EquipeController implements Initializable {
     *
     * */
 
+    private int IdUser;
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
+    public void SetIdUser(int idUser) throws SQLException {
 
 
-    public String[] nomEquipes(){
+
+        String[] nom = nomEquipes(idUser);
+        nomEquipeChoice.getItems().addAll(nom);
+        this.IdUser = idUser;
+
+    }
+
+    public String[] nomEquipes(int idUser){
         EquipeService equipeService = new EquipeService();
         // *********************************************************************************************
         //                                                 supoosant 3
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(3);
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(idUser);
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
@@ -76,7 +103,7 @@ public class EquipeController implements Initializable {
 
         EquipeService equipeService = new EquipeService();
         // idjoueur a changer !!!!
-        List<Equipe> equipeList = equipeService.getEquipesParMembre(7);
+        List<Equipe> equipeList = equipeService.getEquipesParMembre(GetIdUser());
         vbox1.getChildren().clear();
 
         for (Equipe equipe :equipeList){
@@ -107,7 +134,7 @@ public class EquipeController implements Initializable {
         equipeService.ajouterEquipe(equipe);
         // supposant 7 comme id
         int idEquipe = equipeService.getLastIdEquipeAddRecently();
-        equipeService.ajouterMembreParEquipe(idEquipe,7);
+        equipeService.ajouterMembreParEquipe(idEquipe,GetIdUser());
     }
     }
 
@@ -142,13 +169,22 @@ public class EquipeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String[] nom = nomEquipes();
 
-
-
-        nomEquipeChoice.getItems().addAll(nom);
         inavlideNomEquipe.setVisible(false);
         inavlideNbreEquipe.setVisible(false);
+
+    }
+  UserService us = new UserService();
+    public void Retour(ActionEvent actionEvent) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
+        Parent root = loader.load();
+        AcceuilController controller = loader.getController();
+        controller.setData(us.getByid(GetIdUser()));
+        Stage stage = new Stage();
+
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) actionEvent.getSource()).getScene().getWindow().hide();
 
     }
 }
