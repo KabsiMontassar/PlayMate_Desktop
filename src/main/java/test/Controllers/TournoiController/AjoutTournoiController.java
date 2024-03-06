@@ -194,7 +194,7 @@ CAlert c = new CAlert();
         FirstController controller = loader.getController(); // Retrieve the controller
         controller.SetIdUser(GetIdUser());
 
-        FormulaireRoot.getChildren().setAll(root);
+
 
         Stage stage = new Stage();
         stage.setTitle("Modifier");
