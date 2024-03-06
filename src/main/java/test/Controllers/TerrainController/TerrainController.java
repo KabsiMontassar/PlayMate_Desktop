@@ -166,7 +166,7 @@ public class TerrainController {
                 int prixValue = Integer.parseInt(tfprix.getText()); //Convertir le prix en float
                 // Créer un nouveau terrain avec les données saisies
                 Terrain terrain = new Terrain(tfaddress.getText(), cbGradin.isSelected(), cbVestiaire.isSelected(), cbStatus.isSelected(), tfnom.getText(), prixValue, Integer.parseInt(tfduree.getText()), tfgouvernorat.getValue(), imagePath, videoPath);
-                ts.add(terrain);
+                ts.add(CurrentUser,terrain);
                 clearField(); // Efface les champs après l'ajout
                 ((Button) event.getSource()).getScene().getWindow().hide();
                 voirlist();}}}

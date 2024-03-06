@@ -1,6 +1,7 @@
 package services.GestionTerrain;
 
 import models.Terrain;
+import models.User;
 import utils.MyDatabase;
 
 import java.sql.*;
@@ -15,8 +16,8 @@ public class TerrainService {
         connection = MyDatabase.getInstance().getConnection();
     }
     //*******************************************************************************************
-    public void add(Terrain t) throws SQLException {
-        String query = "INSERT INTO terrain (address, gradin, vestiaire, status, nomTerrain, prix, duree, gouvernorat, image, video) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public void add(User u , Terrain t) throws SQLException {
+        String query = "INSERT INTO terrain (address, gradin, vestiaire, status, nomTerrain, prix, duree, gouvernorat, image, video,idprop) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, t.getAddress());
             ps.setBoolean(2, t.getGradin());
@@ -28,6 +29,7 @@ public class TerrainService {
             ps.setString(8, t.getGouvernorat());
             ps.setString(9, t.getImage());
             ps.setString(10, t.getVideo());
+            ps.setInt(11,u.getId());
             ps.executeUpdate();
             try (ResultSet rs = ps.getGeneratedKeys()) {
                 if (rs.next()) {

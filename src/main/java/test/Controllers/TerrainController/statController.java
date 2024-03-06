@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.control.Button;
 import services.GestionTerrain.TerrainService;
@@ -43,7 +44,7 @@ public class statController {
     private AvisService avisService;
     @FXML
     private Button btretour;
-    List<Terrain> terrains;
+    List<Terrain> terrains = new ArrayList<>();
     //*******************************************************************************************
     public statController() {
         this.avisService = new AvisService();

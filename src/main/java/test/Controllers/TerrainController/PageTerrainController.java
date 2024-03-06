@@ -364,7 +364,7 @@ public class PageTerrainController  {
         Stage stage = new Stage();
         statController controller = loader.getController();
         controller.setData(us.getByEmail(CurrentUser.getEmail()));
-        stage.setTitle("Login");
+
         stage.setScene(new Scene(root));
         stage.show();
         ((Button) event.getSource()).getScene().getWindow().hide();
