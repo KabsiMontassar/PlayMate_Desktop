@@ -11,16 +11,26 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import models.User;
 import services.GestionTerrain.AvisService;
 import models.Terrain;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.List;
 import javafx.scene.control.Button;
+import services.GestionTerrain.TerrainService;
+import services.GestionUser.UserService;
 import test.MainFx;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
 //*******************************************************************************************
 public class statController {
 
@@ -33,14 +43,20 @@ public class statController {
     private AvisService avisService;
     @FXML
     private Button btretour;
+    List<Terrain> terrains;
     //*******************************************************************************************
     public statController() {
         this.avisService = new AvisService();
     }
-    //*******************************************************************************************
-    @FXML
-    public void initialize() throws IOException {
-        List<Terrain> terrains;
+
+    UserService us = new UserService();
+    TerrainService ts = new TerrainService();
+    private User CurrentUser  ;
+
+    public void setData(User u ){
+
+        this.CurrentUser = u;
+        terrains.addAll(ts.getTerrainbyPropid(CurrentUser.getId()));
         try {
             terrains = avisService.getTerrainsOrderByCommentaires();
             XYChart.Series<String, Number> series = new XYChart.Series<>();
@@ -58,7 +74,11 @@ public class statController {
             // Définir la valeur de départ de l'axe des ordonnées a 0
             yAxis.setLowerBound(0);
             // Désactiver la génération automatique des étiquettes
-            yAxis.setAutoRanging(false);} catch (SQLException e) {e.printStackTrace();}}
+            yAxis.setAutoRanging(false);} catch (SQLException e) {e.printStackTrace();}
+    }
+    //**
+    //*******************************************************************************************
+
     //*******************************************************************************************
     @FXML
     void exporterEnExcel(ActionEvent event) {
@@ -74,9 +94,11 @@ public class statController {
             } catch (IOException e) {e.printStackTrace();}}}
     //*******************************************************************************************
     @FXML
-    void retour(ActionEvent event) throws IOException {
+    void retour(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/PageTerrain.fxml"));
         Parent root = loader.load();
+        PageTerrainController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         Stage stage = new Stage();
         stage.setTitle("Liste des terrains");
         stage.setScene(new Scene(root));

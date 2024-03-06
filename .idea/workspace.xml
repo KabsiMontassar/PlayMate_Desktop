@@ -5,29 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/StatistiquesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/418596348_1411778762801049_6381498642919127964_n.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/Stats.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/weather-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/weather.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Tournoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Tournoi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionTerrain/TerrainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionTerrain/TerrainService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceTournoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceTournoi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AfficherListeTournoisClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AfficherListeTournoisClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AjoutTournoiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AjoutTournoiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/CalendarController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailTournoiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailTournoiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ModifierTournoiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ModifierTournoiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ParticipationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ParticipationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/FormulaireTournoi.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/FormulaireTournoi.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/first.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/first.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/tournoi.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/tournoi.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/tournoiClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/tournoiClient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/AvisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/AvisController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/DetailTerrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/DetailTerrainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/DonnerAvisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/DonnerAvisController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/PageTerrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/PageTerrainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/TerrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/TerrainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/avisPropTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/avisPropTController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/statController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/statController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resourcesuser_activity_log.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +53,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.MainFx.executor": "Run",
     "Maven.pidev_spartans_3a29 [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -142,7 +134,7 @@
       <workItem from="1709644978261" duration="395000" />
       <workItem from="1709645389502" duration="1381000" />
       <workItem from="1709663217325" duration="10006000" />
-      <workItem from="1709679078173" duration="787000" />
+      <workItem from="1709679078173" duration="5422000" />
     </task>
     <servers />
   </component>

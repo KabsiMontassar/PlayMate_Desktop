@@ -5,6 +5,11 @@ import models.Participation;
 import models.Tournoi;
 import utils.MyDatabase;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +64,7 @@ public class ServiceTournoi {
         ps.executeUpdate();
         System.out.println("tournoi modifieé avec succés");
     }
-public Organisateur getbyidorg(int id) throws SQLException {
+public Organisateur getbyidorg(int id) throws SQLException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
     Organisateur org = null; // Initialize Tournoi as null
     String query = "SELECT * FROM user WHERE id = ?";
     PreparedStatement ps = connection.prepareStatement(query);

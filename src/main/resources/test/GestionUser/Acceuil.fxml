@@ -42,7 +42,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <AnchorPane layoutX="968.0" layoutY="25.0" prefHeight="71.0" prefWidth="246.0">
+      <AnchorPane layoutX="968.0" layoutY="25.0" prefHeight="91.0" prefWidth="303.0">
          <Button layoutX="79.0" layoutY="22.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="54.0" style="-fx-background-color: transparent;">
             <graphic>
                <Button fx:id="sername" mnemonicParsing="false" style="-fx-background-color: grey; -fx-background-radius: 50;" text="M" textFill="WHITE">
@@ -79,6 +79,11 @@
             </font>
          </Button>
          <Button fx:id="btnlogout" layoutX="133.0" layoutY="60.0" mnemonicParsing="false" onAction="#logoutaction" style="-fx-background-color: #EFECEC;" text="Logout">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font>
+         </Button>
+         <Button fx:id="VoirTerrain" layoutX="185.0" layoutY="9.0" mnemonicParsing="false" onAction="#VoirTerrain" style="-fx-background-color: #EFECEC;" text="Voir Terrain">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>

@@ -15,12 +15,21 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import models.User;
 import services.GestionTerrain.AvisService;
 import services.GestionTerrain.TerrainService;
+import services.GestionUser.UserService;
+import test.Controllers.UserController.AcceuilController;
 import test.MainFx;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 //*******************************************************************
@@ -82,11 +91,26 @@ public class PageTerrainController  {
     private Button btstat;
 
     int i = 0; // Initialisation d'un compteur pour la pagination
-    TerrainService Ts = new TerrainService(); //Instanciation du service TerrainService
-    //*******************************************************************
-    public void initialize() {
-        actualise(Ts.getAllTerrains());//Appel de la méthode actualise avec la liste de tous les terrains
+     TerrainService Ts = new TerrainService(); //Instanciation du service TerrainService
+    private  User CurrentUser;
+
+     List<Terrain> terrains = new ArrayList<>() ;
+
+    UserService us = new UserService();
+
+    public void setData(User u){
+        CurrentUser = u;
+        terrains.addAll(Ts.getTerrainbyPropid(CurrentUser.getId()));
+        actualise(terrains);
     }
+
+    //*******************************************************************
+
+
+
+
+
+    //**
     //*******************************************************************
     void actualise(List<Terrain> terrains) {
         // Affichage ou masquage du bouton suivant en fonction du nombre de terrains restants à afficher
@@ -144,21 +168,22 @@ public class PageTerrainController  {
     @FXML
     void retour(ActionEvent event) {
         i -= 1; // Décrémentation du compteur pour afficher les terrains précédents
-        actualise(Ts.getAllTerrains()); // Appel de la méthode actualise avec la liste de tous les terrains
+        actualise(Ts.getTerrainbyPropid(CurrentUser.getId())); // Appel de la méthode actualise avec la liste de tous les terrains
     }
     //*******************************************************************************************
     @FXML
     void suivant(ActionEvent event) {
         i += 1; // Incrémentation du compteur pour afficher les terrains suivants
-        actualise(Ts.getAllTerrains()); // Appel de la méthode actualise avec la liste de tous les terrains
+        actualise(Ts.getTerrainbyPropid(CurrentUser.getId())); // Appel de la méthode actualise avec la liste de tous les terrains
     }
     //*******************************************************************************************
     @FXML
-    void Ajout(ActionEvent event) throws IOException {
+    void Ajout(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/Terrain.fxml"));
         Parent root = loader.load();
         TerrainController controller = loader.getController();
         controller.setModifierButtonVisibility(false); // Masquer le bouton "Modifier"
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         Stage stage = new Stage();
         stage.setTitle("Gestion_Terrain");
         stage.setScene(new Scene(root));
@@ -166,13 +191,14 @@ public class PageTerrainController  {
         ((Button) event.getSource()).getScene().getWindow().hide();}
     //*******************************************************************************************
     @FXML
-    void detail1(ActionEvent event) throws IOException {
+    void detail1(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i;
-        Terrain terrain = Ts.getAllTerrains().get(index);
+        Terrain terrain = Ts.getTerrainbyPropid(CurrentUser.getId()).get(index);
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DetailTerrain.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         controller.initData(terrain);
         Stage stage = new Stage();
         stage.setTitle("Détails Terrain");
@@ -181,14 +207,15 @@ public class PageTerrainController  {
         ((Button) event.getSource()).getScene().getWindow().hide();}
     //*******************************************************************************************
     @FXML
-    void detail2(ActionEvent event) throws IOException {
+    void detail2(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Terrain selectedTerrain = Ts.getAllTerrains().get(index);
+        Terrain selectedTerrain = Ts.getTerrainbyPropid(CurrentUser.getId()).get(index);
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DetailTerrain.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
         controller.initData(selectedTerrain);
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         Stage stage = new Stage();
         stage.setTitle("Détails du Terrain");
         stage.setScene(new Scene(root));
@@ -196,14 +223,15 @@ public class PageTerrainController  {
         ((Button) event.getSource()).getScene().getWindow().hide();}
     //*******************************************************************************************
     @FXML
-    void detail3(ActionEvent event) throws IOException {
+    void detail3(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(9)) - 1+3*i; // Assuming the button IDs are like "btnDetail1", "btnDetail2", etc.
-        Terrain selectedTerrain = Ts.getAllTerrains().get(index);
+        Terrain selectedTerrain = Ts.getTerrainbyPropid(CurrentUser.getId()).get(index);
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DetailTerrain.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
         controller.initData(selectedTerrain);
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         Stage stage = new Stage();
         stage.setTitle("Détails du Terrain");
         stage.setScene(new Scene(root));
@@ -213,8 +241,8 @@ public class PageTerrainController  {
     @FXML
     void supp1(ActionEvent event) throws SQLException {
         int indexToDelete = i * 3;
-        if (indexToDelete >= 0 && indexToDelete < Ts.getAllTerrains().size()) {
-            Terrain terrainToDelete = Ts.getAllTerrains().get(indexToDelete);
+        if (indexToDelete >= 0 && indexToDelete < Ts.getTerrainbyPropid(CurrentUser.getId()).size()) {
+            Terrain terrainToDelete = Ts.getTerrainbyPropid(CurrentUser.getId()).get(indexToDelete);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation de suppression");
             alert.setHeaderText(null);
@@ -222,7 +250,7 @@ public class PageTerrainController  {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 Ts.delete(terrainToDelete.getId());
-                actualise(Ts.getAllTerrains());}
+                actualise(Ts.getTerrainbyPropid(CurrentUser.getId()));}
         } else {showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de terrain à supprimer n'est pas valide.");}}
     //*******************************************************************************************
     private void showAlert(Alert.AlertType alertType, String title, String message) {
@@ -235,8 +263,8 @@ public class PageTerrainController  {
     @FXML
     void supp2(ActionEvent event) throws SQLException {
         int indexToDelete = i * 3 + 1;
-        if (indexToDelete >= 0 && indexToDelete < Ts.getAllTerrains().size()) {
-            Terrain terrainToDelete = Ts.getAllTerrains().get(indexToDelete);
+        if (indexToDelete >= 0 && indexToDelete < Ts.getTerrainbyPropid(CurrentUser.getId()).size()) {
+            Terrain terrainToDelete = Ts.getTerrainbyPropid(CurrentUser.getId()).get(indexToDelete);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation de suppression");
             alert.setHeaderText(null);
@@ -244,14 +272,14 @@ public class PageTerrainController  {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 Ts.delete(terrainToDelete.getId());
-                actualise(Ts.getAllTerrains());}
+                actualise(Ts.getTerrainbyPropid(CurrentUser.getId()));}
         } else {showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de terrain à supprimer n'est pas valide.");}}
     //*******************************************************************************************
     @FXML
     void supp3(ActionEvent event) throws SQLException {
         int indexToDelete = i * 3 + 2;
-        if (indexToDelete >= 0 && indexToDelete < Ts.getAllTerrains().size()) {
-            Terrain terrainToDelete = Ts.getAllTerrains().get(indexToDelete);
+        if (indexToDelete >= 0 && indexToDelete < Ts.getTerrainbyPropid(CurrentUser.getId()).size()) {
+            Terrain terrainToDelete = Ts.getTerrainbyPropid(CurrentUser.getId()).get(indexToDelete);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation de suppression");
             alert.setHeaderText(null);
@@ -259,20 +287,21 @@ public class PageTerrainController  {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 Ts.delete(terrainToDelete.getId());
-                actualise(Ts.getAllTerrains());}
+                actualise(Ts.getTerrainbyPropid(CurrentUser.getId()));}
         } else {
             showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de terrain à supprimer n'est pas valide.");}}
     //*******************************************************************************************
     @FXML
-    void avis1(ActionEvent event) throws IOException {
+    void avis1(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(7)) - 1 + 3 * i;
-        Terrain selectedTerrain = Ts.getAllTerrains().get(index);
+        Terrain selectedTerrain = Ts.getTerrainbyPropid(CurrentUser.getId()).get(index);
         AvisService as = new AvisService();
         List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(selectedTerrain.getId());
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/avisPropT.fxml"));
         Parent root = loader.load();
         avisPropTController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         controller.initData(avisTerrain);
         Stage stage = new Stage();
         stage.setTitle("Les avis");
@@ -281,15 +310,16 @@ public class PageTerrainController  {
         ((Button) event.getSource()).getScene().getWindow().hide();}
     //*******************************************************************************************
     @FXML
-    void avis2(ActionEvent event) throws IOException {
+    void avis2(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(7)) - 1 + 3 * i;
-        Terrain selectedTerrain = Ts.getAllTerrains().get(index);
+        Terrain selectedTerrain = Ts.getTerrainbyPropid(CurrentUser.getId()).get(index);
         AvisService as = new AvisService();
         List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(selectedTerrain.getId());
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/avisPropT.fxml"));
         Parent root = loader.load();
         avisPropTController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         controller.initData(avisTerrain);
         Stage stage = new Stage();
         stage.setTitle("Les avis");
@@ -298,16 +328,18 @@ public class PageTerrainController  {
         ((Button) event.getSource()).getScene().getWindow().hide();}
     //*******************************************************************************************
     @FXML
-    void avis3(ActionEvent event) throws IOException {
+    void avis3(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         Button btn = (Button) event.getSource();
         int index = Integer.parseInt(btn.getId().substring(7)) - 1 + 3 * i;
-        Terrain selectedTerrain = Ts.getAllTerrains().get(index);
+        Terrain selectedTerrain = Ts.getTerrainbyPropid(CurrentUser.getId()).get(index);
         AvisService as = new AvisService();
         List<AvisTerrain> avisTerrain = as.getAvisByTerrainId(selectedTerrain.getId());
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/avisPropT.fxml"));
         Parent root = loader.load();
         avisPropTController controller = loader.getController();
         controller.initData(avisTerrain);
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
+
         Stage stage = new Stage();
         stage.setTitle("Les avis");
         stage.setScene(new Scene(root));
@@ -315,23 +347,31 @@ public class PageTerrainController  {
         ((Button) event.getSource()).getScene().getWindow().hide();}
     //*******************************************************************************************
     @FXML
-    void logoutaction(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/LoginRegistrationPage.fxml"));
+    void logoutaction(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
         Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setTitle("Login");
-        stage.setScene(new Scene(root));
-        stage.show();}
+        AcceuilController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
+        main.getChildren().addAll(root);
+
+    }
 
 
     @FXML
-    void stat(ActionEvent event) throws IOException {
+    void stat(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/stat.fxml"));
         Parent root = loader.load();
         Stage stage = new Stage();
+        statController controller = loader.getController();
+        controller.setData(us.getByEmail(CurrentUser.getEmail()));
         stage.setTitle("Login");
         stage.setScene(new Scene(root));
         stage.show();
         ((Button) event.getSource()).getScene().getWindow().hide();
     }
+
+
+
+
+
 }

@@ -194,6 +194,20 @@ public class TerrainService {
             // Gérer l'exception de manière appropriée
             e.printStackTrace();}
         return terrainsByGouvernorat;}
+
+    public List<Terrain> getTerrainbyPropid(int id) {
+        List<Terrain> terrainsByAddress = new ArrayList<>();
+        String query = "SELECT * FROM terrain WHERE idprop = ?";
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setInt(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Terrain terrain = createTerrainFromResultSet(rs);
+                    terrainsByAddress.add(terrain);}}
+        } catch (SQLException e) {
+            // Gérer l'exception de manière appropriée
+            e.printStackTrace();}
+        return terrainsByAddress;}
    /* public List<String> getNamesOfTerrain() {
         List<String> names = new ArrayList<>();
         String query = "SELECT nomTerrain FROM terrain"; // Assurez-vous que le nom de la table est correct
