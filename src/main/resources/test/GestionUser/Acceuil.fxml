@@ -12,21 +12,13 @@
       <ImageView fitHeight="96.0" fitWidth="100.0" layoutX="60.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../Images/loo.png" />
       </ImageView>
-      <Button fx:id="btnevenementPart" layoutX="726.0" layoutY="50.0" mnemonicParsing="false" onAction="#evenementPart" style="-fx-background-color: Transparent;" text="Evenement" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Button>
+
       <Button layoutX="636.0" layoutY="50.0" mnemonicParsing="false" style="-fx-background-color: Transparent;" text="Produits" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btnReservation" layoutX="429.0" layoutY="50.0" mnemonicParsing="false" onAction="#Toreservation" style="-fx-background-color: Transparent;" text="Réservations" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Button>
+
       <Button layoutX="329.0" layoutY="50.0" mnemonicParsing="false" style="-fx-background-color: Transparent;" text="Actualités" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -88,11 +80,7 @@
                <Font name="System Bold" size="15.0" />
             </font>
          </Button>
-         <Button fx:id="btnOrganisateur" layoutX="195.0" layoutY="45.0" mnemonicParsing="false" onAction="#VoirOrganisateur" style="-fx-background-color: #EFECEC;" text="Voir Tournoi">
-            <font>
-               <Font name="System Bold" size="15.0" />
-            </font>
-         </Button>
+
       </AnchorPane>
    </AnchorPane>
    <AnchorPane fx:id="AccueilStuff" layoutX="50.0" layoutY="120.0" prefHeight="600.0" prefWidth="1180.0" />

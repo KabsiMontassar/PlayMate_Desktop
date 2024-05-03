@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="" />
+    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/GestionUser/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/GestionUser/Acceuil.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +50,7 @@
     &quot;git-widget-placeholder&quot;: &quot;MaleekIntegration&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/lenovo/Desktop/javafx-sdk-11.0.2/lib/javafx-swt.jar&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/lenovo/Desktop&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -115,6 +119,15 @@
       <workItem from="1709645389502" duration="1381000" />
       <workItem from="1709663217325" duration="14224000" />
       <workItem from="1709685351539" duration="57000" />
+      <workItem from="1710084809262" duration="3000" />
+      <workItem from="1710090148765" duration="43000" />
+      <workItem from="1710336737230" duration="152000" />
+      <workItem from="1710859415796" duration="535000" />
+      <workItem from="1711662538600" duration="34000" />
+      <workItem from="1711664355855" duration="200000" />
+      <workItem from="1711817310175" duration="6000" />
+      <workItem from="1714758048657" duration="4000" />
+      <workItem from="1714758065285" duration="302000" />
     </task>
     <servers />
   </component>
