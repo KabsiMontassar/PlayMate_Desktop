@@ -8,6 +8,15 @@ public class Categorie {
     private String nom;
     private String description;
     private List<Product> productList;
+    private int nbproducts;
+
+    public int getNbproducts() {
+        return nbproducts;
+    }
+
+    public void setNbproducts(int nbproducts) {
+        this.nbproducts = nbproducts;
+    }
 
     public Categorie(int id, String nom, String description ) {
         this.id = id;
@@ -15,6 +24,8 @@ public class Categorie {
         this.description = description;
         this.productList = new ArrayList<>();
     }
+
+
 
     public Categorie(String nom, String description) {
         this.nom = nom;

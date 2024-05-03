@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,29 +13,27 @@
       <ImageView fitHeight="96.0" fitWidth="100.0" layoutX="60.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@../Images/loo.png" />
       </ImageView>
-
-      <Button layoutX="636.0" layoutY="50.0" mnemonicParsing="false" style="-fx-background-color: Transparent;" text="Produits" textAlignment="CENTER">
+      <Button fx:id="btnevenementPart" layoutX="753.0" layoutY="50.0" mnemonicParsing="false" onAction="#evenementPart" style="-fx-background-color: Transparent;" text="Evenement" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-
-      <Button layoutX="329.0" layoutY="50.0" mnemonicParsing="false" style="-fx-background-color: Transparent;" text="Actualités" textAlignment="CENTER">
+      <Button fx:id="produitbtn" layoutX="633.0" layoutY="50.0" mnemonicParsing="false" onAction="#voirProduit" style="-fx-background-color: Transparent;" text="Produits" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="voirTerrain2" layoutX="549.0" layoutY="50.0" mnemonicParsing="false" onAction="#voirTerrain2" style="-fx-background-color: Transparent;" text="Terrains" textAlignment="CENTER">
+      <Button fx:id="btnReservation" layoutX="384.0" layoutY="50.0" mnemonicParsing="false" onAction="#Toreservation" style="-fx-background-color: Transparent;" text="Réservations" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="827.0" layoutY="50.0" mnemonicParsing="false" style="-fx-background-color: Transparent;" text="À propos" textAlignment="CENTER">
+      <Button fx:id="voirTerrain2" layoutX="515.0" layoutY="50.0" mnemonicParsing="false" style="-fx-background-color: Transparent;" text="Terrains" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <AnchorPane layoutX="968.0" layoutY="25.0" prefHeight="91.0" prefWidth="303.0">
+      <AnchorPane layoutX="920.0" layoutY="20.0" prefHeight="96.0" prefWidth="353.0">
          <Button layoutX="79.0" layoutY="22.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="54.0" style="-fx-background-color: transparent;">
             <graphic>
                <Button fx:id="sername" mnemonicParsing="false" style="-fx-background-color: grey; -fx-background-radius: 50;" text="M" textFill="WHITE">
@@ -44,7 +43,7 @@
                </Button>
             </graphic>
          </Button>
-         <Button layoutX="43.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <Button layoutX="43.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
             <graphic>
                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../Images/bell.png" />
@@ -58,30 +57,40 @@
                </ImageView>
             </graphic>
          </Button>
-         <AnchorPane fx:id="notificationicon" layoutX="61.0" layoutY="29.0" prefHeight="10.0" prefWidth="10.0" style="-fx-background-color: red; -fx-background-radius: 100;">
+         <AnchorPane fx:id="notificationicon" layoutX="61.0" layoutY="29.0" prefHeight="10.0" prefWidth="10.0" style="-fx-background-color: red; -fx-background-radius: 100;" visible="false">
             <Text fill="WHITE" layoutX="4.0" layoutY="7.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!">
                <font>
                   <Font name="System Bold" size="7.0" />
                </font>
             </Text>
          </AnchorPane>
-         <Button fx:id="btnseeProfile" layoutY="60.0" mnemonicParsing="false" onAction="#btnseeProfile" style="-fx-background-color: #EFECEC;" text="Voir Profile" textAlignment="CENTER">
+         <Button fx:id="btnseeProfile" layoutX="181.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnseeProfile" style="-fx-background-color: #EFECEC;" text="Voir Profile" textAlignment="CENTER" visible="false">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>
          </Button>
-         <Button fx:id="btnlogout" layoutX="118.0" layoutY="59.0" mnemonicParsing="false" onAction="#logoutaction" style="-fx-background-color: #EFECEC;" text="Logout">
+         <Button fx:id="btnlogout" layoutX="282.0" layoutY="7.0" mnemonicParsing="false" onAction="#logoutaction" style="-fx-background-color: #EFECEC;" text="Logout" visible="false">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>
          </Button>
-         <Button fx:id="VoirTerrain" layoutX="185.0" layoutY="9.0" mnemonicParsing="false" onAction="#VoirTerrain" style="-fx-background-color: #EFECEC;" text="Voir Terrain">
+         <Button fx:id="VoirTerrain" layoutX="166.0" layoutY="37.0" mnemonicParsing="false" onAction="#VoirTerrain" style="-fx-background-color: #EFECEC;" text="Voir Terrain" visible="false">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>
          </Button>
-
+         <Button fx:id="btnOrganisateur" layoutX="218.0" layoutY="60.0" mnemonicParsing="false" onAction="#VoirOrganisateur" style="-fx-background-color: #EFECEC;" text="Voir Tournoi" visible="false">
+            <font>
+               <Font name="System Bold" size="15.0" />
+            </font>
+         </Button>
+         <ChoiceBox fx:id="choicebox" layoutX="11.0" layoutY="29.0" prefWidth="150.0" style="-fx-background-color: transparent;" />
       </AnchorPane>
+      <Button layoutX="882.0" layoutY="53.0" mnemonicParsing="false" onAction="#openjeu" style="-fx-background-color: Transparent;" text="Jeu" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
    </AnchorPane>
    <AnchorPane fx:id="AccueilStuff" layoutX="50.0" layoutY="120.0" prefHeight="600.0" prefWidth="1180.0" />
    <Button fx:id="loadPreviousPage" layoutY="120.0" mnemonicParsing="false" onAction="#loadPreviousPage" prefHeight="600.0" prefWidth="50.0" style="-fx-background-color: rgba(0, 0, 0, 0.5);" text="&lt;" textFill="WHITE">

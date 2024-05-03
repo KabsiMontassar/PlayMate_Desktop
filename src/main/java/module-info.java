@@ -9,7 +9,7 @@ module test {
     requires sinch.sdk.java;
     requires mailjet.client;
 
-    requires javax.mail.api;
+    //requires javax.mail.api;
 
     requires org.apache.commons.codec;
     requires javafx.web;
@@ -58,6 +58,9 @@ module test {
 
 
     requires org.apache.pdfbox;
+    requires mail;
+    requires com.google.gson;
+    requires okhttp3;
 
     exports test;
     exports models;
