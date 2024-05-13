@@ -40,7 +40,7 @@ public class User {
     }
 
     public void setImage(String image) {
-        this.image = image;
+        this.image = (image == null ? "" : image);
     }
 
     public String getDate_de_Creation() {
@@ -112,7 +112,8 @@ public class User {
     }
 
     public void setAddress(String address) {
-        this.Address = address;
+
+        this.Address = (address == null ? "" : address);
     }
 
     public String getPassword() throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
@@ -127,8 +128,9 @@ public class User {
         return Phone;
     }
 
-    public void setPhone(int phone) {
-        this.Phone = phone;
+    public void setPhone(String phone) {
+        String a = (phone == null ? "0" : phone);
+        this.Phone =  Integer.parseInt(a);
     }
 
 
@@ -146,6 +148,7 @@ public class User {
     }
 
     public void setAge(int age) {
+
         this.age = age;
     }
 

@@ -438,8 +438,8 @@ public class LoginRegistrationPageController {
             }
         }
         try {
-            UserActivityLogger UAL = new UserActivityLogger();
-            UAL.logAction(Seconnecterfield1.getText() ,  " connecte");
+          //  UserActivityLogger UAL = new UserActivityLogger();
+       //     UAL.logAction(Seconnecterfield1.getText() ,  " connecte");
 
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
             AnchorPane root = loader.load();

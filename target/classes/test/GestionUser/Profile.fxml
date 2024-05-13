@@ -118,16 +118,6 @@
          <font>
             <Font size="15.0" />
          </font></PasswordField>
-      <Text fx:id="RoleLabel" fill="#898989" layoutX="38.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-family: condensed;" text="RoleLabel">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <TextField fx:id="Roleinput" layoutX="75.0" layoutY="478.0" prefWidth="200.0" style="-fx-border-color: grey; -fx-border-width: 1; -fx-background-color: transparent; -fx-padding: 8; -fx-border-radius: 3;">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
       <AnchorPane layoutX="38.0" layoutY="210.0" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
          <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../Images/profile.png" />
@@ -141,11 +131,6 @@
       <AnchorPane layoutX="38.0" layoutY="390.0" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
          <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../Images/telephone.png" />
-         </ImageView>
-      </AnchorPane>
-      <AnchorPane fx:id="imganchodid" layoutX="38.0" layoutY="478.0" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
-         <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@../Images/building.png" />
          </ImageView>
       </AnchorPane>
       <AnchorPane layoutX="397.0" layoutY="210.0" prefHeight="39.0" prefWidth="40.0" style="-fx-background-color: transparent; -fx-border-color: grey; -fx-border-width: 1 0 1 1; -fx-border-radius: 3 0 0 3;">
