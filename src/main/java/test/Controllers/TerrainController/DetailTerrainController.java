@@ -88,8 +88,14 @@ public class DetailTerrainController {
         vestd.setText(getAvailability(terrain.getVestiaire()));
         statd.setText(getStatus(terrain.getStatus()));
         if (terrain.getImage() != null && !terrain.getImage().isEmpty()) {
-            Image image = new Image(terrain.getImage());
-            imgd.setImage(image);}
+           try {
+                Image image = new Image(terrain.getImage());
+                imgd.setImage(image);
+            } catch (IllegalArgumentException e) {
+                // Handle the error when the URL is invalid or resource not found
+                imgd.setImage(null); // Set the image view to display nothing
+            }
+        }
         if (terrain.getVideo() != null && !terrain.getVideo().isEmpty()) {
             Media media = new Media(terrain.getVideo());
             MediaPlayer mediaPlayer = new MediaPlayer(media);

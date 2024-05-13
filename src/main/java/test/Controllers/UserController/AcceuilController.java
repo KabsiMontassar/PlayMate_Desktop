@@ -22,6 +22,7 @@ import test.Controllers.ProduitController.Products;
 import test.Controllers.ProduitController.ProductsController;
 import test.Controllers.ReservationController.ReservationController;
 import test.Controllers.TerrainController.PageTerrainController;
+import test.Controllers.TerrainController.TerrainController;
 import test.Controllers.TournoiController.AfficherListeTournoisClientController;
 import test.Controllers.TournoiController.FirstController;
 import test.MainFx;
@@ -370,6 +371,30 @@ public class AcceuilController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void terrains2(ActionEvent event) {
+        try {
+
+            UserService us = new UserService();
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/PageTerrain.fxml"));
+            AnchorPane root = loader.load();
+
+            PageTerrainController ptg = loader.getController();
+
+
+            ptg.setData(us.getByEmail(CurrentUser.getEmail()));
+            Container.getChildren().setAll(root);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException |
+                 BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
 
