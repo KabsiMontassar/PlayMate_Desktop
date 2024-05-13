@@ -1,8 +1,6 @@
 package services.GestionTournoi;
 
-import models.Organisateur;
 import models.Participation;
-import models.Tournoi;
 import utils.MyDatabase;
 
 import java.sql.*;

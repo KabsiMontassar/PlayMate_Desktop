@@ -15,11 +15,9 @@ import javafx.scene.input.Dragboard;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.TransferMode;
 import models.Equipe;
-import models.Joueur;
-import services.GestionEquipe.EquipeService;
+import models.User;
 import services.GestionEquipe.MemberService;
 
-import javax.swing.text.TabableView;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -42,10 +40,10 @@ public class FormEquipeController implements Initializable {
     private String mode = "ADD";
 
     @FXML
-    private TableView<Joueur> sourceTableView ;
+    private TableView<User> sourceTableView ;
 
     @FXML
-    private TableView<Joueur> targetTableView ;
+    private TableView<User> targetTableView ;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.buildTableView(this.sourceTableView, this.getSourceList());
@@ -61,7 +59,7 @@ public class FormEquipeController implements Initializable {
         this.sourceTableView.getItems().remove(this.sourceTableView.getSelectionModel().getSelectedItem());
     }
 
-    public List<Joueur> getSourceList(){
+    public List<User> getSourceList(){
 
         MemberService servive = new MemberService();
         try {
@@ -71,7 +69,7 @@ public class FormEquipeController implements Initializable {
         }
     }
 
-    public List<Joueur> getTargetList(){
+    public List<User> getTargetList(){
 
         MemberService servive = new MemberService();
         try {
@@ -81,12 +79,12 @@ public class FormEquipeController implements Initializable {
         }
     }
 
-    public void buildTableView(TableView<Joueur> tableView, List<Joueur> items){
+    public void buildTableView(TableView<User> tableView, List<User> items){
 
-        TableColumn<Joueur, String> nameColumn = new TableColumn<>("Name");
+        TableColumn<User, String> nameColumn = new TableColumn<>("Name");
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("nom"));
         tableView.getColumns().add(nameColumn);
-        ObservableList<Joueur> data = FXCollections.observableList(items);
+        ObservableList<User> data = FXCollections.observableList(items);
         tableView.setItems(data);
         tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
@@ -98,7 +96,7 @@ public class FormEquipeController implements Initializable {
         });
     }
 
-    private void addDragAndDropHandlers(TableView<Joueur> sourceTableView, TableView<Joueur> targetTableView) {
+    private void addDragAndDropHandlers(TableView<User> sourceTableView, TableView<User> targetTableView) {
         sourceTableView.setOnDragDetected(event -> {
             Dragboard db = sourceTableView.startDragAndDrop(TransferMode.MOVE);
             ClipboardContent content = new ClipboardContent();
@@ -124,7 +122,7 @@ public class FormEquipeController implements Initializable {
             boolean success = false;
             if (db.hasString()) {
                 try {
-                    targetTableView.getItems().add(new Joueur(db.getString()));
+                    targetTableView.getItems().add(new User());
                 } catch (NoSuchAlgorithmException e) {
                     throw new RuntimeException(e);
                 }
