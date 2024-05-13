@@ -2,7 +2,6 @@ package services.GestionUser;
 
 import com.mailjet.client.errors.MailjetException;
 import models.*;
-import services.Encryption;
 import services.JavaMailJett;
 import services.UserActivityLogger;
 import utils.MyDatabase;
@@ -50,7 +49,7 @@ public class UserService implements IService<User> {
             user.setStatus(rs.getBoolean("Status"));
             user.setDate_de_Creation(rs.getString("DatedeCreation"));
             user.setVerificationCode(rs.getString("VerificationCode"));
-            user.setVerified(rs.getBoolean("isVerified"));
+            user.setVerified(rs.getBoolean("is_Verified"));
 
 
 
@@ -79,7 +78,7 @@ public class UserService implements IService<User> {
             user.setStatus(rs.getBoolean("Status"));
             user.setDate_de_Creation(rs.getString("DatedeCreation"));
             user.setVerificationCode(rs.getString("VerificationCode"));
-            user.setVerified(rs.getBoolean("isVerified"));
+            user.setVerified(rs.getBoolean("is_Verified"));
 
 
 
@@ -103,118 +102,28 @@ public class UserService implements IService<User> {
 
 
 
-
-    public void addJoueur(Joueur J ) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
+    public void addUser(User u) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,is_Verified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
         PreparedStatement psUser = connection.prepareStatement(QueryToUser);
-        psUser.setString(1, J.getEmail());
-        psUser.setString(2,  J.getPassword());
-        psUser.setString(3, J.getName());
-
-        psUser.setInt(4, J.getAge());
-        psUser.setInt(5, J.getPhone());
-        psUser.setString(6, J.getRole().toString());
-        psUser.setBoolean(7,J.getStatus());
-        psUser.setString(8,J.getDate_de_Creation());
-        psUser.setString(9,J.getVerificationCode());
-        psUser.setBoolean(10,J.getVerified());
-        psUser.setString(11,"");
-
-
-        UAL.logAction(J.getEmail() ,  "Creer un Compte autant que Joueur");
-        psUser.executeUpdate();
-
-        String QueryToJoueur = "INSERT INTO Membre (JoueurId ) VALUES (?)";
-        int id = getByEmail(J.getEmail()).getId();
-        PreparedStatement psJoueur = connection.prepareStatement(QueryToJoueur);
-        psJoueur.setInt(1, id);
-        psJoueur.executeUpdate();
-    }
-    public void addFournisseur(Fournisseur F) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
-        PreparedStatement psUser = connection.prepareStatement(QueryToUser);
-        psUser.setString(1, F.getEmail());
-        psUser.setString(2,  F.getPassword());
-        psUser.setString(3, F.getName());
-        psUser.setInt(4, F.getAge());
-        psUser.setInt(5, F.getPhone());
-        psUser.setString(6, F.getRole().toString());
-        psUser.setBoolean(7,F.getStatus());
-        psUser.setString(8,F.getDate_de_Creation());
-        psUser.setString(9,F.getVerificationCode());
-        psUser.setBoolean(10,F.getVerified());
+        psUser.setString(1, u.getEmail());
+        psUser.setString(2,  u.getPassword());
+        psUser.setString(3, u.getName());
+        psUser.setInt(4, u.getAge());
+        psUser.setInt(5, u.getPhone());
+        psUser.setString(6, u.getRole().toString());
+        psUser.setBoolean(7,u.getStatus());
+        psUser.setString(8,u.getDate_de_Creation());
+        psUser.setString(9,u.getVerificationCode());
+        psUser.setBoolean(10,u.getVerified());
         psUser.setString(11,"");
         psUser.executeUpdate();
-        String QueryToFournisseur = "INSERT INTO fournisseur (Fournisseur_id , Nom_Sociéte ) VALUES (?,?)";
-        int id = getByEmail(F.getEmail()).getId();
-        PreparedStatement psFournisseur = connection.prepareStatement(QueryToFournisseur);
-        psFournisseur.setInt(1, id);
-        psFournisseur.setString(2, F.getNom_Societe());
-        UAL.logAction(F.getEmail() ,  "Creer un Compte autant que Fournisseur");
-        psFournisseur.executeUpdate();
-    }
-    public void addOrganisateur(Organisateur O) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified ,address) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
-        PreparedStatement psUser = connection.prepareStatement(QueryToUser);
-        psUser.setString(1, O.getEmail());
-        psUser.setString(2,  O.getPassword());
-        psUser.setString(3, O.getName());
-        psUser.setInt(4, O.getAge());
-        psUser.setInt(5, O.getPhone());
-        psUser.setString(6, O.getRole().toString());
-        psUser.setBoolean(7,O.getStatus());
-        psUser.setString(8,O.getDate_de_Creation());
-        psUser.setString(9,O.getVerificationCode());
-        psUser.setBoolean(10,O.getVerified());
-        psUser.setString(11,"");
-        psUser.executeUpdate();
-        UAL.logAction(O.getEmail() ,  "Creer un Compte autant que Organisateur");
 
-        String QueryToOrganisateur = "INSERT INTO organisateur (Organisateur_id , Nom_Organisation ) VALUES (?,?)";
-        int id = getByEmail(O.getEmail()).getId();
-        PreparedStatement psOrganisateur = connection.prepareStatement(QueryToOrganisateur);
-        psOrganisateur.setInt(1, id);
-        psOrganisateur.setString(2, O.getNom_Organisation());
-
-        psOrganisateur.executeUpdate();
-    }
-    public void addProprietairedeTerarin(Proprietaire_de_terrain P) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,isVerified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
-        PreparedStatement psUser = connection.prepareStatement(QueryToUser);
-        psUser.setString(1, P.getEmail());
-        psUser.setString(2,  P.getPassword());
-        psUser.setString(3, P.getName());
-        psUser.setInt(4, P.getAge());
-        psUser.setInt(5, P.getPhone());
-        psUser.setString(6, P.getRole().toString());
-        psUser.setBoolean(7,P.getStatus());
-        psUser.setString(8,P.getDate_de_Creation());
-        psUser.setString(9,P.getVerificationCode());
-        psUser.setBoolean(10,P.getVerified());
-        psUser.setString(11,"");
-        UAL.logAction(P.getEmail() ,  "Creer un Compte autant que Propriétaire de terrain");
-
-        psUser.executeUpdate();
-        String QueryToProprietairedeTerarin = "INSERT INTO proprietaire_de_terrain (Proprietaire_de_terrain_id ) VALUES (?)";
-        int id = getByEmail(P.getEmail()).getId();
-        PreparedStatement psProprietairedeTerarin = connection.prepareStatement(QueryToProprietairedeTerarin);
-        psProprietairedeTerarin.setInt(1, id);
-        psProprietairedeTerarin.executeUpdate();
 
     }
 
 
 
-//    public void delete(String email) throws SQLException{
-//        if(!userExist(email)){
-//            System.out.println("User does not exist");
-//            return;
-//        }
-//        String query = "DELETE FROM user WHERE email = ?";
-//        PreparedStatement ps = connection.prepareStatement(query);
-//        ps.setString(1, email);
-//        ps.executeUpdate();
-//    }
+
 
 
 
@@ -235,56 +144,9 @@ public class UserService implements IService<User> {
         ps.executeUpdate();
     }
 
-    public void UpdateNom_Organisation(int id , String nom ) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        UAL.logAction(getByid(id).getEmail() ,  "effectué de la mise à jour à son Compte");
-        String query = "UPDATE Organisateur SET Nom_Organisation = ?  WHERE Organisateur_id  = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setString(1, nom);
-        ps.setInt(2, id);
-        ps.executeUpdate();
-        System.out.println( ps);
-    }
 
-    public Organisateur getOrganisateurbyid(int id) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
 
-        Organisateur org = new Organisateur(); // Initialize user as null
-        String query = "SELECT * FROM organisateur WHERE Organisateur_id  = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setInt(1, id);
-        ResultSet rs = ps.executeQuery();
-        if (rs.next()) {
-            org.setId(rs.getInt("Organisateur_id"));
-            org.setNom_Organisation(rs.getString("Nom_Organisation"));
 
-        }
-        return org;
-    }
-    public Fournisseur getFournisseurbyid(int id) throws SQLException, NoSuchAlgorithmException {
-        Fournisseur four = new Fournisseur(); // Initialize user as null
-        String query = "SELECT * FROM fournisseur WHERE Fournisseur_id = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setInt(1, id);
-        ResultSet rs = ps.executeQuery();
-        if (rs.next()) {
-            four.setId(rs.getInt("Fournisseur_id"));
-            four.setNom_Societe(rs.getString("Nom_Sociéte"));
-
-        }
-        return four;
-    }
-
-    public void UpdateNom_Societe(int id , String nom ) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        UAL.logAction(getByid(id).getEmail() ,  "effectué de la mise à jour à son Compte");
-        String query = "UPDATE fournisseur SET Nom_Sociéte = ?  WHERE Fournisseur_id  = ?";
-
-        System.out.println(nom);
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setString(1, nom);
-        ps.setInt(2,id);
-
-        System.out.println( id + nom);
-        ps.executeUpdate();
-    }
 
     public void updatePhoto(String Photo , String email) throws SQLException {
         UAL.logAction(email ,  "effectué de la mise à jour à son Compte");

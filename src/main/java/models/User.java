@@ -77,15 +77,14 @@ public class User {
             case "Fournisseur":
                 this.role = Roles.Fournisseur;
                 break;
-            case "Joueur":
-
-                this.role = Roles.Joueur;
+            case "Membre":
+                this.role = Roles.Membre;
                 break;
             case "Organisateur":
 
                 this.role = Roles.Organisateur;
                 break;
-            case "Proprietaire_de_Terrain" :
+            case "Proprietaire de Terrain" :
                 this.role = Roles.Proprietaire_de_Terrain;
                 break;
             default:

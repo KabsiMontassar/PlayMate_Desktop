@@ -29,7 +29,6 @@ import test.MainFx;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import java.awt.*;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -535,59 +534,59 @@ public class LoginRegistrationPageController {
         }
 
 
-        Roles role;
+        String role;
         User u1;
         if(rbtn1.isSelected()){
-            role = Roles.Fournisseur ;
 
 
 
-            u1 = new Fournisseur(
+
+            u1 = new User(
                     Registerfield2.getText(),
                     registerPass2.getText(),
                     Registerfield1.getText(),
                     Integer.parseInt(Registerfield21age.getText()),
                     Integer.parseInt(Registerfield111numero.getText()),
-                    role
+                    Roles.Fournisseur
             );
-            us.addFournisseur((Fournisseur) u1);
+            us.addUser(u1);
         } else if (rbtn2.isSelected()) {
-            role = Roles.Proprietaire_de_Terrain;
 
 
-            u1 = new Proprietaire_de_terrain(
+            u1 = new User(
                     Registerfield2.getText(),
                     registerPass2.getText(),
                     Registerfield1.getText(),
                     Integer.parseInt(Registerfield21age.getText()),
                     Integer.parseInt(Registerfield111numero.getText()),
-                    role);
-            us.addProprietairedeTerarin((Proprietaire_de_terrain) u1);
+                    Roles.Proprietaire_de_Terrain
+            );
+            us.addUser(u1);
         } else if (rbtn3.isSelected()) {
-            role = Roles.Organisateur;
 
 
-            u1 = new Organisateur(
+            u1 = new User(
                     Registerfield2.getText(),
                     registerPass2.getText(),
                     Registerfield1.getText(),
                     Integer.parseInt(Registerfield21age.getText()),
                     Integer.parseInt(Registerfield111numero.getText()),
-                    role);
+                    Roles.Organisateur
+            );
 
-            us.addOrganisateur((Organisateur)u1);
+            us.addUser(u1);
         }else{
-            role = Roles.Joueur;
 
 
-            u1 = new Joueur(
+
+            u1 = new User(
                     Registerfield2.getText(),
                     registerPass2.getText(),
                     Registerfield1.getText(),
                     Integer.parseInt(Registerfield21age.getText()),
                     Integer.parseInt(Registerfield111numero.getText()),
-                    role);
-            us.addJoueur((Joueur)u1);
+                    Roles.Membre);
+            us.addUser(u1);
         }
 
 

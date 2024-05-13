@@ -17,8 +17,6 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import models.Fournisseur;
-import models.Organisateur;
 import models.Roles;
 import models.User;
 import netscape.javascript.JSObject;
@@ -34,12 +32,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URI;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -50,8 +43,8 @@ import java.util.function.UnaryOperator;
 public class ProfileController {
 
     public AnchorPane profileRoot;
-    public TextField Roleinput;
-    public Text RoleLabel;
+
+
 
     public Text tdds ;
     public AnchorPane imganchodid;
@@ -129,8 +122,8 @@ private String FromMapAddress;
 
     public void setData(User u) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         imganchodid.setVisible(false);
-        Roleinput.setVisible(false);
-        RoleLabel.setVisible(false);
+
+
         UserService us = new UserService();
         CurrentUser = us.getByEmail(u.getEmail());
         System.out.println(CurrentUser);
@@ -146,20 +139,16 @@ private String FromMapAddress;
             InputAddress.setText("");
         }
         if(CurrentUser.getRole() == Roles.Organisateur) {
-            RoleLabel.setVisible(true);
-            Roleinput.setVisible(true);
+
+
             imganchodid.setVisible(true);
-            Organisateur org = us.getOrganisateurbyid(CurrentUser.getId());
-            RoleLabel.setText("Organisation");
-            Roleinput.setText(org.getNom_Organisation());
+            User org = us.getByid(CurrentUser.getId());
         }
             if(CurrentUser.getRole() == Roles.Fournisseur){
-                RoleLabel.setVisible(true);
-                Roleinput.setVisible(true);
+
+
                 imganchodid.setVisible(true);
-                Fournisseur org = us.getFournisseurbyid(CurrentUser.getId());
-                RoleLabel.setText("Societe");
-                Roleinput.setText(org.getNom_Societe());
+                User org = us.getByid(CurrentUser.getId());
             }
 
 
@@ -385,12 +374,7 @@ private String FromMapAddress;
 
         );
 
-        if(CurrentUser.getRole() == Roles.Fournisseur){
-            us.UpdateNom_Societe(CurrentUser.getId(),Roleinput.getText());
-        }
-        if(CurrentUser.getRole() == Roles.Organisateur){
-            us.UpdateNom_Organisation(CurrentUser.getId(),Roleinput.getText());
-        }
+
 UpdateUser.setEmail(CurrentUser.getEmail());
 
 
