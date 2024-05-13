@@ -95,13 +95,18 @@ public class DetailClientController implements Initializable {
 
 
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoiClient.fxml"));
-        AfficherListeTournoisClientController controller = loader.load();
-        controller.SetIdUser(GetIdUser());
         AnchorPane root = loader.load();
+        AfficherListeTournoisClientController controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
+
+
+
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+        ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+
     }
 
     public void initData(Tournoi tournoi) throws SQLException {
@@ -115,8 +120,15 @@ public class DetailClientController implements Initializable {
         /*inputDateFin.setText(tournoi.getDatefin());
         InputAddress.setText(tournoi.getAddress());*/
         if (tournoi.getAffiche() != null && !tournoi.getAffiche().isEmpty()) {
-            Image image = new Image(tournoi.getAffiche());
-            imgd.setImage(image);}
+            try {
+                Image img = new Image(tournoi.getAffiche());
+                imgd.setImage(img);
+            } catch (IllegalArgumentException e) {
+                // Handle the error when the URL is invalid or resource not found
+                imgd.setImage(null); // Set the image view to display nothing
+            }
+
+        }
         tournoiActuel.setParticipationList(st.getparticipationbytournoiid(tournoiActuel.getId()));
         verifierParticipation(3);
 
@@ -151,6 +163,7 @@ public class DetailClientController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
 
 
     }
@@ -171,13 +184,17 @@ public class DetailClientController implements Initializable {
 
                 }
             }}
-     else {showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de participation à supprimer n'est pas valide.");}
+     else {
+         showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de participation à supprimer n'est pas valide.");
+     }
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoiClient.fxml"));
         AnchorPane root = loader.load();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
+
     }
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);

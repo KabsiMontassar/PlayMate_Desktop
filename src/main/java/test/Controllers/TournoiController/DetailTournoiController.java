@@ -62,8 +62,15 @@ public class DetailTournoiController {
         /*inputDateFin.setText(tournoi.getDatefin());
         InputAddress.setText(tournoi.getAddress());*/
        if (tournoi.getAffiche() != null && !tournoi.getAffiche().isEmpty()) {
-           Image image = new Image(tournoi.getAffiche());
-           imgd.setImage(image);}
+
+           try {
+               Image img = new Image(tournoi.getAffiche());
+               imgd.setImage(img);
+           } catch (IllegalArgumentException e) {
+               // Handle the error when the URL is invalid or resource not found
+               imgd.setImage(null); // Set the image view to display nothing
+           }
+       }
 
     }
     @FXML

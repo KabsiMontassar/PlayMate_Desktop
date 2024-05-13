@@ -73,7 +73,7 @@ public class AcceuilController {
         if(u.getRole() == Roles.Proprietaire_de_Terrain){
             choicebox.getItems().add("Voir Terrains");
         }
-        if(u.getRole() == Roles.Joueur){
+        if(u.getRole() == Roles.Membre){
             choicebox.getItems().add("Voir Equipe");
         }
         choicebox.getItems().add("Voir Profile");
@@ -212,7 +212,7 @@ public class AcceuilController {
 
             UserService us = new UserService();
             UserActivityLogger UAL = new UserActivityLogger();
-            UAL.logAction(CurrentUser.getEmail() ,  " deconnecter");
+        //    UAL.logAction(CurrentUser.getEmail() ,  " deconnecter");
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/LoginRegistrationPage.fxml"));
             AnchorPane root = loader.load();
 

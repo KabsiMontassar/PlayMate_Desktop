@@ -1,8 +1,8 @@
 package services.GestionEquipe;
 
 import models.Equipe;
-import models.Joueur;
 
+import models.User;
 import utils.MyDatabase;
 
 import java.security.NoSuchAlgorithmException;
@@ -58,17 +58,17 @@ public class EquipeService {
         return equipes;
     }
 
-    public List<Joueur> getMembresByIdEquipe(int idEquipe) throws SQLException {
-        List<Joueur> membres = new ArrayList<>();
+    public List<User> getMembresByIdEquipe(int idEquipe) throws SQLException {
+        List<User> membres = new ArrayList<>();
         String query = "SELECT m.* FROM membre m JOIN membreParEquipe me ON m.idMembre = me.idMembre WHERE me.idEquipe = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setInt(1, idEquipe);
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    Joueur membre = new Joueur();
-                    membre.setId(rs.getInt("idMembre"));
-                    membre.setName(rs.getString("nom"));
+                    User membre = new User();
+                    membre.setId(rs.getInt("id"));
+                    membre.setName(rs.getString("name"));
 
                     // Set other member attributes as needed
                     membres.add(membre);

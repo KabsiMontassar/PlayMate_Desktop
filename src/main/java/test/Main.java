@@ -3,6 +3,7 @@ package test;
 import com.mailjet.client.errors.MailjetException;
 import models.Historique;
 import models.Terrain;
+import models.User;
 import services.*;
 import services.GestionReservation.HistoriqueService;
 import services.GestionReservation.PaiementService;
@@ -19,10 +20,10 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        UserService us = new UserService();
 
-        PaiementService paiementService = new PaiementService();
-        Terrain terrain = paiementService.getTerrainByIdPayment(6);
-        System.out.println(terrain.toString());
+        System.out.println(us.getByEmail("maroua.douiri@esprit.tn"));
+
     }
 
 

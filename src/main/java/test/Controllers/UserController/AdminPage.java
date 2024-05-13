@@ -63,7 +63,7 @@ public class AdminPage {
 
         // Read the last lines from the file
         StringBuilder builder = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(new FileReader("D://Github//pidev_spartans_3a29//Pidev//src//main//resourcesuser_activity_log.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("E://Github//pidev_spartans_3a29//src//main//resourcesuser_activity_log.txt"))) {
             String line;
             // Read lines until reaching the end of the file or the desired number of lines
             while ((line = reader.readLine()) != null && numLines > 0) {

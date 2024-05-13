@@ -1,6 +1,5 @@
 package services.GestionTournoi;
 
-import models.Organisateur;
 import models.Participation;
 import models.Tournoi;
 import utils.MyDatabase;
@@ -64,30 +63,7 @@ public class ServiceTournoi {
         ps.executeUpdate();
         System.out.println("tournoi modifieé avec succés");
     }
-public Organisateur getbyidorg(int id) throws SQLException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
-    Organisateur org = null; // Initialize Tournoi as null
-    String query = "SELECT * FROM user WHERE id = ?";
-    PreparedStatement ps = connection.prepareStatement(query);
-    ps.setInt(1, id);
-    ResultSet rs = ps.executeQuery();
-    if (rs.next()) {
-        // If a Tournoi is found, populate the Tournoi object
-        org= new Organisateur();
-        org.setId(rs.getInt("id"));
-        org.setName(rs.getString("nom"));
-        org.setEmail(rs.getString("email"));
-        org.setPassword(rs.getString("password"));
-        org.setAddress(rs.getString("address"));
-        org.setPhone(rs.getInt("Phone"));
-        org.setAge(rs.getInt("age"));
-        org.setRole(rs.getString("role"));
 
-
-
-
-    }
-    return org;
-}
     public Tournoi getbyid(int id) throws SQLException {
             Tournoi tr = null; // Initialize Tournoi as null
             String query = "SELECT * FROM Tournoi WHERE id = ?";

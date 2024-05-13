@@ -85,7 +85,9 @@ public class ParticipationController implements Initializable {
         stage.setTitle("Détails du Tournoi");
         stage.setScene(new Scene(root));
         stage.show();
-    }
+        ((Button) event.getSource()).getScene().getWindow().hide();}
+
+
 
     public void initData(Tournoi tournoi) throws SQLException {
         this.tournoiActuel = tournoi;

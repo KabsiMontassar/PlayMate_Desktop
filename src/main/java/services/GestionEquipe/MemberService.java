@@ -1,8 +1,7 @@
 package services.GestionEquipe;
 
 
-import models.Joueur;
-
+import models.User;
 import utils.MyDatabase;
 
 import java.security.NoSuchAlgorithmException;
@@ -21,14 +20,14 @@ public class MemberService {
         connection = MyDatabase.getInstance().getConnection();
     }
 
-    public List<Joueur> findAll(){
-        List<Joueur> membres = new ArrayList<>();
+    public List<User> findAll(){
+        List<User> membres = new ArrayList<>();
         String query = "SELECT m.* FROM membre m ";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    Joueur membre = new Joueur();
+                    User membre = new User();
                     membre.setId(rs.getInt("id"));
                     membre.setName(rs.getString("last_name"));
 
@@ -45,15 +44,15 @@ public class MemberService {
     }
 
 
-    public List<Joueur> findMembresByEquipe(int idEquipe) throws SQLException, NoSuchAlgorithmException {
-        List<Joueur> membres = new ArrayList<>();
+    public List<User> findMembresByEquipe(int idEquipe) throws SQLException, NoSuchAlgorithmException {
+        List<User> membres = new ArrayList<>();
         String query = "SELECT m.* FROM membre m JOIN membreParEquipe me ON m.idMembre = me.idMembre WHERE me.idEquipe = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setInt(1, idEquipe);
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    Joueur membre = new Joueur();
+                    User membre = new User();
                     membre.setId(rs.getInt("idMembre"));
                     membre.setName(rs.getString("nom"));
 
@@ -63,15 +62,15 @@ public class MemberService {
             }
         }
         return membres;
-    }  public List<Joueur> findExternMembresByEquipe(int idEquipe) throws SQLException {
-        List<Joueur> membres = new ArrayList<>();
+    }  public List<User> findExternMembresByEquipe(int idEquipe) throws SQLException {
+        List<User> membres = new ArrayList<>();
         String query = "SELECT m.* FROM membre m JOIN membreParEquipe me ON m.id = me.idMembre WHERE me.idEquipe <> ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setInt(1, idEquipe);
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    Joueur membre = new Joueur();
+                    User membre = new User();
                     membre.setId(rs.getInt("id"));
                     membre.setName(rs.getString("last_name"));
 

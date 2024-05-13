@@ -57,10 +57,10 @@ module test {
     opens test.Controllers.ProduitController to javafx.fxml;
 
 
-    requires org.apache.pdfbox;
     requires mail;
     requires com.google.gson;
     requires okhttp3;
+    requires org.apache.pdfbox;
 
     exports test;
     exports models;

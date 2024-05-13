@@ -29,7 +29,6 @@ import test.MainFx;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import java.awt.*;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -372,7 +371,7 @@ public class LoginRegistrationPageController {
             SeconnecterTxt1.setVisible(true);
             SeconnecterTxt2.setVisible(true);
             BtnSinscrire.setVisible(true);
-            faible.setVisible(true);
+            faible.setVisible(false);
             moyen.setVisible(false);
             moyen2.setVisible(false);
             fort.setVisible(false);
@@ -390,7 +389,7 @@ public class LoginRegistrationPageController {
     @FXML
     public void Oublietlemotdepass(ActionEvent event) throws Exception {
 
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser//VerificationCode.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/VerificationCode.fxml"));
             AnchorPane root = loader.load();
 
             Scene scene = new Scene(root);
@@ -439,8 +438,8 @@ public class LoginRegistrationPageController {
             }
         }
         try {
-            UserActivityLogger UAL = new UserActivityLogger();
-            UAL.logAction(Seconnecterfield1.getText() ,  " connecte");
+          //  UserActivityLogger UAL = new UserActivityLogger();
+       //     UAL.logAction(Seconnecterfield1.getText() ,  " connecte");
 
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
             AnchorPane root = loader.load();
@@ -535,59 +534,59 @@ public class LoginRegistrationPageController {
         }
 
 
-        Roles role;
+        String role;
         User u1;
         if(rbtn1.isSelected()){
-            role = Roles.Fournisseur ;
 
 
 
-            u1 = new Fournisseur(
+
+            u1 = new User(
                     Registerfield2.getText(),
                     registerPass2.getText(),
                     Registerfield1.getText(),
                     Integer.parseInt(Registerfield21age.getText()),
                     Integer.parseInt(Registerfield111numero.getText()),
-                    role
+                    Roles.Fournisseur
             );
-            us.addFournisseur((Fournisseur) u1);
+            us.addUser(u1);
         } else if (rbtn2.isSelected()) {
-            role = Roles.Proprietaire_de_Terrain;
 
 
-            u1 = new Proprietaire_de_terrain(
+            u1 = new User(
                     Registerfield2.getText(),
                     registerPass2.getText(),
                     Registerfield1.getText(),
                     Integer.parseInt(Registerfield21age.getText()),
                     Integer.parseInt(Registerfield111numero.getText()),
-                    role);
-            us.addProprietairedeTerarin((Proprietaire_de_terrain) u1);
+                    Roles.Proprietaire_de_Terrain
+            );
+            us.addUser(u1);
         } else if (rbtn3.isSelected()) {
-            role = Roles.Organisateur;
 
 
-            u1 = new Organisateur(
+            u1 = new User(
                     Registerfield2.getText(),
                     registerPass2.getText(),
                     Registerfield1.getText(),
                     Integer.parseInt(Registerfield21age.getText()),
                     Integer.parseInt(Registerfield111numero.getText()),
-                    role);
+                    Roles.Organisateur
+            );
 
-            us.addOrganisateur((Organisateur)u1);
+            us.addUser(u1);
         }else{
-            role = Roles.Joueur;
 
 
-            u1 = new Joueur(
+
+            u1 = new User(
                     Registerfield2.getText(),
                     registerPass2.getText(),
                     Registerfield1.getText(),
                     Integer.parseInt(Registerfield21age.getText()),
                     Integer.parseInt(Registerfield111numero.getText()),
-                    role);
-            us.addJoueur((Joueur)u1);
+                    Roles.Membre);
+            us.addUser(u1);
         }
 
 
