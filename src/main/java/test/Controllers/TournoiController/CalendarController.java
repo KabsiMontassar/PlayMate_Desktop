@@ -207,5 +207,8 @@ public class CalendarController implements Initializable {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoiClient.fxml"));
         AnchorPane root = loader.load();
         calender.getChildren().setAll(root);
+        ((Button) event.getSource()).getScene().getWindow().hide();
+
+
     }
 }

@@ -7,6 +7,19 @@
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AfficherListeTournoisClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AfficherListeTournoisClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/CalendarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/CalendarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailTournoiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailTournoiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ParticipationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ParticipationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/StatistiquesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/StatistiquesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/LoginRegistrationPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/LoginRegistrationPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Profile.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionUser/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionUser/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,6 +159,7 @@
       <workItem from="1709713322692" duration="3073000" />
       <workItem from="1715599006050" duration="3622000" />
       <workItem from="1715602819849" duration="319000" />
+      <workItem from="1715605981096" duration="4869000" />
     </task>
     <servers />
   </component>

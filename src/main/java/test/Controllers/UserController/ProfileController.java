@@ -47,7 +47,6 @@ public class ProfileController {
 
 
     public Text tdds ;
-    public AnchorPane imganchodid;
     private String imagePath;
     public Button btnlocation;
     public WebView mavView;
@@ -121,7 +120,6 @@ private String FromMapAddress;
 
 
     public void setData(User u) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        imganchodid.setVisible(false);
 
 
         UserService us = new UserService();
@@ -138,18 +136,8 @@ private String FromMapAddress;
         }else{
             InputAddress.setText("");
         }
-        if(CurrentUser.getRole() == Roles.Organisateur) {
 
 
-            imganchodid.setVisible(true);
-            User org = us.getByid(CurrentUser.getId());
-        }
-            if(CurrentUser.getRole() == Roles.Fournisseur){
-
-
-                imganchodid.setVisible(true);
-                User org = us.getByid(CurrentUser.getId());
-            }
 
 
         InputAddress.setText(
@@ -165,14 +153,18 @@ private String FromMapAddress;
                 CurrentUser.getPhone() == 0 ? "" : String.valueOf(CurrentUser.getPhone())
         );
 
-        imagePath = CurrentUser.getImage() != null ? CurrentUser.getImage() : "";
-
+        String imagePath = CurrentUser.getImage();
         if (imagePath != null && !imagePath.isEmpty()) {
+            Image image = new Image(imagePath);
+            if (image.isError()) {
 
-            Image image = new Image(CurrentUser.getImage());
-            imgview.setImage(image);
+                imgview.setImage(null);
+            } else {
+                imgview.setImage(image);
+            }
         } else {
-            imgview.setImage(null);}
+            imgview.setImage(null);
+        }
 
     }
 
@@ -365,7 +357,7 @@ private String FromMapAddress;
 
         UpdateUser.setAddress(InputAddress.getText());
         UpdateUser.setPhone(
-                InputPhone.getText().isEmpty() ? 0 : Integer.parseInt(InputPhone.getText())
+                InputPhone.getText().isEmpty() ? "0" : InputPhone.getText()
         );
         UpdateUser.setPassword(inputPassword.getText());
         UpdateUser.setName(InputNom.getText());
