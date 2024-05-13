@@ -33,6 +33,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -44,7 +45,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import test.MainFx;
 
-import static models.TypeReservation.ReserverTerrainPourEquipe;
+import static models.TypeReservation.Creer_Partie;
 
 public class ReserverTerrainController implements Initializable  {
     public ReserverTerrainController() {
@@ -94,7 +95,7 @@ public class ReserverTerrainController implements Initializable  {
     @FXML
     private ComboBox<String> filterchoice = new ComboBox<>(FXCollections.observableArrayList("prix", "duree"));
 
-// montaaaaaaaaaaaasar a3tini id user
+
 
     EquipeService equipeService = new EquipeService();
 
@@ -102,29 +103,51 @@ public class ReserverTerrainController implements Initializable  {
 
     public void SetIdUser(int idUser) throws SQLException {
 
+        System.out.println("RESERVATION TERRAIN 1 EQUIPE"+idUser);
+
+        horaireInvalides.setVisible(false);
+        dateInvalide.setVisible(false);
+        nomEquipeInvalide.setVisible(false);
+
+
+        String[] nom = new String[0];
+        System.out.println("hors l intalisation "+idUser);
+        try {
+            System.out.println("dans l intalisation "+idUser);
+            nom = nomEquipes(idUser);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        nom_equipe.getItems().addAll(nom);
+
+        filterchoice.setItems(FXCollections.observableArrayList("prix","duree"));
+
 
         this.IdUser = idUser;
     }
     public int GetIdUser() {
-        return 37;
+
+        return this.IdUser;
     }
 
    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-       horaireInvalides.setVisible(false);
-       dateInvalide.setVisible(false);
-       nomEquipeInvalide.setVisible(false);
-
-
-       String[] nom = new String[0];
-       try {
-           nom = nomEquipes(this.GetIdUser());
-       } catch (SQLException e) {
-           throw new RuntimeException(e);
-       }
-       nom_equipe.getItems().addAll(nom);
-
-       filterchoice.setItems(FXCollections.observableArrayList("prix","duree"));
+//       horaireInvalides.setVisible(false);
+//       dateInvalide.setVisible(false);
+//       nomEquipeInvalide.setVisible(false);
+//
+//
+//       String[] nom = new String[0];
+//       System.out.println("hors l intalisation "+this.GetIdUser());
+//       try {
+//           System.out.println("dans l intalisation "+this.GetIdUser());
+//           nom = nomEquipes(this.GetIdUser());
+//       } catch (SQLException e) {
+//           throw new RuntimeException(e);
+//       }
+//       nom_equipe.getItems().addAll(nom);
+//
+//       filterchoice.setItems(FXCollections.observableArrayList("prix","duree"));
 
     }
     //     ------------------------------------------------------------   idUser
@@ -142,8 +165,6 @@ public class ReserverTerrainController implements Initializable  {
 
     }
 
-// ajouter photo et video
-    // comme quoi reservation 1 er equi
 
 
     public List<Terrain> trierTerrainsParPrix() {
@@ -225,8 +246,9 @@ public class ReserverTerrainController implements Initializable  {
                         int dernieridReservationAjouter = reservationService1.getLastIdReservationAddRecently();
                         PaimentController paimentController = new PaimentController();
                         paimentController.SetIdReservation(dernieridReservationAjouter);
+                        paimentController.SetIdUser(this.GetIdUser());
                         paimentController.appelPaymentAPI(terrain.getPrix());
-                    } catch (SQLException e) {
+                    } catch (SQLException | ParseException e) {
                         throw new RuntimeException(e);
                     }
                     System.out.println("Réserver terrain avec l'ID: " + terrain.getId());
@@ -240,7 +262,7 @@ public class ReserverTerrainController implements Initializable  {
     }
 
 
-    public void ajouterReservationTerrain(int idTerrain ) throws SQLException {
+    public void ajouterReservationTerrain(int idTerrain ) throws SQLException, ParseException {
 
         if(verfierHeure(heure.getText()) && verfierDate(datepicker)){
             ReservationService reservationService1 = new ReservationService();
@@ -250,7 +272,7 @@ public class ReserverTerrainController implements Initializable  {
 
             if(reservationService1.VerfierDisponibleTerrain( idTerrain,terraine.getDuree(),heure.getText(),convertirDateEnString(datepicker))) {
 
-                Reservation r1 = new Reservation(false, convertirDateEnString(datepicker), heure.getText(), ReserverTerrainPourEquipe, idTerrain);
+                Reservation r1 = new Reservation(false, convertirDateEnString(datepicker), heure.getText(), models.TypeReservation.Creer_Partie, idTerrain);
                 ReservationService reservationService = new ReservationService();
                 reservationService.ajouterReservation(r1);
 
@@ -376,6 +398,7 @@ public class ReserverTerrainController implements Initializable  {
     }
 
     private static Scene scene;
+   /*
     public void ActualiserLaPageReservation(ActionEvent actionEvent) throws IOException {
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/reserverTerrainVersion2.fxml"));
@@ -391,7 +414,62 @@ public class ReserverTerrainController implements Initializable  {
         }catch (Exception e){
             System.out.println(e);
         }
-    }}
+    }
+*/
+    public void evenementPart(ActionEvent actionEvent) {
+    }
+
+    public void voirProduit(ActionEvent actionEvent) {
+    }
+
+    public void Toreservation(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/choix2.fxml"));
+            Parent root = loader.load();
+
+            ReservationController C = loader.getController();
+
+            C.SetIdUser(GetIdUser());
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+            stage.show();
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    public void btnseeProfile(ActionEvent actionEvent) {
+    }
+
+    public void logoutaction(ActionEvent actionEvent) {
+    }
+
+    public void VoirTerrain(ActionEvent actionEvent) {
+    }
+
+    public void VoirOrganisateur(ActionEvent actionEvent) {
+    }
+
+    public void openjeu(ActionEvent actionEvent) {
+        try {
+
+
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/jeuPlayMate.fxml"));
+            AnchorPane root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Gestion_Tournoi");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 
 

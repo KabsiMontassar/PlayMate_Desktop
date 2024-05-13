@@ -2,8 +2,11 @@ package test.Controllers.ReservationController;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import models.Historique;
 import models.Reservation;
 import models.Terrain;
@@ -22,6 +26,8 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import services.GestionReservation.*;
 import services.GestionTerrain.TerrainService;
 import services.GestionUser.UserService;
+import test.Controllers.UserController.AcceuilController;
+import test.MainFx;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -47,10 +53,16 @@ public class HistoriqueController implements Initializable {
     private int IdUser;
     public void SetIdUser(int idUser) {
         this.IdUser = idUser;
+        try {
+            //afficherHistoriquePourAdmin();
+            afficherHistorique(idUser);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
     public int GetIdUser() {
-        return  this.IdUser ;                            /*****************         36         ****************** */
-        //return this.IdUser;
+        return  this.IdUser ;
+
     }
     // *************************************************************************** ****************************
 
@@ -58,12 +70,12 @@ public class HistoriqueController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        try {
-            //afficherHistoriquePourAdmin();
-            afficherHistorique(this.GetIdUser());
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            //afficherHistoriquePourAdmin();
+//            afficherHistorique(this.GetIdUser());
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     public void  afficherHistorique(int idJoueur) throws SQLException {
@@ -294,5 +306,46 @@ public class HistoriqueController implements Initializable {
             vboxHistoriqueAdmin.setMargin(anchorPane3, new Insets(10));
             vboxHistoriqueAdmin.getChildren().add(anchorPane3);
         }
+    }
+
+    public void evenementPart(ActionEvent actionEvent) {
+    }
+
+    public void voirProduit(ActionEvent actionEvent) {
+    }
+
+    public void Toreservation(ActionEvent actionEvent) {
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/choix2.fxml"));
+            Parent root = loader.load();
+            ReservationController controller = loader.getController();
+            controller.SetIdUser(this.GetIdUser());
+            Stage stage = new Stage();
+
+            stage.setScene(new Scene(root));
+            stage.show();
+            ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void btnseeProfile(ActionEvent actionEvent) {
+    }
+
+    public void logoutaction(ActionEvent actionEvent) {
+    }
+
+    public void VoirTerrain(ActionEvent actionEvent) {
+    }
+
+    public void VoirOrganisateur(ActionEvent actionEvent) {
+    }
+
+    public void openjeu(ActionEvent actionEvent) {
     }
 }

@@ -22,7 +22,7 @@ import java.sql.SQLException;
 public class PaymentAPI {
 
     private final String API_URL = "https://api.preprod.konnect.network/api/v2/payments/init-payment";
-    private final String API_KEY = "65e2061d0ed588b99337c12b:lfeWlefzQi2IKdIYGZa5vjfCh9jDdbR";
+    private final String API_KEY = "65e2061d0ed588b99337c12b:Hphdip8xVt5KwPOPyAfgVv1H2n";
     private String paymentRef = "";
 
 
