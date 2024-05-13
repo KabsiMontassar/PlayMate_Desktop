@@ -105,6 +105,8 @@ public class StatistiquesController {
         stage.setTitle("Détails du Tournoi");
         stage.setScene(new Scene(root));
         stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
+
 
     }
     }
