@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="" />
+    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +41,7 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.FX.executor": "Run",
+    "Application.Main.executor": "Run",
     "Application.MainFx.executor": "Run",
     "Maven.pidev_spartans_3a29 [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -140,7 +143,8 @@
       <workItem from="1709685723677" duration="11366000" />
       <workItem from="1709707389814" duration="853000" />
       <workItem from="1709713322692" duration="3073000" />
-      <workItem from="1715599006050" duration="4497000" />
+      <workItem from="1715599006050" duration="3622000" />
+      <workItem from="1715602819849" duration="319000" />
     </task>
     <servers />
   </component>
