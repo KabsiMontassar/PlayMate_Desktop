@@ -127,19 +127,38 @@ public class AfficherListeTournoisClientController {
                 nom1.setText(tournois.get(i*3).getNom());
                 visite1.setText(String.valueOf(tournois.get(i*3).getVisite()));
                 System.out.println(tournois.get(i*3));
-                img1.setImage(new Image(tournois.get(i*3).getAffiche()));}
+                try {
+                    Image img = new Image(tournois.get(i * 3).getAffiche());
+                    img1.setImage(img);
+                } catch (IllegalArgumentException e) {
+                    // Handle the error when the URL is invalid or resource not found
+                    img1.setImage(null); // Set the image view to display nothing
+                }
+            }
             else{BOX1.setVisible(false);}
             if(tournois.size()-2-i*3>=0){
                 BOX2.setVisible(true);
                 nom2.setText(tournois.get(1+i*3).getNom());
-                img2.setImage(new Image(tournois.get(1+i*3).getAffiche()));
+                try {
+                    Image img = new Image(tournois.get(1+i * 3).getAffiche());
+                    img2.setImage(img);
+                } catch (IllegalArgumentException e) {
+                    // Handle the error when the URL is invalid or resource not found
+                    img2.setImage(null); // Set the image view to display nothing
+                }
                 visite2.setText(String.valueOf(tournois.get(1+i*3).getVisite()));}
             else{
                 BOX2.setVisible(false);}
             if(tournois.size()-3-i*3>=0){
                 BOX3.setVisible(true);
                 nom3.setText(tournois.get(2+i*3).getNom());
-                img3.setImage(new Image(tournois.get(2+i*3).getAffiche()));
+                try {
+                    Image img = new Image(tournois.get(i * 3).getAffiche());
+                    img3.setImage(img);
+                } catch (IllegalArgumentException e) {
+                    // Handle the error when the URL is invalid or resource not found
+                    img3.setImage(null); // Set the image view to display nothing
+                }
                 visite3.setText(String.valueOf(tournois.get(2+i*3).getVisite()));
             }else{BOX3.setVisible(false);}}else{
             BOX1.setVisible(false);
@@ -269,6 +288,7 @@ UserService us = new UserService() ;
         stage.setTitle("Détails Tournoi");
         stage.setScene(new Scene(root));
         stage.show();
+        ((Button) actionEvent.getSource()).getScene().getWindow().hide();
 
 
     }

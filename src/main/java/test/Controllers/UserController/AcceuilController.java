@@ -212,7 +212,7 @@ public class AcceuilController {
 
             UserService us = new UserService();
             UserActivityLogger UAL = new UserActivityLogger();
-            UAL.logAction(CurrentUser.getEmail() ,  " deconnecter");
+        //    UAL.logAction(CurrentUser.getEmail() ,  " deconnecter");
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/LoginRegistrationPage.fxml"));
             AnchorPane root = loader.load();
 

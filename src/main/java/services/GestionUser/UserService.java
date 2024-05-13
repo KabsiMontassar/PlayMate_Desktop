@@ -42,7 +42,7 @@ public class UserService implements IService<User> {
             user.setPassword(rs.getString("password"));
             user.setName(rs.getString("name"));
             user.setAge(rs.getInt("age"));
-            user.setPhone(rs.getInt("phone"));
+            user.setPhone(rs.getString("phone"));
             user.setAddress(rs.getString("address"));
             user.setRole(rs.getString("role"));
             user.setImage(rs.getString("Image"));
@@ -71,7 +71,7 @@ public class UserService implements IService<User> {
             user.setPassword(rs.getString("password"));
             user.setName(rs.getString("name"));
             user.setAge(rs.getInt("age"));
-            user.setPhone(rs.getInt("phone"));
+            user.setPhone(rs.getString("phone"));
             user.setAddress(rs.getString("address"));
             user.setRole(rs.getString("role"));
             user.setImage(rs.getString("Image"));
@@ -191,7 +191,7 @@ public class UserService implements IService<User> {
             user.setEmail(rs.getString("email"));
             user.setAddress(rs.getString("address"));
             user.setPassword(rs.getString("password"));
-            user.setPhone(rs.getInt("phone"));
+            user.setPhone(rs.getString("phone"));
             user.setRole(rs.getString("role"));
             user.setDate_de_Creation(rs.getString("DatedeCreation"));
             user.setImage(rs.getString("Image"));
