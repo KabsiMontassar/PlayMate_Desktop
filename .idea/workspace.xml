@@ -5,34 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Fournisseur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Joueur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Organisateur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Proprietaire_de_terrain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Roles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Roles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionEquipe/EquipeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionEquipe/EquipeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionEquipe/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionEquipe/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceParticipation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceParticipation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceTournoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceTournoi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionUser/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionUser/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/FormEquipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/FormEquipeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/LoginRegistrationPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/LoginRegistrationPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ProfileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Joueur.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Roles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Roles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionEquipe/EquipeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionEquipe/EquipeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionEquipe/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionEquipe/MemberService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionUser/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionUser/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/EquipeController/FormEquipeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/EquipeController/FormEquipeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/smsAPi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/smsAPi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AcceuilController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AcceuilController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/LoginRegistrationPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/LoginRegistrationPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +41,7 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Application.FX.executor": "Run",
+    "Application.Main.executor": "Run",
     "Application.MainFx.executor": "Run",
     "Maven.pidev_spartans_3a29 [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -170,6 +144,7 @@
       <workItem from="1709707389814" duration="853000" />
       <workItem from="1709713322692" duration="3073000" />
       <workItem from="1715599006050" duration="3622000" />
+      <workItem from="1715602819849" duration="319000" />
     </task>
     <servers />
   </component>
