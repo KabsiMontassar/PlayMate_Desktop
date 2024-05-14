@@ -2,6 +2,7 @@ package services.GestionUser;
 
 import com.mailjet.client.errors.MailjetException;
 import models.*;
+import org.mindrot.jbcrypt.BCrypt;
 import services.JavaMailJett;
 import services.UserActivityLogger;
 import utils.MyDatabase;
@@ -103,22 +104,22 @@ public class UserService implements IService<User> {
 
 
     public void addUser(User u) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        String QueryToUser = "INSERT INTO user (email , password , name ,Age ,Phone, role,Status , DatedeCreation ,VerificationCode,is_Verified,address ) VALUES (?,?,?,?,?,?,?,?, ?, ?, ?)";
-        PreparedStatement psUser = connection.prepareStatement(QueryToUser);
+        String hashedPassword = BCrypt.hashpw(u.getPassword(), BCrypt.gensalt());
+
+        String queryToUser = "INSERT INTO user (email, password, name, Age, Phone, role, Status, DatedeCreation, VerificationCode, is_Verified, address) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement psUser = connection.prepareStatement(queryToUser);
         psUser.setString(1, u.getEmail());
-        psUser.setString(2,  u.getPassword());
+        psUser.setString(2, hashedPassword); // Store the hashed password
         psUser.setString(3, u.getName());
         psUser.setInt(4, u.getAge());
         psUser.setInt(5, u.getPhone());
         psUser.setString(6, u.getRole().toString());
-        psUser.setBoolean(7,u.getStatus());
-        psUser.setString(8,u.getDate_de_Creation());
-        psUser.setString(9,u.getVerificationCode());
-        psUser.setBoolean(10,u.getVerified());
-        psUser.setString(11,"");
+        psUser.setBoolean(7, u.getStatus());
+        psUser.setString(8, u.getDate_de_Creation());
+        psUser.setString(9, u.getVerificationCode());
+        psUser.setBoolean(10, u.getVerified());
+        psUser.setString(11, u.getAddress());
         psUser.executeUpdate();
-
-
     }
 
 
@@ -203,12 +204,14 @@ public class UserService implements IService<User> {
     }
 
     public boolean Login(String e, String P) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        User U1 = getByEmail(e);
-        if (U1 == null || U1.getPassword() == null || U1.getPassword().isEmpty()) {
-            return false;
+        User user = getByEmail(e);
+
+        if (user == null || user.getPassword() == null || user.getPassword().isEmpty()) {
+            return false; // User not found or password not set
         }
 
-        return U1.getPassword().equals(P);
+        // Verify the entered password against the hashed password using BCrypt
+        return BCrypt.checkpw(P, user.getPassword());
     }
 
     public int CountActive() throws SQLException {

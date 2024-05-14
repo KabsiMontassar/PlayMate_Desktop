@@ -6,6 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/Tournoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Tournoi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceTournoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceTournoi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionUser/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionUser/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AjoutTournoiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/AjoutTournoiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/CalendarController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/DetailClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ModifierTournoiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ModifierTournoiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/first.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionTournoi/first.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Tournoi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Tournoi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionTournoi/ServiceTournoi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionTournoi/ServiceTournoi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/Categories.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ProduitController/Categories.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReservationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/ReservationController/ReservationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/AjoutTournoiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/AjoutTournoiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/CalendarController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/DetailClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/DetailClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/ModifierTournoiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/ModifierTournoiController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +169,7 @@
       <workItem from="1715605981096" duration="4869000" />
       <workItem from="1715612623042" duration="15675000" />
       <workItem from="1715666815963" duration="4831000" />
+      <workItem from="1715680733656" duration="6129000" />
     </task>
     <servers />
   </component>

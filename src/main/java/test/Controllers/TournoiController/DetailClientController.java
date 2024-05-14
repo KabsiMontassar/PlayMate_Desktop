@@ -22,6 +22,7 @@ import test.MainFx;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -115,8 +116,9 @@ public class DetailClientController implements Initializable {
         nombre.setText(String.valueOf(tournoi.getNbrquipeMax()));
         nomd.setText(tournoi.getNom());
         adresse.setText(tournoi.getAddress());
-        datedebut.setText(tournoi.getDatedebut());
-        datefin.setText(tournoi.getDatefin());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        datedebut.setText(sdf.format(tournoi.getDatedebut()));
+        datefin.setText(sdf.format(tournoi.getDatefin()));
         /*inputDateFin.setText(tournoi.getDatefin());
         InputAddress.setText(tournoi.getAddress());*/
         if (tournoi.getAffiche() != null && !tournoi.getAffiche().isEmpty()) {
