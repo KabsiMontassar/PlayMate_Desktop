@@ -28,7 +28,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="voirTerrain2" layoutX="515.0" layoutY="50.0" mnemonicParsing="false" style="-fx-background-color: Transparent;" text="Terrains" textAlignment="CENTER">
+      <Button fx:id="voirTerrain2" layoutX="515.0" layoutY="50.0" mnemonicParsing="false" onAction="#terrains2" style="-fx-background-color: Transparent;" text="Terrains" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

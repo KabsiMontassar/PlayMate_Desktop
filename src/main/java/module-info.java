@@ -61,6 +61,7 @@ module test {
     requires com.google.gson;
     requires okhttp3;
     requires org.apache.pdfbox;
+    requires jbcrypt;
 
     exports test;
     exports models;

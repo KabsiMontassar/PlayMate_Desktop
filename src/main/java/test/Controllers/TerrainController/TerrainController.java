@@ -235,8 +235,15 @@ public class TerrainController {
             tfgouvernorat.setValue(terrain.getGouvernorat());
             String imagePath = terrain.getImage();
             if (imagePath != null && !imagePath.isEmpty()) {
-                Image image = new Image(imagePath);
-                img.setImage(image);
+
+                try {
+                    Image image = new Image(imagePath);
+                    img.setImage(image);
+                } catch (IllegalArgumentException e) {
+                    // Handle the error when the URL is invalid or resource not found
+                    img.setImage(null); // Set the image view to display nothing
+                }
+
             } else {
                 img.setImage(null);}
             String videoPath = terrain.getVideo();
@@ -302,8 +309,13 @@ public class TerrainController {
         imagePath = terrain.getImage();
         videoPath = terrain.getVideo();
         if (imagePath != null && !imagePath.isEmpty()) {
-            Image image = new Image(imagePath);
-            img.setImage(image);}
+            try {
+                Image image = new Image(imagePath);
+                img.setImage(image);
+            } catch (IllegalArgumentException e) {
+                // Handle the error when the URL is invalid or resource not found
+                img.setImage(null); // Set the image view to display nothing
+            }}
         if (videoPath != null && !videoPath.isEmpty()) {
             Media media = new Media(videoPath);
             MediaPlayer mediaPlayer = new MediaPlayer(media);

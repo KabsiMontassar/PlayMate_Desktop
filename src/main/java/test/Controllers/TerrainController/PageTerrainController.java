@@ -125,7 +125,13 @@ public class PageTerrainController  {
                 BOX1.setVisible(true);
                 nom1.setText(terrains.get(i * 3).getNomTerrain());
                 address1.setText(terrains.get(i * 3).getAddress());
-                Img1.setImage(new Image(terrains.get(i * 3).getImage()));
+                 try {
+                    Image img = new Image(terrains.get(i * 3).getImage());
+                    Img1.setImage(img);
+                } catch (IllegalArgumentException e) {
+                    // Handle the error when the URL is invalid or resource not found
+                    Img1.setImage(null); // Set the image view to display nothing
+                }
             } else {
                 BOX1.setVisible(false);
             }
@@ -134,8 +140,13 @@ public class PageTerrainController  {
                 BOX2.setVisible(true);
                 nom2.setText(terrains.get(1 + i * 3).getNomTerrain());
                 address2.setText(terrains.get(1 + i * 3).getAddress());
-                Img2.setImage(new Image(terrains.get(1 + i * 3).getImage()));
-            } else {
+                try {
+                    Image img = new Image(terrains.get(1+ i * 3).getImage());
+                    Img2.setImage(img);
+                } catch (IllegalArgumentException e) {
+                    // Handle the error when the URL is invalid or resource not found
+                    Img2.setImage(null); // Set the image view to display nothing
+                }            } else {
                 BOX2.setVisible(false);
             }
             // Affichage des informations du troisième terrain dans BOX3
@@ -143,8 +154,13 @@ public class PageTerrainController  {
                 BOX3.setVisible(true);
                 nom3.setText(terrains.get(2 + i * 3).getNomTerrain());
                 address3.setText(terrains.get(2 + i * 3).getAddress());
-                Img3.setImage(new Image(terrains.get(2 + i * 3).getImage()));
-            } else {
+                try {
+                    Image img = new Image(terrains.get(2 + i * 3).getImage());
+                    Img3.setImage(img);
+                } catch (IllegalArgumentException e) {
+                    // Handle the error when the URL is invalid or resource not found
+                    Img3.setImage(null); // Set the image view to display nothing
+                }            } else {
                 BOX3.setVisible(false);
             }
         } else {
@@ -190,9 +206,8 @@ public class PageTerrainController  {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DetailTerrain.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
-        controller.setData(us.getByEmail(CurrentUser.getEmail()));
-        controller.initData(terrain);
-        Stage stage = new Stage();
+        controller.initData(terrain, us.getByEmail(CurrentUser.getEmail()));
+         Stage stage = new Stage();
         stage.setTitle("Détails Terrain");
         stage.setScene(new Scene(root));
         stage.show();
@@ -206,9 +221,8 @@ public class PageTerrainController  {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DetailTerrain.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
-        controller.initData(selectedTerrain);
-        controller.setData(us.getByEmail(CurrentUser.getEmail()));
-        Stage stage = new Stage();
+        controller.initData(selectedTerrain, us.getByEmail(CurrentUser.getEmail()));
+         Stage stage = new Stage();
         stage.setTitle("Détails du Terrain");
         stage.setScene(new Scene(root));
         stage.show();
@@ -222,9 +236,8 @@ public class PageTerrainController  {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DetailTerrain.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
-        controller.initData(selectedTerrain);
-        controller.setData(us.getByEmail(CurrentUser.getEmail()));
-        Stage stage = new Stage();
+        controller.initData(selectedTerrain, us.getByEmail(CurrentUser.getEmail()));
+         Stage stage = new Stage();
         stage.setTitle("Détails du Terrain");
         stage.setScene(new Scene(root));
         stage.show();
@@ -344,7 +357,10 @@ public class PageTerrainController  {
         Parent root = loader.load();
         AcceuilController controller = loader.getController();
         controller.setData(us.getByEmail(CurrentUser.getEmail()));
-        main.getChildren().addAll(root);
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
 
     }
 
