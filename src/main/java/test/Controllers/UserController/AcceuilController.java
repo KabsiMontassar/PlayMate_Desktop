@@ -19,8 +19,8 @@ import services.GestionUser.UserService;
 import services.UserActivityLogger;
 import test.Controllers.EquipeController.EquipeController;
 import test.Controllers.ProduitController.Products;
-import test.Controllers.ProduitController.ProductsController;
 import test.Controllers.ReservationController.ReservationController;
+import test.Controllers.TerrainController.AvisController;
 import test.Controllers.TerrainController.PageTerrainController;
 import test.Controllers.TournoiController.AfficherListeTournoisClientController;
 import test.Controllers.TournoiController.FirstController;
@@ -352,8 +352,7 @@ public class AcceuilController {
 
     }
 
-    public void voirTerrain2(ActionEvent actionEvent) {
-    }
+
 
     public void openjeu(ActionEvent actionEvent) {
         try {
@@ -370,6 +369,33 @@ public class AcceuilController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void terrains2(ActionEvent event) {
+        try {
+
+            UserService us = new UserService();
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/AvisTerrain.fxml"));
+            AnchorPane root = loader.load();
+
+            AvisController ptg = loader.getController();
+
+
+            ptg.setData(us.getByEmail(CurrentUser.getEmail()));
+            Stage stage = new Stage();
+            stage.setTitle("Gestion_Terrain");
+            stage.setScene(new Scene(root));
+            stage.show();
+            ((Button) event.getSource()).getScene().getWindow().hide();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException |
+                 BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
 
