@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionUser/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionUser/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,7 +144,7 @@
       <workItem from="1715599006050" duration="3622000" />
       <workItem from="1715602819849" duration="319000" />
       <workItem from="1715605981096" duration="4869000" />
-      <workItem from="1715698726657" duration="1429000" />
+      <workItem from="1715698726657" duration="1737000" />
     </task>
     <servers />
   </component>
