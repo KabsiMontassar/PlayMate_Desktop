@@ -129,8 +129,8 @@ private String FromMapAddress;
         tfRoleAffichage.setText(CurrentUser.getRole().toString());
         tfDatedecreation.setText(CurrentUser.getDate_de_Creation());
         tdNomaffichage.setText(CurrentUser.getName());
-        inputPassword.setText(CurrentUser.getPassword());
-        inputCPassword.setText(CurrentUser.getPassword());
+        inputPassword.setText("");
+        inputCPassword.setText("");
 
         if(!CurrentUser.getAddress().isEmpty()){
             InputAddress.setText(CurrentUser.getAddress());
@@ -154,17 +154,16 @@ private String FromMapAddress;
                 CurrentUser.getPhone() == 0 ? "" : String.valueOf(CurrentUser.getPhone())
         );
 
-        String imagePath = CurrentUser.getImage();
-        if (imagePath != null && !imagePath.isEmpty()) {
-            Image image = new Image(imagePath);
-            if (image.isError()) {
 
-                imgview.setImage(null);
-            } else {
-                imgview.setImage(image);
-            }
-        } else {
-            imgview.setImage(null);
+
+        try {
+            String imagePath = CurrentUser.getImage();
+            Image image = new Image(imagePath);
+            imgview.setImage(image);
+
+        } catch (IllegalArgumentException e) {
+            // Handle the error when the URL is invalid or resource not found
+            imgview.setImage(null); // Set the image view to display nothing
         }
 
     }
@@ -339,7 +338,7 @@ private String FromMapAddress;
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("mots de passe ne correspondent pas");
             alert.setContentText("mot de passe et confirmer le mot de mot de passe devraient avoir le même contenu");
-            alert.setHeaderText("CAlert Alert");
+            alert.setHeaderText("Warning");
             alert.showAndWait();
             return ;
         }
@@ -347,7 +346,15 @@ private String FromMapAddress;
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("mots de passe invalid");
             alert.setContentText("le mot de passe ne peut pas être vide");
-            alert.setHeaderText("CAlert Alert");
+            alert.setHeaderText("Warning");
+            alert.showAndWait();
+            return ;
+        }
+        if( inputPassword.getText().length() <8  ){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("mots de passe invalid");
+            alert.setContentText("le mot de passe doit etre supperieur a 7");
+            alert.setHeaderText("Warning");
             alert.showAndWait();
             return ;
         }

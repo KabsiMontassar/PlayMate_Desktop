@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="manque passage">
+    <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionUser/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionUser/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/ProfileController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +109,7 @@
     <attachedChunks>
       <set>
         <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+        <option value="jdk-21.0.1-temurin-21.0.1-4caba194b151-b7b86d5d" />
       </set>
     </attachedChunks>
   </component>
@@ -145,31 +148,11 @@
       <workItem from="1715599006050" duration="3622000" />
       <workItem from="1715602819849" duration="319000" />
       <workItem from="1715605981096" duration="4869000" />
+      <workItem from="1715698726657" duration="2950000" />
     </task>
-    <task id="LOCAL-00001" summary="manque passage">
-      <option name="closed" value="true" />
-      <created>1715641338907</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1715641338907</updated>
-    </task>
-    <task id="LOCAL-00002" summary="manque passage">
-      <option name="closed" value="true" />
-      <created>1715641348414</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1715641348414</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="manque passage" />
-    <option name="LAST_COMMIT_MESSAGE" value="manque passage" />
   </component>
 </project>

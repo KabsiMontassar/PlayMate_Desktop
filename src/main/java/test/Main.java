@@ -1,12 +1,15 @@
 package test;
 
 import com.mailjet.client.errors.MailjetException;
+import com.mailjet.client.resource.Email;
 import models.Historique;
 import models.Terrain;
 import models.User;
+import org.mindrot.jbcrypt.BCrypt;
 import services.*;
 import services.GestionReservation.HistoriqueService;
 import services.GestionReservation.PaiementService;
+import services.GestionTerrain.TerrainService;
 import services.GestionUser.UserService;
 
 import javax.crypto.BadPaddingException;
@@ -21,8 +24,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         UserService us = new UserService();
-
-        System.out.println(us.getByEmail("maroua.douiri@esprit.tn"));
+        User u = us.getByEmail("montassar@outlook.fr");
+        System.out.println(us.Login("montassar@outlook.fr","montassar123"));
 
     }
 

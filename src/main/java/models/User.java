@@ -1,6 +1,7 @@
 package models;
 
 
+import org.mindrot.jbcrypt.BCrypt;
 import services.Encryption;
 import services.GestionUser.CurrentTime;
 import services.GestionUser.VerificationCodeGenerator;
@@ -8,6 +9,8 @@ import services.GestionUser.VerificationCodeGenerator;
 import javax.crypto.*;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+
+
 
 public class User {
     private int id;
@@ -84,7 +87,7 @@ public class User {
 
                 this.role = Roles.Organisateur;
                 break;
-            case "Proprietaire de Terrain" :
+            case "Proprietaire_de_Terrain" :
                 this.role = Roles.Proprietaire_de_Terrain;
                 break;
             default:
@@ -120,9 +123,12 @@ public class User {
         return Password;
     }
 
-    public void setPassword(String password) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        this.Password = password;
-    }
+
+
+   public void setPassword(String password) {
+    // Hash the password using BCrypt
+        this.Password = password ;
+}
 
     public int getPhone() {
         return Phone;

@@ -124,10 +124,10 @@ public class FirstController {
                 nom2.setText(tournois.get(1+i*3).getNom());
                 try {
                     Image img = new Image(tournois.get(1+i * 3).getAffiche());
-                    img1.setImage(img);
+                    img2.setImage(img);
                 } catch (IllegalArgumentException e) {
                     // Handle the error when the URL is invalid or resource not found
-                    img1.setImage(null); // Set the image view to display nothing
+                    img2.setImage(null); // Set the image view to display nothing
                 }
             }
             else{
@@ -137,10 +137,10 @@ public class FirstController {
                 nom3.setText(tournois.get(2+i*3).getNom());
                 try {
                     Image img = new Image(tournois.get(2+i * 3).getAffiche());
-                    img1.setImage(img);
+                    img3.setImage(img);
                 } catch (IllegalArgumentException e) {
                     // Handle the error when the URL is invalid or resource not found
-                    img1.setImage(null); // Set the image view to display nothing
+                    img3.setImage(null); // Set the image view to display nothing
                 }
             }else{BOX3.setVisible(false);}}else{
             BOX1.setVisible(false);
@@ -332,6 +332,18 @@ public class FirstController {
 
 UserService us = new UserService();
     public void goToTournoiClient(ActionEvent actionEvent) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
+        Parent root = loader.load();
+        AcceuilController controller = loader.getController();
+        controller.setData(us.getByid(GetIdUser()));
+        Stage stage = new Stage();
+        stage.setTitle("Gestion_Tournoi");
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+    }
+
+    public void goToAcceuil(ActionEvent actionEvent) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
         Parent root = loader.load();
         AcceuilController controller = loader.getController();
