@@ -1,5 +1,6 @@
 package test.Controllers.ReservationController;
 
+import com.mailjet.client.errors.MailjetException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import javafx.stage.Stage;
 import models.BlackList;
 import models.Reservation;
 import models.Terrain;
+import models.User;
 import services.GestionReservation.*;
 
 
@@ -44,6 +46,8 @@ import java.net.URL;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ResourceBundle;
 
 
@@ -70,7 +74,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static models.TypeReservation.ReserverTerrainPourEquipe;
+import static models.TypeReservation.Creer_Partie;
 
 public class ReservationController  {
 
@@ -143,12 +147,16 @@ public class ReservationController  {
     @FXML
     private VBox vbox3;
 
+    @FXML
+    private  Button buttonAccueil1 ;
 
 
+    private User CurrentUser ;
     private int IdUser;
 
     public void SetIdUser(int idUser) {
 
+        System.out.println(idUser);
         this.IdUser = idUser;
     }
     public int GetIdUser() {
@@ -159,6 +167,38 @@ public class ReservationController  {
 
     //********************************************
 
+
+    @FXML
+    void goToAcceuil(ActionEvent event) {
+        try {
+            UserService us = new UserService();
+
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
+            Parent root = loader.load();
+
+
+            AcceuilController acceuilController = loader.getController();
+
+
+            acceuilController.setData(us.getByEmail(CurrentUser.getEmail()));
+
+
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            ((Stage) buttonAccueil1.getScene().getWindow()).close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException | NoSuchPaddingException | IllegalBlockSizeException | NoSuchAlgorithmException |
+                 BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 
 
@@ -236,7 +276,7 @@ public class ReservationController  {
 
             stage.setScene(new Scene(root));
             stage.show();
-
+            ((Button) actionEvent.getSource()).getScene().getWindow().hide();
 
 
 
@@ -259,8 +299,8 @@ public class ReservationController  {
 
             stage.setScene(new Scene(root));
             stage.show();
-
-        } catch (IOException e) {
+            ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+        } catch (IOException | SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -275,8 +315,8 @@ public class ReservationController  {
 
             stage.setScene(new Scene(root));
             stage.show();
-
-        } catch (IOException e) {
+            ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+        } catch (IOException | SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -313,8 +353,9 @@ public class ReservationController  {
         vboxSupprimer.getChildren().clear();
         ReservationService reservationService = new ReservationService();
 
-         //  ****************************      id user 8       et en futrue
-        List<Reservation> reservations =      reservationService.getAllFutureReservationsByIdMembre(8)  ; //  reservationService.getAllReservationByIdMembre(8);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        List<Reservation> reservations =      reservationService.getAllFutureReservationsByIdMembre(this.GetIdUser())  ; //  reservationService.getAllReservationByIdMembre(8);
         for (Reservation reservation : reservations){
             AnchorPane anchorPane = new AnchorPane();
             HBox hBox = new HBox();
@@ -328,21 +369,58 @@ public class ReservationController  {
 
 
 
-            Button btnReserver = new Button("Supprimer");
-            btnReserver.getStyleClass().add("reserver-button");
+            Button btnSupprimer= new Button("Supprimer");
+            btnSupprimer.getStyleClass().add("reserver-button");
 
-            btnReserver.setOnAction(event -> {
+            btnSupprimer.setOnAction(event -> {
 
                 try {
 
-                    reservationService.supprimerReservation(reservation.getIdReservation());
-                    supprimerUneReservation();
+                    LocalDate dateReservation = LocalDate.parse(reservation.getDateReservation(), formatter);
+                    LocalDate today = LocalDate.now();
+
+
+                    long daysBetween = ChronoUnit.DAYS.between(dateReservation, today);
+
+                    if (daysBetween <= -1) { // dateReservation est au moins 1 jour avant aujourd'hui
+
+                        BlacklistService blacklistService = new BlacklistService();
+                        BlackList blackList = new BlackList();
+                        blackList.setIdReservation(reservation.getIdReservation());
+                        blackList.setCause("Annulation de la réservation");
+                        blackList.setDuree(30);
+                        blacklistService.ajouterBlackList(blackList);
+                        UserService userService = new UserService();
+                        userService.desactiverCompte(this.GetIdUser());
+                                                                            //                        reservationService.supprimerReservation(reservation.getIdReservation());
+                                                                                        //                        supprimerUneReservation();
+                    }else {
+
+                        reservationService.annulerReservation(reservation.getIdReservation());
+
+                    }
                 } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                } catch (NoSuchPaddingException e) {
+                    throw new RuntimeException(e);
+                } catch (IllegalBlockSizeException e) {
+                    throw new RuntimeException(e);
+                } catch (NoSuchAlgorithmException e) {
+                    throw new RuntimeException(e);
+                } catch (BadPaddingException e) {
+                    throw new RuntimeException(e);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (InvalidKeyException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                } catch (MailjetException e) {
                     throw new RuntimeException(e);
                 }
             });
 
-            hBox.getChildren().addAll(dateRes, HeureRes, btnReserver);
+            hBox.getChildren().addAll(dateRes, HeureRes, btnSupprimer);
             anchorPane.getChildren().addAll(hBox);
             vboxSupprimer.getChildren().add(anchorPane);
 
@@ -387,6 +465,8 @@ public class ReservationController  {
         }
     }
 UserService us = new UserService();
+
+    @FXML
     public void gotoaccueil(ActionEvent actionEvent) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
         Parent root = loader.load();
@@ -405,18 +485,6 @@ UserService us = new UserService();
 
 
 
-/*
-    public void add(ActionEvent event) throws SQLException {
-        if(verfierHeure(heure.getText()) && verfierDate(datepicker)){
-            String date = convertirDateEnString(datepicker);
-            //                                                                    a ajouter id terrain
-            int idt = 1 ;
-            Reservation r1 = new Reservation(false,date,heure.getText(),ReserverTerrainPourEquipe ,idt);
-            ReservationService reservationService = new ReservationService();
-            reservationService.ajouterReservation(r1);
-        }
-    }
-*/
 
 
 

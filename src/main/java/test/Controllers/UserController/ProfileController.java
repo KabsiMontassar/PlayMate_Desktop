@@ -124,6 +124,7 @@ private String FromMapAddress;
 
         UserService us = new UserService();
         CurrentUser = us.getByEmail(u.getEmail());
+
         System.out.println(CurrentUser);
         tfRoleAffichage.setText(CurrentUser.getRole().toString());
         tfDatedecreation.setText(CurrentUser.getDate_de_Creation());

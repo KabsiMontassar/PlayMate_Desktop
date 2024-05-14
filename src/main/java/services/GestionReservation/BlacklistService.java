@@ -1,6 +1,7 @@
 package services.GestionReservation;
 
 import models.BlackList;
+import services.GestionUser.UserService;
 import utils.MyDatabase;
 
 import java.sql.Connection;
@@ -25,9 +26,23 @@ public class BlacklistService {
             ps.setInt(2, blackList.getDuree());
             ps.setString(3, blackList.getCause());
             ps.executeUpdate();
+            desactiverCompte(blackList.getIdReservation());
         }
     }
+    public void desactiverCompte(int idReservation) throws SQLException {
 
+        String query = "UPDATE reservation SET type = 'Compte_desactive' WHERE idReservation = ?";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, idReservation);
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new SQLException("Mise à jour échouée, aucune ligne affectée.");
+            }
+        } catch (SQLException e) {
+            throw new SQLException("Erreur lors de la mise à jour de la réservation: " + e.getMessage(), e);
+        }
+    }
 
 
     public void supprimerBlackList(int idBlackList) throws SQLException {

@@ -10,17 +10,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="anchropane1" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.Controllers.ReservationController.ReserverTerrainController">
     <children>
-        <ImageView fitHeight="93.0" fitWidth="100.0" layoutX="129.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@LogoPlayMate.png" />
-            </image>
-        </ImageView>
         <AnchorPane id="anchroCreerPartie" fx:id="anchroPane2" layoutX="38.0" layoutY="93.0" prefHeight="583.0" prefWidth="1230.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="12.0">
             <children>
                 <DatePicker id="date" fx:id="datepicker" layoutX="860.0" layoutY="27.0" prefHeight="26.0" prefWidth="167.0" promptText="chosir une date" />
@@ -80,29 +75,100 @@
             <URL value="@button.css" />
          </stylesheets>
         </AnchorPane>
-        <HBox layoutX="624.0" layoutY="35.0" prefHeight="63.0" prefWidth="528.0" spacing="10">
-            <children>
-                <Button fx:id="buttonAccueil" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Accueil" textFill="#02365c">
-                    <font>
-                        <Font name="Arial Black" size="12.0" />
-                    </font>
-                </Button>
-                <Button fx:id="buttonActualites" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Actualités" textFill="#02365c">
-                    <font>
-                        <Font name="Arial Black" size="12.0" />
-                    </font>
-                </Button>
-                <Button fx:id="buttonReservation" onAction="#ActualiserLaPageReservation" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Réservation" textFill="#02365c">
-                    <font>
-                        <Font name="Arial Black" size="12.0" />
-                    </font>
-                </Button>
-                <Button fx:id="buttonEvenement" style="-fx-background-radius: 15px; -fx-background-color: #4CAF50;" text="Événement" textFill="#02365c">
-                    <font>
-                        <Font name="Arial Black" size="12.0" />
-                    </font>
-                </Button>
-            </children>
-        </HBox>
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="120.0" prefWidth="1280.0" style="-fx-background-color: #EFECEC;">
+         <children>
+            <ImageView fitHeight="96.0" fitWidth="100.0" layoutX="60.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/loo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnevenementPart" layoutX="753.0" layoutY="50.0" mnemonicParsing="false" onAction="#evenementPart" style="-fx-background-color: Transparent;" text="Evenement" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="produitbtn" layoutX="633.0" layoutY="50.0" mnemonicParsing="false" onAction="#voirProduit" style="-fx-background-color: Transparent;" text="Produits" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnReservation" layoutX="384.0" layoutY="50.0" mnemonicParsing="false" onAction="#Toreservation" style="-fx-background-color: Transparent;" text="Réservations" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="voirTerrain2" layoutX="515.0" layoutY="50.0" mnemonicParsing="false" style="-fx-background-color: Transparent;" text="Terrains" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <AnchorPane layoutX="920.0" layoutY="20.0" prefHeight="96.0" prefWidth="353.0">
+               <children>
+                  <Button layoutX="79.0" layoutY="22.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="54.0" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <Button fx:id="sername" mnemonicParsing="false" style="-fx-background-color: grey; -fx-background-radius: 50;" text="M" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="43.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: transparent;" visible="false">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/bell.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="133.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: transprarent;">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/arrowdown.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <AnchorPane fx:id="notificationicon" layoutX="61.0" layoutY="29.0" prefHeight="10.0" prefWidth="10.0" style="-fx-background-color: red; -fx-background-radius: 100;" visible="false">
+                     <children>
+                        <Text fill="WHITE" layoutX="4.0" layoutY="7.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!">
+                           <font>
+                              <Font name="System Bold" size="7.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="btnseeProfile" layoutX="181.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnseeProfile" style="-fx-background-color: #EFECEC;" text="Voir Profile" textAlignment="CENTER" visible="false">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnlogout" layoutX="282.0" layoutY="7.0" mnemonicParsing="false" onAction="#logoutaction" style="-fx-background-color: #EFECEC;" text="Logout" visible="false">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="VoirTerrain" layoutX="166.0" layoutY="37.0" mnemonicParsing="false" onAction="#VoirTerrain" style="-fx-background-color: #EFECEC;" text="Voir Terrain" visible="false">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnOrganisateur" layoutX="218.0" layoutY="60.0" mnemonicParsing="false" onAction="#VoirOrganisateur" style="-fx-background-color: #EFECEC;" text="Voir Tournoi" visible="false">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <ChoiceBox fx:id="choicebox" layoutX="11.0" layoutY="29.0" prefWidth="150.0" style="-fx-background-color: transparent;" />
+               </children>
+            </AnchorPane>
+            <Button layoutX="882.0" layoutY="53.0" mnemonicParsing="false" onAction="#openjeu" style="-fx-background-color: Transparent;" text="Jeu" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

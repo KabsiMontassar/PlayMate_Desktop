@@ -259,5 +259,17 @@ public class UserService implements IService<User> {
         }
         return monthMap;
     }
+
+
+    public void desactiverCompte(int idUser) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, IOException, InterruptedException, MailjetException {
+
+        String query = "UPDATE user SET Status = ?  WHERE id = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+
+        ps.setBoolean(1, false);
+        ps.setInt(2,idUser);
+        ps.executeUpdate();
+    }
+
 }
 

@@ -1,6 +1,6 @@
 package test.Controllers.ReservationController;
 
-import javafx.collections.ObservableList;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,25 +12,41 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import models.Equipe;
 import models.Reservation;
 import models.Terrain;
 import services.GestionEquipe.EquipeService;
 import services.GestionReservation.*;
 import services.GestionTerrain.TerrainService;
+import services.GestionUser.UserService;
+import services.UserActivityLogger;
+import test.Controllers.EquipeController.EquipeController;
+import test.Controllers.ProduitController.Products;
+import test.Controllers.TerrainController.PageTerrainController;
+import test.Controllers.TournoiController.AfficherListeTournoisClientController;
+import test.Controllers.TournoiController.FirstController;
+import test.Controllers.UserController.LoginRegistrationPageController;
+import test.Controllers.UserController.ProfileController;
 import test.MainFx;
 
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
 import java.net.URL;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static models.TypeReservation.ReserverTerrainPourEquipe;
+import static models.TypeReservation.Lancez_Vous;
 
 public class LancezVousController implements Initializable {
 
@@ -77,28 +93,42 @@ public class LancezVousController implements Initializable {
     private VBox Vbox1;
 
 
-    // ***********   id user
-    //*********************************
-//*****************************************************************
+    private int IdUser;
 
-    //*****************************************************************
+    public void SetIdUser(int idUser) throws SQLException {
 
-    //*****************************************************************
-
-
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
         nomEquipeInvalide1.setVisible(false);
         nomEquipeInvalide.setVisible(false);
         dateInvalide.setVisible(false);
         horaireInvalides.setVisible(false);
 
-        String[] nom = nomEquipes();
+        String[] nom = nomEquipes(idUser);
 
         nom_equipe.getItems().addAll(nom);
         nom_equipe2.getItems().addAll(nom);
+
+
+        System.out.println("RESERVATION TERRAIN 2 EQUIPEs "+idUser);
+        this.IdUser = idUser;
+    }
+    public int GetIdUser() {
+
+        return this.IdUser;
+    }
+
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        nomEquipeInvalide1.setVisible(false);
+//        nomEquipeInvalide.setVisible(false);
+//        dateInvalide.setVisible(false);
+//        horaireInvalides.setVisible(false);
+//
+//        String[] nom = nomEquipes();
+//
+//        nom_equipe.getItems().addAll(nom);
+//        nom_equipe2.getItems().addAll(nom);
 
 
     }
@@ -118,12 +148,12 @@ public class LancezVousController implements Initializable {
 
     //*********************************************************************
 
-    public String[] nomEquipes(){
+    public String[] nomEquipes(int iduser1){
         EquipeService equipeService = new EquipeService();
         // *********************************************************************************************
         //
         try {
-            List<Equipe> equipeList = equipeService.getEquipesParMembre(this.GetIdUser());     /*this.GetIdUser()*/
+            List<Equipe> equipeList = equipeService.getEquipesParMembre(iduser1);
             String[] nomEquipe = new String[equipeList.size()];
 
             int index = 0;
@@ -193,6 +223,8 @@ public class LancezVousController implements Initializable {
 
                             } catch (SQLException e) {
                                 throw new RuntimeException(e);
+                            } catch (ParseException e) {
+                                throw new RuntimeException(e);
                             }
                             System.out.println("Réserver terrain avec l'ID: " + terrain.getId());
                         });
@@ -206,16 +238,8 @@ public class LancezVousController implements Initializable {
             }
         }
     }
-    private int IdUser;
 
-    public void SetIdUser(int idUser) {
-
-        this.IdUser = idUser;
-    }
-    public int GetIdUser() {
-        return 37;
-    }
-    public void ajouterReservationTerrain(int idTerrain ) throws SQLException {
+    public void ajouterReservationTerrain(int idTerrain ) throws SQLException, ParseException {
 
         if(verfierHeure(heure.getText()) && verfierDate(datepicker)){
             ReservationService reservationService1 = new ReservationService();
@@ -225,7 +249,7 @@ public class LancezVousController implements Initializable {
 
             if(reservationService1.VerfierDisponibleTerrain( idTerrain,terraine.getDuree(),heure.getText(),convertirDateEnString(datepicker))) {
 
-                Reservation r1 = new Reservation(false, convertirDateEnString(datepicker), heure.getText(), ReserverTerrainPourEquipe, idTerrain);
+                Reservation r1 = new Reservation(false, convertirDateEnString(datepicker), heure.getText(), Lancez_Vous, idTerrain);
                 ReservationService reservationService = new ReservationService();
                 reservationService.ajouterReservationPourLancerUnePartie(r1);
 
@@ -373,6 +397,57 @@ public class LancezVousController implements Initializable {
             System.out.println(e);
         }
     }
+    public void evenementPart(ActionEvent actionEvent) {
+    }
+
+    public void voirProduit(ActionEvent actionEvent) {
+    }
+
+    public void Toreservation(ActionEvent actionEvent) {
+        try {
+            Button btn = (Button) actionEvent.getSource();
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/choix2.fxml"));
+            Parent root = loader.load();
+
+            ReservationController C = loader.getController();
+
+            C.SetIdUser(GetIdUser());
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    public void btnseeProfile(ActionEvent actionEvent) {
+    }
+
+    public void logoutaction(ActionEvent actionEvent) {
+    }
+
+    public void VoirTerrain(ActionEvent actionEvent) {
+    }
+
+    public void VoirOrganisateur(ActionEvent actionEvent) {
+    }
+
+    public void openjeu(ActionEvent actionEvent) {
+        try {
 
 
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/jeuPlayMate.fxml"));
+            AnchorPane root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Gestion_Tournoi");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
