@@ -46,7 +46,8 @@ public class HistoriqueController implements Initializable {
 
     @FXML
     private VBox vboxHistorique;
-
+    @FXML
+    public AnchorPane Container;
 
     //    ***************************************************************************    REQUIRES : ****************
 
@@ -319,16 +320,20 @@ public class HistoriqueController implements Initializable {
         try {
 
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/choix2.fxml"));
-            Parent root = loader.load();
+            AnchorPane root = loader.load();
             ReservationController controller = loader.getController();
             controller.SetIdUser(this.GetIdUser());
+
+            Container.getChildren().setAll(root);
+
+            /*
             Stage stage = new Stage();
 
             stage.setScene(new Scene(root));
             stage.show();
             ((Button) actionEvent.getSource()).getScene().getWindow().hide();
 
-
+*/
         } catch (IOException e) {
             e.printStackTrace();
         }

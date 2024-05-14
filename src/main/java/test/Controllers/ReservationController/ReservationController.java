@@ -164,7 +164,7 @@ public class ReservationController  {
     }
 
 
-
+    public AnchorPane Container;
     //********************************************
 
 
@@ -181,7 +181,7 @@ public class ReservationController  {
             AcceuilController acceuilController = loader.getController();
 
 
-            acceuilController.setData(us.getByEmail(CurrentUser.getEmail()));
+            acceuilController.setData(us.getByid(this.GetIdUser()));
 
 
 
@@ -268,15 +268,14 @@ public class ReservationController  {
     public void ReserverTerrain(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/reserverTerrainVersion2.fxml"));
-            Parent root = loader.load();
+            AnchorPane root = loader.load();
             ReserverTerrainController controller = loader.getController();
             controller.SetIdUser(GetIdUser());
 
-            Stage stage = new Stage();
 
-            stage.setScene(new Scene(root));
-            stage.show();
-            ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+            anchroChoix2.getChildren().setAll(root);
+
+
 
 
 
@@ -291,15 +290,18 @@ public class ReservationController  {
 
 
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/chercherAdversaire.fxml"));
-            Parent root = loader.load();
+            AnchorPane root = loader.load();
             ChercherAdversaireController controller = loader.getController();
             controller.SetIdUser(GetIdUser());
 
+            anchroChoix2.getChildren().setAll(root);
+/*
             Stage stage = new Stage();
 
             stage.setScene(new Scene(root));
             stage.show();
             ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+            */
         } catch (IOException | SQLException e) {
             throw new RuntimeException(e);
         }
@@ -326,6 +328,7 @@ public class ReservationController  {
         vbox2.setVisible(false);
         vbox3.setVisible(false);
     }
+
 
     public void AfficherVboxtout(MouseEvent mouseEvent) {
         vbox1.setVisible(true);
@@ -430,6 +433,8 @@ public class ReservationController  {
 
 
     }
+    @FXML
+    public AnchorPane ContainerSupp;
 
     @FXML
     void chargerInterfaceSuppression(ActionEvent event) {
@@ -439,11 +444,12 @@ public class ReservationController  {
             Parent root = (Parent) loader.load();
             ReservationController c = loader.getController();
             c.SetIdUser(GetIdUser());
-
+            anchroChoix2.getChildren().setAll(root);
+/*
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.show();
+            stage.show();*/
         }catch (Exception e){
             System.out.println(e);
         }
@@ -456,10 +462,12 @@ public class ReservationController  {
             HistoriqueController c = loader.getController();
             c.SetIdUser(GetIdUser());
 
+            anchroChoix2.getChildren().setAll(root);
+/*
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.show();
+            stage.show();*/
         }catch (Exception e){
             System.out.println(e);
         }
@@ -481,6 +489,50 @@ UserService us = new UserService();
     }
 
     public void jouerPlaymate(ActionEvent actionEvent) {
+    }
+
+    public void evenementPart(ActionEvent actionEvent) {
+    }
+
+    public void voirProduit(ActionEvent actionEvent) {
+    }
+
+    public void Toreservation(ActionEvent actionEvent) {
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/choix2.fxml"));
+            Parent root = loader.load();
+            ReservationController controller = loader.getController();
+            controller.SetIdUser(this.GetIdUser());
+            Stage stage = new Stage();
+
+            stage.setScene(new Scene(root));
+            stage.show();
+            ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void terrains2(ActionEvent actionEvent) {
+    }
+
+    public void btnseeProfile(ActionEvent actionEvent) {
+    }
+
+    public void logoutaction(ActionEvent actionEvent) {
+    }
+
+    public void VoirTerrain(ActionEvent actionEvent) {
+    }
+
+    public void VoirOrganisateur(ActionEvent actionEvent) {
+    }
+
+    public void openjeu(ActionEvent actionEvent) {
     }
 
 

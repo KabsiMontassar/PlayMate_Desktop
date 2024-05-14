@@ -7,6 +7,7 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -19,6 +20,7 @@ import services.GestionUser.UserService;
 import services.UserActivityLogger;
 import test.Controllers.EquipeController.EquipeController;
 import test.Controllers.ProduitController.Products;
+import test.Controllers.ReservationController.HistoriqueController;
 import test.Controllers.ReservationController.ReservationController;
 import test.Controllers.TerrainController.AvisController;
 import test.Controllers.TerrainController.PageTerrainController;
@@ -75,6 +77,8 @@ public class AcceuilController {
         }
         if(u.getRole() == Roles.Membre){
             choicebox.getItems().add("Voir Equipe");
+            choicebox.getItems().add("Historique");
+            choicebox.getItems().add("Vos Reservation");
         }
         choicebox.getItems().add("Voir Profile");
         choicebox.getItems().add("Logout");
@@ -106,6 +110,12 @@ public class AcceuilController {
                 case "Voir Equipe":
                     toEquipe();
                     break;
+                case "Historique":
+                    toHistorique();
+                    break;
+                case "Vos Reservation":
+                    toFutureReservation();
+                    break;
                 default:
                     break;
             }
@@ -116,6 +126,39 @@ public class AcceuilController {
         AccueilStuff.getChildren().setAll(root);
 
 
+    }
+    @FXML
+    void toFutureReservation() {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/SupprimerReservation.fxml"));
+            AnchorPane root = (AnchorPane) loader.load();
+            ReservationController c = loader.getController();
+            UserService us = new UserService();
+            c.SetIdUser(us.getByEmail(CurrentUser.getEmail()).getId());
+
+            Container.getChildren().setAll(root);
+
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+
+    public void toHistorique() {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionReservation/historique.fxml"));
+            AnchorPane root = loader.load();
+            HistoriqueController c = loader.getController();
+            UserService us = new UserService();
+            c.SetIdUser(us.getByEmail(CurrentUser.getEmail()).getId());
+
+            Container.getChildren().setAll(root);
+        }catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     private void toEquipe() {
