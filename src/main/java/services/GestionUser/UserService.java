@@ -205,12 +205,12 @@ public class UserService implements IService<User> {
 
     public boolean Login(String e, String P) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         User user = getByEmail(e);
-
         if (user == null || user.getPassword() == null || user.getPassword().isEmpty()) {
             return false; // User not found or password not set
         }
-
         // Verify the entered password against the hashed password using BCrypt
+        System.out.println(BCrypt.checkpw(P, user.getPassword()));
+        System.out.println(P + user.getPassword());
         return BCrypt.checkpw(P, user.getPassword());
     }
 
