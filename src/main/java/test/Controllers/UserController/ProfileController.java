@@ -128,8 +128,8 @@ private String FromMapAddress;
         tfRoleAffichage.setText(CurrentUser.getRole().toString());
         tfDatedecreation.setText(CurrentUser.getDate_de_Creation());
         tdNomaffichage.setText(CurrentUser.getName());
-        inputPassword.setText(CurrentUser.getPassword());
-        inputCPassword.setText(CurrentUser.getPassword());
+        inputPassword.setText("");
+        inputCPassword.setText("");
 
         if(!CurrentUser.getAddress().isEmpty()){
             InputAddress.setText(CurrentUser.getAddress());
@@ -338,7 +338,7 @@ private String FromMapAddress;
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("mots de passe ne correspondent pas");
             alert.setContentText("mot de passe et confirmer le mot de mot de passe devraient avoir le même contenu");
-            alert.setHeaderText("CAlert Alert");
+            alert.setHeaderText("Warning");
             alert.showAndWait();
             return ;
         }
@@ -346,7 +346,15 @@ private String FromMapAddress;
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("mots de passe invalid");
             alert.setContentText("le mot de passe ne peut pas être vide");
-            alert.setHeaderText("CAlert Alert");
+            alert.setHeaderText("Warning");
+            alert.showAndWait();
+            return ;
+        }
+        if( inputPassword.getText().length() <8  ){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("mots de passe invalid");
+            alert.setContentText("le mot de passe doit etre supperieur a 7");
+            alert.setHeaderText("Warning");
             alert.showAndWait();
             return ;
         }
