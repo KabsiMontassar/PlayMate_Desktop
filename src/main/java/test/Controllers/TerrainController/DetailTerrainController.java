@@ -1,5 +1,6 @@
 package test.Controllers.TerrainController;
 
+import models.Roles;
 import models.Terrain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +16,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import models.User;
+import services.GestionTerrain.TerrainService;
 import services.GestionUser.UserService;
 import test.MainFx;
 
@@ -25,6 +27,8 @@ import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 //*******************************************************************************************
 public class DetailTerrainController {
@@ -58,11 +62,6 @@ public class DetailTerrainController {
     UserService us = new UserService();
     private  User CurrentUser  ;
 
-    public  void setData(User u){
-        this.CurrentUser = u;
-    }
-    //**
-
 
 
     //*******************************************************************************************
@@ -77,7 +76,8 @@ public class DetailTerrainController {
         return price + " DT";
     }
     //*******************************************************************************************
-    public void initData(Terrain terrain) {
+    public void initData(Terrain terrain, User u) {
+        this.CurrentUser = u;
         terrainActuel = terrain;
         nomd.setText(terrain.getNomTerrain());
         gouvd.setText(terrain.getGouvernorat());
@@ -97,10 +97,17 @@ public class DetailTerrainController {
             }
         }
         if (terrain.getVideo() != null && !terrain.getVideo().isEmpty()) {
-            Media media = new Media(terrain.getVideo());
-            MediaPlayer mediaPlayer = new MediaPlayer(media);
-            detvid.setMediaPlayer(mediaPlayer);
-            mediaPlayer.play();}}
+            try {
+                Media media = new Media(terrain.getVideo());
+                MediaPlayer mediaPlayer = new MediaPlayer(media);
+                detvid.setMediaPlayer(mediaPlayer);
+                mediaPlayer.play();
+            } catch (IllegalArgumentException e) {
+                // Handle the error when the URL is invalid or resource not found
+                detvid.setMediaPlayer(null); // Set the image view to display nothing
+            }}
+
+    }
     //*******************************************************************************************
     @FXML
     void modifd(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
@@ -118,14 +125,15 @@ public class DetailTerrainController {
     //*******************************************************************************************
     @FXML
     void retourd() throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
-        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/PageTerrain.fxml"));
-        Parent root = loader.load();
-        PageTerrainController controller = loader.getController();
-        controller.setData(us.getByEmail(CurrentUser.getEmail()));
-        Stage stage = new Stage();
-        stage.setTitle("Liste des terrains");
-        stage.setScene(new Scene(root));
-        stage.show();
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/PageTerrain.fxml"));
+            Parent root = loader.load();
+            PageTerrainController controller = loader.getController();
+            controller.setData(us.getByEmail(CurrentUser.getEmail()));
+            Stage stage = new Stage();
+            stage.setTitle("Liste des terrains");
+            stage.setScene(new Scene(root));
+            stage.show();
+
         // Récupérer la fenêtre actuelle et la cacher
         ((Stage) btretour.getScene().getWindow()).hide();}
 }

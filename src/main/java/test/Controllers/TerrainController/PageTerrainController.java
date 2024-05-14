@@ -206,9 +206,8 @@ public class PageTerrainController  {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DetailTerrain.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
-        controller.setData(us.getByEmail(CurrentUser.getEmail()));
-        controller.initData(terrain);
-        Stage stage = new Stage();
+        controller.initData(terrain, us.getByEmail(CurrentUser.getEmail()));
+         Stage stage = new Stage();
         stage.setTitle("Détails Terrain");
         stage.setScene(new Scene(root));
         stage.show();
@@ -222,9 +221,8 @@ public class PageTerrainController  {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DetailTerrain.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
-        controller.initData(selectedTerrain);
-        controller.setData(us.getByEmail(CurrentUser.getEmail()));
-        Stage stage = new Stage();
+        controller.initData(selectedTerrain, us.getByEmail(CurrentUser.getEmail()));
+         Stage stage = new Stage();
         stage.setTitle("Détails du Terrain");
         stage.setScene(new Scene(root));
         stage.show();
@@ -238,9 +236,8 @@ public class PageTerrainController  {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/DetailTerrain.fxml"));
         Parent root = loader.load();
         DetailTerrainController controller = loader.getController();
-        controller.initData(selectedTerrain);
-        controller.setData(us.getByEmail(CurrentUser.getEmail()));
-        Stage stage = new Stage();
+        controller.initData(selectedTerrain, us.getByEmail(CurrentUser.getEmail()));
+         Stage stage = new Stage();
         stage.setTitle("Détails du Terrain");
         stage.setScene(new Scene(root));
         stage.show();

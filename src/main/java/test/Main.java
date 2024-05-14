@@ -7,6 +7,7 @@ import models.User;
 import services.*;
 import services.GestionReservation.HistoriqueService;
 import services.GestionReservation.PaiementService;
+import services.GestionTerrain.TerrainService;
 import services.GestionUser.UserService;
 
 import javax.crypto.BadPaddingException;
@@ -21,8 +22,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         UserService us = new UserService();
-
-        System.out.println(us.getByEmail("maroua.douiri@esprit.tn"));
+        TerrainService t = new TerrainService();
+        System.out.println(t.getAllTerrains());
 
     }
 
