@@ -1,8 +1,11 @@
 package models;
 
+import java.sql.Date;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.text.SimpleDateFormat;
 
 public class Tournoi {
 
@@ -12,8 +15,8 @@ public class Tournoi {
 
     private String affiche ;
     private String Address ;
-    private String datedebut;
-    private String datefin;
+    private Date datedebut;
+    private Date datefin;
 
     private int visite;
 
@@ -27,8 +30,12 @@ public class Tournoi {
         this.nom = nom;
         this.affiche = affiche;
         this.Address = address;
-        this.datedebut = datedebut;
-        this.datefin = datefin;
+         try {
+            this.datedebut = Date.valueOf(datedebut);
+            this.datefin = Date.valueOf(datefin);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
         this.participationList = new ArrayList<>();
         this.orgid = orgid;
         this.visite = 0 ;
@@ -40,8 +47,12 @@ public class Tournoi {
         this.nom = nom;
         this.affiche = affiche;
         this.Address = address;
-        this.datedebut = datedebut;
-        this.datefin = datefin;
+        try {
+            this.datedebut = Date.valueOf(datedebut);
+            this.datefin = Date.valueOf(datefin);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
         this.participationList = new ArrayList<>();
         this.visite = 0 ;
     }
@@ -54,8 +65,12 @@ public class Tournoi {
         this.nom = nom;
         this.affiche = affiche;
         this.Address = address;
-        this.datedebut = datedebut;
-        this.datefin = datefin;
+        try {
+            this.datedebut = Date.valueOf(datedebut);
+            this.datefin = Date.valueOf(datefin);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
         this.participationList = new ArrayList<>();
         this.orgid = orgid;
         this.visite = 0 ;
@@ -66,8 +81,12 @@ public class Tournoi {
         this.nom = nom;
         this.affiche = affiche;
         this.Address = address;
-        this.datedebut = datedebut;
-        this.datefin = datefin;
+        try {
+            this.datedebut = Date.valueOf(datedebut);
+            this.datefin = Date.valueOf(datefin);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
         this.visite = 0 ;
     }
 
@@ -111,19 +130,25 @@ public class Tournoi {
         this.Address = address;
     }
 
-    public String getDatedebut() {
+    public Date getDatedebut() {
+
         return datedebut;
     }
-
-    public void setDatedebut(String datedebut) {
+    /*public String getDatedebut() {
+        return datedebut;
+    }
+*/
+    public void setDatedebut(Date datedebut) {
         this.datedebut = datedebut;
     }
-
-    public String getDatefin() {
+    public Date getDatefin() {
+         return datefin;
+    }
+    /*public String getDatefin() {
         return datefin;
     }
-
-    public void setDatefin(String datefin) {
+*/
+    public void setDatefin(Date datefin) {
         this.datefin = datefin;
     }
 

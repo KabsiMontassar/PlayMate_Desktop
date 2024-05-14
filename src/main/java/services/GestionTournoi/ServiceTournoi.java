@@ -26,8 +26,8 @@ public class ServiceTournoi {
         psTournoi.setString(2, J.getNom());
         psTournoi.setString(3, J.getAffiche());
         psTournoi.setString(4, J.getAddress());
-        psTournoi.setString(5, J.getDatedebut());
-        psTournoi.setString(6, J.getDatefin());
+        psTournoi.setDate(5, J.getDatedebut());
+        psTournoi.setDate(6, J.getDatefin());
         psTournoi.setInt(7,J.getOrg());
 
         psTournoi.executeUpdate();
@@ -56,8 +56,8 @@ public class ServiceTournoi {
         ps.setInt(1, t.getNbrquipeMax());
         ps.setString(2, t.getNom());
         ps.setString(3, t.getAffiche());
-        ps.setString(4, t.getDatedebut());
-        ps.setString(5, t.getDatefin());
+        ps.setDate(4, t.getDatedebut());
+        ps.setDate(5, t.getDatefin());
         ps.setString(6, t.getAddress());
         ps.setInt(7, t.getId());
         ps.executeUpdate();
@@ -76,8 +76,8 @@ public class ServiceTournoi {
                 tr.setNbrquipeMax(rs.getInt("NbmaxEquipe"));
                 tr.setNom(rs.getString("nom"));
                 tr.setAffiche(rs.getString("affiche"));
-                tr.setDatedebut(rs.getString("datedebut"));
-                tr.setDatefin(rs.getString("datefin"));
+                tr.setDatedebut(rs.getDate("datedebut"));
+                tr.setDatefin(rs.getDate("datefin"));
 
                 tr.setAddress(rs.getString("address"));
 
@@ -100,8 +100,8 @@ public class ServiceTournoi {
             Tr.setNbrquipeMax(rs.getInt("NbmaxEquipe"));
             Tr.setNom(rs.getString("nom"));
             Tr.setAffiche(rs.getString("affiche"));
-            Tr.setDatedebut(rs.getString("datedebut"));
-            Tr.setDatefin(rs.getString("datefin"));
+            Tr.setDatedebut(rs.getDate("datedebut"));
+            Tr.setDatefin(rs.getDate("datefin"));
 
             Tr.setAddress(rs.getString("address"));
             Tr.setVisite(rs.getInt("visite"));
@@ -127,8 +127,8 @@ public class ServiceTournoi {
             Tr.setNbrquipeMax(rs.getInt("NbmaxEquipe"));
             Tr.setNom(rs.getString("nom"));
             Tr.setAffiche(rs.getString("affiche"));
-            Tr.setDatedebut(rs.getString("datedebut"));
-            Tr.setDatefin(rs.getString("datefin"));
+            Tr.setDatedebut(rs.getDate("datedebut"));
+            Tr.setDatefin(rs.getDate("datefin"));
 
             Tr.setAddress(rs.getString("address"));
             Tr.setVisite(rs.getInt("visite"));

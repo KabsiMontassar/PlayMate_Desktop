@@ -29,6 +29,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -181,10 +182,9 @@ public class ModifierTournoiController implements Initializable {
     public void goToTournoi(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
-
-        FirstController controller = loader.load();
-        controller.SetIdUser(GetIdUser());
         AnchorPane root = loader.load();
+        FirstController controller = loader.getController();
+        controller.SetIdUser(GetIdUser());
         Stage stage = new Stage();
         stage.setTitle("Détails du Tournoi");
         stage.setScene(new Scene(root));
@@ -195,8 +195,9 @@ public class ModifierTournoiController implements Initializable {
         this.tournoiActuel = tournoi;
         InputNombreéquipes.setText(String.valueOf(tournoi.getNbrquipeMax()));
         InputNom.setText(tournoi.getNom());
-        InputDateDébut.setText(tournoi.getDatedebut());
-        InputDateFin.setText(tournoi.getDatefin());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        InputDateDébut.setText(sdf.format(tournoi.getDatedebut()));
+        InputDateFin.setText(sdf.format(tournoi.getDatefin()));
         InputAddress.setText(tournoi.getAddress());
         imagePath = tournoi.getAffiche();
         if (imagePath != null && !imagePath.isEmpty()) {
@@ -212,7 +213,7 @@ public class ModifierTournoiController implements Initializable {
 
         try {
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate dateDebut = LocalDate.parse(dateDebutText, formatter);
             LocalDate dateFin = LocalDate.parse(dateFinText, formatter);
 
@@ -225,7 +226,7 @@ public class ModifierTournoiController implements Initializable {
             }
         } catch (DateTimeParseException e) {
             errorLabel.setVisible(true);
-            errorLabel.setText("Format sous la forme dd/mm/aaaa svp .");
+            errorLabel.setText("Format sous la forme yyyy-MM-dd svp .");
             return false ;
         }
     }
