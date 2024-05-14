@@ -24,7 +24,6 @@ public class UserService implements IService<User> {
         connection = MyDatabase.getInstance().getConnection();
     }
 
-     UserActivityLogger UAL = new UserActivityLogger();
 
 
 
@@ -141,7 +140,7 @@ public class UserService implements IService<User> {
         ps.setString(4,  hashedPassword);
         ps.setInt(5, t.getPhone());
         ps.setString(6, t.getEmail());
-        UAL.logAction(t.getEmail() ,  "effectué de la mise à jour à son Compte");
+       // UAL.logAction(t.getEmail() ,  "effectué de la mise à jour à son Compte");
 
         ps.executeUpdate();
     }
@@ -151,7 +150,6 @@ public class UserService implements IService<User> {
 
 
     public void updatePhoto(String Photo , String email) throws SQLException {
-        UAL.logAction(email ,  "effectué de la mise à jour à son Compte");
         String query = "UPDATE user SET Image = ?  WHERE email = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, Photo);
@@ -167,11 +165,9 @@ public class UserService implements IService<User> {
         if (getByEmail(email).getStatus()) {
             ps.setBoolean(1, false);
 
-            UAL.logAction(email ,  "Desactiver son compte");
         } else {
             JavaMailJett.send2(email);
             ps.setBoolean(1, true);
-            UAL.logAction(email ,  "activer son compte");
         }
         ps.setString(2,email);
         ps.executeUpdate();
@@ -210,8 +206,7 @@ public class UserService implements IService<User> {
             return false; // User not found or password not set
         }
         // Verify the entered password against the hashed password using BCrypt
-        System.out.println(BCrypt.checkpw(P, user.getPassword()));
-        System.out.println(P + user.getPassword());
+
         return BCrypt.checkpw(P, user.getPassword());
     }
     public int CountActive() throws SQLException {

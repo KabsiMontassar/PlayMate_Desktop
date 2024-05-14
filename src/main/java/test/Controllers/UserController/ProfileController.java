@@ -153,17 +153,16 @@ private String FromMapAddress;
                 CurrentUser.getPhone() == 0 ? "" : String.valueOf(CurrentUser.getPhone())
         );
 
-        String imagePath = CurrentUser.getImage();
-        if (imagePath != null && !imagePath.isEmpty()) {
-            Image image = new Image(imagePath);
-            if (image.isError()) {
 
-                imgview.setImage(null);
-            } else {
-                imgview.setImage(image);
-            }
-        } else {
-            imgview.setImage(null);
+
+        try {
+            String imagePath = CurrentUser.getImage();
+            Image image = new Image(imagePath);
+            imgview.setImage(image);
+
+        } catch (IllegalArgumentException e) {
+            // Handle the error when the URL is invalid or resource not found
+            imgview.setImage(null); // Set the image view to display nothing
         }
 
     }
