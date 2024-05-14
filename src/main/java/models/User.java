@@ -127,7 +127,7 @@ public class User {
 
    public void setPassword(String password) {
     // Hash the password using BCrypt
-        this.Password = BCrypt.hashpw(password, BCrypt.gensalt());
+        this.Password = password ;
 }
 
     public int getPhone() {
