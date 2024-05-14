@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.Controllers.ReservationController.HistoriqueController">
+<AnchorPane fx:id="Container" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test.Controllers.ReservationController.HistoriqueController">
    <children>
       
       <AnchorPane id="historiqueanchro" layoutX="169.0" layoutY="187.0" prefHeight="534.0" prefWidth="1069.0" stylesheets="@historique.css" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="150.0">
