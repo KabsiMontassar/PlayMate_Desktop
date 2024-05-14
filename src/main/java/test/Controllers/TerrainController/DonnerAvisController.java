@@ -101,7 +101,7 @@ public class DonnerAvisController {
             avisService.add(avisTerrain);
             System.out.println("Commentaire ajouté avec succès !");
             // Envoyer un SMS au propriétaire du terrain avec Twilio
-            smsAPi.sendSms();
+          //  smsAPi.sendSms();
 
             // Afficher éventuellement un message de succès à l'utilisateur
         } catch (SQLException e) {

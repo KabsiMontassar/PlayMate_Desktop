@@ -5,27 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/AvisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/AvisController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/DetailTerrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/DetailTerrainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/DonnerAvisController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/DonnerAvisController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/PageTerrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/PageTerrainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/TerrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TerrainController/TerrainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionUser/Acceuil.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Roles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Roles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionEquipe/EquipeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionEquipe/EquipeService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionEquipe/MemberService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionEquipe/MemberService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionTournoi/ServiceParticipation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionTournoi/ServiceParticipation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/GestionTournoi/ServiceTournoi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/GestionTournoi/ServiceTournoi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/SMSTwilio.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/SMSTwilio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/EquipeController/FormEquipeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/EquipeController/FormEquipeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/DetailClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/DetailClientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/StatistiquesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TournoiController/StatistiquesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AdminPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AdminPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/AvisController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/AvisController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/DetailTerrainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/DetailTerrainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/DonnerAvisController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/DonnerAvisController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/PageTerrainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/PageTerrainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/avisPropTController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/avisPropTController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/statController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/statController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/statController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/TerrainController/statController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AcceuilController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Controllers/UserController/AcceuilController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/test/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/MainFx.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/MainFx.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +30,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -57,33 +53,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.FX.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.MainFx.executor": "Run",
-    "Maven.pidev_spartans_3a29 [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "MaleekIntegration",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Github/pidev_spartans_3a29/Pidev/src/main/java/test/Controllers/ProduitController",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.44067797",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.FX.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainFx.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.pidev_spartans_3a29 [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;MaleekIntegration&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Github/pidev_spartans_3a29/Pidev/src/main/java/test/Controllers/ProduitController&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.44067797&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Github\pidev_spartans_3a29\Pidev\src\main\java\test\Controllers\ProduitController" />
@@ -166,7 +162,8 @@
       <workItem from="1715599006050" duration="3622000" />
       <workItem from="1715602819849" duration="319000" />
       <workItem from="1715605981096" duration="4869000" />
-      <workItem from="1715612623042" duration="4715000" />
+      <workItem from="1715612623042" duration="15675000" />
+      <workItem from="1715666815963" duration="3415000" />
     </task>
     <servers />
   </component>

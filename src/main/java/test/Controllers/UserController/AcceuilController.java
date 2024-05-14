@@ -19,10 +19,9 @@ import services.GestionUser.UserService;
 import services.UserActivityLogger;
 import test.Controllers.EquipeController.EquipeController;
 import test.Controllers.ProduitController.Products;
-import test.Controllers.ProduitController.ProductsController;
 import test.Controllers.ReservationController.ReservationController;
+import test.Controllers.TerrainController.AvisController;
 import test.Controllers.TerrainController.PageTerrainController;
-import test.Controllers.TerrainController.TerrainController;
 import test.Controllers.TournoiController.AfficherListeTournoisClientController;
 import test.Controllers.TournoiController.FirstController;
 import test.MainFx;
@@ -353,8 +352,7 @@ public class AcceuilController {
 
     }
 
-    public void voirTerrain2(ActionEvent actionEvent) {
-    }
+
 
     public void openjeu(ActionEvent actionEvent) {
         try {
@@ -378,15 +376,18 @@ public class AcceuilController {
 
             UserService us = new UserService();
 
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/PageTerrain.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTerrain/AvisTerrain.fxml"));
             AnchorPane root = loader.load();
 
-            PageTerrainController ptg = loader.getController();
+            AvisController ptg = loader.getController();
 
 
             ptg.setData(us.getByEmail(CurrentUser.getEmail()));
-            Container.getChildren().setAll(root);
-
+            Stage stage = new Stage();
+            stage.setTitle("Gestion_Terrain");
+            stage.setScene(new Scene(root));
+            stage.show();
+            ((Button) event.getSource()).getScene().getWindow().hide();
 
         } catch (IOException e) {
             e.printStackTrace();
