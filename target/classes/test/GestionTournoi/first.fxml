@@ -16,11 +16,7 @@
                     <Font name="Roboto Bold" size="35.0" />
                 </font>
             </Text>
-            <Button fx:id="btnSeeInformationuser" contentDisplay="CENTER" layoutX="22.0" layoutY="120.0" mnemonicParsing="false" onAction="#SeeInformationElements" scaleShape="false" style="-fx-background-color: transparent; -fx-font-weight: bold;" text="Formulaire d'Ajout d'un Tournoi" textAlignment="CENTER" textFill="#545454">
-                <font>
-                    <Font name="Roboto" size="15.0" />
-                </font>
-            </Button>
+
         </AnchorPane>
         <Text fill="#898989" layoutX="49.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-family: condensed;" text="Nombre d'équipes">
             <font>
