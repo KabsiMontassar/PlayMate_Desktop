@@ -24,6 +24,7 @@ import test.MainFx;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import java.io.File;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -115,8 +116,14 @@ public class AvisController  {
                 nom1.setText(terrains.get(i*3).getNomTerrain());
                 address1.setText(terrains.get(i*3).getAddress());
                 try {
-                    Image img = new Image(terrains.get(i * 3).getImage());
-                    Img1.setImage(img);
+                    String imagee = terrains.get( i * 3).getImage();
+                    System.out.println(imagee);
+                    String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                    String firstImagePath = basePath + File.separator + imagee;
+                    Image image = new Image(firstImagePath);
+                    System.out.println(firstImagePath);
+
+                    Img1.setImage(image);
                 } catch (IllegalArgumentException e) {
                     // Handle the error when the URL is invalid or resource not found
                     Img1.setImage(null); // Set the image view to display nothing
@@ -126,8 +133,14 @@ public class AvisController  {
                 nom2.setText(terrains.get(1+i*3).getNomTerrain());
                 address2.setText(terrains.get(1+i*3).getAddress());
                 try {
-                    Image img = new Image(terrains.get(1+ i * 3).getImage());
-                    Img2.setImage(img);
+                    String imagee = terrains.get(1+ i * 3).getImage();
+                    System.out.println(imagee);
+                    String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                    String firstImagePath = basePath + File.separator + imagee;
+                    Image image = new Image(firstImagePath);
+                    System.out.println(firstImagePath);
+
+                    Img2.setImage(image);
                 } catch (IllegalArgumentException e) {
                     // Handle the error when the URL is invalid or resource not found
                     Img2.setImage(null); // Set the image view to display nothing
@@ -138,8 +151,14 @@ public class AvisController  {
                 nom3.setText(terrains.get(2+i*3).getNomTerrain());
                 address3.setText(terrains.get(2+i*3).getAddress());
                 try {
-                    Image img = new Image(terrains.get(2 + i * 3).getImage());
-                    Img3.setImage(img);
+                    String imagee = terrains.get(2+ i * 3).getImage();
+                    System.out.println(imagee);
+                    String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                    String firstImagePath = basePath + File.separator + imagee;
+                    Image image = new Image(firstImagePath);
+                    System.out.println(firstImagePath);
+
+                    Img3.setImage(image);
                 } catch (IllegalArgumentException e) {
                     // Handle the error when the URL is invalid or resource not found
                     Img3.setImage(null); // Set the image view to display nothing

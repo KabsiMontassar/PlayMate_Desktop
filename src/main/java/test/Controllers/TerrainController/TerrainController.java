@@ -23,10 +23,15 @@ import services.GestionTerrain.TerrainService;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.UUID;
+
 import javafx.scene.control.TextField;
 import test.MainFx;
 
@@ -71,8 +76,7 @@ public class TerrainController {
     @FXML
     private VBox terrainContainer;
     //*******************************************************************************************
-    private String imagePath;
-    private String videoPath;
+     private String videoPath;
     private TerrainService ts = new TerrainService(); //instance classe service
     private List<Terrain> pageTerrain;
     private Terrain terrainActuel;
@@ -81,7 +85,7 @@ public class TerrainController {
     private int selectedIndex = 0;
 
     private  User  CurrentUser  ;
-
+    private List<String> imagePaths = new ArrayList<>();
     public  void setData(User e) {
         this.CurrentUser = e ;
 
@@ -118,6 +122,8 @@ public class TerrainController {
     //*******************************************************************************************
     @FXML
     void clearField() {
+        String imagePathsString = String.join(", ", imagePaths);
+
         tfnom.setText(""); // Efface le contenu du champ nom
         tfaddress.setText(""); // Efface le contenu du champ address
         cbGradin.setSelected(false); // Décoche la case à cocher Gradin
@@ -128,7 +134,7 @@ public class TerrainController {
         tfgouvernorat.setValue(null); // Efface le contenu du champ emplacement
         img.setImage(null); // Efface l'image affichée
         vid.setMediaPlayer(null); // Arrête la lecture de la vidéo
-        imagePath = null; // Réinitialise le chemin de l'image
+        imagePathsString = null; // Réinitialise le chemin de l'image
         videoPath = null;}
     //*******************************************************************************************
     private boolean isValidName(String name) {
@@ -140,11 +146,12 @@ public class TerrainController {
     }
     @FXML
     void createTerrain(ActionEvent event) throws SQLException, IOException {
+        String imagePathsString = String.join(", ", imagePaths);
         if (videoPath == null) {
             videoPath = "";}
         if (isValidTerrain()) //Vérifier si les données du terrain sont valides
             {
-            if (imagePath == null) {
+            if (imagePathsString == null) {
                 showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Veuillez sélectionner une image.");
                 return; // Arrêter l'exécution si l'image n'est pas sélectionnée
             }
@@ -165,13 +172,15 @@ public class TerrainController {
             } else {
                 int prixValue = Integer.parseInt(tfprix.getText()); //Convertir le prix en float
                 // Créer un nouveau terrain avec les données saisies
-                Terrain terrain = new Terrain(tfaddress.getText(), cbGradin.isSelected(), cbVestiaire.isSelected(), cbStatus.isSelected(), tfnom.getText(), prixValue, Integer.parseInt(tfduree.getText()), tfgouvernorat.getValue(), imagePath, videoPath);
+                Terrain terrain = new Terrain(tfaddress.getText(), cbGradin.isSelected(), cbVestiaire.isSelected(), cbStatus.isSelected(), tfnom.getText(), prixValue, Integer.parseInt(tfduree.getText()), tfgouvernorat.getValue(), imagePathsString, videoPath);
                 ts.add(CurrentUser,terrain);
                 clearField(); // Efface les champs après l'ajout
                 ((Button) event.getSource()).getScene().getWindow().hide();
                 voirlist();}}}
     //*******************************************************************************************
     private boolean isValidTerrain() {
+        String imagePathsString = String.join(", ", imagePaths);
+
         if (tfnom.getText().isEmpty() || tfaddress.getText().isEmpty() || tfprix.getText().isEmpty() || tfduree.getText().isEmpty()) {
             showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Veuillez remplir tous les champs obligatoires.");
             return false;}
@@ -184,7 +193,7 @@ public class TerrainController {
         } catch (NumberFormatException e) {
             showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Le prix doit être un nombre décimal et la durée doit être un nombre entier.");
             return false;}
-        if (imagePath == null || imagePath.isEmpty()) {
+        if (imagePathsString == null || imagePathsString.isEmpty()) {
             showAlert(Alert.AlertType.ERROR, "Erreur de saisie", "Veuillez sélectionner une image.");
             return false;}
         return true;}
@@ -200,6 +209,7 @@ public class TerrainController {
     //*******************************************************************************************
     @FXML
     void updateTerrain(ActionEvent event) throws IOException {
+        String imagePathsString = String.join(", ", imagePaths);
         if (isValidTerrain()) {
             int prixValue = Integer.parseInt(tfprix.getText());
             terrainActuel.setNomTerrain(tfnom.getText());
@@ -210,7 +220,7 @@ public class TerrainController {
             terrainActuel.setPrix(prixValue);
             terrainActuel.setDuree(Integer.parseInt(tfduree.getText()));
             terrainActuel.setGouvernorat(tfgouvernorat.getValue());
-            terrainActuel.setImage(imagePath);
+            terrainActuel.setImage(imagePathsString);
             terrainActuel.setVideo(videoPath);
             TerrainService terrainService = new TerrainService();
             terrainService.update(terrainActuel);
@@ -221,6 +231,8 @@ public class TerrainController {
     //*******************************************************************************************
     @FXML
     void getData(MouseEvent event) {
+        String imagePathsString = String.join(", ", imagePaths);
+
         Node source = (Node) event.getSource();
         HBox terrainBox = (HBox) source.getParent();
         Terrain terrain = (Terrain) terrainBox.getUserData();
@@ -233,11 +245,10 @@ public class TerrainController {
             tfprix.setText(String.valueOf(terrain.getPrix()));
             tfduree.setText(String.valueOf(terrain.getDuree()));
             tfgouvernorat.setValue(terrain.getGouvernorat());
-            String imagePath = terrain.getImage();
-            if (imagePath != null && !imagePath.isEmpty()) {
+             if (imagePathsString != null && !imagePathsString.isEmpty()) {
 
                 try {
-                    Image image = new Image(imagePath);
+                    Image image = new Image(imagePathsString);
                     img.setImage(image);
                 } catch (IllegalArgumentException e) {
                     // Handle the error when the URL is invalid or resource not found
@@ -257,14 +268,46 @@ public class TerrainController {
     //*******************************************************************************************
     @FXML
     void addTerrain_imageview(ActionEvent event) {
+
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choisir une image");
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Fichiers image", "*.png", "*.jpg", "*.gif"));
-        File selectedFile = fileChooser.showOpenDialog(null);
-        if (selectedFile != null) {
-            imagePath = selectedFile.toURI().toString();
-            Image image = new Image(imagePath);
-            img.setImage(image);}
+        fileChooser.setTitle("Open Image Files");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+        );
+        List<File> selectedFiles = fileChooser.showOpenMultipleDialog(null);
+        if (selectedFiles != null) {
+            try {
+
+                for (File file : selectedFiles) {
+                    // Generate a unique filename for each image
+                    String fileName = generateUniqueFileName(file);
+                    // Construct the destination path
+                    Path destination = Paths.get("C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images", fileName);
+                    // Copy the selected image to the destination
+                    Files.copy(file.toPath(), destination);
+                    // Store the image filename
+                    imagePaths.add(fileName);
+
+                }
+                String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                String imagePathsString = String.join(", ", imagePaths);
+                String firstImagePath = basePath + File.separator + imagePathsString;
+                System.out.println("aaa" + firstImagePath);
+                Image image = new Image(firstImagePath);
+                img.setImage(image);
+
+             } catch (IOException e) {
+                e.printStackTrace();
+                // Handle file copy errors
+            }
+        }
+    }
+
+    // Generate a unique filename (you can use UUID or any other method)
+    private String generateUniqueFileName(File file) {
+        String originalName = file.getName();
+        String extension = originalName.substring(originalName.lastIndexOf("."));
+        return UUID.randomUUID().toString() + extension;
     }
     //*******************************************************************************************
     @FXML
@@ -297,6 +340,8 @@ public class TerrainController {
     void showTerrainDetails(Terrain terrain) {initData(terrain);}
     //*******************************************************************************************
     public void initData(Terrain terrain) {
+        String imagePathsString = String.join(", ", imagePaths);
+
         this.terrainActuel = terrain;
         tfnom.setText(terrain.getNomTerrain());
         tfaddress.setText(terrain.getAddress());
@@ -306,16 +351,23 @@ public class TerrainController {
         tfprix.setText(String.valueOf(terrain.getPrix()));
         tfduree.setText(String.valueOf(terrain.getDuree()));
         tfgouvernorat.setValue(terrain.getGouvernorat());
-        imagePath = terrain.getImage();
+        imagePathsString = terrain.getImage();
         videoPath = terrain.getVideo();
-        if (imagePath != null && !imagePath.isEmpty()) {
+        if (imagePathsString != null && !imagePathsString.isEmpty()) {
             try {
-                Image image = new Image(imagePath);
+
+                String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                String firstImagePath = basePath + File.separator + imagePathsString;
+                Image image = new Image(firstImagePath);
                 img.setImage(image);
             } catch (IllegalArgumentException e) {
                 // Handle the error when the URL is invalid or resource not found
                 img.setImage(null); // Set the image view to display nothing
             }}
+
+
+
+
         if (videoPath != null && !videoPath.isEmpty()) {
             Media media = new Media(videoPath);
             MediaPlayer mediaPlayer = new MediaPlayer(media);

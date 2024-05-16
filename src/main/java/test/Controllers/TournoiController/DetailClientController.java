@@ -19,6 +19,7 @@ import services.GestionTournoi.ServiceParticipation;
 import services.GestionTournoi.ServiceTournoi;
 import test.MainFx;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -123,13 +124,17 @@ public class DetailClientController implements Initializable {
         InputAddress.setText(tournoi.getAddress());*/
         if (tournoi.getAffiche() != null && !tournoi.getAffiche().isEmpty()) {
             try {
-                Image img = new Image(tournoi.getAffiche());
-                imgd.setImage(img);
+                String imagee = tournoi.getAffiche();
+                System.out.println(imagee);
+                String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                String firstImagePath = basePath + File.separator + imagee;
+                Image image = new Image(firstImagePath);
+
+                imgd.setImage(image);
             } catch (IllegalArgumentException e) {
                 // Handle the error when the URL is invalid or resource not found
                 imgd.setImage(null); // Set the image view to display nothing
             }
-
         }
         tournoiActuel.setParticipationList(st.getparticipationbytournoiid(tournoiActuel.getId()));
         verifierParticipation(3);
