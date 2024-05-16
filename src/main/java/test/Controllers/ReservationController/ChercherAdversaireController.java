@@ -137,21 +137,23 @@ public class ChercherAdversaireController implements Initializable {
 
         ReservationService reservationService = new ReservationService();
 
-        List<Reservation> reservationList =  reservationService.getAllFutureUniqueReservations();  //reservationService.getAllReservation();
+        List<Reservation> reservationList =  reservationService.getAllFutureUniqueReservations(this.GetIdUser());  //reservationService.getAllReservation();
 
 
         for (Reservation reservation : reservationList) {
+
             int idres = reservation.getIdReservation();
             int idter = reservation.getIdTerrain();
             System.out.println(reservation);
-            System.out.println(reservation.toString());
             System.out.println("idres "+idres+" id ter"+idter);
+
+
             AnchorPane anchorPane3 = new AnchorPane();
             HBox hBox = new HBox();
             anchorPane3.getStyleClass().add("anchor-pane-style");
             anchorPane3.setPadding(new Insets(10, 10, 10, 10));
-            Label idReservationLabel = new Label("Id: " + reservation.getIdReservation());
-            //Label nomEquipeLabel = new Label("Nom: " + reservation.getNomEquipe1());
+
+
             Label DateReservationLabel = new Label("Address: " + reservation.getDateReservation());
             Label heureReservationLabel = new Label("Gradin: " + reservation.getHeureReservation());
 
