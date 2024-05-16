@@ -18,6 +18,7 @@ import services.GestionUser.UserService;
 import test.Controllers.UserController.AcceuilController;
 import test.MainFx;
 
+import java.io.File;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -115,8 +116,14 @@ public class FirstController {
                 nom1.setText(tournois.get(i*3).getNom());
 
                 try {
-                    Image img = new Image(tournois.get(i * 3).getAffiche());
-                    img1.setImage(img);
+                    String imagee = tournois.get( i * 3).getAffiche();
+                    System.out.println(imagee);
+                    String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                    String firstImagePath = basePath + File.separator + imagee;
+                    Image image = new Image(firstImagePath);
+                    System.out.println(firstImagePath);
+
+                    img1.setImage(image);
                 } catch (IllegalArgumentException e) {
                     // Handle the error when the URL is invalid or resource not found
                     img1.setImage(null); // Set the image view to display nothing
@@ -126,8 +133,14 @@ public class FirstController {
                 BOX2.setVisible(true);
                 nom2.setText(tournois.get(1+i*3).getNom());
                 try {
-                    Image img = new Image(tournois.get(1+i * 3).getAffiche());
-                    img2.setImage(img);
+                    String imagee = tournois.get(1+ i * 3).getAffiche();
+                    System.out.println(imagee);
+                    String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                    String firstImagePath = basePath + File.separator + imagee;
+                    Image image = new Image(firstImagePath);
+                    System.out.println(firstImagePath);
+
+                   img2.setImage(image);
                 } catch (IllegalArgumentException e) {
                     // Handle the error when the URL is invalid or resource not found
                     img2.setImage(null); // Set the image view to display nothing
@@ -139,8 +152,14 @@ public class FirstController {
                 BOX3.setVisible(true);
                 nom3.setText(tournois.get(2+i*3).getNom());
                 try {
-                    Image img = new Image(tournois.get(2+i * 3).getAffiche());
-                    img3.setImage(img);
+                    String imagee = tournois.get(2+ i * 3).getAffiche();
+                    System.out.println(imagee);
+                    String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                    String firstImagePath = basePath + File.separator + imagee;
+                    Image image = new Image(firstImagePath);
+                    System.out.println(firstImagePath);
+
+                    img3.setImage(image);
                 } catch (IllegalArgumentException e) {
                     // Handle the error when the URL is invalid or resource not found
                     img3.setImage(null); // Set the image view to display nothing

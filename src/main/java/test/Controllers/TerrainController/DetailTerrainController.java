@@ -23,6 +23,7 @@ import test.MainFx;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import java.io.File;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -89,8 +90,13 @@ public class DetailTerrainController {
         statd.setText(getStatus(terrain.getStatus()));
         if (terrain.getImage() != null && !terrain.getImage().isEmpty()) {
            try {
-                Image image = new Image(terrain.getImage());
-                imgd.setImage(image);
+               String imagee = terrain.getImage();
+               System.out.println(imagee);
+               String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+               String firstImagePath = basePath + File.separator + imagee;
+               Image image = new Image(firstImagePath);
+
+                 imgd.setImage(image);
             } catch (IllegalArgumentException e) {
                 // Handle the error when the URL is invalid or resource not found
                 imgd.setImage(null); // Set the image view to display nothing
