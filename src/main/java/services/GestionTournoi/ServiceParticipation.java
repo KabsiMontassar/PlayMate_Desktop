@@ -15,13 +15,12 @@ public class ServiceParticipation {
         connection = MyDatabase.getInstance().getConnection();
     }
     public void ajouter(Participation J) throws SQLException {
-        String Query = "INSERT INTO participation ( idmembre, idTournoi, Status, datec,NomEquipe ) VALUES (?,?,?,?,?)";
+        String Query = "INSERT INTO participation ( idmembre, idTournoi, Status, NomEquipe ) VALUES (?,?,?,?)";
         PreparedStatement psParticipation = connection.prepareStatement(Query);
         psParticipation.setInt(1, J.getIdMembre());
         psParticipation.setInt(2, J.getIdTournoi());
         psParticipation.setBoolean(3, J.isStatus());
-        psParticipation.setString(4, J.getDateC());
-        psParticipation.setString(5, J.getNomEquipe());
+         psParticipation.setString(4, J.getNomEquipe());
 
 
         psParticipation.executeUpdate();

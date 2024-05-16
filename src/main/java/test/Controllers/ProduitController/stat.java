@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 import models.Categorie;
 
 import java.io.*;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.List;
 import javafx.scene.control.Button;
@@ -23,6 +25,10 @@ import models.Product;
 import services.GestionProduit.CategorieService;
 import services.GestionProduit.ProductService;
 import test.MainFx;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 //*******************************************************************************************
 public class stat {
@@ -87,7 +93,7 @@ public class stat {
 
     }
     @FXML
-    void retour(ActionEvent event) throws IOException {
+    void retour(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Products.fxml"));
         Parent root = loader.load();
         Products controller = loader.getController();

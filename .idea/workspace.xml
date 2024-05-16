@@ -6,7 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionUser/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionUser/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceParticipation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceParticipation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Categories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Categories.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Products.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/Products.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/ProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/ProductsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/stat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/ProduitController/stat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ParticipationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/ParticipationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +154,7 @@
       <workItem from="1715602819849" duration="319000" />
       <workItem from="1715605981096" duration="4869000" />
       <workItem from="1715698726657" duration="2950000" />
-      <workItem from="1715868180404" duration="2985000" />
+      <workItem from="1715868180404" duration="7530000" />
     </task>
     <servers />
   </component>

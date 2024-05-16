@@ -20,10 +20,15 @@ import services.GestionProduit.CategorieService;
 import services.GestionProduit.ProductService;
 import test.MainFx;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
@@ -107,7 +112,7 @@ public class ProductsController  {
     ProductService cs = new ProductService();
 
     @FXML
-    void RetourVersProducts(ActionEvent event) throws IOException {
+    void RetourVersProducts(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Products.fxml"));
         Parent root = loader.load();
         Products controller = loader.getController();
