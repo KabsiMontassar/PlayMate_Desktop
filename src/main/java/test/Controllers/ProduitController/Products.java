@@ -27,9 +27,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import models.Categorie;
-import models.Gmailer;
-import models.Product;
+import models.*;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -160,14 +158,37 @@ Img1
     int i= 0;
 
     private int IdUser;
-
-    public void SetIdUser(int idUser) {
+    List<Product> p ;
+    public void SetIdUser(int idUser) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
 
         this.IdUser = idUser;
-        try {
-            actualise(ps.getAllbyidFor(idUser));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+
+        UserService us = new UserService();
+        User f = us.getByid(idUser);
+        if(f.getRole() != Roles.Fournisseur){
+            try {
+                p = ps.getAll();
+                actualise(p);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            btnajout.setVisible(false);
+            btnModif1.setVisible(false);
+            btnModif2.setVisible(false);
+            btnModif3.setVisible(false);
+            btnSupp1.setVisible(false);
+            btnSupp2.setVisible(false);
+            btnsupp3.setVisible(false);
+            liencategorie.setVisible(false);
+            stat.setVisible(false);
+        } else {
+            try {
+                p = ps.getAllbyidFor(idUser);
+                actualise(p);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
     public int GetIdUser() {
@@ -195,7 +216,13 @@ Img1
                 BOX1.setVisible(true);
                 nom1.setText(products.get(i*3).getNom());
                 address1.setText(products.get(i*3).getDescription());
-                Img1.setImage(new Image(products.get(i*3).getImage()));
+                try {
+                    Image img = new Image(products.get(i*3).getImage());
+                    Img1.setImage(img);
+                } catch (IllegalArgumentException e) {
+                    // Handle the error when the URL is invalid or resource not found
+                    Img1.setImage(null); // Set the image view to display nothing
+                }
 
             }
             else{BOX1.setVisible(false);
@@ -204,8 +231,13 @@ Img1
                 BOX2.setVisible(true);
                 nom2.setText(products.get(1+i*3).getNom());
                 address2.setText(products.get(1+i*3).getDescription());
-                Img2.setImage(new Image(products.get(1+i*3).getImage()));
-
+                try {
+                    Image img = new Image(products.get(1+i*3).getImage());
+                    Img2.setImage(img);
+                } catch (IllegalArgumentException e) {
+                    // Handle the error when the URL is invalid or resource not found
+                    Img2.setImage(null); // Set the image view to display nothing
+                }
             }
             else{
                 BOX2.setVisible(false);
@@ -214,8 +246,13 @@ Img1
                 BOX3.setVisible(true);
                 nom3.setText(products.get(2+i*3).getNom());
                 address3.setText(products.get(2+i*3).getDescription());
-                Img3.setImage(new Image(products.get(2+i*3).getImage()));
-
+                try {
+                    Image img = new Image(products.get(2+i*3).getImage());
+                    Img3.setImage(img);
+                } catch (IllegalArgumentException e) {
+                    // Handle the error when the URL is invalid or resource not found
+                    Img3.setImage(null); // Set the image view to display nothing
+                }
             }else{BOX3.setVisible(false);}}else{
             BOX1.setVisible(false);
             BOX2.setVisible(false);
@@ -226,22 +263,14 @@ Img1
     @FXML
     void retour(ActionEvent event) {
         i -=1;
-        try {
-            actualise(ps.getAllbyidFor(GetIdUser()));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        actualise(p);
     }
 
     @FXML
     void suivant(ActionEvent event) {
         i +=1;
-        try {
 
-            actualise(ps.getAllbyidFor(GetIdUser()));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        actualise(p);
 
     }
     @FXML

@@ -143,7 +143,7 @@ if(validateNbrParticipation() && validateEquipeParticipation( nomequipe.getValue
             System.out.println(nouvelleParticipation);
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoiClient.fxml"));
             Parent root = loader.load();
-            AfficherListeTournoisClientController c = loader.load();
+            AfficherListeTournoisClientController c = loader.getController();
             c.SetIdUser(GetIdUser());
             Stage stage = new Stage();
             stage.setTitle("Gestion_Tournoi");
