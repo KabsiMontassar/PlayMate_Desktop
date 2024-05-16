@@ -13,7 +13,6 @@
         <Label layoutX="56.0" layoutY="324.0" style="-fx-background-color: #02365c;" text="nombre joueur" textFill="#2eb784" />
         <Button layoutX="135.0" layoutY="392.0" mnemonicParsing="false" onAction="#ajouterEquipe" text="ajouter equipe" />
         <Button layoutX="643.0" layoutY="567.0" mnemonicParsing="false" onAction="#SupprimerEquipe" text="supprimer equipe" />
-        <Button layoutX="131.0" layoutY="521.0" mnemonicParsing="false" text="modifier equipe" />
         <Button layoutX="650.0" layoutY="118.0" mnemonicParsing="false" onAction="#afficherEquipe" text="afficher equipe" />
         <TextField fx:id="nomEquipe" layoutX="146.0" layoutY="274.0" />
         <TextField fx:id="nombreJoueur" layoutX="147.0" layoutY="320.0" />
@@ -21,5 +20,6 @@
         <Label fx:id="inavlideNbreEquipe" layoutX="147.0" layoutY="352.0" text="nombre joueur invalide" textFill="RED" />
       <VBox fx:id="vbox1" layoutX="550.0" layoutY="178.0" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: grey;" />
       <ChoiceBox fx:id="nomEquipeChoice" layoutX="623.0" layoutY="534.0" prefWidth="150.0" />
+      <Button fx:id="toaccbtn" layoutX="56.0" layoutY="46.0" mnemonicParsing="false" onAction="#toaccueil" text="Button" />
     </children>
 </AnchorPane>

@@ -1,7 +1,6 @@
 package services.GestionEquipe;
 
 import models.Equipe;
-
 import models.User;
 import utils.MyDatabase;
 
@@ -39,6 +38,23 @@ public class EquipeService {
         }
     }
 
+    public List<Equipe> findAll() throws SQLException {
+        List<Equipe> equipes = new ArrayList<>();
+        String query = "SELECT e.* FROM equipe e ";
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Equipe equipe = new Equipe();
+                    equipe.setIdEquipe(rs.getInt("idEquipe"));
+                    equipe.setNomEquipe(rs.getString("nomEquipe"));
+                    equipe.setNbreJoueur(rs.getInt("nbreJoueur"));
+
+                    equipes.add(equipe);
+                }
+            }
+        }
+        return equipes;
+    }
     public List<Equipe> getEquipesParMembre(int idMembre) throws SQLException {
         List<Equipe> equipes = new ArrayList<>();
         String query = "SELECT e.* FROM equipe e JOIN membreParEquipe mpe ON e.idEquipe = mpe.idEquipe WHERE mpe.idMembre = ?";
@@ -60,7 +76,7 @@ public class EquipeService {
 
     public List<User> getMembresByIdEquipe(int idEquipe) throws SQLException {
         List<User> membres = new ArrayList<>();
-        String query = "SELECT m.* FROM membre m JOIN membreParEquipe me ON m.idMembre = me.idMembre WHERE me.idEquipe = ?";
+        String query = "SELECT m.* FROM User m JOIN membreParEquipe me ON m.idMembre = me.idMembre WHERE me.idEquipe = ?";
         try (PreparedStatement ps = connection.prepareStatement(query)) {
             ps.setInt(1, idEquipe);
 
@@ -68,8 +84,8 @@ public class EquipeService {
                 while (rs.next()) {
                     User membre = new User();
                     membre.setId(rs.getInt("id"));
-                    membre.setName(rs.getString("name"));
-
+                    membre.setName(rs.getString("Name"));
+                    membre.setEmail(rs.getString("Email"));
                     // Set other member attributes as needed
                     membres.add(membre);
                 }
@@ -85,7 +101,7 @@ public class EquipeService {
         String sql = "SELECT idEquipe FROM equipe WHERE nomEquipe = ?";
 
         try (
-             PreparedStatement pstmt = connection.prepareStatement(sql)) {
+                PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
 
             pstmt.setString(1, nomEquipe);
