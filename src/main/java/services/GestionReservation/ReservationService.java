@@ -7,6 +7,8 @@ import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TableColumn;
 import models.*;
 import utils.MyDatabase;
+
+import java.security.SignedObject;
 import java.text.SimpleDateFormat;
 import java.sql.Date;
 import java.text.ParseException;
@@ -157,12 +159,15 @@ WHERE r.idReservation = 6;*/
         }
 
 
-    public static List<Reservation> getAllFutureUniqueReservations() throws SQLException {
+
+    public static List<Reservation> getAllFutureUniqueReservations(int idm) throws SQLException {
         List<Reservation> allReservations = new ArrayList<>();
         Map<String, Integer> reservationUnique = new HashMap<>();
-        String query = "SELECT * FROM reservation ";
+        System.out.println(idm);
+        String query = "SELECT r.* FROM reservation r LEFT JOIN payment p ON r.idReservation = p.idReservation WHERE r.type = 'Creer_Partie' AND p.idMembre != ?  "; /*WHERE p.idMembre != (?) AND r.type = 'Creer_Partie'*/
 
         PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, idm);
         ResultSet rs = ps.executeQuery();
 
         LocalDateTime now = LocalDateTime.now();
@@ -174,8 +179,6 @@ WHERE r.idReservation = 6;*/
             String dateString = dateFormat.format(rs.getDate("dateReservation"));
 
 
-
-           // String dateString = rs.getString("dateReservation");
 
             String heureString = rs.getString("heureReservation");
             LocalDateTime reservationDateTime = LocalDateTime.parse(dateString + " " + heureString, formatter);
@@ -200,10 +203,13 @@ WHERE r.idReservation = 6;*/
             }
         }
 
+
         // Filtrer pour exclure les doublons
         List<Reservation> uniqueFutureReservations = allReservations.stream()
                 .filter(reservation -> reservationUnique.get(reservation.getDateReservation() + "-" + reservation.getHeureReservation() + "-" + reservation.getIdTerrain()) == 1)
                 .collect(Collectors.toList());
+
+
 
         return uniqueFutureReservations;
     }

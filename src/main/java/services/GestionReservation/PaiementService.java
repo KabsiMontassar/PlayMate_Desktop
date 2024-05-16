@@ -17,13 +17,14 @@ public class PaiementService {
     }
 
     public boolean AjouterPaiement(Paiement paiement,String paymentRef1) throws SQLException {
-        String query = "INSERT INTO Payment (idMembre, idReservation, datePayment, horairePayment,paymentRef) VALUES (?,?,?,?,?);";
+        String query = "INSERT INTO Payment (idMembre, idReservation, datePayment, horairePayment,Payed,paymentRef) VALUES (?,?,?,?,?,?);";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, paiement.getIdmembre());
         ps.setInt(2, paiement.getIdreservation());
         ps.setString(3, paiement.getDate());
         ps.setString(4, paiement.getHeure());
-        ps.setString(5,paymentRef1);
+        ps.setBoolean(5,true);
+        ps.setString(6,paymentRef1);
 
 //        ps.executeUpdate();
         int lignesAffectees = ps.executeUpdate();
