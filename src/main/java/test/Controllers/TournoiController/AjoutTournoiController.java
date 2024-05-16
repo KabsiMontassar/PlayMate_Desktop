@@ -189,7 +189,7 @@ CAlert c = new CAlert();
 
 
 
-    public void goToTournoi(ActionEvent actionEvent) throws IOException {
+    public void goToTournoi(ActionEvent actionEvent) throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
         AnchorPane root = loader.load();
         FirstController controller = loader.getController(); // Retrieve the controller

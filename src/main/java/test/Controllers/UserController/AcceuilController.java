@@ -18,6 +18,7 @@ import models.Roles;
 import models.User;
 import services.GestionUser.UserService;
 import services.UserActivityLogger;
+import test.Controllers.EquipeController.AfficherController;
 import test.Controllers.EquipeController.EquipeController;
 import test.Controllers.ProduitController.Products;
 import test.Controllers.ReservationController.HistoriqueController;
@@ -194,7 +195,7 @@ public class AcceuilController {
 
             UserService us = new UserService();
 
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionEquipe/Equipe.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionEquipe/equipeYemen.fxml"));
             AnchorPane root = loader.load();
 
             EquipeController ptg = loader.getController();
