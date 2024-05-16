@@ -90,9 +90,10 @@ public class FirstController {
 
     private int IdUser;
 
-    public void SetIdUser(int idUser) {
+    public void SetIdUser(int idUser) throws SQLException {
 
         this.IdUser = idUser;
+        actualise(Ts.allTournoibyorg(GetIdUser()));
     }
     public int GetIdUser() {
         return this.IdUser;
@@ -100,7 +101,9 @@ public class FirstController {
     int i= 0;
     ServiceTournoi Ts = new ServiceTournoi();
     //*******************************************************************
-    public void initialize() throws SQLException {actualise(Ts.allTournoi());}
+    public void initialize() throws SQLException {
+
+    }
     //*******************************************************************
     void actualise(List<Tournoi> tournois){
         if(tournois.size()-1-i*3>0){btnsuivant.setVisible(true);}
@@ -170,12 +173,14 @@ public class FirstController {
     @FXML
     void retour(ActionEvent event) throws SQLException {
         i -=1;
-        actualise(Ts.allTournoi());}
+        actualise(Ts.allTournoibyorg(GetIdUser()));
+    }
     //*******************************************************************************************
     @FXML
     void suivant(ActionEvent event) throws SQLException {
         i +=1;
-        actualise(Ts.allTournoi());}
+        actualise(Ts.allTournoibyorg(GetIdUser()));
+    }
     //*******************************************************************************************
 
     //*******************************************************************************************
@@ -241,7 +246,8 @@ public class FirstController {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 Ts.supprimer(tournoiToDelete.getId());
-                actualise(Ts.allTournoi());}
+                actualise(Ts.allTournoibyorg(GetIdUser()));
+            }
         } else {showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de tournoi à supprimer n'est pas valide.");}}
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
@@ -262,7 +268,8 @@ public class FirstController {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 Ts.supprimer(tournoiToDelete.getId());
-                actualise(Ts.allTournoi());}
+                actualise(Ts.allTournoibyorg(GetIdUser()));
+            }
         } else {showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de terrain à supprimer n'est pas valide.");}}
     //*******************************************************************************************
     @FXML
@@ -277,7 +284,8 @@ public class FirstController {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 Ts.supprimer(tournoiToDelete.getId());
-                actualise(Ts.allTournoi());}
+                actualise(Ts.allTournoibyorg(GetIdUser()));
+            }
         } else {
             showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de terrain à supprimer n'est pas valide.");}}
 

@@ -118,7 +118,7 @@ public class ServiceTournoi {
         PreparedStatement st = connection.prepareStatement(query);
 
         st.setInt(1, o);
-        ResultSet rs = st.executeQuery(query);
+        ResultSet rs = st.executeQuery();
         while (rs.next()) {
 
             Tournoi Tr = new Tournoi();

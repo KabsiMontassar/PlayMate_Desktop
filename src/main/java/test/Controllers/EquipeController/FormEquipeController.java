@@ -46,6 +46,20 @@ public class FormEquipeController implements Initializable {
     private TableView<User> targetTableView ;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+    }
+
+    private int IdUser;
+    public int GetIdUser() {
+        return this.IdUser;
+    }
+
+    public void SetIdUser(int idUser) throws SQLException {
+
+
+
+        this.IdUser = idUser;
         this.buildTableView(this.sourceTableView, this.getSourceList());
         this.buildTableView(this.targetTableView, this.getTargetList());
         addDragAndDropHandlers(sourceTableView, targetTableView);
@@ -74,7 +88,7 @@ public class FormEquipeController implements Initializable {
         MemberService servive = new MemberService();
         try {
             return  this.mode.equals("ADD") ? new ArrayList<>() : servive.findMembresByEquipe(this.equipe.getIdEquipe());
-        } catch (SQLException | NoSuchAlgorithmException e) {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

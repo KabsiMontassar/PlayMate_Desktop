@@ -89,8 +89,8 @@ public class   VerificationCodeController {
     void renvoyerCode() throws IOException, InterruptedException {
         if(count < 5){
             count++;
-            System.out.println("sms sent with twilio to "+ CurrentUser.getPhone() +"containing this code : "+ u.getVerificationCode());
-            SMSTwilio.sendSms(CurrentUser.getPhone(), u.getVerificationCode());
+            System.out.println("sms sent with twilio to "+ u.getPhone() +"containing this code : "+ u.getVerificationCode());
+            SMSTwilio.sendSms(u.getPhone(), u.getVerificationCode());
         }else{
             cAlert.generateAlert("WARNING","Vous avez atteint le nombre maximal de tentatives");
         }
@@ -136,7 +136,7 @@ public class   VerificationCodeController {
 
     }
     public boolean isValidPassword(String password){
-        return password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$");
+        return password.matches("^(?=.*[0-9])(?=.*[a-z])(?=\\S+$).{8,}$");
     }
 
     UserService us = new UserService();

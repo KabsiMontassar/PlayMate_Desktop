@@ -17,8 +17,7 @@ import test.MainFx;
 
 import java.io.File;
 import java.io.IOException;
-
-
+import java.sql.SQLException;
 
 
 public class DetailTournoiController {
@@ -94,7 +93,7 @@ public class DetailTournoiController {
         stage.show();
         ((Button) event.getSource()).getScene().getWindow().hide();}
 
-    public void goToTournoi(ActionEvent actionEvent) throws IOException {
+    public void goToTournoi(ActionEvent actionEvent) throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
         AnchorPane root = loader.load();
         FirstController controller = loader.getController(); // Retrieve the controller
