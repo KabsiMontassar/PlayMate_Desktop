@@ -6,16 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7b6f23f0-fa73-47b9-9edd-77aa67c26c7d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionEquipe/EquipeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionEquipe/EquipeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionEquipe/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionEquipe/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/AfficherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/AfficherController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/EquipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/EquipeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/FormEquipeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/EquipeController/FormEquipeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/AcceuilController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionEquipe/Equipe.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionEquipe/Equipe.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionEquipe/afficherEquipe.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionEquipe/afficherEquipe.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionEquipe/equipeYemen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionEquipe/equipeYemen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/test/GestionEquipe/formEquipe.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test/GestionEquipe/formEquipe.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionTerrain/TerrainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionTerrain/TerrainService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceTournoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/services/GestionTournoi/ServiceTournoi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/TournoiController/FirstController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/VerificationCodeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/test/Controllers/UserController/VerificationCodeController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

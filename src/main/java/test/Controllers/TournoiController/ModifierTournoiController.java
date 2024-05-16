@@ -179,7 +179,7 @@ public class ModifierTournoiController implements Initializable {
     private WebView mapView;
 
 
-    public void goToTournoi(ActionEvent actionEvent) throws IOException {
+    public void goToTournoi(ActionEvent actionEvent) throws IOException, SQLException {
 
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
         AnchorPane root = loader.load();

@@ -23,7 +23,7 @@
                 <Font name="Roboto Bold" size="35.0" />
             </font>
         </TextField>
-      <Button fx:id="rtour" mnemonicParsing="false" onAction="#toequipe" text="Button" />
+      <Button fx:id="rtour" mnemonicParsing="false"  text="Button" />
         <columnConstraints>
             <ColumnConstraints percentWidth="10" />
             <ColumnConstraints percentWidth="90" />
