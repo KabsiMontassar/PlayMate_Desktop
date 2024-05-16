@@ -7,7 +7,9 @@ import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TableColumn;
 import models.*;
 import utils.MyDatabase;
-
+import java.text.SimpleDateFormat;
+import java.sql.Date;
+import java.text.ParseException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.text.ParseException;
@@ -18,10 +20,10 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.Date;
+
 import java.util.stream.Collectors;
 
-import static models.TypeReservation.ReserverTerrainPourEquipe;
+import static models.TypeReservation.Creer_Partie;
 /*implements IService<Reservation> */
 public class ReservationService {
     private static Connection connection;
@@ -50,33 +52,36 @@ WHERE r.idReservation = 6;*/
         }
         return user ;
     }
+    public void ajouterReservation(Reservation reservation) throws SQLException, ParseException {
 
-    public void ajouterReservation(Reservation reservation) throws SQLException {
+
+        java.sql.Date dateReservation = java.sql.Date.valueOf(reservation.getDateReservation());
 
 
+        // Préparer la requête SQL
         String query = "INSERT INTO reservation (isConfirm, dateReservation, heureReservation, type, idTerrain ) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setBoolean(1, false);
-        ps.setString(2, reservation.getDateReservation());
+        ps.setDate(2, dateReservation); // Utiliser java.sql.Date pour la date
         ps.setString(3, reservation.getHeureReservation());
         ps.setString(4, reservation.getType());
         ps.setInt(5, reservation.getIdTerrain());
 
-
+        // Exécuter la requête
         ps.executeUpdate();
+    }
 
-
-
-
-        }
 
         // j ai les deux noms
-    public void ajouterReservationPourLancerUnePartie(Reservation reservation) throws SQLException {
+    public void ajouterReservationPourLancerUnePartie(Reservation reservation) throws SQLException, ParseException {
+
+        java.sql.Date dateReservation = java.sql.Date.valueOf(reservation.getDateReservation());
+
 
         String query = "INSERT INTO reservation (isConfirm, dateReservation, heureReservation, type, idTerrain ) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setBoolean(1, false);
-        ps.setString(2, reservation.getDateReservation());
+        ps.setDate(2, dateReservation);
         ps.setString(3, reservation.getHeureReservation());
         ps.setString(4, reservation.getType());
         ps.setInt(5, reservation.getIdTerrain());
@@ -102,7 +107,11 @@ WHERE r.idReservation = 6;*/
                 Reservation reservation = new Reservation();
                 reservation.setIdReservation(rs.getInt("idReservation"));
                 reservation.setConfirm(rs.getBoolean("isConfirm"));
-                reservation.setDateReservation(rs.getString("dateReservation"));
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                String dateReservationStr = dateFormat.format(rs.getDate("dateReservation"));
+                reservation.setDateReservation(dateReservationStr);
+
                 reservation.setHeureReservation(rs.getString("heureReservation"));
                 reservation.setType(TypeReservation.valueOf(rs.getString("type")));
                 reservation.setIdTerrain(rs.getInt("idTerrain"));
@@ -129,7 +138,11 @@ WHERE r.idReservation = 6;*/
                 Reservation reservation = new Reservation();
                 reservation.setIdReservation(rs.getInt("idReservation"));
                 reservation.setConfirm(rs.getBoolean("isConfirm"));
-                reservation.setDateReservation(rs.getString("dateReservation"));
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                String dateReservationStr = dateFormat.format(rs.getDate("dateReservation"));
+                reservation.setDateReservation(dateReservationStr);
+
                 reservation.setHeureReservation(rs.getString("heureReservation"));
                 reservation.setType(TypeReservation.valueOf(rs.getString("type")));
                 reservation.setIdTerrain(rs.getInt("idTerrain"));
@@ -157,7 +170,13 @@ WHERE r.idReservation = 6;*/
 
         // Première passe pour compter les occurrences
         while (rs.next()) {
-            String dateString = rs.getString("dateReservation");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String dateString = dateFormat.format(rs.getDate("dateReservation"));
+
+
+
+           // String dateString = rs.getString("dateReservation");
+
             String heureString = rs.getString("heureReservation");
             LocalDateTime reservationDateTime = LocalDateTime.parse(dateString + " " + heureString, formatter);
 
@@ -168,6 +187,9 @@ WHERE r.idReservation = 6;*/
                 Reservation reservation = new Reservation();
                 reservation.setIdReservation(rs.getInt("idReservation"));
                 reservation.setConfirm(rs.getBoolean("isConfirm"));
+
+
+
                 reservation.setDateReservation(dateString);
                 reservation.setHeureReservation(heureString);
                 reservation.setType(TypeReservation.valueOf(rs.getString("type")));
@@ -190,7 +212,7 @@ WHERE r.idReservation = 6;*/
 
     public static List<Reservation> getAllFutureReservationsByIdMembre(int idm) throws SQLException {
         List<Reservation> reservations = new ArrayList<>();
-        String query = "SELECT r.* FROM reservation r JOIN payment p ON r.idReservation = p.idReservation JOIN membre m ON p.idMembre = m.JoueurId WHERE m.JoueurId = ?";
+        String query = "SELECT r.* FROM reservation r JOIN payment p ON r.idReservation = p.idReservation JOIN user u ON p.idMembre = u.id WHERE u.id  = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, idm);
@@ -199,14 +221,25 @@ WHERE r.idReservation = 6;*/
         LocalDate today = LocalDate.now();
 
         while (rs.next()) {
-            String dateString = rs.getString("dateReservation");
-            LocalDate reservationDate = LocalDate.parse(dateString);
+
+
+
+//            String dateString = rs.getString("dateReservation");
+//            LocalDate reservationDate = LocalDate.parse(dateString);
+            java.sql.Date dateSQL = rs.getDate("dateReservation");
+            LocalDate reservationDate = dateSQL.toLocalDate();
 
             if (reservationDate.isAfter(today)) {
                 Reservation reservation = new Reservation();
                 reservation.setIdReservation(rs.getInt("idReservation"));
                 reservation.setConfirm(rs.getBoolean("isConfirm"));
-                reservation.setDateReservation(dateString); // Gardez comme String ou convertissez en LocalDate selon votre besoin
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                String dateReservationStr = dateFormat.format(rs.getDate("dateReservation"));
+                reservation.setDateReservation(dateReservationStr);
+
+
+               // reservation.setDateReservation(dateString);
                 reservation.setHeureReservation(rs.getString("heureReservation"));
                 reservation.setType(TypeReservation.valueOf(rs.getString("type")));
                 reservation.setIdTerrain(rs.getInt("idTerrain"));
@@ -231,7 +264,12 @@ WHERE r.idReservation = 6;*/
             if (rs.next()) {
                 reservation.setIdReservation(rs.getInt("idReservation"));
                 reservation.setConfirm(rs.getBoolean("isConfirm"));
-                reservation.setDateReservation(rs.getString("dateReservation"));
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                String dateReservationStr = dateFormat.format(rs.getDate("dateReservation"));
+                reservation.setDateReservation(dateReservationStr);
+
+              //  reservation.setDateReservation(rs.getString("dateReservation"));
                 reservation.setHeureReservation(rs.getString("heureReservation"));
                 reservation.setType(TypeReservation.valueOf(rs.getString("type")));
                 reservation.setIdTerrain(rs.getInt("idTerrain"));
@@ -270,7 +308,12 @@ WHERE r.idReservation = 6;*/
             do {
                 reservation.setIdReservation(rs.getInt("idReservation"));
                 reservation.setConfirm(rs.getBoolean("isConfirm"));
-                reservation.setDateReservation(rs.getString("dateReservation"));
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                String dateReservationStr = dateFormat.format(rs.getDate("dateReservation"));
+                reservation.setDateReservation(dateReservationStr);
+
+                //reservation.setDateReservation(rs.getString("dateReservation"));
                 reservation.setHeureReservation(rs.getString("heureReservation"));
                 reservation.setType(TypeReservation.valueOf(rs.getString("type")));
                 reservation.setIdTerrain(rs.getInt("idTerrain"));
@@ -324,11 +367,23 @@ WHERE r.idReservation = 6;*/
 
     }
 
+    public void annulerReservation(int idReservation) throws SQLException {
+        String query = "UPDATE reservation SET type = 'Annulation' WHERE idReservation = ?";
 
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, idReservation);
+            int affectedRows = preparedStatement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new SQLException("Mise à jour échouée, aucune ligne affectée.");
+            }
+        } catch (SQLException e) {
+            throw new SQLException("Erreur lors de la mise à jour de la réservation: " + e.getMessage(), e);
+        }
+    }
 
     //************************** appel de la partie blacklist dans la classe blacklistServices            a faire !
     // a changer apres modification db
-    /*
+/*
         public  void annulerReservation(int idReservation , int idMembre) throws SQLException {
             ReservationService reservationService =  new ReservationService();
             Reservation reservation = reservationService.getReservationByIdReservation(idReservation);
@@ -337,10 +392,11 @@ WHERE r.idReservation = 6;*/
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate dateTransformee = LocalDate.parse(reservation.getDateReservation(), formatter);
             LocalDate dateActuelle = LocalDate.now();
+
             if(dateTransformee.isEqual(dateActuelle)){
                 BlackList blackList = new BlackList();
                 blackList.setReservation(reservation);
-                /*
+
                 blackList.setIdTerrain(reservation.getIdTerrain());
                 blackList.setCause("annulation apres 24h");
                 blackList.setDuree(30);
@@ -360,8 +416,8 @@ WHERE r.idReservation = 6;*/
             }
 
         }
+*/
 
-     */
 
 
 
@@ -383,3 +439,22 @@ WHERE r.idReservation = 6;*/
         }
         return true ;
     }*/
+
+  /*
+    public void ajouterReservation(Reservation reservation) throws SQLException, ParseException {
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        java.util.Date parsedDate = dateFormat.parse(reservation.getDateReservation());
+        java.sql.Date dateReservation = new java.sql.Date(parsedDate.getTime());
+        String query = "INSERT INTO reservation (isConfirm, dateReservation, heureReservation, type, idTerrain ) VALUES (?, ?, ?, ?, ?)";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setBoolean(1, false);
+        ps.setDate(2, dateReservation);
+        ps.setString(3, reservation.getHeureReservation());
+        ps.setString(4, reservation.getType());
+        ps.setInt(5, reservation.getIdTerrain());
+
+
+        ps.executeUpdate();
+    }
+*/

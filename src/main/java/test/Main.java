@@ -24,11 +24,8 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         UserService us = new UserService();
-       System.out.println(us.Login("ahmedd@gmail.com" , "ahmed123" ));
-        System.out.println(us.Login("ahmedd@gmail.com" , "$2a$10$NVFr551pnPJjJO1wmD7uLeTXmgCP1fwVLo7G9vTobSbG4mobu0EMK" ));
-        System.out.println(BCrypt.checkpw("ahmed123", "$2a$10$NVFr551pnPJjJO1wmD7uLeTXmgCP1fwVLo7G9vTobSbG4mobu0EMK"));
-        TerrainService t = new TerrainService();
-        System.out.println(t.getAllTerrains());
+        User u = us.getByEmail("montassar@outlook.fr");
+        System.out.println(us.Login("montassar@outlook.fr","montassar123"));
 
     }
 

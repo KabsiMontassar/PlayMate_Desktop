@@ -1,5 +1,5 @@
 package models;
 
 public enum TypeReservation {
-    PostulerCommeAdversaire,ReserverTerrainPourEquipe,LancerDefi
+    Postuler_Comme_Adversaire,Creer_Partie,Lancez_Vous,Annulation,Compte_desactive,test
 }
