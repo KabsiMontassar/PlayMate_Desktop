@@ -18,6 +18,7 @@ import services.GestionUser.UserService;
 import test.Controllers.UserController.AcceuilController;
 import test.MainFx;
 
+import java.io.File;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -89,9 +90,10 @@ public class FirstController {
 
     private int IdUser;
 
-    public void SetIdUser(int idUser) {
+    public void SetIdUser(int idUser) throws SQLException {
 
         this.IdUser = idUser;
+        actualise(Ts.allTournoibyorg(GetIdUser()));
     }
     public int GetIdUser() {
         return this.IdUser;
@@ -99,7 +101,9 @@ public class FirstController {
     int i= 0;
     ServiceTournoi Ts = new ServiceTournoi();
     //*******************************************************************
-    public void initialize() throws SQLException {actualise(Ts.allTournoi());}
+    public void initialize() throws SQLException {
+
+    }
     //*******************************************************************
     void actualise(List<Tournoi> tournois){
         if(tournois.size()-1-i*3>0){btnsuivant.setVisible(true);}
@@ -112,8 +116,14 @@ public class FirstController {
                 nom1.setText(tournois.get(i*3).getNom());
 
                 try {
-                    Image img = new Image(tournois.get(i * 3).getAffiche());
-                    img1.setImage(img);
+                    String imagee = tournois.get( i * 3).getAffiche();
+                    System.out.println(imagee);
+                    String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                    String firstImagePath = basePath + File.separator + imagee;
+                    Image image = new Image(firstImagePath);
+                    System.out.println(firstImagePath);
+
+                    img1.setImage(image);
                 } catch (IllegalArgumentException e) {
                     // Handle the error when the URL is invalid or resource not found
                     img1.setImage(null); // Set the image view to display nothing
@@ -123,8 +133,14 @@ public class FirstController {
                 BOX2.setVisible(true);
                 nom2.setText(tournois.get(1+i*3).getNom());
                 try {
-                    Image img = new Image(tournois.get(1+i * 3).getAffiche());
-                    img2.setImage(img);
+                    String imagee = tournois.get(1+ i * 3).getAffiche();
+                    System.out.println(imagee);
+                    String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                    String firstImagePath = basePath + File.separator + imagee;
+                    Image image = new Image(firstImagePath);
+                    System.out.println(firstImagePath);
+
+                   img2.setImage(image);
                 } catch (IllegalArgumentException e) {
                     // Handle the error when the URL is invalid or resource not found
                     img2.setImage(null); // Set the image view to display nothing
@@ -136,8 +152,14 @@ public class FirstController {
                 BOX3.setVisible(true);
                 nom3.setText(tournois.get(2+i*3).getNom());
                 try {
-                    Image img = new Image(tournois.get(2+i * 3).getAffiche());
-                    img3.setImage(img);
+                    String imagee = tournois.get(2+ i * 3).getAffiche();
+                    System.out.println(imagee);
+                    String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                    String firstImagePath = basePath + File.separator + imagee;
+                    Image image = new Image(firstImagePath);
+                    System.out.println(firstImagePath);
+
+                    img3.setImage(image);
                 } catch (IllegalArgumentException e) {
                     // Handle the error when the URL is invalid or resource not found
                     img3.setImage(null); // Set the image view to display nothing
@@ -151,12 +173,14 @@ public class FirstController {
     @FXML
     void retour(ActionEvent event) throws SQLException {
         i -=1;
-        actualise(Ts.allTournoi());}
+        actualise(Ts.allTournoibyorg(GetIdUser()));
+    }
     //*******************************************************************************************
     @FXML
     void suivant(ActionEvent event) throws SQLException {
         i +=1;
-        actualise(Ts.allTournoi());}
+        actualise(Ts.allTournoibyorg(GetIdUser()));
+    }
     //*******************************************************************************************
 
     //*******************************************************************************************
@@ -222,7 +246,8 @@ public class FirstController {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 Ts.supprimer(tournoiToDelete.getId());
-                actualise(Ts.allTournoi());}
+                actualise(Ts.allTournoibyorg(GetIdUser()));
+            }
         } else {showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de tournoi à supprimer n'est pas valide.");}}
     private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
@@ -243,7 +268,8 @@ public class FirstController {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 Ts.supprimer(tournoiToDelete.getId());
-                actualise(Ts.allTournoi());}
+                actualise(Ts.allTournoibyorg(GetIdUser()));
+            }
         } else {showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de terrain à supprimer n'est pas valide.");}}
     //*******************************************************************************************
     @FXML
@@ -258,7 +284,8 @@ public class FirstController {
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 Ts.supprimer(tournoiToDelete.getId());
-                actualise(Ts.allTournoi());}
+                actualise(Ts.allTournoibyorg(GetIdUser()));
+            }
         } else {
             showAlert(Alert.AlertType.ERROR, "Erreur de suppression", "L'index de terrain à supprimer n'est pas valide.");}}
 

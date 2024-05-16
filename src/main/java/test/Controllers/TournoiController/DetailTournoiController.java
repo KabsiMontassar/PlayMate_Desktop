@@ -15,9 +15,9 @@ import models.Tournoi;
 import services.GestionTournoi.ServiceTournoi;
 import test.MainFx;
 
+import java.io.File;
 import java.io.IOException;
-
-
+import java.sql.SQLException;
 
 
 public class DetailTournoiController {
@@ -61,17 +61,23 @@ public class DetailTournoiController {
         adresse.setText(tournoi.getAddress());
         /*inputDateFin.setText(tournoi.getDatefin());
         InputAddress.setText(tournoi.getAddress());*/
-       if (tournoi.getAffiche() != null && !tournoi.getAffiche().isEmpty()) {
 
-           try {
-               Image img = new Image(tournoi.getAffiche());
-               imgd.setImage(img);
-           } catch (IllegalArgumentException e) {
-               // Handle the error when the URL is invalid or resource not found
-               imgd.setImage(null); // Set the image view to display nothing
-           }
-       }
 
+
+        if (tournoi.getAffiche() != null && !tournoi.getAffiche().isEmpty()) {
+            try {
+                String imagee = tournoi.getAffiche();
+                System.out.println(imagee);
+                String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                String firstImagePath = basePath + File.separator + imagee;
+                Image image = new Image(firstImagePath);
+
+                imgd.setImage(image);
+            } catch (IllegalArgumentException e) {
+                // Handle the error when the URL is invalid or resource not found
+                imgd.setImage(null); // Set the image view to display nothing
+            }
+        }
     }
     @FXML
     void modifd(ActionEvent event) throws IOException {
@@ -87,7 +93,7 @@ public class DetailTournoiController {
         stage.show();
         ((Button) event.getSource()).getScene().getWindow().hide();}
 
-    public void goToTournoi(ActionEvent actionEvent) throws IOException {
+    public void goToTournoi(ActionEvent actionEvent) throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
         AnchorPane root = loader.load();
         FirstController controller = loader.getController(); // Retrieve the controller

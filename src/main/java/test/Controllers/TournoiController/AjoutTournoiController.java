@@ -28,6 +28,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -35,10 +38,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.regex.Pattern;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -136,6 +136,7 @@ CAlert c = new CAlert();
 
     private List<Tournoi> first;
 
+    private List<String> imagePaths = new ArrayList<>();
 
 
     @FXML
@@ -189,7 +190,7 @@ CAlert c = new CAlert();
 
 
 
-    public void goToTournoi(ActionEvent actionEvent) throws IOException {
+    public void goToTournoi(ActionEvent actionEvent) throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));
         AnchorPane root = loader.load();
         FirstController controller = loader.getController(); // Retrieve the controller
@@ -205,6 +206,8 @@ CAlert c = new CAlert();
     }
 
     public void initData(Tournoi tournoi) {
+        String imagePathsString = String.join(", ", imagePaths);
+
         this.tournoiActuel = tournoi;
         InputNombreéquipes.setText(String.valueOf(tournoi.getNbrquipeMax()));
         InputNom.setText(tournoi.getNom());
@@ -212,9 +215,9 @@ CAlert c = new CAlert();
         InputDateDébut.setText(sdf.format(tournoi.getDatedebut()));
         InputDateFin.setText(sdf.format(tournoi.getDatefin()));
         InputAddress.setText(tournoi.getAddress());
-        imagePath = tournoi.getAffiche();
-        if (imagePath != null && !imagePath.isEmpty()) {
-            Image image = new Image(imagePath);
+        imagePathsString = tournoi.getAffiche();
+        if (imagePathsString != null && !imagePathsString.isEmpty()) {
+            Image image = new Image(imagePathsString);
             imgview.setImage(image);
         }
 
@@ -283,21 +286,50 @@ CAlert c = new CAlert();
     @FXML
     void addimage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choisir une image");
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Fichiers image", "*.png", "*.jpg", "*.gif"));
-        File selectedFile = fileChooser.showOpenDialog(null);
-        if (selectedFile != null) {
-            imagePath = selectedFile.toURI().toString();
-            Image image = new Image(imagePath);
-            imgview.setImage(image);}
+        fileChooser.setTitle("Open Image Files");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+        );
+        List<File> selectedFiles = fileChooser.showOpenMultipleDialog(null);
+        if (selectedFiles != null) {
+            try {
+
+                for (File file : selectedFiles) {
+                    // Generate a unique filename for each image
+                    String fileName = generateUniqueFileName(file);
+                    // Construct the destination path
+                    Path destination = Paths.get("C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images", fileName);
+                    // Copy the selected image to the destination
+                    Files.copy(file.toPath(), destination);
+                    // Store the image filename
+                    imagePaths.add(fileName);
+
+                }
+                String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                String imagePathsString = String.join(", ", imagePaths);
+                String firstImagePath = basePath + File.separator + imagePathsString;
+                System.out.println("aaa" + firstImagePath);
+                Image image = new Image(firstImagePath);
+                imgview.setImage(image);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                // Handle file copy errors
+            }
+        }
     }
-
+    // Generate a unique filename (you can use UUID or any other method)
+    private String generateUniqueFileName(File file) {
+        String originalName = file.getName();
+        String extension = originalName.substring(originalName.lastIndexOf("."));
+        return UUID.randomUUID().toString() + extension;
+    }
     public void AjouterTournoi(ActionEvent actionEvent) throws SQLException, IOException {
-
+        String imagePathsString = String.join(", ", imagePaths);
         if (validateNombreEquipes() && validateNom() && validateDate()) {
             ServiceTournoi ts = new ServiceTournoi();
             System.out.println(GetIdUser());
-            Tournoi tournoi = new Tournoi(Integer.parseInt(InputNombreéquipes.getText()), InputNom.getText(), imagePath, InputAddress.getText(), InputDateDébut.getText(), InputDateFin.getText(), GetIdUser());
+            Tournoi tournoi = new Tournoi(Integer.parseInt(InputNombreéquipes.getText()), InputNom.getText(), imagePathsString, InputAddress.getText(), InputDateDébut.getText(), InputDateFin.getText(), GetIdUser());
             ts.ajouter(tournoi);
             System.out.println(tournoi);
             FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionTournoi/tournoi.fxml"));

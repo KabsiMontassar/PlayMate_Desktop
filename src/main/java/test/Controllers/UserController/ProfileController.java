@@ -33,11 +33,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.UnaryOperator;
 
 public class ProfileController {
@@ -54,6 +56,8 @@ public class ProfileController {
     public TextField Inputaddress;
     public Button retourner;
     public AnchorPane mappane;
+    private List<String> imagePaths = new ArrayList<>();
+
     @FXML
     private Button Btnback;
 
@@ -158,9 +162,10 @@ private String FromMapAddress;
 
         try {
             String imagePath = CurrentUser.getImage();
-            Image image = new Image(imagePath);
+            String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+            String firstImagePath = basePath + File.separator + imagePath;
+            Image image = new Image(firstImagePath);
             imgview.setImage(image);
-
         } catch (IllegalArgumentException e) {
             // Handle the error when the URL is invalid or resource not found
             imgview.setImage(null); // Set the image view to display nothing
@@ -318,20 +323,46 @@ private String FromMapAddress;
     void changerphoto(ActionEvent event) throws SQLException {
 
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choisir une image");
-        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Fichiers image", "*.png", "*.jpg" ));
-        File selectedFile = fileChooser.showOpenDialog(null);
-        if (selectedFile != null) {
-            imagePath = selectedFile.toURI().toString();
-            Image image = new Image(imagePath);
-            us.updatePhoto(imagePath,CurrentUser.getEmail());
-            imgview.setImage(image);
+        fileChooser.setTitle("Open Image Files");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg")
+        );
+        List<File> selectedFiles = fileChooser.showOpenMultipleDialog(null);
+        if (selectedFiles != null) {
+            try {
 
+                for (File file : selectedFiles) {
+                    // Generate a unique filename for each image
+                    String fileName = generateUniqueFileName(file);
+                    // Construct the destination path
+                    Path destination = Paths.get("C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images", fileName);
+                    // Copy the selected image to the destination
+                    Files.copy(file.toPath(), destination);
+                    // Store the image filename
+                    imagePaths.add(fileName);
+
+                }
+                String basePath = "C:\\Users\\lenovo\\Documents\\GitHub\\SpartansPIWeb\\public\\uploads\\images";
+                String imagePathsString = String.join(", ", imagePaths);
+                String firstImagePath = basePath + File.separator + imagePathsString;
+                System.out.println("aaa" + firstImagePath);
+                Image image = new Image(firstImagePath);
+                imgview.setImage(image);
+                us.updatePhoto(imagePathsString, CurrentUser.getEmail());
+            } catch (IOException e) {
+                e.printStackTrace();
+                // Handle file copy errors
+            }
         }
 
 
     }
-
+    // Generate a unique filename (you can use UUID or any other method)
+    private String generateUniqueFileName(File file) {
+        String originalName = file.getName();
+        String extension = originalName.substring(originalName.lastIndexOf("."));
+        return UUID.randomUUID().toString() + extension;
+    }
     @FXML
     void updateProfile(ActionEvent event) throws SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         if( !inputPassword.getText().equals(inputCPassword.getText())){

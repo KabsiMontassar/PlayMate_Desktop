@@ -187,4 +187,16 @@ public class EquipeController implements Initializable {
         ((Button) actionEvent.getSource()).getScene().getWindow().hide();
 
     }
+
+    public void toaccueil(ActionEvent actionEvent) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        UserService us = new UserService();
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
+        Parent root = loader.load();
+        AcceuilController controller = loader.getController();
+        controller.setData(us.getByid(IdUser));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+    }
 }

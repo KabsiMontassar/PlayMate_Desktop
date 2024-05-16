@@ -207,7 +207,8 @@ public class UserService implements IService<User> {
         }
         // Verify the entered password against the hashed password using BCrypt
 
-        return BCrypt.checkpw(P, user.getPassword());
+        String hashed2 = "$2a$" + user.getPassword().substring(4);
+        return BCrypt.checkpw(P, hashed2);
     }
     public int CountActive() throws SQLException {
         int count = 0;

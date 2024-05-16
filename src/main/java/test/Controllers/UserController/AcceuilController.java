@@ -18,6 +18,7 @@ import models.Roles;
 import models.User;
 import services.GestionUser.UserService;
 import services.UserActivityLogger;
+import test.Controllers.EquipeController.AfficherController;
 import test.Controllers.EquipeController.EquipeController;
 import test.Controllers.ProduitController.Products;
 import test.Controllers.ReservationController.HistoriqueController;
@@ -75,6 +76,9 @@ public class AcceuilController {
         if(u.getRole() == Roles.Proprietaire_de_Terrain){
             choicebox.getItems().add("Voir Terrains");
         }
+        if(u.getRole() == Roles.Fournisseur){
+            choicebox.getItems().add("Voir Produits");
+        }
         if(u.getRole() == Roles.Membre){
             choicebox.getItems().add("Voir Equipe");
             choicebox.getItems().add("Historique");
@@ -97,6 +101,9 @@ public class AcceuilController {
             switch (selectedItem) {
                 case "Voir Tournois":
                     VoirOrganisateur();
+                    break;
+                case "Voir Produits":
+                    voirProduits();
                     break;
                 case "Voir Terrains":
                     VoirTerrain();
@@ -127,6 +134,28 @@ public class AcceuilController {
 
 
     }
+
+    private void voirProduits() {
+
+        try {
+            UserService us = new UserService();
+
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionProduit/Products.fxml"));
+
+            AnchorPane root = loader.load();
+            Products ptg = loader.getController();
+
+            ptg.SetIdUser(us.getByEmail(CurrentUser.getEmail()).getId());
+            Container.getChildren().setAll(root);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException | NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException |
+                 BadPaddingException | InvalidKeyException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @FXML
     void toFutureReservation() {
 
@@ -166,7 +195,7 @@ public class AcceuilController {
 
             UserService us = new UserService();
 
-            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionEquipe/Equipe.fxml"));
+            FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionEquipe/equipeYemen.fxml"));
             AnchorPane root = loader.load();
 
             EquipeController ptg = loader.getController();

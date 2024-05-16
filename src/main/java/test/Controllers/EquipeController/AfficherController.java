@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
@@ -14,10 +15,19 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import models.Equipe;
+import models.User;
 import services.GestionEquipe.EquipeService;
+import services.GestionUser.UserService;
+import test.Controllers.UserController.AcceuilController;
+import test.MainFx;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
 import java.net.URL;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -96,18 +106,55 @@ public class AfficherController implements Initializable {
     @FXML
     private Text nomCapitaine3;
 
-    @FXML
-    void Ajouter(ActionEvent event) throws IOException {
+    private int IdUser;
+    public int GetIdUser() {
+        return this.IdUser;
+    }
 
+    public void SetIdUser(int idUser) throws SQLException {
+
+
+
+        this.IdUser = idUser;
+        EquipeService equipeService = new EquipeService();
+        // idjoueur a changer !!!!
+        List<Equipe> equipeList = null;
+        try {
+            equipeList = equipeService.getEquipesParMembre(IdUser);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        //  anchorPaneContainer.getChildren().clear();
+
+        HBox hbox = new HBox();
+        for (Equipe equipe : equipeList) {
+            hbox.getChildren().add(createAnchropaneTeam(equipe.getNomEquipe()));
+        }
+        scrollPane.setContent(hbox);
+        scrollPane.setFitToHeight(true);
+        scrollPane.setPannable(true);
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
+    }
+
+
+
+    @FXML
+    void Ajouter(ActionEvent event) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        UserService us = new UserService();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("GestionEquipe/formEquipe.fxml"));
+        FormEquipeController ptg = fxmlLoader.getController();
+        ptg.SetIdUser(us.getByid(IdUser).getId());
         Scene scene = new Scene(fxmlLoader.load(), 640, 360);
 
         Stage stage = new Stage();
         stage.setScene(scene);
         //  ((AfficherController) fxmlLoader.getController()).initialize();
         stage.show();
+        ((Button) event.getSource()).getScene().getWindow().hide();
 
-    }
+
+}
 
     @FXML
     void detail1(ActionEvent event) {
@@ -155,24 +202,7 @@ public class AfficherController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        EquipeService equipeService = new EquipeService();
-        // idjoueur a changer !!!!
-        List<Equipe> equipeList = null;
-        try {
-            equipeList = equipeService.getEquipesParMembre(7);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        //  anchorPaneContainer.getChildren().clear();
 
-        HBox hbox = new HBox();
-        for (Equipe equipe : equipeList) {
-            hbox.getChildren().add(createAnchropaneTeam(equipe.getNomEquipe()));
-        }
-        scrollPane.setContent(hbox);
-        scrollPane.setFitToHeight(true);
-        scrollPane.setPannable(true);
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
     }
 
     private AnchorPane createAnchropaneTeam(String teamName){
@@ -227,4 +257,16 @@ public class AfficherController implements Initializable {
     }
 
 
+    public void toaccueil(ActionEvent actionEvent) throws IOException, SQLException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+        UserService us = new UserService();
+        FXMLLoader loader = new FXMLLoader(MainFx.class.getResource("GestionUser/Acceuil.fxml"));
+        Parent root = loader.load();
+        AcceuilController controller = loader.getController();
+        controller.setData(us.getByid(IdUser));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+        ((Button) actionEvent.getSource()).getScene().getWindow().hide();
+
+    }
 }

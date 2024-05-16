@@ -205,11 +205,14 @@ public class TerrainService {
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     Terrain terrain = createTerrainFromResultSet(rs);
-                    terrainsByAddress.add(terrain);}}
+                    terrainsByAddress.add(terrain);}
+            }
         } catch (SQLException e) {
             // Gérer l'exception de manière appropriée
-            e.printStackTrace();}
-        return terrainsByAddress;}
+            e.printStackTrace();
+        }
+        return terrainsByAddress;
+    }
    /* public List<String> getNamesOfTerrain() {
         List<String> names = new ArrayList<>();
         String query = "SELECT nomTerrain FROM terrain"; // Assurez-vous que le nom de la table est correct
