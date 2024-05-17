@@ -363,13 +363,9 @@ public class TerrainController {
             } catch (IllegalArgumentException e) {
                 // Handle the error when the URL is invalid or resource not found
                 img.setImage(null); // Set the image view to display nothing
-            }}
+            }
+        }
 
 
-
-
-        if (videoPath != null && !videoPath.isEmpty()) {
-            Media media = new Media(videoPath);
-            MediaPlayer mediaPlayer = new MediaPlayer(media);
-            vid.setMediaPlayer(mediaPlayer);
-            mediaPlayer.play();}}}
+    }
+         }
